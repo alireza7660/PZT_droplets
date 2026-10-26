@@ -1,0 +1,54 @@
+{
+  "original_workspace_files_excluding_generated_analysis_and_environment": [
+    "RAW_data\\Batch4_Cam1.h5"
+  ],
+  "hdf5_path": "RAW_data\\Batch4_Cam1.h5",
+  "root_groups": [
+    "PARAMETERS",
+    "PIV FIELDS",
+    "STATISTICS"
+  ],
+  "root_attributes": {},
+  "userblock_size": 0,
+  "objects_visited": 12325,
+  "nonempty_object_attributes": {},
+  "dataset_dtypes": [
+    "float32",
+    "float64",
+    "int32",
+    "int64",
+    "uint8"
+  ],
+  "parameters": {
+    "Lc": 1.0,
+    "NumberOfFields": 1757,
+    "Uc": 1.0,
+    "Xorigin": 0.0,
+    "Yorigin": 0.0,
+    "calib": 0,
+    "dt": 1.0,
+    "nondim": 0,
+    "nx": 80,
+    "ny": 319,
+    "scale": 1.0,
+    "stats": 1,
+    "viscosity": 1.0
+  },
+  "coordinates": {
+    "x": {
+      "first": 31.0,
+      "last": 5087.0,
+      "first_step": 64.0
+    },
+    "y": {
+      "first": 5104.0,
+      "last": 16.0,
+      "first_step": -16.0
+    }
+  },
+  "exporter_source_found": false,
+  "storage_units_verified": false,
+  "component_basis_verified": false,
+  "prior_transformations_verified": false,
+  "flag_definitions_verified": false
+}

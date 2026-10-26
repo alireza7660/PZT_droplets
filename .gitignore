@@ -1,0 +1,12 @@
+*.h5
+*.hdf5
+*.hdf
+*.b16
+*.b16dat
+.env
+.venv/
+venv/
+.pyenv/
+__pycache__/
+.ipynb_checkpoints/
+PZT_droplets_GitHub/

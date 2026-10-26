@@ -1,0 +1,13 @@
+{
+  "figure_count": 24,
+  "formats": [
+    "pdf",
+    "svg",
+    "600-dpi png",
+    "npz"
+  ],
+  "all_files_nonempty": true,
+  "color_ranges_cover_data": true,
+  "csv_matches_npz_all_rows": true,
+  "synthetic_transform_and_pair_mask": true
+}

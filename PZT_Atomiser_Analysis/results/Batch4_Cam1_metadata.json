@@ -1,0 +1,65 @@
+{
+  "frames": 1757,
+  "frame_keys": [
+    "1",
+    "1757"
+  ],
+  "shape": [
+    319,
+    80
+  ],
+  "grid_spacing_native": [
+    64.0,
+    -16.0
+  ],
+  "parameters": {
+    "Lc": 1.0,
+    "NumberOfFields": 1757,
+    "Uc": 1.0,
+    "Xorigin": 0.0,
+    "Yorigin": 0.0,
+    "calib": 0,
+    "dt": 1.0,
+    "nondim": 0,
+    "nx": 80,
+    "ny": 319,
+    "scale": 1.0,
+    "stats": 1,
+    "viscosity": 1.0
+  },
+  "independent_point_checks": [
+    {
+      "row": 0,
+      "column": 0,
+      "N": 1757,
+      "passed": true
+    },
+    {
+      "row": 159,
+      "column": 40,
+      "N": 1757,
+      "passed": true
+    },
+    {
+      "row": 318,
+      "column": 79,
+      "N": 1757,
+      "passed": true
+    }
+  ],
+  "stored_statistics_max_absolute_difference": {
+    "native_u": 0.15796313982289334,
+    "native_v": 0.5165216043447409,
+    "alternate_us": 0.0,
+    "alternate_vs": 0.0
+  },
+  "flag_counts_total": {
+    "0": 1097567,
+    "1": 43741073
+  },
+  "local_N_range": [
+    1757,
+    1757
+  ],
+  "finite_pair_fraction": 1.0
+}
