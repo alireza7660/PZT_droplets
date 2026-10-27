@@ -242,6 +242,10 @@ vector spacing, not interrogation-window size or effective resolution.
 Regenerate from the PZT_droplets workspace root:
     .\\.venv\\Scripts\\python -m PZT_Atomiser_Analysis.analysis.pipeline --config PZT_Atomiser_Analysis/config/analysis.json
 '''
+    vertical_selection=out/'methods/vertical_profile_selection.json'
+    if vertical_selection.exists():
+        from .vertical_profile import profile_methods
+        methods+='\n'+profile_methods(json.loads(vertical_selection.read_text()))
     (out/'methods/METHODS.md').write_text(methods,encoding='utf-8')
     captions=['# Figure captions\n',intro+'\n']
     tex=[r'% Coordinate convention is stated once for this caption collection.',r'\noindent '+intro+r'\par','']
@@ -264,6 +268,7 @@ Regenerate from the PZT_droplets workspace root:
     i,j=np.unravel_index(np.nanargmax(fields['mean_v']),r['N'].shape)
     summary['observed_grid_node_maximum']={'row':int(i),'column':int(j),
         'x_mm':float(r['xy'][0,i,j]),'y_mm':float(r['xy'][1,i,j]),'N':int(r['N'][i,j]),'mean_v_m_s':hi}
+    if vertical_selection.exists():summary['vertical_profile_selection']=json.loads(vertical_selection.read_text())
     write_json(out/'methods/summary.json',summary)
     (out/'README.md').write_text(f'# PZT final results\n\nCalibration: {cfg["confirmed_spatial_calibration_um_per_pixel"]:g} micrometres/pixel; conversion {cfg["velocity_scale"]:.3f} m/s per pixel displacement.\n\nMean axial measured range: {lo:.9g} to {hi:.9g} m/s. Linear symmetric contour range: {mainlimits["mean_v"][0]:.9g} to {mainlimits["mean_v"][1]:.9g} m/s. All finite signed measurements are displayed.\n\n{len(ex.manifest)} figures, with data links in methods/figure_manifest.json. Methods, captions and configuration are in methods/.\n',encoding='utf-8')
 
@@ -352,6 +357,8 @@ def run(config_path):
     save_data(r,fields,cfg,out)
     ex=Exporter(out);mainlimits=render(r,fields,cfg,out,ex)
     profiles_and_distributions(r,fields,cfg,out,ex)
+    from .vertical_profile import generate_vertical_profile
+    generate_vertical_profile(out,cfg,exporter=ex,update_existing_documents=False)
     documentation(r,fields,cfg,out,ex,mainlimits)
     validate(r,fields,cfg,out,ex)
     assert before==(path.stat().st_size,path.stat().st_mtime_ns)

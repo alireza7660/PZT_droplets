@@ -85,6 +85,8 @@ display masks. See methods/figure_manifest.json for every export/data link,
 methods/colour_limits.json for shared limits, and methods/CAPTIONS.md or .tex
 for captions. Previous calibrated archives and original HDF5 files are retained.
 ''')]
+    from .vertical_profile import notebook_cells
+    b.cells[-1:-1]=notebook_cells()
     target=project/'notebooks/PZT_final_analysis.ipynb';target.parent.mkdir(exist_ok=True)
     nb.write(b,target)
     manager=KernelSpecManager();spec=manager.get_kernel_spec('python3')

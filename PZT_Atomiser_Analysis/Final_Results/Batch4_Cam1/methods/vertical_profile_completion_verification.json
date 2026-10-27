@@ -1,0 +1,23 @@
+{
+  "existing_data_and_figure_files_sha256_unchanged": 234,
+  "csv_npz_native_column_match": true,
+  "all_new_formats_and_600dpi_verified": true,
+  "synthetic_sort_negative_gap_and_fixed_column_check": true,
+  "maximum": {
+    "native_row": 304,
+    "native_column": 42,
+    "x_mm": 14.54665,
+    "y_mm": 1.284,
+    "mean_v_m_s": 1.6865481421305646,
+    "N": 1757,
+    "finite_maximum_tie_count": 1,
+    "measured_y_range_mm": [
+      0.0856,
+      27.3064
+    ],
+    "profile_y_range_mm": [
+      0.0856,
+      27.3064
+    ]
+  }
+}

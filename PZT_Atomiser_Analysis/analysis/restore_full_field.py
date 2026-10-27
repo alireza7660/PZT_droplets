@@ -83,10 +83,10 @@ def main():
     validate(r,fields,cfg,out,ex)
     # Preserve executed numerical cells; update explanatory cells and actual previews.
     target=root/'notebooks/PZT_final_analysis.ipynb';b=nb.read(target,as_version=4)
-    b.cells[0].source='''# PZT atomiser final analysis
+    b.cells[0].source=f'''# PZT atomiser final analysis
 
-Calibration remains 7.25 micrometres/pixel, pulse separation 25 microseconds,
-and conversion 0.290 m/s per pixel displacement. Cartesian x/u is horizontal/
+Calibration is {cfg['confirmed_spatial_calibration_um_per_pixel']:g} micrometres/pixel, pulse separation {cfg['confirmed_pulse_separation_seconds']*1e6:g} microseconds,
+and conversion {cfg['velocity_scale']:.3f} m/s per pixel displacement. Cartesian x/u is horizontal/
 transverse, y/v vertical/axial. Existing signs, array orientation, origin and
 finite-pair population are unchanged.
 

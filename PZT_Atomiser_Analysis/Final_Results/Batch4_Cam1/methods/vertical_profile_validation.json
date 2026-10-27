@@ -1,0 +1,27 @@
+{
+  "selection": {
+    "native_row": 304,
+    "native_column": 42,
+    "x_mm": 14.54665,
+    "y_mm": 1.284,
+    "mean_v_m_s": 1.6865481421305646,
+    "N": 1757,
+    "finite_maximum_tie_count": 1,
+    "measured_y_range_mm": [
+      0.0856,
+      27.3064
+    ],
+    "profile_y_range_mm": [
+      0.0856,
+      27.3064
+    ]
+  },
+  "profile_point_count": 319,
+  "all_native_rows_retained": true,
+  "signed_values_and_gaps_preserved": true,
+  "fixed_native_column": true,
+  "global_maximum_included": true,
+  "location_line_and_marker_verified": true,
+  "existing_colour_scale_preserved": true,
+  "source_statistics_sha256_unchanged": "c7e701c027a25ad4d2d4c75b9b5c9c5b6cfe869c68f3ecac28cdbc093a2010c9"
+}

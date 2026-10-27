@@ -29,7 +29,9 @@
     "v_pdf",
     "v_cdf",
     "u_normalized_pdf",
-    "v_normalized_pdf"
+    "v_normalized_pdf",
+    "mean_v_vertical_profile_location",
+    "mean_v_vertical_profile"
   ],
   "supplementary": [
     "magnitude_mean_vector",

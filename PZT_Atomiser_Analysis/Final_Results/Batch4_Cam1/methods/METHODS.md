@@ -45,3 +45,7 @@ vector spacing, not interrogation-window size or effective resolution.
 
 Regenerate from the PZT_droplets workspace root:
     .\.venv\Scripts\python -m PZT_Atomiser_Analysis.analysis.pipeline --config PZT_Atomiser_Analysis/config/analysis.json
+
+## Fixed-x vertical axial profile
+
+The finite global maximum of mean_v selects native column 42 at x=14.54665 mm. The maximum is 1.68654814 m/s at y=1.284 mm, native row 304. Every measured row in that column is retained and sorted together with its y coordinate, velocity, sample count and native indices. Signed values and gaps are preserved. No adjacent-column averaging, smoothing, interpolation or extrapolation is applied. This is a fixed-x axial profile through one global maximum, not a tracked centreline; the plume may shift laterally with height. The location map retains the existing mean-v colour limits, levels, linear normalization and physical aspect ratio. Its thin dashed line spans the measured y domain and its small black marker shows the maximum.

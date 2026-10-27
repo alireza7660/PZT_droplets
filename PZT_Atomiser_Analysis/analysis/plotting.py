@@ -57,7 +57,7 @@ def contour_boundaries(limits,levels=41,signed=False):
 
 def contour_map(x, y, values, *, label, limits, output, xlabel, ylabel,
                 signed=False, levels=41, data_output=None,
-                markers=None):
+                markers=None, vertical_lines=None, point_markers=None):
     """Piecewise contour interpolation only within fully valid native grid cells.
 
     No filtering, filling, extrapolation or triangulation across missing nodes.
@@ -80,12 +80,19 @@ def contour_map(x, y, values, *, label, limits, output, xlabel, ylabel,
     for marker in markers or []:
         ax.plot(marker['x'],marker['y'],'o',mfc='white',mec='black',ms=4)
         ax.annotate(marker['id'],(marker['x'],marker['y']),xytext=(5,4),textcoords='offset points',fontsize=8)
+    for line in vertical_lines or []:
+        ax.plot([line['x'],line['x']],[line['y_min'],line['y_max']],
+                color='black',linestyle='--',linewidth=.8)
+    for marker in point_markers or []:
+        ax.plot(marker['x'],marker['y'],'o',color='black',markersize=3.5)
     save_figure(fig, output, {'x': x, 'y': y, 'values': raw.filled(np.nan),
                              'display_mask':display_mask,'finite_values_only':True,
                              'color_limits':limits,'levels':boundaries,
                              'zero_centred_diverging':signed and limits[0]<0<limits[1],
                              'normalization':'linear','symmetric_signed_limits':signed,
-                             'uniform_contour_levels':True},data_output=data_output)
+                             'uniform_contour_levels':True,
+                             'vertical_lines_xy':np.asarray([[a['x'],a['y_min'],a['y_max']] for a in vertical_lines or []],float).reshape(-1,3),
+                             'point_markers_xy':np.asarray([[a['x'],a['y']] for a in point_markers or []],float).reshape(-1,2)},data_output=data_output)
 
 
 def quiver_map(x, y, transverse, axial, *, output, xlabel, ylabel,

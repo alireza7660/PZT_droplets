@@ -610,5 +610,35 @@
     "numerical_source": "data\\plot_data\\v_normalized_pdf.npz",
     "caption": "Separate native-node full-support empirical histogram PDFs; no spatial pooling. All signed component samples are retained, including negative axial velocities.",
     "display_policy": "all_finite_values"
+  },
+  {
+    "id": "mean_v_vertical_profile_location",
+    "category": "supporting",
+    "files": {
+      "pdf": "figures\\mean_v_vertical_profile_location.pdf",
+      "svg": "figures\\mean_v_vertical_profile_location.svg",
+      "png": "figures\\mean_v_vertical_profile_location.png"
+    },
+    "numerical_source": "data\\plot_data\\mean_v_vertical_profile_location.npz",
+    "caption": "Mean axial velocity $\\overline{v}$ with a thin black dashed line at $x=14.54665\\,\\mathrm{mm}$, spanning the measured domain. The black marker identifies the finite global mean-field maximum. The original symmetric linear colour scale and all finite signed data are retained.",
+    "display_policy": "all_finite_values",
+    "source_statistics": "data/statistics.npz",
+    "native_column": 42,
+    "fixed_x_mm": 14.54665
+  },
+  {
+    "id": "mean_v_vertical_profile",
+    "category": "supporting",
+    "files": {
+      "pdf": "figures\\mean_v_vertical_profile.pdf",
+      "svg": "figures\\mean_v_vertical_profile.svg",
+      "png": "figures\\mean_v_vertical_profile.png"
+    },
+    "numerical_source": "data\\mean_v_vertical_profile.npz",
+    "caption": "Fixed-$x$ axial profile of $\\overline{v}$ at $x=14.54665\\,\\mathrm{mm}$, through the global mean-field maximum. One native column is ordered by increasing y over its full measured range; signed values and gaps are retained without interpolation, smoothing or column averaging. This profile is not a tracked centreline.",
+    "display_policy": "all_finite_values",
+    "source_statistics": "data/statistics.npz",
+    "native_column": 42,
+    "fixed_x_mm": 14.54665
   }
 ]

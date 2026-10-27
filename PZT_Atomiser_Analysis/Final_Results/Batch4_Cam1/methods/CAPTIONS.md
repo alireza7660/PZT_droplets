@@ -103,3 +103,10 @@ Coordinates are Cartesian: $x$ is horizontal/rightward and $y$ vertical/upward; 
 **u_normalized_pdf**: Separate native-node full-support empirical histogram PDFs; no spatial pooling. All signed component samples are retained, including negative axial velocities.
 
 **v_normalized_pdf**: Separate native-node full-support empirical histogram PDFs; no spatial pooling. All signed component samples are retained, including negative axial velocities.
+
+## Fixed-x vertical axial profile
+
+**mean_v_vertical_profile_location**: Mean axial velocity $\overline{v}$ with a thin black dashed line at $x=14.54665\,\mathrm{mm}$, spanning the measured domain. The black marker identifies the finite global mean-field maximum. The original symmetric linear colour scale and all finite signed data are retained.
+
+**mean_v_vertical_profile**: Fixed-$x$ axial profile of $\overline{v}$ at $x=14.54665\,\mathrm{mm}$, through the global mean-field maximum. One native column is ordered by increasing y over its full measured range; signed values and gaps are retained without interpolation, smoothing or column averaging. This profile is not a tracked centreline.
+

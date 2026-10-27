@@ -84,3 +84,24 @@ verification record are retained under
 Reusable entry points are `analysis/final_analysis.py`, the shared streaming
 accumulator in `analysis/calibrated.py`, and `analysis/plotting.py`. The figure
 manifest links every PDF/SVG/PNG to its signed numerical data source and caption.
+
+## Fixed-x vertical axial profile
+
+Full regeneration also finds the finite global maximum of mean_v and extracts
+its native fixed-x column over the complete measured y range. Samples are
+sorted by y together with their values, N and zero-based native indices.
+Signed values and gaps are preserved; no adjacent-column averaging, smoothing,
+interpolation or extrapolation is used. This is a fixed-x profile through the
+global maximum rather than a tracked centreline.
+
+To regenerate only the two added figures and the extracted profile from the
+existing final statistics, without rerunning or changing other figures:
+
+```powershell
+.\.venv\Scripts\python -m PZT_Atomiser_Analysis.analysis.vertical_profile
+```
+
+The figure stems are `mean_v_vertical_profile_location` and
+`mean_v_vertical_profile`, with PDF, SVG and 600-dpi PNG in the final figures
+directory. Extracted CSV/NPZ are in `data/mean_v_vertical_profile.*`.
+Selection and verification metadata are in `methods/vertical_profile_*.json`.

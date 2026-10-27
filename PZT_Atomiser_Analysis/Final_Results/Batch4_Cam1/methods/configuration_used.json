@@ -69,7 +69,7 @@
   "origin_definition": "Exported (0,0) image reference retained; x horizontal/rightward and y vertical/upward; no atomiser-centred origin",
   "working_assumptions": [
     "Adopted us/vs horizontal/vertical pixel displacements per image pair; retain stored signs.",
-    "Exported coordinates are scaled by 0.00725 mm/pixel from exported (0,0).",
+    "Exported coordinates are scaled by 0.00535 mm/pixel from exported (0,0).",
     "Finite-pair population without flag-code rejection; upstream replacement and flag meanings are not assigned."
   ],
   "sign_evidence": "ZNMF reverses its horizontal downstream axis, not PZT vertical motion. Nearby VMARF TIFFs are 2048x1536 calibration/droplet images, not linked PZT vector displays. No independent vs sign evidence found.",

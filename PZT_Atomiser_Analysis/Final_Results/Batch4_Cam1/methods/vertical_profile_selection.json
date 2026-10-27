@@ -1,0 +1,17 @@
+{
+  "native_row": 304,
+  "native_column": 42,
+  "x_mm": 14.54665,
+  "y_mm": 1.284,
+  "mean_v_m_s": 1.6865481421305646,
+  "N": 1757,
+  "finite_maximum_tie_count": 1,
+  "measured_y_range_mm": [
+    0.0856,
+    27.3064
+  ],
+  "profile_y_range_mm": [
+    0.0856,
+    27.3064
+  ]
+}
