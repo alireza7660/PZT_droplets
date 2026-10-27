@@ -1,0 +1,177 @@
+{
+  "conditions": [
+    {
+      "id": "Batch4_Cam1",
+      "path": "RAW_data/Batch4_Cam1.h5"
+    }
+  ],
+  "analysis_status": "final",
+  "components": [
+    "us",
+    "vs"
+  ],
+  "confirmed_spatial_calibration_um_per_pixel": 7.25,
+  "confirmed_pulse_separation_seconds": 2.5e-05,
+  "conditional_displacement_to_velocity_m_per_s_per_pixel": 0.29,
+  "calibration_source": "User-confirmed replacement PZT calibration: 7.25 micrometres/pixel; pulse separation 25 microseconds",
+  "confirmed_physical_convention": {
+    "u": "horizontal/transverse, rightwards positive",
+    "v": "vertical/axial, upwards positive",
+    "x": "horizontal/rightwards",
+    "y": "vertical/upwards"
+  },
+  "conditional_image_displacement_mapping": {
+    "u_m_s": "+0.290 us",
+    "v_m_s": "+0.290 vs"
+  },
+  "coordinate_scale": 0.00725,
+  "coordinate_unit": "mm",
+  "velocity_scale": 0.29,
+  "velocity_unit": "m/s",
+  "component_mapping": [
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "coordinate_mapping": [
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "transform": [
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "origin": [
+    0,
+    0
+  ],
+  "mapping_verified": false,
+  "storage_units_verified": false,
+  "vertical_sign_verified": false,
+  "mapping_note": "Adopted us/vs displacement convention; u=+0.290 us, v=+0.290 vs, no additional reflection or array transpose.",
+  "origin_definition": "Exported (0,0) image reference retained; x horizontal/rightward and y vertical/upward; no atomiser-centred origin",
+  "working_assumptions": [
+    "Adopted us/vs horizontal/vertical pixel displacements per image pair; retain stored signs.",
+    "Exported coordinates are scaled by 0.00725 mm/pixel from exported (0,0).",
+    "Finite-pair population without flag-code rejection; upstream replacement and flag meanings are not assigned."
+  ],
+  "sign_evidence": "ZNMF reverses its horizontal downstream axis, not PZT vertical motion. Nearby VMARF TIFFs are 2048x1536 calibration/droplet images, not linked PZT vector displays. No independent vs sign evidence found.",
+  "valid_flag_values": null,
+  "flag_definition_source": null,
+  "minimum_samples": 2,
+  "representative_quantiles": [
+    0,
+    0.5,
+    1
+  ],
+  "quiver_stride": 4,
+  "contour_levels": 41,
+  "primary_velocity_contours": [
+    "mean_v",
+    "mean_u"
+  ],
+  "supplementary_velocity_magnitude_figures": [
+    "magnitude_mean_vector",
+    "mean_instantaneous_velocity_magnitude"
+  ],
+  "histogram_bins": 50,
+  "stations": [
+    {
+      "id": "S1",
+      "row": 287,
+      "column": 40
+    },
+    {
+      "id": "S2",
+      "row": 159,
+      "column": 40
+    },
+    {
+      "id": "S3",
+      "row": 32,
+      "column": 40
+    },
+    {
+      "id": "S4",
+      "row": 159,
+      "column": 32
+    },
+    {
+      "id": "S5",
+      "row": 159,
+      "column": 48
+    }
+  ],
+  "profile_rows": [
+    287,
+    159,
+    32
+  ],
+  "verification_vectors": [
+    {
+      "frame": "1",
+      "row": 287,
+      "column": 40
+    },
+    {
+      "frame": "1",
+      "row": 159,
+      "column": 40
+    },
+    {
+      "frame": "1",
+      "row": 32,
+      "column": 40
+    },
+    {
+      "frame": "879",
+      "row": 287,
+      "column": 40
+    },
+    {
+      "frame": "879",
+      "row": 159,
+      "column": 40
+    },
+    {
+      "frame": "879",
+      "row": 32,
+      "column": 40
+    },
+    {
+      "frame": "1757",
+      "row": 287,
+      "column": 40
+    },
+    {
+      "frame": "1757",
+      "row": 159,
+      "column": 40
+    },
+    {
+      "frame": "1757",
+      "row": 32,
+      "column": 40
+    }
+  ],
+  "output": "PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1",
+  "notes": "Final PZT run with corrected user calibration; axial nonnegative contour display only, all data/statistics signed.",
+  "axial_contour_display": "mask_negative_start_zero"
+}

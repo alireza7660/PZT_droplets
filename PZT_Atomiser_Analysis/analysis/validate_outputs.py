@@ -43,7 +43,10 @@ def validate(root):
 if __name__ == '__main__':
     root=Path(__file__).resolve().parents[2]
     cfg=json.loads((root/'PZT_Atomiser_Analysis/config/analysis.json').read_text())
-    if cfg.get('analysis_status') in ['provisional_calibrated','confirmed_calibrated']:
+    if cfg.get('analysis_status')=='final':
+        from .verify_final_outputs import main
+        main()
+    elif cfg.get('analysis_status') in ['provisional_calibrated','confirmed_calibrated']:
         from .validate_calibrated import main
         main()
     else:

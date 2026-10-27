@@ -1,0 +1,17 @@
+{
+  "numeric_result_files_bitwise_equal": [
+    "Batch4_Cam1_flag_0.npz",
+    "Batch4_Cam1_flag_1.npz",
+    "Batch4_Cam1_station_samples.npz",
+    "Batch4_Cam1_statistics.npz"
+  ],
+  "measurement_config_unchanged": true,
+  "figure_count": 51,
+  "mathematical_labels_verified": true,
+  "primary_velocity_contours": [
+    "mean_U",
+    "mean_V"
+  ],
+  "magnitude_figures_supplementary": true,
+  "notebook_executed_without_errors": true
+}

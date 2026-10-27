@@ -1,0 +1,43 @@
+{
+  "components": [
+    "us",
+    "vs"
+  ],
+  "coordinate_scale": 0.00505,
+  "velocity_scale": 0.202,
+  "component_mapping": [
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "coordinate_mapping": [
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "transform": [
+    [
+      1,
+      0
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "origin": [
+    0,
+    0
+  ],
+  "valid_flag_values": null
+}

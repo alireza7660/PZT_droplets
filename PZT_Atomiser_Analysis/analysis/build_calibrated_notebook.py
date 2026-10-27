@@ -44,21 +44,31 @@ output=root/config['output']
 '''),nb.v4.new_markdown_cell('''## Methods and population
 
 The reusable pipeline scales instantaneous components once, then computes
-means, RMS, speed and signed covariance from the same finite-pair population.
+means, RMS, velocity magnitude and signed covariance from the same finite-pair population.
 Denominator N is used. No flag is rejected. Flag-specific means/RMS are
 selection-sensitivity diagnostics, not physically validated populations.
 Full-range colour limits are shared across matching quantities and flag groups.
 Profiles use native rows. Each station PDF is a distinct native-node empirical
 distribution; histogram PDFs and exact empirical CDFs preserve sample support.
 No independent-frame uncertainty or turbulence interpretation is claimed.
+The primary velocity contours are the two mean components. In-plane velocity
+magnitude plots are supplementary and are displayed separately below.
 '''),nb.v4.new_code_cell('''from IPython.display import Image, Markdown, display
 display(Markdown((output/'METHODS.md').read_text(encoding='utf-8')))
 for cid in results:
     folder=output/'figures'/cid
-    for name in ['mean_U','mean_V','magnitude_mean_vector','mean_instantaneous_speed',
-                 'rms_U','rms_V','covariance','correlation','sampling_stations',
-                 'profile_mean_U','profile_rms_U','U_pdf','V_pdf','speed_pdf',
+    display(Markdown('## Primary mean-component contours'))
+    for name in config['primary_velocity_contours']:
+        print(name)
+        display(Image(filename=str(folder/(name+'.png')),width=600))
+    display(Markdown('## Supporting component statistics'))
+    for name in ['rms_U','rms_V','covariance','correlation','sampling_stations',
+                 'profile_mean_U','profile_mean_V','profile_rms_U','U_pdf','V_pdf',
                  'U_ecdf',('frame_'+sorted(results[cid]['frames'],key=int)[len(results[cid]['frames'])//2]+'_quiver')]:
+        print(name)
+        display(Image(filename=str(folder/(name+'.png')),width=600))
+    display(Markdown('## Supplementary in-plane velocity magnitude'))
+    for name in config['supplementary_velocity_magnitude_figures']+['velocity_magnitude_pdf']:
         print(name)
         display(Image(filename=str(folder/(name+'.png')),width=600))
 '''),nb.v4.new_markdown_cell('''## Exact vectors for software comparison

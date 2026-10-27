@@ -1,0 +1,61 @@
+{
+  "primary": [
+    "mean_v",
+    "mean_u"
+  ],
+  "supporting": [
+    "rms_v",
+    "rms_u",
+    "covariance",
+    "correlation",
+    "frame_1_u",
+    "frame_1_v",
+    "frame_1_quiver",
+    "frame_879_u",
+    "frame_879_v",
+    "frame_879_quiver",
+    "frame_1757_u",
+    "frame_1757_v",
+    "frame_1757_quiver",
+    "sampling_stations",
+    "profile_mean_v",
+    "profile_mean_u",
+    "profile_rms_u",
+    "profile_rms_v",
+    "profile_covariance",
+    "profile_correlation",
+    "u_pdf",
+    "u_cdf",
+    "v_pdf",
+    "v_cdf",
+    "u_normalized_pdf",
+    "v_normalized_pdf"
+  ],
+  "supplementary": [
+    "magnitude_mean_vector",
+    "mean_instantaneous_velocity_magnitude",
+    "frame_1_velocity_magnitude",
+    "frame_879_velocity_magnitude",
+    "frame_1757_velocity_magnitude",
+    "profile_magnitude_mean_vector",
+    "profile_mean_instantaneous_velocity_magnitude",
+    "velocity_magnitude_pdf",
+    "velocity_magnitude_cdf"
+  ],
+  "diagnostic": [
+    "finite_pair_count",
+    "finite_pair_fraction",
+    "flag_0_count",
+    "flag_0_fraction",
+    "flag_0_mean_u",
+    "flag_0_mean_v",
+    "flag_0_rms_u",
+    "flag_0_rms_v",
+    "flag_1_count",
+    "flag_1_fraction",
+    "flag_1_mean_u",
+    "flag_1_mean_v",
+    "flag_1_rms_u",
+    "flag_1_rms_v"
+  ]
+}

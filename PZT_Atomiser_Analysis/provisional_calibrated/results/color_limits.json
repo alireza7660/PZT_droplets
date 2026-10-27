@@ -12,7 +12,7 @@
       0.0,
       1.5985396682073902
     ],
-    "mean_instantaneous_speed": [
+    "mean_instantaneous_velocity_magnitude": [
       0.0,
       1.6254534953761621
     ],
@@ -42,7 +42,7 @@
       -5.149717773437501,
       5.149717773437501
     ],
-    "instant_speed": [
+    "instant_velocity_magnitude": [
       0.0,
       5.287155677661862
     ]

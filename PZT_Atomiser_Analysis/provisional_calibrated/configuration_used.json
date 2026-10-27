@@ -86,6 +86,14 @@
   ],
   "quiver_stride": 4,
   "contour_levels": 41,
+  "primary_velocity_contours": [
+    "mean_U",
+    "mean_V"
+  ],
+  "supplementary_velocity_magnitude_figures": [
+    "magnitude_mean_vector",
+    "mean_instantaneous_velocity_magnitude"
+  ],
   "histogram_bins": 50,
   "stations": [
     {

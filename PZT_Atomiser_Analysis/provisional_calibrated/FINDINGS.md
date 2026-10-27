@@ -11,7 +11,7 @@ All numbers use the documented working assumptions, not independently verified e
 | mean_U | -0.021815505 | 1.5919753 |
 | mean_V | -0.017273836 | 0.17702743 |
 | magnitude_mean_vector | 5.7478504e-05 | 1.5985397 |
-| mean_instantaneous_speed | 0.016187069 | 1.6254535 |
+| mean_instantaneous_velocity_magnitude | 0.016187069 | 1.6254535 |
 | rms_U | 0.011488667 | 0.71820909 |
 | rms_V | 0.011558675 | 0.3523175 |
 | covariance | -0.01337018 | 0.059070284 |

@@ -15,7 +15,16 @@ direction and decreasing exported y do not establish its sign. No ZNMF sign
 reversal is inherited. Nearby original images lack an identifiable mapping to
 these export vectors and do not independently resolve signs.
 
-Horizontal plotted transverse y is 0.00505 times exported PARAMETERS/x;
+Coordinate convention: x is axial/upward, y is transverse/rightward; U and V
+are the corresponding velocity components. Lowercase u' and v' denote their
+fluctuations about the means. The instantaneous in-plane velocity vector is
+bold u=(U,V). Its magnitude is sqrt(U squared + V squared). Magnitude of the
+mean in-plane velocity vector is sqrt(mean(U) squared + mean(V) squared);
+mean instantaneous in-plane velocity magnitude is mean(sqrt(U squared + V
+squared)). These distinct quantities are supplementary; mean_U and mean_V
+are the primary velocity contours in the notebook and report selection.
+
+Horizontal plotted y is 0.00505 times exported PARAMETERS/x;
 vertical plotted axial x is 0.00505 times exported PARAMETERS/y. Origin is the
 exported (0,0) image reference, not an established outlet. Both coordinate
 arrays retain alignment with native rows/columns. The scaled grid spacings
@@ -23,7 +32,7 @@ are 0.3232 mm horizontally and 0.0808 mm vertically; these are vector spacing,
 not interrogation size or effective resolution.
 
 The finite-pair population consists of samples with both us and vs finite.
-No flag is selected or rejected. All moments, including speed, covariance
+No flag is selected or rejected. All moments, including velocity magnitude, covariance
 and component RMS, use this paired population and population denominator N.
 At least two pairs are required for reported moments. Correlation is masked
 at zero variance. N and finite-pair fraction are not vector-validation or
@@ -36,7 +45,7 @@ centreline. Locations are shown on sampling_stations and in stations.csv.
 Histogram PDFs use common bin edges per quantity across stations, full sample
 support and unit integral. CDFs are exact empirical staircases. Normalized
 fluctuations use local N-denominator RMS; zero variance is explicitly omitted.
-No KDE or negative-speed extrapolation is used. No independence-based
+No KDE or negative-velocity magnitude extrapolation is used. No independence-based
 confidence intervals, turbulence interpretation or periodic/stochastic
 decomposition are claimed. Timing beyond the pulse separation and tracked
 phase remain unverified. First/middle/last numeric field keys are illustrative,

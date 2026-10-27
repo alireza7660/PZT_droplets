@@ -1,0 +1,47 @@
+{
+  "primary_velocity_contours": [
+    "figures\\Batch4_Cam1\\mean_U",
+    "figures\\Batch4_Cam1\\mean_V"
+  ],
+  "supporting_figures": [
+    "figures\\Batch4_Cam1\\rms_U",
+    "figures\\Batch4_Cam1\\rms_V",
+    "figures\\Batch4_Cam1\\covariance",
+    "figures\\Batch4_Cam1\\correlation",
+    "figures\\Batch4_Cam1\\frame_1_instant_V",
+    "figures\\Batch4_Cam1\\frame_1_instant_U",
+    "figures\\Batch4_Cam1\\frame_1_quiver",
+    "figures\\Batch4_Cam1\\frame_879_instant_V",
+    "figures\\Batch4_Cam1\\frame_879_instant_U",
+    "figures\\Batch4_Cam1\\frame_879_quiver",
+    "figures\\Batch4_Cam1\\frame_1757_instant_V",
+    "figures\\Batch4_Cam1\\frame_1757_instant_U",
+    "figures\\Batch4_Cam1\\frame_1757_quiver",
+    "figures\\Batch4_Cam1\\finite_pair_count",
+    "figures\\Batch4_Cam1\\finite_pair_fraction",
+    "figures\\Batch4_Cam1\\profile_mean_U",
+    "figures\\Batch4_Cam1\\profile_mean_V",
+    "figures\\Batch4_Cam1\\profile_rms_U",
+    "figures\\Batch4_Cam1\\profile_rms_V",
+    "figures\\Batch4_Cam1\\profile_covariance",
+    "figures\\Batch4_Cam1\\profile_correlation",
+    "figures\\Batch4_Cam1\\sampling_stations",
+    "figures\\Batch4_Cam1\\U_pdf",
+    "figures\\Batch4_Cam1\\U_ecdf",
+    "figures\\Batch4_Cam1\\V_pdf",
+    "figures\\Batch4_Cam1\\V_ecdf",
+    "figures\\Batch4_Cam1\\U_normalized_pdf",
+    "figures\\Batch4_Cam1\\V_normalized_pdf"
+  ],
+  "supplementary_velocity_magnitude_figures": [
+    "figures\\Batch4_Cam1\\magnitude_mean_vector",
+    "figures\\Batch4_Cam1\\mean_instantaneous_velocity_magnitude",
+    "figures\\Batch4_Cam1\\frame_1_instant_velocity_magnitude",
+    "figures\\Batch4_Cam1\\frame_879_instant_velocity_magnitude",
+    "figures\\Batch4_Cam1\\frame_1757_instant_velocity_magnitude",
+    "figures\\Batch4_Cam1\\profile_magnitude_mean_vector",
+    "figures\\Batch4_Cam1\\profile_mean_instantaneous_velocity_magnitude",
+    "figures\\Batch4_Cam1\\velocity_magnitude_pdf",
+    "figures\\Batch4_Cam1\\velocity_magnitude_ecdf"
+  ]
+}

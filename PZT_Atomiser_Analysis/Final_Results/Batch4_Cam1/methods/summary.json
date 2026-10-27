@@ -1,0 +1,31 @@
+{
+  "mean_axial_velocity_measured_range_m_s": [
+    -0.031319289573753975,
+    2.2855091645694583
+  ],
+  "mean_axial_contour_colour_limits_m_s": [
+    0.0,
+    2.2855091645694583
+  ],
+  "negative_mean_axial_nodes": 14345,
+  "figure_count": 51,
+  "publication_figure_count": 37,
+  "diagnostic_figure_count": 14,
+  "local_N_range": [
+    1757,
+    1757
+  ],
+  "selected_frame_keys": [
+    "1",
+    "879",
+    "1757"
+  ],
+  "observed_grid_node_maximum": {
+    "row": 304,
+    "column": 42,
+    "x_mm": 19.71275,
+    "y_mm": 1.74,
+    "N": 1757,
+    "mean_v_m_s": 2.2855091645694583
+  }
+}

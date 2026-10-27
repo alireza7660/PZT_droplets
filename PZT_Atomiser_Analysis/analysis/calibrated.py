@@ -68,7 +68,7 @@ class Moments:
         self.mean = np.zeros((2,*shape))
         self.m2 = np.zeros((2,*shape))
         self.cross = np.zeros(shape)
-        self.speed = np.zeros(shape)
+        self.velocity_magnitude = np.zeros(shape)
 
     def add(self, q, mask):
         n = self.n + mask
@@ -76,8 +76,8 @@ class Moments:
         self.mean += np.divide(delta,n[None],out=np.zeros_like(delta),where=n[None]>0)
         self.m2 += np.where(mask[None],delta*(q-self.mean),0.)
         self.cross += np.where(mask,delta[0]*(q[1]-self.mean[1]),0.)
-        self.speed += np.divide(np.where(mask,np.hypot(*q)-self.speed,0.),n,
-                                out=np.zeros_like(self.speed),where=n>0)
+        self.velocity_magnitude += np.divide(np.where(mask,np.hypot(*q)-self.velocity_magnitude,0.),n,
+                                out=np.zeros_like(self.velocity_magnitude),where=n>0)
         self.n = n
 
     def finish(self, minimum):
@@ -92,9 +92,9 @@ class Moments:
         mean = np.where(valid[None],self.mean,np.nan)
         result = dict(mean_U=mean[1],mean_V=mean[0],
                       magnitude_mean_vector=np.hypot(*mean),
-                      mean_instantaneous_speed=np.where(valid,self.speed,np.nan),
+                      mean_instantaneous_velocity_magnitude=np.where(valid,self.velocity_magnitude,np.nan),
                       rms_U=rms[1],rms_V=rms[0],covariance=cov,correlation=rho)
-        assert np.all(result['mean_instantaneous_speed'][valid]+1e-12 >= result['magnitude_mean_vector'][valid])
+        assert np.all(result['mean_instantaneous_velocity_magnitude'][valid]+1e-12 >= result['magnitude_mean_vector'][valid])
         return result
 
 
@@ -177,14 +177,17 @@ def calculate(path, cfg):
                               'flag_counts':{str(k):int(a.n.sum()) for k,a in groups.items()}})
 
 
-LABELS = {'mean_U':r'Mean axial $U$ (m/s)','mean_V':r'Mean transverse $V$ (m/s)',
-          'magnitude_mean_vector':'Magnitude of mean velocity vector (m/s)',
-          'mean_instantaneous_speed':'Mean instantaneous speed (m/s)',
-          'rms_U':r'Axial RMS fluctuation (m/s)','rms_V':r'Transverse RMS fluctuation (m/s)',
-          'covariance':r'Cross-covariance $C_{UV}$ (m$^2$/s$^2$)',
-          'correlation':r'Correlation $\rho_{UV}$ (dimensionless)'}
+VELOCITY_UNIT = r'$\mathrm{m\,s^{-1}}$'
+LABELS = {'mean_U':r'$\overline{U}$ ($\mathrm{m\,s^{-1}}$)',
+          'mean_V':r'$\overline{V}$ ($\mathrm{m\,s^{-1}}$)',
+          'magnitude_mean_vector':r'$|\overline{\mathbf{u}}|$ ($\mathrm{m\,s^{-1}}$)',
+          'mean_instantaneous_velocity_magnitude':r'$\overline{|\mathbf{u}|}$ ($\mathrm{m\,s^{-1}}$)',
+          'rms_U':r'$u_{\mathrm{rms}}$ ($\mathrm{m\,s^{-1}}$)',
+          'rms_V':r'$v_{\mathrm{rms}}$ ($\mathrm{m\,s^{-1}}$)',
+          'covariance':r"$\overline{u'v'}$ ($\mathrm{m^2\,s^{-2}}$)",
+          'correlation':r'$\rho_{uv}$'}
 SIGNED = {'mean_U','mean_V','covariance','correlation'}
-AXES = dict(xlabel=r'Transverse position $y$ (mm)',ylabel=r'Axial position $x$ (mm)')
+AXES = dict(xlabel=r'$y$ ($\mathrm{mm}$)',ylabel=r'$x$ ($\mathrm{mm}$)')
 
 
 def render_maps(results,cfg,out,manifest):
@@ -195,7 +198,7 @@ def render_maps(results,cfg,out,manifest):
             arrays += [ff[key] for r in results.values() for ff in r['flag_fields'].values()]
         limits[key] = shared_limits(arrays,key in SIGNED,key=='correlation')
     ilim = {k:shared_limits([q[i] if i<2 else np.hypot(*q) for r in results.values() for q in r['frames'].values()],i<2)
-            for i,k in enumerate(['instant_V','instant_U','instant_speed'])}
+            for i,k in enumerate(['instant_V','instant_U','instant_velocity_magnitude'])}
     def contour(r,z,stem,label,lim,signed=False):
         contour_map(*r['xy'],z,label=label,limits=lim,output=stem,signed=signed,
                     levels=cfg['contour_levels'],**AXES)
@@ -205,12 +208,13 @@ def render_maps(results,cfg,out,manifest):
         for key,label in LABELS.items():
             contour(r,r['fields'][key],base/key,label,limits[key],key in SIGNED)
         for key,q in r['frames'].items():
-            for i,k in enumerate(['instant_V','instant_U','instant_speed']):
+            for i,k in enumerate(['instant_V','instant_U','instant_velocity_magnitude']):
                 z = q[i] if i<2 else np.hypot(*q)
-                lab = ['Instantaneous transverse V (m/s)','Instantaneous axial U (m/s)','Instantaneous speed (m/s)'][i]
+                lab = [r'$V$ ($\mathrm{m\,s^{-1}}$)',r'$U$ ($\mathrm{m\,s^{-1}}$)',
+                       r'$|\mathbf{u}|$ ($\mathrm{m\,s^{-1}}$)'][i]
                 contour(r,z,base/f'frame_{key}_{k}',lab,ilim[k],i<2)
             stem = base/f'frame_{key}_quiver'
-            quiver_map(*r['xy'],*q,output=stem,velocity_unit='m/s',reference_speed=ilim['instant_speed'][1],
+            quiver_map(*r['xy'],*q,output=stem,velocity_unit=VELOCITY_UNIT,reference_speed=ilim['instant_velocity_magnitude'][1],
                        stride=cfg['quiver_stride'],**AXES)
             manifest.append(str(stem.relative_to(out)))
         contour(r,r['N'],base/'finite_pair_count','Finite-pair sample count N',(0,r['metadata']['frames']))
@@ -246,7 +250,7 @@ def render_profiles_and_distributions(cid,r,cfg,out,manifest):
             flag_records.append(record)
             if code is not None:
                 continue
-            for k,v in [('U',a[:,1]),('V',a[:,0]),('speed',np.hypot(*a.T))]:
+            for k,v in [('U',a[:,1]),('V',a[:,0]),('velocity_magnitude',np.hypot(*a.T))]:
                 mean,std = v.mean(),v.std()
                 station_records.append(dict(**loc,quantity=k,N=len(v),finite_pair_fraction=len(v)/len(r['frame_keys']),
                     mean=float(mean),median=float(np.median(v)),rms_fluctuation=float(std),
@@ -263,7 +267,7 @@ def render_profiles_and_distributions(cid,r,cfg,out,manifest):
         data = {}
         for n,i in enumerate(cfg['profile_rows']):
             yy,xx,z = xy[0,i],xy[1,i],r['fields'][key][i]
-            ax.plot(yy,z,linestyle=['-','--',':'][n%3],label=f'row {i}, x={xx.mean():.3f} mm')
+            ax.plot(yy,z,linestyle=['-','--',':'][n%3],label=rf'$x={xx.mean():.3f}\,\mathrm{{mm}}$')
             data[f'row_{i}_transverse_y_mm'] = yy
             data[f'row_{i}_axial_x_mm'] = xx
             data[f'row_{i}_values'] = z
@@ -277,13 +281,13 @@ def render_profiles_and_distributions(cid,r,cfg,out,manifest):
     write_csv(out/'results'/f'{cid}_profiles.csv',profile_rows)
     render_station_map(cid,r,cfg,out)
     manifest.append(str((base/'sampling_stations').relative_to(out)))
-    # Empirical histogram PDFs: no KDE bandwidth or negative-speed kernel tails.
-    for quantity in ['U','V','speed','U_normalized','V_normalized']:
+    # Empirical histogram PDFs: no KDE bandwidth or negative-velocity_magnitude kernel tails.
+    for quantity in ['U','V','velocity_magnitude','U_normalized','V_normalized']:
         values = []
         for s,st in enumerate(cfg['stations']):
             a = r['samples'][:,s]
             a = a[np.isfinite(a).all(axis=1)]
-            v = np.hypot(*a.T) if quantity=='speed' else a[:,1 if quantity.startswith('U') else 0]
+            v = np.hypot(*a.T) if quantity=='velocity_magnitude' else a[:,1 if quantity.startswith('U') else 0]
             if quantity.endswith('normalized'):
                 v=(v-v.mean())/v.std() if v.std()>0 else np.array([])
             values.append(v)
@@ -293,12 +297,13 @@ def render_profiles_and_distributions(cid,r,cfg,out,manifest):
                        {'reason':'No finite nonzero-variance station samples for this distribution'})
             continue
         combined = np.concatenate(supported)
-        lo,hi = (0.,combined.max()) if quantity=='speed' else (combined.min(),combined.max())
+        lo,hi = (0.,combined.max()) if quantity=='velocity_magnitude' else (combined.min(),combined.max())
         if hi==lo:
             lo,hi=lo-.5,hi+.5
         edges=np.linspace(lo,hi,cfg['histogram_bins']+1)
-        xlabel = {'U':'Axial U (m/s)','V':'Transverse V (m/s)','speed':'In-plane speed (m/s)',
-                  'U_normalized':r"$U'/U_{\rm rms}$",'V_normalized':r"$V'/V_{\rm rms}$"}[quantity]
+        xlabel = {'U':r'$U$ ($\mathrm{m\,s^{-1}}$)','V':r'$V$ ($\mathrm{m\,s^{-1}}$)',
+                  'velocity_magnitude':r'In-plane velocity magnitude, $|\mathbf{u}|$ ($\mathrm{m\,s^{-1}}$)',
+                  'U_normalized':r"$u'/u_{\mathrm{rms}}$",'V_normalized':r"$v'/v_{\mathrm{rms}}$"}[quantity]
         for kind in (['pdf'] if quantity.endswith('normalized') else ['pdf','ecdf']):
             fig,ax=plt.subplots(figsize=(6.2,4.4),layout='constrained')
             data={'bin_edges':edges}
@@ -317,8 +322,8 @@ def render_profiles_and_distributions(cid,r,cfg,out,manifest):
                     sx=np.sort(v); probability=np.arange(1,len(v)+1)/len(v)
                     ax.step(np.r_[sx[0],sx],np.r_[0,probability],where='post',label=label,color=color,linestyle=style)
                     data[st['id']+'_ecdf_x']=sx;data[st['id']+'_ecdf_p']=probability
-            ax.set(xlabel=xlabel,ylabel='Empirical CDF' if kind=='ecdf' else ('Probability density' if quantity.endswith('normalized') else 'Probability density (s/m)'))
-            if quantity=='speed':ax.set_xlim(left=0)
+            ax.set(xlabel=xlabel,ylabel='Empirical CDF' if kind=='ecdf' else ('Probability density' if quantity.endswith('normalized') else r'Probability density ($\mathrm{s\,m^{-1}}$)'))
+            if quantity=='velocity_magnitude':ax.set_xlim(left=0)
             if kind=='ecdf':ax.set_ylim(0,1)
             ax.legend(fontsize=8)
             stem=base/f'{quantity}_{kind}'
@@ -394,7 +399,16 @@ direction and decreasing exported y do not establish its sign. No ZNMF sign
 reversal is inherited. Nearby original images lack an identifiable mapping to
 these export vectors and do not independently resolve signs.
 
-Horizontal plotted transverse y is 0.00505 times exported PARAMETERS/x;
+Coordinate convention: x is axial/upward, y is transverse/rightward; U and V
+are the corresponding velocity components. Lowercase u' and v' denote their
+fluctuations about the means. The instantaneous in-plane velocity vector is
+bold u=(U,V). Its magnitude is sqrt(U squared + V squared). Magnitude of the
+mean in-plane velocity vector is sqrt(mean(U) squared + mean(V) squared);
+mean instantaneous in-plane velocity magnitude is mean(sqrt(U squared + V
+squared)). These distinct quantities are supplementary; mean_U and mean_V
+are the primary velocity contours in the notebook and report selection.
+
+Horizontal plotted y is 0.00505 times exported PARAMETERS/x;
 vertical plotted axial x is 0.00505 times exported PARAMETERS/y. Origin is the
 exported (0,0) image reference, not an established outlet. Both coordinate
 arrays retain alignment with native rows/columns. The scaled grid spacings
@@ -402,7 +416,7 @@ are 0.3232 mm horizontally and 0.0808 mm vertically; these are vector spacing,
 not interrogation size or effective resolution.
 
 The finite-pair population consists of samples with both us and vs finite.
-No flag is selected or rejected. All moments, including speed, covariance
+No flag is selected or rejected. All moments, including velocity magnitude, covariance
 and component RMS, use this paired population and population denominator N.
 At least two pairs are required for reported moments. Correlation is masked
 at zero variance. N and finite-pair fraction are not vector-validation or
@@ -415,7 +429,7 @@ centreline. Locations are shown on sampling_stations and in stations.csv.
 Histogram PDFs use common bin edges per quantity across stations, full sample
 support and unit integral. CDFs are exact empirical staircases. Normalized
 fluctuations use local N-denominator RMS; zero variance is explicitly omitted.
-No KDE or negative-speed extrapolation is used. No independence-based
+No KDE or negative-velocity magnitude extrapolation is used. No independence-based
 confidence intervals, turbulence interpretation or periodic/stochastic
 decomposition are claimed. Timing beyond the pulse separation and tracked
 phase remain unverified. First/middle/last numeric field keys are illustrative,
@@ -477,26 +491,69 @@ def run(config_path):
     versions={k:importlib.metadata.version(k) for k in ['numpy','h5py','matplotlib','nbformat','nbclient','ipykernel']}
     versions['python']=platform.python_version();write_json(out/'results/software_versions.json',versions)
     assumption='Provisional results; '+actual+' (m/s). '+ ' '.join(cfg['working_assumptions'])
-    captions=['# Figure captions\n',assumption+'\n']
+    convention=r"Coordinate convention: $x$ is axial/upward and $y$ transverse/rightward; $U,V$ are the corresponding components, $\mathbf{u}=(U,V)$, $u'=U-\overline{U}$ and $v'=V-\overline{V}$."
+    captions=['# Figure captions\n',convention+'\n',assumption+'\n']
     for stem in manifest:
-        name=Path(stem).name
-        if 'flag_' in stem:
-            text='Flag-code selection sensitivity; codes have no assigned validity or replacement meaning. Low-count locations are masked.'
-        elif '_pdf' in name or '_ecdf' in name:
-            text='Native-station empirical distribution. Stations remain separate; histogram densities integrate to one and CDFs use the exact finite-pair samples.'
-        elif 'profile_' in name:
-            text='Native transverse profiles at configured axial rows; no profile interpolation or fitted shape.'
-        elif 'frame_' in name:
-            text='Selected instantaneous field at the indicated numeric frame key. Common instantaneous scales are used; quivers are separate and subsampled every fourth node.'
-        else:
-            text='Native-grid spatial statistic or sample support. Denominator N is used for RMS/covariance; magnitude of the mean and mean instantaneous speed are distinct.'
-        captions.append(f'**{stem}**: {text} {assumption}\n')
+        captions.append(f'**{stem}**: {caption_description(stem)}\n')
     (out/'CAPTIONS.md').write_text('\n'.join(captions),encoding='utf-8')
     write_latex_captions(out,cfg,manifest)
+    write_report_selection(out,cfg,manifest)
     validate_outputs(out,results,cfg)
     write_findings(out,results,cfg)
     print(f'Exported and validated {len(manifest)} figures as PDF/SVG/600-dpi PNG plus NPZ in {out}',flush=True)
     return results
+
+
+def caption_description(stem):
+    name=Path(stem).name
+    prefix='Native-grid transverse profile at the configured axial stations. ' if name.startswith('profile_') else ''
+    key=name.removeprefix('profile_')
+    descriptions={
+        'mean_U':r'Mean axial velocity, $\overline{U}$.',
+        'mean_V':r'Mean transverse velocity, $\overline{V}$.',
+        'rms_U':r'Axial RMS fluctuation, $u_{\mathrm{rms}}=\sqrt{\overline{u\prime{}^2}}$.',
+        'rms_V':r'Transverse RMS fluctuation, $v_{\mathrm{rms}}=\sqrt{\overline{v\prime{}^2}}$.',
+        'covariance':r'Signed cross-covariance, $\overline{u\prime v\prime}$.',
+        'correlation':r'Component correlation, $\rho_{uv}$.',
+        'magnitude_mean_vector':r'Supplementary magnitude of the mean in-plane velocity vector, $|\overline{\mathbf{u}}|=\sqrt{\overline{U}^{2}+\overline{V}^{2}}$.',
+        'mean_instantaneous_velocity_magnitude':r'Supplementary mean instantaneous in-plane velocity magnitude, $\overline{|\mathbf{u}|}=\overline{\sqrt{U^{2}+V^{2}}}$.',
+    }
+    if key in descriptions:
+        result=prefix+descriptions[key]
+    elif name.startswith('frame_'):
+        frame=name.split('_')[1]
+        quantity=(r'instantaneous $U$' if name.endswith('instant_U') else
+                  r'instantaneous $V$' if name.endswith('instant_V') else
+                  r'instantaneous in-plane velocity magnitude $|\mathbf{u}|$' if name.endswith('instant_velocity_magnitude') else
+                  'instantaneous velocity vectors, every fourth native grid node')
+        result=f'Field key {frame}: {quantity}. Common instantaneous scales are used.'
+    elif '_pdf' in name or '_ecdf' in name:
+        quantity=('in-plane velocity magnitude' if 'velocity_magnitude' in name else
+                  'normalized component fluctuations' if 'normalized' in name else
+                  r'$U$' if name.startswith('U') else r'$V$')
+        result=f'Separate native-station distributions of {quantity}; histogram PDFs use full support and common bins, and CDFs are exact empirical staircases.'
+        if 'velocity_magnitude' in name:result='Supplementary '+result[0].lower()+result[1:]
+    elif name=='sampling_stations':
+        result=r'Configured sampling nodes on the primary $\overline{U}$ contour; each PDF uses one native node.'
+    else:
+        result='Finite-pair sample support on the native grid.'
+    if 'flag_' in str(stem):
+        result+=' Flag-code population sensitivity only; code meanings are unverified and low-count statistics are masked.'
+    return result
+
+
+def write_report_selection(out,cfg,manifest):
+    primary=[str(Path('figures')/c['id']/key) for c in cfg['conditions'] for key in cfg['primary_velocity_contours']]
+    supplementary=[stem for stem in manifest if 'velocity_magnitude' in stem or 'magnitude_mean_vector' in stem]
+    support=[s for s in manifest if s.startswith('figures') and s not in primary and s not in supplementary]
+    selection={'primary_velocity_contours':primary,'supporting_figures':support,'supplementary_velocity_magnitude_figures':supplementary}
+    assert all(s in manifest for s in primary)
+    write_json(out/'results/report_figure_selection.json',selection)
+    text=['# Report figure selection\n','Primary velocity contours are the two mean components. All figures retain provisional status.\n']
+    for heading,stems in selection.items():
+        text.append('## '+heading.replace('_',' ')+'\n')
+        for stem in stems:text.append(f'- [{Path(stem).name}]({Path(stem).as_posix()}.pdf): {caption_description(stem)}')
+    (out/'REPORT_FIGURE_SELECTION.md').write_text('\n'.join(text),encoding='utf-8')
 
 
 def write_latex_captions(out,cfg,manifest):
@@ -504,16 +561,11 @@ def write_latex_captions(out,cfg,manifest):
         return ''.join({'_':r'\_','%':r'\%','&':r'\&','#':r'\#',
                         '{':r'\{','}':r'\}'}.get(c,c) for c in s)
     note='Provisional analysis, not final validated results. '+mapping_description(cfg)+' in m/s. Storage units and component signs are working assumptions; the finite-pair population is used without assigning validity meanings to flag codes.'
-    lines=[r'\newcommand{\PZTProvisionalNote}{'+escape(note)+'}', '']
+    convention=r"Coordinates: $x$ axial/upward, $y$ transverse/rightward; $\mathbf{u}=(U,V)$, $u'=U-\overline{U}$ and $v'=V-\overline{V}$."
+    lines=[r'\newcommand{\PZTProvisionalNote}{'+escape(note)+' '+convention+'}',
+           '% Include this shared methods note once with the caption collection.',r'\noindent\PZTProvisionalNote\par','']
     for stem in manifest:
-        name=Path(stem).name
-        if 'flag_' in stem:desc='Flag-code population sensitivity; low-count statistics are masked.'
-        elif '_pdf' in name:desc='Separate native-station empirical histogram probability densities; full sample support and common bins are retained.'
-        elif '_ecdf' in name:desc='Exact empirical cumulative distributions at separately identified native stations.'
-        elif 'profile_' in name:desc='Transverse profiles at configured native axial rows without profile interpolation.'
-        elif 'frame_' in name:desc='Selected instantaneous field at the indicated numeric frame key; common instantaneous scales are used.'
-        else:desc='Native-grid spatial field with physical units and image-reference coordinates. Population denominator N is used for RMS and covariance.'
-        lines += ['% '+stem,r'\caption{'+escape(desc)+r' \PZTProvisionalNote}', '']
+        lines += ['% '+stem,r'\caption{'+caption_description(stem)+'}', '']
     (out/'CAPTIONS.tex').write_text('\n'.join(lines),encoding='utf-8')
 
 
