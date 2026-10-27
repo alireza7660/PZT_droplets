@@ -1,0 +1,24 @@
+{
+  "mean_v": {
+    "measured_range": [
+      -0.023111475754425344,
+      1.6865481421305646
+    ],
+    "linear_symmetric_limits": [
+      -1.6865481421305646,
+      1.6865481421305646
+    ],
+    "near_zero_maps_near_white": true
+  },
+  "mean_u": {
+    "measured_range": [
+      -0.018300004855196908,
+      0.18754391443437637
+    ],
+    "linear_symmetric_limits": [
+      -0.18754391443437637,
+      0.18754391443437637
+    ],
+    "near_zero_maps_near_white": true
+  }
+}
