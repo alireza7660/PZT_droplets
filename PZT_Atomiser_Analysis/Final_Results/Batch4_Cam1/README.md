@@ -1,5 +1,7 @@
 # PZT final results
 
-Mean axial measured and contour range: -0.0313192896 to 2.28550916 m/s. All finite signed measurements are displayed; only missing or invalid data are masked.
+Calibration: 5.35 micrometres/pixel; conversion 0.214 m/s per pixel displacement.
 
-51 figures, with data links in methods/figure_manifest.json. Methods, captions and configuration are in methods/. All raw inputs and archived results are preserved.
+Mean axial measured range: -0.0231114758 to 1.68654814 m/s. Linear symmetric contour range: -1.68654814 to 1.68654814 m/s. All finite signed measurements are displayed.
+
+51 figures, with data links in methods/figure_manifest.json. Methods, captions and configuration are in methods/.

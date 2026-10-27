@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from matplotlib.colors import Normalize, TwoSlopeNorm
+from matplotlib.colors import Normalize
 
 plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 10,
                      'axes.linewidth': .8, 'svg.fonttype': 'none',
@@ -41,15 +41,18 @@ def save_figure(fig, stem, data, *, data_output=None):
 
 
 def contour_boundaries(limits,levels=41,signed=False):
-    """Span actual endpoints, resolving both sides of zero without symmetric limits."""
+    """Uniform linear levels; symmetric signed ranges include zero exactly."""
     if np.isscalar(levels):
         count=max(3,int(levels))
-        if signed and limits[0]<0<limits[1]:
-            below=(count-1)//2;above=count-1-below
-            return np.r_[np.linspace(limits[0],0.,below+1),np.linspace(0.,limits[1],above+1)[1:]]
-        return np.linspace(*limits,count)
+        if signed and count%2==0:count+=1
+        boundaries=np.linspace(*limits,count)
+        if signed:
+            if not np.isclose(limits[0],-limits[1]):raise ValueError('Signed linear colour limits must be symmetric about zero')
+            boundaries[count//2]=0.
+        return boundaries
     boundaries=np.asarray(levels,float)
-    return np.unique(np.r_[boundaries,0.]) if signed and limits[0]<0<limits[1] else boundaries
+    np.testing.assert_allclose(np.diff(boundaries),np.diff(boundaries)[0],rtol=1e-12,atol=1e-14)
+    return boundaries
 
 
 def contour_map(x, y, values, *, label, limits, output, xlabel, ylabel,
@@ -66,13 +69,13 @@ def contour_map(x, y, values, *, label, limits, output, xlabel, ylabel,
     z=np.ma.array(raw.data,mask=display_mask)
     boundaries=contour_boundaries(limits,levels,signed)
     fig, ax = plt.subplots(figsize=(6.2, 5.0), layout='constrained')
-    norm=TwoSlopeNorm(vmin=limits[0],vcenter=0.,vmax=limits[1]) if signed and limits[0]<0<limits[1] else Normalize(*limits)
+    norm=Normalize(vmin=limits[0],vmax=limits[1])
     m = ax.contourf(x, y, z, levels=boundaries,norm=norm,
                     cmap='RdBu_r' if signed else 'viridis',
                     corner_mask=False, antialiased=False)
     cb=fig.colorbar(m, ax=ax, label=label)
     if signed and limits[0]<0<limits[1]:
-        cb.set_ticks(np.r_[np.linspace(limits[0],0,3),np.linspace(0,limits[1],5)[1:]])
+        cb.set_ticks(np.linspace(limits[0],limits[1],7))
     ax.set(xlabel=xlabel, ylabel=ylabel, aspect='equal')
     for marker in markers or []:
         ax.plot(marker['x'],marker['y'],'o',mfc='white',mec='black',ms=4)
@@ -80,7 +83,9 @@ def contour_map(x, y, values, *, label, limits, output, xlabel, ylabel,
     save_figure(fig, output, {'x': x, 'y': y, 'values': raw.filled(np.nan),
                              'display_mask':display_mask,'finite_values_only':True,
                              'color_limits':limits,'levels':boundaries,
-                             'zero_centred_diverging':signed and limits[0]<0<limits[1]},data_output=data_output)
+                             'zero_centred_diverging':signed and limits[0]<0<limits[1],
+                             'normalization':'linear','symmetric_signed_limits':signed,
+                             'uniform_contour_levels':True},data_output=data_output)
 
 
 def quiver_map(x, y, transverse, axial, *, output, xlabel, ylabel,

@@ -10,10 +10,10 @@
     "us",
     "vs"
   ],
-  "confirmed_spatial_calibration_um_per_pixel": 7.25,
+  "confirmed_spatial_calibration_um_per_pixel": 5.35,
   "confirmed_pulse_separation_seconds": 2.5e-05,
-  "conditional_displacement_to_velocity_m_per_s_per_pixel": 0.29,
-  "calibration_source": "User-confirmed replacement PZT calibration: 7.25 micrometres/pixel; pulse separation 25 microseconds",
+  "conditional_displacement_to_velocity_m_per_s_per_pixel": 0.214,
+  "calibration_source": "User-confirmed 5.35 micrometres/pixel supersedes 5.05 and 7.25; pulse separation remains 25 microseconds",
   "confirmed_physical_convention": {
     "u": "horizontal/transverse, rightwards positive",
     "v": "vertical/axial, upwards positive",
@@ -21,12 +21,12 @@
     "y": "vertical/upwards"
   },
   "conditional_image_displacement_mapping": {
-    "u_m_s": "+0.290 us",
-    "v_m_s": "+0.290 vs"
+    "u_m_s": "+0.214 us",
+    "v_m_s": "+0.214 vs"
   },
-  "coordinate_scale": 0.00725,
+  "coordinate_scale": 0.00535,
   "coordinate_unit": "mm",
-  "velocity_scale": 0.29,
+  "velocity_scale": 0.214,
   "velocity_unit": "m/s",
   "component_mapping": [
     [
@@ -65,7 +65,7 @@
   "mapping_verified": false,
   "storage_units_verified": false,
   "vertical_sign_verified": false,
-  "mapping_note": "Adopted us/vs displacement convention; u=+0.290 us, v=+0.290 vs, no additional reflection or array transpose.",
+  "mapping_note": "Adopted us/vs displacement convention; u=+0.214 us, v=+0.214 vs; no additional reflection or array transpose.",
   "origin_definition": "Exported (0,0) image reference retained; x horizontal/rightward and y vertical/upward; no atomiser-centred origin",
   "working_assumptions": [
     "Adopted us/vs horizontal/vertical pixel displacements per image pair; retain stored signs.",
@@ -172,7 +172,10 @@
     }
   ],
   "output": "PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1",
-  "notes": "Final PZT calibration retained; all finite signed velocity values displayed, masks only for missing or invalid data.",
+  "notes": "Final PZT calibration 5.35 micrometres/pixel; full finite signed fields; symmetric linear diverging normalization with uniform contour levels.",
   "axial_contour_display": "full_field_signed",
-  "signed_contour_zero_level": true
+  "signed_contour_zero_level": true,
+  "signed_contour_normalization": "symmetric_linear",
+  "signed_contour_levels": "uniform",
+  "mean_component_limits": "own maximum absolute ensemble value; exclude flag diagnostics"
 }

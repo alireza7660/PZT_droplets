@@ -25,7 +25,7 @@ RENAME={'mean_v':'mean_U','mean_u':'mean_V','rms_v':'rms_U','rms_u':'rms_V',
         'mean_instantaneous_velocity_magnitude':'mean_instantaneous_velocity_magnitude',
         'covariance':'covariance','correlation':'correlation'}
 PALETTE=['#1f77b4','#ff7f0e','#2ca02c','#d62728']
-FULL_FIELD_NOTE='All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity; limits follow the actual range without symmetric endpoints.'
+FULL_FIELD_NOTE='All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity. Normalization is linear with symmetric limits and uniformly spaced contour levels; positive and negative ranges are not stretched separately.'
 
 
 def adopt(r):
@@ -41,7 +41,10 @@ def limits(arrays,signed=False,nonnegative=False):
     lo,hi=float(finite.min()),float(finite.max())
     if lo==hi:
         delta=max(abs(lo)*.01,1e-12);lo-=delta;hi+=delta
-    return [lo,hi] if signed else [0.,max(hi,np.finfo(float).eps)]
+    if signed:
+        extent=max(abs(lo),abs(hi),np.finfo(float).eps)
+        return [-extent,extent]
+    return [0.,max(hi,np.finfo(float).eps)]
 
 
 class Exporter:
@@ -195,10 +198,10 @@ def documentation(r,fields,cfg,out,ex,mainlimits):
 
 {intro}
 
-Calibration is 7.25 micrometres/pixel (0.00725 mm/pixel), replacing 5.05 for
-this PZT experiment only. Pulse separation is 25 microseconds. The adopted
+Calibration is {cfg['confirmed_spatial_calibration_um_per_pixel']:g} micrometres/pixel ({cfg['coordinate_scale']:g} mm/pixel), superseding both 5.05 and 7.25 for
+this PZT experiment only. Pulse separation is {cfg['confirmed_pulse_separation_seconds']*1e6:g} microseconds. The adopted
 export convention is us/vs as horizontal/vertical pixel displacements per
-pair, with retained signs: u=0.290 us and v=0.290 vs (m/s). The original HDF5
+pair, with retained signs: u={cfg['velocity_scale']:.3f} us and v={cfg['velocity_scale']:.3f} vs (m/s). The original HDF5
 is opened read-only, converted once at the instantaneous-sample stage, then
 all statistics are calculated. Naming is changed without transposing,
 rotating or reflecting arrays. The exported (0,0) image reference remains
@@ -215,10 +218,13 @@ gap filling or extrapolation is applied.
 contours, the station-location map and flag-specific mean-axial diagnostics.
 Profiles, PDFs/CDFs, quivers and numerical arrays also retain signed values.
 All component velocities, covariance and correlation use signed colour scales.
-Main limits are calculated from the actual ensemble and selected instantaneous
-frames; flag-specific extrema do not set ensemble colour limits. Diverging
-normalization centres zero consistently without imposing symmetric endpoints.
-Signed contour boundaries include zero exactly. Only cells touching genuinely
+Each mean component has symmetric limits set by its own maximum absolute
+ensemble value; flag diagnostics are excluded. Comparable instantaneous maps
+share symmetric limits from the selected frames. A single linear normalization
+maps the symmetric negative/positive range to blue-white-red, with near-zero
+velocities near white. No separate stretching of signs is applied. All contour
+levels are uniformly spaced, with zero included exactly for signed fields.
+Only cells touching genuinely
 missing or invalid nodes are omitted (corner_mask=False); finite negative
 measurements do not produce artificial cutouts.
 
@@ -230,7 +236,7 @@ same native rows without interpolation; PDFs are separate native-node histogram
 densities with unit integral and CDFs are exact empirical staircases. No frame
 independence, turbulence or absolute-uncertainty claim is made.
 
-Grid spacings are 0.464 mm horizontally and 0.116 mm vertically; these describe
+Grid spacings are {abs(float(r['xy'][0,0,1]-r['xy'][0,0,0])):g} mm horizontally and {abs(float(r['xy'][1,1,0]-r['xy'][1,0,0])):g} mm vertically; these describe
 vector spacing, not interrogation-window size or effective resolution.
 
 Regenerate from the PZT_droplets workspace root:
@@ -259,11 +265,11 @@ Regenerate from the PZT_droplets workspace root:
     summary['observed_grid_node_maximum']={'row':int(i),'column':int(j),
         'x_mm':float(r['xy'][0,i,j]),'y_mm':float(r['xy'][1,i,j]),'N':int(r['N'][i,j]),'mean_v_m_s':hi}
     write_json(out/'methods/summary.json',summary)
-    (out/'README.md').write_text(f'# PZT final results\n\nMean axial measured and contour range: {lo:.9g} to {hi:.9g} m/s. All finite signed measurements are displayed; only missing or invalid data are masked.\n\n{len(ex.manifest)} figures, with data links in methods/figure_manifest.json. Methods, captions and configuration are in methods/. All raw inputs and archived results are preserved.\n',encoding='utf-8')
+    (out/'README.md').write_text(f'# PZT final results\n\nCalibration: {cfg["confirmed_spatial_calibration_um_per_pixel"]:g} micrometres/pixel; conversion {cfg["velocity_scale"]:.3f} m/s per pixel displacement.\n\nMean axial measured range: {lo:.9g} to {hi:.9g} m/s. Linear symmetric contour range: {mainlimits["mean_v"][0]:.9g} to {mainlimits["mean_v"][1]:.9g} m/s. All finite signed measurements are displayed.\n\n{len(ex.manifest)} figures, with data links in methods/figure_manifest.json. Methods, captions and configuration are in methods/.\n',encoding='utf-8')
 
 
 def validate(r,fields,cfg,out,ex):
-    ratio=7.25/5.05;root=Path(__file__).resolve().parents[2]
+    ratio=cfg['velocity_scale']/.202;coordinate_ratio=cfg['coordinate_scale']/.00505;root=Path(__file__).resolve().parents[2]
     previous=root/'PZT_Atomiser_Analysis/provisional_calibrated/results/Batch4_Cam1_statistics.npz'
     checks={}
     with np.load(previous) as old:
@@ -274,8 +280,8 @@ def validate(r,fields,cfg,out,ex):
         np.testing.assert_array_equal(r['N'],old['N'])
         for newkey,oldkey in [('rms_u','rms_V'),('rms_v','rms_U')]:
             np.testing.assert_allclose(fields[newkey]**2,old[oldkey]**2*ratio**2,rtol=1e-10,atol=1e-12)
-        np.testing.assert_allclose(r['xy'][0],old['transverse_y_mm']*ratio,atol=1e-12)
-        np.testing.assert_allclose(r['xy'][1],old['axial_x_mm']*ratio,atol=1e-12)
+        np.testing.assert_allclose(r['xy'][0],old['transverse_y_mm']*coordinate_ratio,atol=1e-12)
+        np.testing.assert_allclose(r['xy'][1],old['axial_x_mm']*coordinate_ratio,atol=1e-12)
     from PIL import Image
     for entry in ex.manifest:
         for path in entry['files'].values():assert (out/path).stat().st_size>0
@@ -285,16 +291,48 @@ def validate(r,fields,cfg,out,ex):
             np.testing.assert_array_equal(z['display_mask'],~np.isfinite(z['values']))
             if z.get('zero_centred_diverging',False):
                 assert 0. in z['levels']
+                np.testing.assert_allclose(z['color_limits'][0],-z['color_limits'][1])
+                assert str(z['normalization'])=='linear'
+            np.testing.assert_allclose(np.diff(z['levels']),np.diff(z['levels'])[0],rtol=1e-12,atol=1e-14)
         if 'bin_edges' in z:
             for key in z.files:
                 if key.endswith('_pdf'):np.testing.assert_allclose(np.sum(z[key]*np.diff(z['bin_edges'])),1.,atol=1e-12)
     with np.load(out/'data/plot_data/mean_v.npz') as p:
         np.testing.assert_array_equal(p['values'],fields['mean_v'])
+    for key in ['mean_u','mean_v']:
+        with np.load(out/'data/plot_data'/f'{key}.npz') as p:
+            extent=np.nanmax(abs(fields[key]))
+            np.testing.assert_allclose(p['color_limits'],[-extent,extent],rtol=1e-14)
+    # Compare the superseded 7.25 result as a second independent scale reference.
+    reference=out/'diagnostics/calibration_reference_7p25'
+    ratio_7p25=cfg['velocity_scale']/.290
+    if (reference/'statistics.npz').exists():
+        with np.load(reference/'statistics.npz') as old:
+            for key,value in fields.items():
+                factor=1 if key=='correlation' else ratio_7p25**2 if key=='covariance' else ratio_7p25
+                np.testing.assert_allclose(value,old[key]*factor,rtol=1e-10,atol=1e-10,equal_nan=True)
+            np.testing.assert_array_equal(r['N'],old['N'])
+            np.testing.assert_allclose(r['xy'][0],old['x_mm']*cfg['coordinate_scale']/.00725,atol=1e-12)
+            np.testing.assert_allclose(r['xy'][1],old['y_mm']*cfg['coordinate_scale']/.00725,atol=1e-12)
+        prior_cfg=json.loads((reference/'configuration_used.json').read_text())
+        for key in ['components','component_mapping','coordinate_mapping','transform','origin',
+                    'valid_flag_values','stations','profile_rows','representative_quantiles']:
+            assert cfg[key]==prior_cfg[key],key
+    with h5py.File(root/cfg['conditions'][0]['path'],'r') as source:
+        keys=json.loads((out/'methods/summary.json').read_text())['selected_frame_keys']
+        for frame in keys:
+            with np.load(out/'data'/f'frame_{frame}.npz') as saved:
+                np.testing.assert_allclose(saved['u'],source[f'PIV FIELDS/{frame}/us'][:].astype(float)*cfg['velocity_scale'],rtol=1e-14,atol=1e-14)
+                np.testing.assert_allclose(saved['v'],source[f'PIV FIELDS/{frame}/vs'][:].astype(float)*cfg['velocity_scale'],rtol=1e-14,atol=1e-14)
     table=np.genfromtxt(out/'data/spatial_statistics.csv',delimiter=',',names=True)
     for key,z in fields.items():np.testing.assert_allclose(table[key],z.ravel(),equal_nan=True)
-    write_json(out/'methods/validation.json',{'calibration_ratio':ratio,'scaling_max_absolute_errors':checks,
+    write_json(out/'methods/validation.json',{'calibration_ratio_to_5p05':ratio,
+        'calibration_ratio_to_7p25':ratio_7p25,'scaling_max_absolute_errors':checks,
+        'instantaneous_arrays_match_original_displacements_scaled_once':True,
+        'mean_component_limits_use_own_ensemble_max_abs':True,
         'counts_and_correlations_unchanged':True,'cartesian_rename_without_transpose_or_reflection':True,
         'signed_values_preserved':True,'only_missing_or_invalid_values_masked':True,
+        'symmetric_linear_normalization':True,'uniform_contour_levels':True,
         'png_600_dpi':True,'all_exports_present':True,'histogram_integrals':True,'csv_matches_npz':True})
 
 
@@ -309,7 +347,7 @@ def run(config_path):
                          'axes.spines.top':True,'axes.spines.right':True,
                          'axes.prop_cycle':plt.cycler(color=PALETTE)})
     path=root/cfg['conditions'][0]['path'];before=(path.stat().st_size,path.stat().st_mtime_ns)
-    print('Recalculating from original HDF5 at 7.25 micrometres/pixel.',flush=True)
+    print(f'Recalculating from original HDF5 at {cfg["confirmed_spatial_calibration_um_per_pixel"]:g} micrometres/pixel.',flush=True)
     r=calculate(path,cfg);fields=adopt(r)
     save_data(r,fields,cfg,out)
     ex=Exporter(out);mainlimits=render(r,fields,cfg,out,ex)

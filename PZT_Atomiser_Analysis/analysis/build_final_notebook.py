@@ -1,5 +1,6 @@
 """Create and execute the Cartesian, corrected-calibration final notebook."""
 import asyncio
+import json
 import os
 from pathlib import Path
 import shutil
@@ -17,21 +18,25 @@ def main():
     runtime.mkdir(parents=True,exist_ok=True);os.environ['JUPYTER_RUNTIME_DIR']=str(runtime)
     if sys.platform=='win32':asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     b=nb.v4.new_notebook()
+    active=json.loads((project/'config/analysis.json').read_text())
     b.metadata.kernelspec={'display_name':'Python (PZT workspace)','language':'python','name':'python3'}
-    b.cells=[nb.v4.new_markdown_cell('''# PZT atomiser final analysis
+    b.cells=[nb.v4.new_markdown_cell(f'''# PZT atomiser final analysis
 
-The corrected PZT calibration is 7.25 micrometres/pixel with pulse separation
-25 microseconds: instantaneous pixel displacements are converted once by
-0.290 m/s. Cartesian x/u is horizontal/transverse; y/v is vertical/axial.
+The PZT calibration is {active['confirmed_spatial_calibration_um_per_pixel']:g} micrometres/pixel with pulse separation
+{active['confirmed_pulse_separation_seconds']*1e6:g} microseconds: instantaneous pixel displacements are converted once by
+{active['velocity_scale']:.3f} m/s. This calibration supersedes both 5.05 and 7.25.
+Cartesian x/u is horizontal/transverse; y/v is vertical/axial.
 Naming changes do not transpose, rotate or reflect the field. The exported
 image-reference origin and existing station indices/frame keys are retained.
 
 Mean and instantaneous axial contours, including the station map, display
 all finite signed measurements. Blue is negative, white is zero and red is
-positive. Actual asymmetric data limits are retained; signed contour levels
-include zero exactly and selected instantaneous fields share limits.
-Only genuinely missing or invalid data are masked. Numerical values,
-statistics, profiles, distributions and vector orientation remain unchanged.
+positive. Symmetric limits and one linear normalization are used, with
+uniformly spaced contour levels and no separate stretching of signs. Each
+mean component uses its own maximum absolute ensemble value, excluding flag
+diagnostics. Selected instantaneous fields share limits. Only missing or
+invalid data are masked. Values are recalculated from the original displacement
+samples; sample selection, station indices, averaging and orientation are retained.
 '''),nb.v4.new_code_cell('''from pathlib import Path
 import sys,json
 root=Path.cwd().resolve()
@@ -41,7 +46,8 @@ while not (root/'RAW_data').exists():
 sys.path.insert(0,str(root))
 config_path=root/'PZT_Atomiser_Analysis/config/analysis.json'
 config=json.loads(config_path.read_text())
-assert config['velocity_scale']==0.290
+from math import isclose
+assert isclose(config['velocity_scale'],config['confirmed_spatial_calibration_um_per_pixel']*1e-6/config['confirmed_pulse_separation_seconds'])
 print(json.dumps(config,indent=2))
 '''),nb.v4.new_code_cell('''from PZT_Atomiser_Analysis.analysis.pipeline import run
 results=run(config_path)

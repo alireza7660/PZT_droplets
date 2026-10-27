@@ -8,7 +8,7 @@
       "png": "figures\\mean_v.png"
     },
     "numerical_source": "data\\plot_data\\mean_v.npz",
-    "caption": "Mean axial velocity $\\overline{v}$. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity; limits follow the actual range without symmetric endpoints.",
+    "caption": "Mean axial velocity $\\overline{v}$. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity. Normalization is linear with symmetric limits and uniformly spaced contour levels; positive and negative ranges are not stretched separately.",
     "display_policy": "all_finite_values"
   },
   {
@@ -116,7 +116,7 @@
       "png": "figures\\frame_1_v.png"
     },
     "numerical_source": "data\\plot_data\\frame_1_v.npz",
-    "caption": "Numeric field key 1: instantaneous axial velocity $v$. Shared limits are calculated from the three selected frames. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity; limits follow the actual range without symmetric endpoints.",
+    "caption": "Numeric field key 1: instantaneous axial velocity $v$. Shared limits are calculated from the three selected frames. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity. Normalization is linear with symmetric limits and uniformly spaced contour levels; positive and negative ranges are not stretched separately.",
     "display_policy": "all_finite_values"
   },
   {
@@ -164,7 +164,7 @@
       "png": "figures\\frame_879_v.png"
     },
     "numerical_source": "data\\plot_data\\frame_879_v.npz",
-    "caption": "Numeric field key 879: instantaneous axial velocity $v$. Shared limits are calculated from the three selected frames. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity; limits follow the actual range without symmetric endpoints.",
+    "caption": "Numeric field key 879: instantaneous axial velocity $v$. Shared limits are calculated from the three selected frames. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity. Normalization is linear with symmetric limits and uniformly spaced contour levels; positive and negative ranges are not stretched separately.",
     "display_policy": "all_finite_values"
   },
   {
@@ -212,7 +212,7 @@
       "png": "figures\\frame_1757_v.png"
     },
     "numerical_source": "data\\plot_data\\frame_1757_v.npz",
-    "caption": "Numeric field key 1757: instantaneous axial velocity $v$. Shared limits are calculated from the three selected frames. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity; limits follow the actual range without symmetric endpoints.",
+    "caption": "Numeric field key 1757: instantaneous axial velocity $v$. Shared limits are calculated from the three selected frames. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity. Normalization is linear with symmetric limits and uniformly spaced contour levels; positive and negative ranges are not stretched separately.",
     "display_policy": "all_finite_values"
   },
   {
@@ -248,7 +248,7 @@
       "png": "figures\\sampling_stations.png"
     },
     "numerical_source": "data\\plot_data\\sampling_stations.npz",
-    "caption": "Configured PDF/CDF nodes on the mean axial-velocity field; profiles use rows 287, 159 and 32. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity; limits follow the actual range without symmetric endpoints.",
+    "caption": "Configured PDF/CDF nodes on the mean axial-velocity field; profiles use rows 287, 159 and 32. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity. Normalization is linear with symmetric limits and uniformly spaced contour levels; positive and negative ranges are not stretched separately.",
     "display_policy": "all_finite_values"
   },
   {
@@ -320,7 +320,7 @@
       "png": "diagnostics\\figures\\flag_0_mean_v.png"
     },
     "numerical_source": "diagnostics\\plot_data\\flag_0_mean_v.npz",
-    "caption": "Flag 0 population sensitivity: Mean axial velocity $\\overline{v}$. Diagnostic limits are independent of ensemble limits. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity; limits follow the actual range without symmetric endpoints.",
+    "caption": "Flag 0 population sensitivity: Mean axial velocity $\\overline{v}$. Diagnostic limits are independent of ensemble limits. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity. Normalization is linear with symmetric limits and uniformly spaced contour levels; positive and negative ranges are not stretched separately.",
     "display_policy": "all_finite_values"
   },
   {
@@ -392,7 +392,7 @@
       "png": "diagnostics\\figures\\flag_1_mean_v.png"
     },
     "numerical_source": "diagnostics\\plot_data\\flag_1_mean_v.npz",
-    "caption": "Flag 1 population sensitivity: Mean axial velocity $\\overline{v}$. Diagnostic limits are independent of ensemble limits. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity; limits follow the actual range without symmetric endpoints.",
+    "caption": "Flag 1 population sensitivity: Mean axial velocity $\\overline{v}$. Diagnostic limits are independent of ensemble limits. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity. Normalization is linear with symmetric limits and uniformly spaced contour levels; positive and negative ranges are not stretched separately.",
     "display_policy": "all_finite_values"
   },
   {
