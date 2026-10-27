@@ -1,0 +1,13 @@
+{
+  "figure_count": 51,
+  "formats_complete": true,
+  "png_dpi": 600,
+  "histogram_integrals": true,
+  "color_ranges_cover_data": true,
+  "csv_matches_fields": true,
+  "station_checks": true,
+  "stored_mean_checks": true,
+  "flag_counts_partition_finite_pairs": true,
+  "synthetic_reflection_covariance_check": true,
+  "synthetic_coordinate_arrow_consistency": true
+}

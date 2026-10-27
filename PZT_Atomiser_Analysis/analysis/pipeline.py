@@ -175,6 +175,9 @@ def plot_results(results, cfg, out):
 def run(config_path):
     config_path = Path(config_path).resolve()
     cfg = json.loads(config_path.read_text())
+    if cfg.get('analysis_status') in ['provisional_calibrated','confirmed_calibrated']:
+        from .calibrated import run as calibrated_run
+        return calibrated_run(config_path)
     root = config_path.parents[2]
     out = root/cfg['output']
     for d in ['results','figures','diagnostics','Report_Files/Images']:

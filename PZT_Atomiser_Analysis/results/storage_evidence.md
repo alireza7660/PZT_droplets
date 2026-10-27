@@ -1,5 +1,12 @@
 # Storage-convention evidence audit
 
+**Follow-up:** The targeted sibling ZNMF comparison is now documented in
+`znmf_comparison.md` and `znmf_comparison.json`. It supersedes the broad
+source-project request below: software screenshots, saved settings and
+version-specific format/flag documentation are acceptable evidence; an
+entire source-code project is not required. The initial inventory below was
+limited to the PZT workspace and did not include the sibling ZNMF workflow.
+
 The supplied physical calibration is confirmed: 5.05 micrometres/pixel,
 25 microseconds between PIV pulses, spray upwards, axial U positive upwards,
 transverse V positive rightwards. The missing evidence is the original

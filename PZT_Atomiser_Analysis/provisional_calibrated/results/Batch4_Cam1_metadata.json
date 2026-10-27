@@ -1,0 +1,110 @@
+{
+  "frames": 1757,
+  "shape": [
+    319,
+    80
+  ],
+  "population": "finite-pair population",
+  "N_min": 1757,
+  "N_max": 1757,
+  "independent_station_checks": [
+    {
+      "station": "S1",
+      "population": "finite_pair",
+      "N": 1757,
+      "passed": true
+    },
+    {
+      "station": "S1",
+      "population": "flag_0",
+      "N": 226,
+      "passed": true
+    },
+    {
+      "station": "S1",
+      "population": "flag_1",
+      "N": 1531,
+      "passed": true
+    },
+    {
+      "station": "S2",
+      "population": "finite_pair",
+      "N": 1757,
+      "passed": true
+    },
+    {
+      "station": "S2",
+      "population": "flag_0",
+      "N": 97,
+      "passed": true
+    },
+    {
+      "station": "S2",
+      "population": "flag_1",
+      "N": 1660,
+      "passed": true
+    },
+    {
+      "station": "S3",
+      "population": "finite_pair",
+      "N": 1757,
+      "passed": true
+    },
+    {
+      "station": "S3",
+      "population": "flag_0",
+      "N": 92,
+      "passed": true
+    },
+    {
+      "station": "S3",
+      "population": "flag_1",
+      "N": 1665,
+      "passed": true
+    },
+    {
+      "station": "S4",
+      "population": "finite_pair",
+      "N": 1757,
+      "passed": true
+    },
+    {
+      "station": "S4",
+      "population": "flag_0",
+      "N": 64,
+      "passed": true
+    },
+    {
+      "station": "S4",
+      "population": "flag_1",
+      "N": 1693,
+      "passed": true
+    },
+    {
+      "station": "S5",
+      "population": "finite_pair",
+      "N": 1757,
+      "passed": true
+    },
+    {
+      "station": "S5",
+      "population": "flag_0",
+      "N": 113,
+      "passed": true
+    },
+    {
+      "station": "S5",
+      "population": "flag_1",
+      "N": 1644,
+      "passed": true
+    }
+  ],
+  "converted_stored_mean_checks": {
+    "mean_V": 5.828670879282072e-16,
+    "mean_U": 5.10702591327572e-15
+  },
+  "flag_counts": {
+    "0": 1097567,
+    "1": 43741073
+  }
+}

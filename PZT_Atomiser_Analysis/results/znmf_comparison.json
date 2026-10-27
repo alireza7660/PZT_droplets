@@ -1,0 +1,770 @@
+{
+  "files": {
+    "PZT": {
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\RAW_data\\Batch4_Cam1.h5",
+      "bytes": 1082569560,
+      "root_groups": [
+        "PARAMETERS",
+        "PIV FIELDS",
+        "STATISTICS"
+      ],
+      "dataset_count": 10565,
+      "all_nonempty_attributes": {},
+      "parameters": {
+        "Lc": 1.0,
+        "NumberOfFields": 1757,
+        "Uc": 1.0,
+        "Xorigin": 0.0,
+        "Yorigin": 0.0,
+        "calib": 0,
+        "dt": 1.0,
+        "nondim": 0,
+        "nx": 80,
+        "ny": 319,
+        "scale": 1.0,
+        "stats": 1,
+        "viscosity": 1.0
+      },
+      "parameter_names": [
+        "Lc",
+        "NumberOfFields",
+        "Uc",
+        "Xorigin",
+        "Yorigin",
+        "calib",
+        "dt",
+        "nondim",
+        "nx",
+        "ny",
+        "scale",
+        "stats",
+        "viscosity",
+        "x",
+        "y"
+      ],
+      "coordinates": {
+        "x": {
+          "shape": [
+            80
+          ],
+          "dtype": "float32",
+          "range": [
+            31.0,
+            5087.0
+          ],
+          "unique_steps": [
+            64.0
+          ]
+        },
+        "y": {
+          "shape": [
+            319
+          ],
+          "dtype": "float32",
+          "range": [
+            5104.0,
+            16.0
+          ],
+          "unique_steps": [
+            -16.0
+          ]
+        }
+      },
+      "fields": 1757,
+      "first_last_keys": [
+        "1",
+        "1757"
+      ],
+      "first_field_schema": {
+        "flag": {
+          "shape": [
+            319,
+            80
+          ],
+          "dtype": "int32"
+        },
+        "omega": {
+          "shape": [
+            319,
+            80
+          ],
+          "dtype": "float32"
+        },
+        "u": {
+          "shape": [
+            319,
+            80
+          ],
+          "dtype": "float32"
+        },
+        "us": {
+          "shape": [
+            319,
+            80
+          ],
+          "dtype": "float32"
+        },
+        "v": {
+          "shape": [
+            319,
+            80
+          ],
+          "dtype": "float32"
+        },
+        "vs": {
+          "shape": [
+            319,
+            80
+          ],
+          "dtype": "float32"
+        }
+      },
+      "statistics_schema": {
+        "NoSamples": {
+          "shape": [],
+          "dtype": "int64"
+        },
+        "Omega": {
+          "shape": [
+            319,
+            80
+          ],
+          "dtype": "float64"
+        },
+        "U": {
+          "shape": [
+            319,
+            80
+          ],
+          "dtype": "float64"
+        },
+        "V": {
+          "shape": [
+            319,
+            80
+          ],
+          "dtype": "float64"
+        },
+        "omega_sq": {
+          "shape": [
+            319,
+            80
+          ],
+          "dtype": "float64"
+        },
+        "uu": {
+          "shape": [
+            319,
+            80
+          ],
+          "dtype": "float64"
+        },
+        "uv": {
+          "shape": [
+            319,
+            80
+          ],
+          "dtype": "float64"
+        },
+        "vv": {
+          "shape": [
+            319,
+            80
+          ],
+          "dtype": "float64"
+        }
+      },
+      "NoSamples": 1757
+    },
+    "ZNMF_FOV1": {
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Raw data\\First_location\\Batch4_Cam1.h5",
+      "bytes": 2432098448,
+      "root_groups": [
+        "PARAMETERS",
+        "PIV FIELDS",
+        "STATISTICS"
+      ],
+      "dataset_count": 24023,
+      "all_nonempty_attributes": {},
+      "parameters": {
+        "Lc": 1.0,
+        "NumberOfFields": 4000,
+        "Uc": 1.0,
+        "Xorigin": 0.0,
+        "Yorigin": 0.0,
+        "calib": 0,
+        "dt": 1.0,
+        "nondim": 0,
+        "nx": 79,
+        "ny": 319,
+        "scale": 1.0,
+        "stats": 1,
+        "viscosity": 1.0
+      },
+      "parameter_names": [
+        "Lc",
+        "NumberOfFields",
+        "Uc",
+        "Xorigin",
+        "Yorigin",
+        "calib",
+        "dt",
+        "nondim",
+        "nx",
+        "ny",
+        "scale",
+        "stats",
+        "viscosity",
+        "x",
+        "y"
+      ],
+      "coordinates": {
+        "x": {
+          "shape": [
+            79
+          ],
+          "dtype": "float32",
+          "range": [
+            63.0,
+            5055.0
+          ],
+          "unique_steps": [
+            64.0
+          ]
+        },
+        "y": {
+          "shape": [
+            319
+          ],
+          "dtype": "float32",
+          "range": [
+            5104.0,
+            16.0
+          ],
+          "unique_steps": [
+            -16.0
+          ]
+        }
+      },
+      "fields": 4000,
+      "first_last_keys": [
+        "1",
+        "4000"
+      ],
+      "first_field_schema": {
+        "flag": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "int32"
+        },
+        "omega": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float32"
+        },
+        "u": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float32"
+        },
+        "us": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float32"
+        },
+        "v": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float32"
+        },
+        "vs": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float32"
+        }
+      },
+      "statistics_schema": {
+        "NoSamples": {
+          "shape": [],
+          "dtype": "int64"
+        },
+        "Omega": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        },
+        "U": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        },
+        "V": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        },
+        "omega_sq": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        },
+        "uu": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        },
+        "uv": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        },
+        "vv": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        }
+      },
+      "NoSamples": 4000
+    },
+    "ZNMF_FOV2": {
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Raw data\\Second_location\\Batch4_second_Cam1.h5",
+      "bytes": 2340949808,
+      "root_groups": [
+        "PARAMETERS",
+        "PIV FIELDS",
+        "STATISTICS"
+      ],
+      "dataset_count": 23123,
+      "all_nonempty_attributes": {},
+      "parameters": {
+        "Lc": 1.0,
+        "NumberOfFields": 3850,
+        "Uc": 1.0,
+        "Xorigin": 0.0,
+        "Yorigin": 0.0,
+        "calib": 0,
+        "dt": 1.0,
+        "nondim": 0,
+        "nx": 79,
+        "ny": 319,
+        "scale": 1.0,
+        "stats": 1,
+        "viscosity": 1.0
+      },
+      "parameter_names": [
+        "Lc",
+        "NumberOfFields",
+        "Uc",
+        "Xorigin",
+        "Yorigin",
+        "calib",
+        "dt",
+        "nondim",
+        "nx",
+        "ny",
+        "scale",
+        "stats",
+        "viscosity",
+        "x",
+        "y"
+      ],
+      "coordinates": {
+        "x": {
+          "shape": [
+            79
+          ],
+          "dtype": "float32",
+          "range": [
+            63.0,
+            5055.0
+          ],
+          "unique_steps": [
+            64.0
+          ]
+        },
+        "y": {
+          "shape": [
+            319
+          ],
+          "dtype": "float32",
+          "range": [
+            5104.0,
+            16.0
+          ],
+          "unique_steps": [
+            -16.0
+          ]
+        }
+      },
+      "fields": 3850,
+      "first_last_keys": [
+        "1",
+        "3850"
+      ],
+      "first_field_schema": {
+        "flag": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "int32"
+        },
+        "omega": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float32"
+        },
+        "u": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float32"
+        },
+        "us": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float32"
+        },
+        "v": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float32"
+        },
+        "vs": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float32"
+        }
+      },
+      "statistics_schema": {
+        "NoSamples": {
+          "shape": [],
+          "dtype": "int64"
+        },
+        "Omega": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        },
+        "U": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        },
+        "V": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        },
+        "omega_sq": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        },
+        "uu": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        },
+        "uv": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        },
+        "vv": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        }
+      },
+      "NoSamples": 3850
+    },
+    "ZNMF_FOV3": {
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Raw data\\Third_location\\Batch4_third_Cam1.h5",
+      "bytes": 2298413696,
+      "root_groups": [
+        "PARAMETERS",
+        "PIV FIELDS",
+        "STATISTICS"
+      ],
+      "dataset_count": 22703,
+      "all_nonempty_attributes": {},
+      "parameters": {
+        "Lc": 1.0,
+        "NumberOfFields": 3780,
+        "Uc": 1.0,
+        "Xorigin": 0.0,
+        "Yorigin": 0.0,
+        "calib": 0,
+        "dt": 1.0,
+        "nondim": 0,
+        "nx": 79,
+        "ny": 319,
+        "scale": 1.0,
+        "stats": 1,
+        "viscosity": 1.0
+      },
+      "parameter_names": [
+        "Lc",
+        "NumberOfFields",
+        "Uc",
+        "Xorigin",
+        "Yorigin",
+        "calib",
+        "dt",
+        "nondim",
+        "nx",
+        "ny",
+        "scale",
+        "stats",
+        "viscosity",
+        "x",
+        "y"
+      ],
+      "coordinates": {
+        "x": {
+          "shape": [
+            79
+          ],
+          "dtype": "float32",
+          "range": [
+            63.0,
+            5055.0
+          ],
+          "unique_steps": [
+            64.0
+          ]
+        },
+        "y": {
+          "shape": [
+            319
+          ],
+          "dtype": "float32",
+          "range": [
+            5104.0,
+            16.0
+          ],
+          "unique_steps": [
+            -16.0
+          ]
+        }
+      },
+      "fields": 3780,
+      "first_last_keys": [
+        "1",
+        "3780"
+      ],
+      "first_field_schema": {
+        "flag": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "int32"
+        },
+        "omega": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float32"
+        },
+        "u": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float32"
+        },
+        "us": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float32"
+        },
+        "v": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float32"
+        },
+        "vs": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float32"
+        }
+      },
+      "statistics_schema": {
+        "NoSamples": {
+          "shape": [],
+          "dtype": "int64"
+        },
+        "Omega": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        },
+        "U": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        },
+        "V": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        },
+        "omega_sq": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        },
+        "uu": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        },
+        "uv": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        },
+        "vv": {
+          "shape": [
+            319,
+            79
+          ],
+          "dtype": "float64"
+        }
+      },
+      "NoSamples": 3780
+    }
+  },
+  "comparisons": {
+    "ZNMF_FOV1": {
+      "same_root_groups": true,
+      "same_parameter_names": true,
+      "parameter_differences": {
+        "nx": {
+          "PZT": 80,
+          "ZNMF": 79
+        },
+        "NumberOfFields": {
+          "PZT": 1757,
+          "ZNMF": 4000
+        }
+      },
+      "same_field_dataset_names_and_dtypes": true,
+      "same_statistics_names_and_dtypes": true,
+      "same_y_coordinate_definition": true,
+      "software_version_identity_verified": false,
+      "run_export_settings_identity_verified": false,
+      "flag_semantics_verified": false
+    },
+    "ZNMF_FOV2": {
+      "same_root_groups": true,
+      "same_parameter_names": true,
+      "parameter_differences": {
+        "nx": {
+          "PZT": 80,
+          "ZNMF": 79
+        },
+        "NumberOfFields": {
+          "PZT": 1757,
+          "ZNMF": 3850
+        }
+      },
+      "same_field_dataset_names_and_dtypes": true,
+      "same_statistics_names_and_dtypes": true,
+      "same_y_coordinate_definition": true,
+      "software_version_identity_verified": false,
+      "run_export_settings_identity_verified": false,
+      "flag_semantics_verified": false
+    },
+    "ZNMF_FOV3": {
+      "same_root_groups": true,
+      "same_parameter_names": true,
+      "parameter_differences": {
+        "nx": {
+          "PZT": 80,
+          "ZNMF": 79
+        },
+        "NumberOfFields": {
+          "PZT": 1757,
+          "ZNMF": 3780
+        }
+      },
+      "same_field_dataset_names_and_dtypes": true,
+      "same_statistics_names_and_dtypes": true,
+      "same_y_coordinate_definition": true,
+      "software_version_identity_verified": false,
+      "run_export_settings_identity_verified": false,
+      "flag_semantics_verified": false
+    }
+  }
+}
