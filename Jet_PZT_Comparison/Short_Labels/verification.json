@@ -1,0 +1,51 @@
+{
+  "inputs": [
+    {
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Final_Result\\tables\\FOV_1_2_3_centreline_and_width.csv",
+      "sha256": "6a9817f48ba3f47da571cfc79c239df79e3c32c954dc3903d755631c3caa9efd"
+    },
+    {
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\data\\mean_v_vertical_profile.csv",
+      "sha256": "f0a32da66171f050ba582f56978458577abeef7062f0827db38d2c9ce0b2cd04"
+    }
+  ],
+  "znmf_coordinate_column": "x_over_D0",
+  "znmf_coordinate_multiplier_to_mm": 2.0,
+  "znmf_full_domain_maximum": {
+    "x_over_D0": 25.20959999999999,
+    "velocity_m_s": 2.680478380412314
+  },
+  "axis_limits_mm": [
+    0,
+    27
+  ],
+  "vertical_limits_m_s": [
+    0,
+    2.4000000000000004
+  ],
+  "datasets": [
+    {
+      "dataset": "znmf",
+      "count": 75,
+      "s_range_mm": [
+        2.262399999999999,
+        26.82559999999999
+      ],
+      "maximum_m_s": 2.070241610919579,
+      "csv_roundtrip_exact": true
+    },
+    {
+      "dataset": "pzt",
+      "count": 315,
+      "s_range_mm": [
+        0.0856,
+        26.964
+      ],
+      "maximum_m_s": 1.6865481421305646,
+      "csv_roundtrip_exact": true
+    }
+  ],
+  "plotted_arrays_match_sources": true,
+  "original_sources_unchanged": true,
+  "velocity_recalibration_applied": false
+}
