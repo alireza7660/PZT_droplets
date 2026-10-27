@@ -13,7 +13,7 @@
   "counts_and_correlations_unchanged": true,
   "cartesian_rename_without_transpose_or_reflection": true,
   "signed_values_preserved": true,
-  "axial_negative_display_mask_verified": true,
+  "only_missing_or_invalid_values_masked": true,
   "png_600_dpi": true,
   "all_exports_present": true,
   "histogram_integrals": true,

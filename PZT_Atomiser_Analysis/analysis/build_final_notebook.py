@@ -26,10 +26,12 @@ The corrected PZT calibration is 7.25 micrometres/pixel with pulse separation
 Naming changes do not transpose, rotate or reflect the field. The exported
 image-reference origin and existing station indices/frame keys are retained.
 
-Mean and instantaneous axial contour displays mask negative values and start
-at zero. The saved data, statistics, profiles, distributions and quivers retain
-all signed measurements. Transverse velocity, covariance and correlation
-remain signed displays. This choice is a rendering policy, not sample rejection.
+Mean and instantaneous axial contours, including the station map, display
+all finite signed measurements. Blue is negative, white is zero and red is
+positive. Actual asymmetric data limits are retained; signed contour levels
+include zero exactly and selected instantaneous fields share limits.
+Only genuinely missing or invalid data are masked. Numerical values,
+statistics, profiles, distributions and vector orientation remain unchanged.
 '''),nb.v4.new_code_cell('''from pathlib import Path
 import sys,json
 root=Path.cwd().resolve()

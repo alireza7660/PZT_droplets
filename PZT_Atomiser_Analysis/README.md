@@ -1,4 +1,4 @@
-﻿# PZT atomiser final analysis
+# PZT atomiser final analysis
 
 The active configuration is `config/analysis.json`. Final deliverables are in
 `Final_Results/Batch4_Cam1/`, with figures, data, diagnostics and methods
@@ -36,27 +36,21 @@ rotated or additionally reflected. The origin is not an inferred outlet.
 The adopted export/component convention is stated once in the final methods.
 No PZT calibration change is applied to any ZNMF source or result.
 
-## Axial contours: display policy only
+## Full-field signed contours
 
-Mean and instantaneous axial-velocity contour maps display only values >= 0,
-with a sequential colour scale starting at zero. Negative nodes are masked,
-not replaced with zero or absolute values. Cells touching a masked node are
-omitted without gap filling. Every contour NPZ contains the full signed values
-and a separate display_mask. This also applies to the station-location map and
-flag-specific mean-axial contour diagnostics. Captions state the display choice.
+Mean and instantaneous axial-velocity contours, the station-location map and
+flag-specific axial diagnostics show every finite signed measurement. Masks
+apply only to genuinely missing or invalid data. Blue-white-red maps negative
+values to blue, zero to white and positive values to red. Limits follow the
+actual data range without symmetric endpoints. Signed contour levels include
+zero exactly. Comparable instantaneous fields share limits across the three
+selected frames. No clipping, absolute values, filtering or gap filling is used.
 
-Statistics, numerical arrays/CSV, PDFs/CDFs, profiles and vector arrows retain
-all signed component values. Transverse velocity, covariance and correlation
-retain signed colour scales. Mean in-plane velocity-vector magnitude and mean
-instantaneous in-plane velocity magnitude remain distinct supplementary results.
-
-The finite-pair population requires both us and vs finite, without flag-code
-rejection. Flag counts and code-specific mean/RMS diagnostics remain separate
-and do not set main-ensemble colour limits. Main mean-v colour limits start at
-zero and reach the actual nonnegative maximum. Other signed field limits use
-actual finite ensemble values and a zero-centred diverging normalization.
-Selected instantaneous fields share colour limits. No filtering, smoothing,
-extrapolation, gap filling or new jet-fit/width analysis is introduced.
+Calibration, component signs, Cartesian coordinates, sample populations,
+statistics, profiles, distributions and vector arrows are unchanged. Every
+contour NPZ stores full values and a mask identifying only invalid data. Main
+colour limits exclude flag-specific diagnostic extremes. The two in-plane
+velocity magnitude definitions remain distinct supplementary quantities.
 
 ## Final deliverables and verification
 
@@ -74,7 +68,7 @@ Validation checks scaling against the archived 5.05 calibration: velocities,
 RMS and coordinates scale by 7.25/5.05; variances and covariance by its square;
 correlations and counts remain unchanged. Station rows/columns and field keys
 are retained. Numerical signed fields are checked independently of their
-nonnegative axial display masks. Methods and captions explain axes once;
+full-field validity masks. Methods and captions explain axes once;
 figures use concise Cartesian mathematical labels without titles.
 
 Reusable entry points are `analysis/final_analysis.py`, the shared streaming

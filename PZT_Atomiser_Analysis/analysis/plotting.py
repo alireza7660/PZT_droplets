@@ -40,8 +40,20 @@ def save_figure(fig, stem, data, *, data_output=None):
     plt.close(fig)
 
 
+def contour_boundaries(limits,levels=41,signed=False):
+    """Span actual endpoints, resolving both sides of zero without symmetric limits."""
+    if np.isscalar(levels):
+        count=max(3,int(levels))
+        if signed and limits[0]<0<limits[1]:
+            below=(count-1)//2;above=count-1-below
+            return np.r_[np.linspace(limits[0],0.,below+1),np.linspace(0.,limits[1],above+1)[1:]]
+        return np.linspace(*limits,count)
+    boundaries=np.asarray(levels,float)
+    return np.unique(np.r_[boundaries,0.]) if signed and limits[0]<0<limits[1] else boundaries
+
+
 def contour_map(x, y, values, *, label, limits, output, xlabel, ylabel,
-                signed=False, levels=41, mask_negative_display=False, data_output=None,
+                signed=False, levels=41, data_output=None,
                 markers=None):
     """Piecewise contour interpolation only within fully valid native grid cells.
 
@@ -51,13 +63,11 @@ def contour_map(x, y, values, *, label, limits, output, xlabel, ylabel,
     """
     raw=np.ma.masked_invalid(np.ma.asarray(values,dtype=float))
     display_mask=np.ma.getmaskarray(raw).copy()
-    if mask_negative_display:
-        if limits[0] != 0:raise ValueError('Nonnegative axial display must start at zero')
-        display_mask |= raw.filled(np.nan)<0
     z=np.ma.array(raw.data,mask=display_mask)
+    boundaries=contour_boundaries(limits,levels,signed)
     fig, ax = plt.subplots(figsize=(6.2, 5.0), layout='constrained')
     norm=TwoSlopeNorm(vmin=limits[0],vcenter=0.,vmax=limits[1]) if signed and limits[0]<0<limits[1] else Normalize(*limits)
-    m = ax.contourf(x, y, z, levels=np.linspace(*limits, levels),norm=norm,
+    m = ax.contourf(x, y, z, levels=boundaries,norm=norm,
                     cmap='RdBu_r' if signed else 'viridis',
                     corner_mask=False, antialiased=False)
     cb=fig.colorbar(m, ax=ax, label=label)
@@ -68,8 +78,9 @@ def contour_map(x, y, values, *, label, limits, output, xlabel, ylabel,
         ax.plot(marker['x'],marker['y'],'o',mfc='white',mec='black',ms=4)
         ax.annotate(marker['id'],(marker['x'],marker['y']),xytext=(5,4),textcoords='offset points',fontsize=8)
     save_figure(fig, output, {'x': x, 'y': y, 'values': raw.filled(np.nan),
-                             'display_mask':display_mask,'mask_negative_display':mask_negative_display,
-                             'color_limits': limits, 'levels': np.linspace(*limits, levels)},data_output=data_output)
+                             'display_mask':display_mask,'finite_values_only':True,
+                             'color_limits':limits,'levels':boundaries,
+                             'zero_centred_diverging':signed and limits[0]<0<limits[1]},data_output=data_output)
 
 
 def quiver_map(x, y, transverse, axial, *, output, xlabel, ylabel,

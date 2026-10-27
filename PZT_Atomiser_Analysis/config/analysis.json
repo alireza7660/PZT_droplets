@@ -172,6 +172,7 @@
     }
   ],
   "output": "PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1",
-  "notes": "Final PZT run with corrected user calibration; axial nonnegative contour display only, all data/statistics signed.",
-  "axial_contour_display": "mask_negative_start_zero"
+  "notes": "Final PZT calibration retained; all finite signed velocity values displayed, masks only for missing or invalid data.",
+  "axial_contour_display": "full_field_signed",
+  "signed_contour_zero_level": true
 }

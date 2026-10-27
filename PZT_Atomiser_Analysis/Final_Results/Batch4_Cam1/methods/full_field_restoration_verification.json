@@ -1,0 +1,70 @@
+{
+  "regenerated_contour_sets": [
+    "mean_v",
+    "mean_u",
+    "covariance",
+    "correlation",
+    "frame_1_u",
+    "frame_1_v",
+    "frame_879_u",
+    "frame_879_v",
+    "frame_1757_u",
+    "frame_1757_v",
+    "sampling_stations",
+    "flag_0_mean_u",
+    "flag_0_mean_v",
+    "flag_1_mean_u",
+    "flag_1_mean_v"
+  ],
+  "embedded_previews_refreshed": 21,
+  "numerical_data_files_byte_identical": [
+    "data\\frame_1.npz",
+    "data\\frame_1757.npz",
+    "data\\frame_879.npz",
+    "data\\profiles.csv",
+    "data\\spatial_statistics.csv",
+    "data\\stations.csv",
+    "data\\station_samples.npz",
+    "data\\station_statistics.csv",
+    "data\\statistics.npz",
+    "data\\vector_comparison.csv"
+  ],
+  "measurement_configuration_unchanged": true,
+  "finite_values_not_masked": true,
+  "remaining_masked_node_counts": {
+    "mean_v": 0,
+    "mean_u": 0,
+    "covariance": 0,
+    "correlation": 0,
+    "frame_1_u": 0,
+    "frame_1_v": 0,
+    "frame_879_u": 0,
+    "frame_879_v": 0,
+    "frame_1757_u": 0,
+    "frame_1757_v": 0,
+    "sampling_stations": 0,
+    "flag_0_mean_u": 2776,
+    "flag_0_mean_v": 2776,
+    "flag_1_mean_u": 0,
+    "flag_1_mean_v": 0
+  },
+  "zero_contour_boundary_verified": true,
+  "instantaneous_shared_limits": {
+    "u": [
+      -1.7194323730468748,
+      2.2346142578125
+    ],
+    "v": [
+      -7.393159179687499,
+      3.8148876953124997
+    ],
+    "velocity_magnitude": [
+      0.0,
+      7.590471022385841
+    ]
+  },
+  "mean_axial_range_m_s": [
+    -0.031319289573753975,
+    2.2855091645694583
+  ]
+}

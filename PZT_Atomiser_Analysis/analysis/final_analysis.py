@@ -25,7 +25,7 @@ RENAME={'mean_v':'mean_U','mean_u':'mean_V','rms_v':'rms_U','rms_u':'rms_V',
         'mean_instantaneous_velocity_magnitude':'mean_instantaneous_velocity_magnitude',
         'covariance':'covariance','correlation':'correlation'}
 PALETTE=['#1f77b4','#ff7f0e','#2ca02c','#d62728']
-AXIAL_MASK_NOTE='Negative axial velocities are masked only in this contour display and the colour scale starts at zero. All signed values are retained in the numerical data and statistical calculations; no negative value is replaced by zero or an absolute value.'
+FULL_FIELD_NOTE='All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity; limits follow the actual range without symmetric endpoints.'
 
 
 def adopt(r):
@@ -50,27 +50,29 @@ class Exporter:
         stem=self.out/('diagnostics/figures' if diagnostic else 'figures')/name
         data=self.out/('diagnostics/plot_data' if diagnostic else 'data/plot_data')/(name+'.npz')
         return stem,data
-    def record(self,name,caption,diagnostic=False,masked=False):
+    def record(self,name,caption,diagnostic=False):
         stem,data=self.paths(name,diagnostic)
         self.manifest.append({'id':name,'category':'diagnostic' if diagnostic else ('supplementary' if 'magnitude' in name else 'primary' if name in ['mean_v','mean_u'] else 'supporting'),
           'files':{ext:str(stem.with_suffix('.'+ext).relative_to(self.out)) for ext in ['pdf','svg','png']},
-          'numerical_source':str(data.relative_to(self.out)),'caption':caption+(' '+AXIAL_MASK_NOTE if masked else ''),
-          'negative_axial_display_mask':masked})
-    def contour(self,name,x,y,z,label,lim,caption,signed=False,masked=False,diagnostic=False,markers=None):
+          'numerical_source':str(data.relative_to(self.out)),'caption':caption,
+          'display_policy':'all_finite_values'})
+    def contour(self,name,x,y,z,label,lim,caption,signed=False,diagnostic=False,markers=None):
         stem,data=self.paths(name,diagnostic)
         contour_map(x,y,z,label=label,limits=lim,output=stem,**AXES,signed=signed,
-                    mask_negative_display=masked,data_output=data,markers=markers)
-        self.record(name,caption,diagnostic,masked)
+                    data_output=data,markers=markers)
+        if name=='mean_v' or name=='sampling_stations' or (name.startswith('frame_') and name.endswith('_v')) or name.endswith('_mean_v'):
+            caption+=' '+FULL_FIELD_NOTE
+        self.record(name,caption,diagnostic)
     def line(self,name,fig,data,caption):
         stem,target=self.paths(name);save_figure(fig,stem,data,data_output=target);self.record(name,caption)
 
 
 def render(r,fields,cfg,out,ex):
     x,y=r['xy'];nframes=r['metadata']['frames']
-    mainlimits={k:limits([z],signed=k in ['mean_u','covariance','correlation'],nonnegative=k=='mean_v') for k,z in fields.items()}
+    mainlimits={k:limits([z],signed=k in ['mean_u','mean_v','covariance','correlation']) for k,z in fields.items()}
     instantaneous={
         'u':limits([q[0] for q in r['frames'].values()],signed=True),
-        'v':limits([q[1] for q in r['frames'].values()],nonnegative=True),
+        'v':limits([q[1] for q in r['frames'].values()],signed=True),
         'velocity_magnitude':limits([np.hypot(*q) for q in r['frames'].values()])}
     captions={
         'mean_v':r'Mean axial velocity $\overline{v}$.',
@@ -82,13 +84,13 @@ def render(r,fields,cfg,out,ex):
         'magnitude_mean_vector':r'Magnitude of the mean in-plane velocity vector, $|\overline{\mathbf{w}}|=\sqrt{\overline{u}^{2}+\overline{v}^{2}}$.',
         'mean_instantaneous_velocity_magnitude':r'Mean instantaneous in-plane velocity magnitude, $\overline{|\mathbf{w}|}=\overline{\sqrt{u^2+v^2}}$.'}
     for k,z in fields.items():
-        ex.contour(k,x,y,z,LABELS[k],mainlimits[k],captions[k],signed=k in ['mean_u','covariance','correlation'],masked=k=='mean_v')
+        ex.contour(k,x,y,z,LABELS[k],mainlimits[k],captions[k],signed=k in ['mean_u','mean_v','covariance','correlation'])
     for key,q in r['frames'].items():
         for i,component in enumerate(['u','v','velocity_magnitude']):
             z=q[i] if i<2 else np.hypot(*q)
             label=(rf'${component}$ ({UNIT})' if i<2 else rf'$|\mathbf{{w}}|$ ({UNIT})')
             caption=f'Numeric field key {key}: '+('instantaneous transverse velocity $u$.' if i==0 else 'instantaneous axial velocity $v$.' if i==1 else 'instantaneous in-plane velocity magnitude.')+' Shared limits are calculated from the three selected frames.'
-            ex.contour(f'frame_{key}_{component}',x,y,z,label,instantaneous[component],caption,signed=i==0,masked=i==1)
+            ex.contour(f'frame_{key}_{component}',x,y,z,label,instantaneous[component],caption,signed=i<2)
         stem,data=ex.paths(f'frame_{key}_quiver')
         quiver_map(x,y,*q,output=stem,**AXES,velocity_unit=UNIT,
                    reference_speed=instantaneous['velocity_magnitude'][1],stride=cfg['quiver_stride'],data_output=data,
@@ -96,7 +98,7 @@ def render(r,fields,cfg,out,ex):
         ex.record(f'frame_{key}_quiver',f'Instantaneous signed velocity vectors for numeric field key {key}; every fourth native node is displayed, with a common arrow scale.')
     markers=[{'x':float(x[s['row'],s['column']]),'y':float(y[s['row'],s['column']]),'id':s['id']} for s in cfg['stations']]
     ex.contour('sampling_stations',x,y,fields['mean_v'],LABELS['mean_v'],mainlimits['mean_v'],
-               'Configured PDF/CDF nodes on the mean axial-velocity field; profiles use rows 287, 159 and 32.',masked=True,markers=markers)
+               'Configured PDF/CDF nodes on the mean axial-velocity field; profiles use rows 287, 159 and 32.',signed=True,markers=markers)
     ex.contour('finite_pair_count',x,y,r['N'],'Finite-pair count N',[0,nframes],'Paired finite sample count, without flag selection.',diagnostic=True)
     ex.contour('finite_pair_fraction',x,y,r['N']/nframes,'Finite-pair fraction',[0,1],'Finite-pair fraction; not a physical validation measure.',diagnostic=True)
     for code,old in r['flag_fields'].items():
@@ -104,8 +106,8 @@ def render(r,fields,cfg,out,ex):
         ex.contour(f'flag_{code}_count',x,y,r['flag_N'][code],f'Flag {code} finite-pair count',[0,nframes],f'Code {code} count; flag meanings are not assigned.',diagnostic=True)
         ex.contour(f'flag_{code}_fraction',x,y,r['flag_fraction'][code],f'Flag {code} fraction',[0,1],f'Code {code} frequency.',diagnostic=True)
         for k in ['mean_u','mean_v','rms_u','rms_v']:
-            lim=limits([ff[k]],signed=k=='mean_u',nonnegative=k=='mean_v')
-            ex.contour(f'flag_{code}_{k}',x,y,ff[k],LABELS[k],lim,f'Flag {code} population sensitivity: '+captions[k]+' Diagnostic limits are independent of ensemble limits.',signed=k=='mean_u',masked=k=='mean_v',diagnostic=True)
+            lim=limits([ff[k]],signed=k in ['mean_u','mean_v'])
+            ex.contour(f'flag_{code}_{k}',x,y,ff[k],LABELS[k],lim,f'Flag {code} population sensitivity: '+captions[k]+' Diagnostic limits are independent of ensemble limits.',signed=k in ['mean_u','mean_v'],diagnostic=True)
     write_json(out/'methods/colour_limits.json',{'main_ensemble':mainlimits,'instantaneous_selected_frames':instantaneous,'main_limits_exclude_flag_diagnostics':True})
     return mainlimits
 
@@ -209,14 +211,16 @@ statistics are masked. No derivative, jet-width or similarity analysis is
 added. Upstream replacement is not inferred. No additional spatial smoothing,
 gap filling or extrapolation is applied.
 
-{AXIAL_MASK_NOTE} This policy applies to mean and instantaneous axial contour
-maps, the station-location map and flag-specific mean-axial contour diagnostics.
-Profiles, PDFs/CDFs, quivers and all saved numerical arrays retain signed values.
-Transverse velocity, covariance and correlation retain signed colour scales.
+{FULL_FIELD_NOTE} This presentation applies to mean and instantaneous axial
+contours, the station-location map and flag-specific mean-axial diagnostics.
+Profiles, PDFs/CDFs, quivers and numerical arrays also retain signed values.
+All component velocities, covariance and correlation use signed colour scales.
 Main limits are calculated from the actual ensemble and selected instantaneous
 frames; flag-specific extrema do not set ensemble colour limits. Diverging
 normalization centres zero consistently without imposing symmetric endpoints.
-Cells touching a display-masked node are omitted (corner_mask=False).
+Signed contour boundaries include zero exactly. Only cells touching genuinely
+missing or invalid nodes are omitted (corner_mask=False); finite negative
+measurements do not produce artificial cutouts.
 
 Magnitude of the mean vector is sqrt(mean(u)^2+mean(v)^2). Mean instantaneous
 in-plane velocity magnitude is mean(sqrt(u^2+v^2)); the definitions are distinct.
@@ -255,7 +259,7 @@ Regenerate from the PZT_droplets workspace root:
     summary['observed_grid_node_maximum']={'row':int(i),'column':int(j),
         'x_mm':float(r['xy'][0,i,j]),'y_mm':float(r['xy'][1,i,j]),'N':int(r['N'][i,j]),'mean_v_m_s':hi}
     write_json(out/'methods/summary.json',summary)
-    (out/'README.md').write_text(f'# PZT final results\n\nMean axial measured range: {lo:.9g} to {hi:.9g} m/s. Contour display range: 0 to {mainlimits["mean_v"][1]:.9g} m/s; negatives are display-masked only.\n\n{len(ex.manifest)} figures, with data links in methods/figure_manifest.json. Methods, captions and configuration are in methods/. All raw inputs and archived results are preserved.\n',encoding='utf-8')
+    (out/'README.md').write_text(f'# PZT final results\n\nMean axial measured and contour range: {lo:.9g} to {hi:.9g} m/s. All finite signed measurements are displayed; only missing or invalid data are masked.\n\n{len(ex.manifest)} figures, with data links in methods/figure_manifest.json. Methods, captions and configuration are in methods/. All raw inputs and archived results are preserved.\n',encoding='utf-8')
 
 
 def validate(r,fields,cfg,out,ex):
@@ -278,10 +282,9 @@ def validate(r,fields,cfg,out,ex):
         with Image.open(out/entry['files']['png']) as im:assert abs(im.info['dpi'][0]-600)<1
         z=np.load(out/entry['numerical_source'])
         if 'values' in z:
-            if entry['negative_axial_display_mask']:
-                np.testing.assert_array_equal(z['display_mask'],~np.isfinite(z['values'])|(z['values']<0))
-                assert z['color_limits'][0]==0
-            elif 'display_mask' in z:np.testing.assert_array_equal(z['display_mask'],~np.isfinite(z['values']))
+            np.testing.assert_array_equal(z['display_mask'],~np.isfinite(z['values']))
+            if z.get('zero_centred_diverging',False):
+                assert 0. in z['levels']
         if 'bin_edges' in z:
             for key in z.files:
                 if key.endswith('_pdf'):np.testing.assert_allclose(np.sum(z[key]*np.diff(z['bin_edges'])),1.,atol=1e-12)
@@ -291,7 +294,7 @@ def validate(r,fields,cfg,out,ex):
     for key,z in fields.items():np.testing.assert_allclose(table[key],z.ravel(),equal_nan=True)
     write_json(out/'methods/validation.json',{'calibration_ratio':ratio,'scaling_max_absolute_errors':checks,
         'counts_and_correlations_unchanged':True,'cartesian_rename_without_transpose_or_reflection':True,
-        'signed_values_preserved':True,'axial_negative_display_mask_verified':True,
+        'signed_values_preserved':True,'only_missing_or_invalid_values_masked':True,
         'png_600_dpi':True,'all_exports_present':True,'histogram_integrals':True,'csv_matches_npz':True})
 
 

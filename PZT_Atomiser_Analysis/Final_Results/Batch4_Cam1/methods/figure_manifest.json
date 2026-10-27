@@ -8,8 +8,8 @@
       "png": "figures\\mean_v.png"
     },
     "numerical_source": "data\\plot_data\\mean_v.npz",
-    "caption": "Mean axial velocity $\\overline{v}$. Negative axial velocities are masked only in this contour display and the colour scale starts at zero. All signed values are retained in the numerical data and statistical calculations; no negative value is replaced by zero or an absolute value.",
-    "negative_axial_display_mask": true
+    "caption": "Mean axial velocity $\\overline{v}$. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity; limits follow the actual range without symmetric endpoints.",
+    "display_policy": "all_finite_values"
   },
   {
     "id": "mean_u",
@@ -21,7 +21,7 @@
     },
     "numerical_source": "data\\plot_data\\mean_u.npz",
     "caption": "Mean transverse velocity $\\overline{u}$; signed measurements are shown.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "rms_v",
@@ -33,7 +33,7 @@
     },
     "numerical_source": "data\\plot_data\\rms_v.npz",
     "caption": "Axial fluctuation RMS $v_{\\mathrm{rms}}$, using denominator $N$.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "rms_u",
@@ -45,7 +45,7 @@
     },
     "numerical_source": "data\\plot_data\\rms_u.npz",
     "caption": "Transverse fluctuation RMS $u_{\\mathrm{rms}}$, using denominator $N$.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "magnitude_mean_vector",
@@ -57,7 +57,7 @@
     },
     "numerical_source": "data\\plot_data\\magnitude_mean_vector.npz",
     "caption": "Magnitude of the mean in-plane velocity vector, $|\\overline{\\mathbf{w}}|=\\sqrt{\\overline{u}^{2}+\\overline{v}^{2}}$.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "mean_instantaneous_velocity_magnitude",
@@ -69,7 +69,7 @@
     },
     "numerical_source": "data\\plot_data\\mean_instantaneous_velocity_magnitude.npz",
     "caption": "Mean instantaneous in-plane velocity magnitude, $\\overline{|\\mathbf{w}|}=\\overline{\\sqrt{u^2+v^2}}$.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "covariance",
@@ -81,7 +81,7 @@
     },
     "numerical_source": "data\\plot_data\\covariance.npz",
     "caption": "Signed cross-covariance $\\overline{u\\prime v\\prime}$, using denominator $N$.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "correlation",
@@ -93,7 +93,7 @@
     },
     "numerical_source": "data\\plot_data\\correlation.npz",
     "caption": "Signed correlation $\\rho_{uv}$; zero-variance locations are masked.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "frame_1_u",
@@ -105,7 +105,7 @@
     },
     "numerical_source": "data\\plot_data\\frame_1_u.npz",
     "caption": "Numeric field key 1: instantaneous transverse velocity $u$. Shared limits are calculated from the three selected frames.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "frame_1_v",
@@ -116,8 +116,8 @@
       "png": "figures\\frame_1_v.png"
     },
     "numerical_source": "data\\plot_data\\frame_1_v.npz",
-    "caption": "Numeric field key 1: instantaneous axial velocity $v$. Shared limits are calculated from the three selected frames. Negative axial velocities are masked only in this contour display and the colour scale starts at zero. All signed values are retained in the numerical data and statistical calculations; no negative value is replaced by zero or an absolute value.",
-    "negative_axial_display_mask": true
+    "caption": "Numeric field key 1: instantaneous axial velocity $v$. Shared limits are calculated from the three selected frames. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity; limits follow the actual range without symmetric endpoints.",
+    "display_policy": "all_finite_values"
   },
   {
     "id": "frame_1_velocity_magnitude",
@@ -129,7 +129,7 @@
     },
     "numerical_source": "data\\plot_data\\frame_1_velocity_magnitude.npz",
     "caption": "Numeric field key 1: instantaneous in-plane velocity magnitude. Shared limits are calculated from the three selected frames.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "frame_1_quiver",
@@ -141,7 +141,7 @@
     },
     "numerical_source": "data\\plot_data\\frame_1_quiver.npz",
     "caption": "Instantaneous signed velocity vectors for numeric field key 1; every fourth native node is displayed, with a common arrow scale.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "frame_879_u",
@@ -153,7 +153,7 @@
     },
     "numerical_source": "data\\plot_data\\frame_879_u.npz",
     "caption": "Numeric field key 879: instantaneous transverse velocity $u$. Shared limits are calculated from the three selected frames.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "frame_879_v",
@@ -164,8 +164,8 @@
       "png": "figures\\frame_879_v.png"
     },
     "numerical_source": "data\\plot_data\\frame_879_v.npz",
-    "caption": "Numeric field key 879: instantaneous axial velocity $v$. Shared limits are calculated from the three selected frames. Negative axial velocities are masked only in this contour display and the colour scale starts at zero. All signed values are retained in the numerical data and statistical calculations; no negative value is replaced by zero or an absolute value.",
-    "negative_axial_display_mask": true
+    "caption": "Numeric field key 879: instantaneous axial velocity $v$. Shared limits are calculated from the three selected frames. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity; limits follow the actual range without symmetric endpoints.",
+    "display_policy": "all_finite_values"
   },
   {
     "id": "frame_879_velocity_magnitude",
@@ -177,7 +177,7 @@
     },
     "numerical_source": "data\\plot_data\\frame_879_velocity_magnitude.npz",
     "caption": "Numeric field key 879: instantaneous in-plane velocity magnitude. Shared limits are calculated from the three selected frames.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "frame_879_quiver",
@@ -189,7 +189,7 @@
     },
     "numerical_source": "data\\plot_data\\frame_879_quiver.npz",
     "caption": "Instantaneous signed velocity vectors for numeric field key 879; every fourth native node is displayed, with a common arrow scale.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "frame_1757_u",
@@ -201,7 +201,7 @@
     },
     "numerical_source": "data\\plot_data\\frame_1757_u.npz",
     "caption": "Numeric field key 1757: instantaneous transverse velocity $u$. Shared limits are calculated from the three selected frames.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "frame_1757_v",
@@ -212,8 +212,8 @@
       "png": "figures\\frame_1757_v.png"
     },
     "numerical_source": "data\\plot_data\\frame_1757_v.npz",
-    "caption": "Numeric field key 1757: instantaneous axial velocity $v$. Shared limits are calculated from the three selected frames. Negative axial velocities are masked only in this contour display and the colour scale starts at zero. All signed values are retained in the numerical data and statistical calculations; no negative value is replaced by zero or an absolute value.",
-    "negative_axial_display_mask": true
+    "caption": "Numeric field key 1757: instantaneous axial velocity $v$. Shared limits are calculated from the three selected frames. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity; limits follow the actual range without symmetric endpoints.",
+    "display_policy": "all_finite_values"
   },
   {
     "id": "frame_1757_velocity_magnitude",
@@ -225,7 +225,7 @@
     },
     "numerical_source": "data\\plot_data\\frame_1757_velocity_magnitude.npz",
     "caption": "Numeric field key 1757: instantaneous in-plane velocity magnitude. Shared limits are calculated from the three selected frames.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "frame_1757_quiver",
@@ -237,7 +237,7 @@
     },
     "numerical_source": "data\\plot_data\\frame_1757_quiver.npz",
     "caption": "Instantaneous signed velocity vectors for numeric field key 1757; every fourth native node is displayed, with a common arrow scale.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "sampling_stations",
@@ -248,8 +248,8 @@
       "png": "figures\\sampling_stations.png"
     },
     "numerical_source": "data\\plot_data\\sampling_stations.npz",
-    "caption": "Configured PDF/CDF nodes on the mean axial-velocity field; profiles use rows 287, 159 and 32. Negative axial velocities are masked only in this contour display and the colour scale starts at zero. All signed values are retained in the numerical data and statistical calculations; no negative value is replaced by zero or an absolute value.",
-    "negative_axial_display_mask": true
+    "caption": "Configured PDF/CDF nodes on the mean axial-velocity field; profiles use rows 287, 159 and 32. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity; limits follow the actual range without symmetric endpoints.",
+    "display_policy": "all_finite_values"
   },
   {
     "id": "finite_pair_count",
@@ -261,7 +261,7 @@
     },
     "numerical_source": "diagnostics\\plot_data\\finite_pair_count.npz",
     "caption": "Paired finite sample count, without flag selection.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "finite_pair_fraction",
@@ -273,7 +273,7 @@
     },
     "numerical_source": "diagnostics\\plot_data\\finite_pair_fraction.npz",
     "caption": "Finite-pair fraction; not a physical validation measure.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "flag_0_count",
@@ -285,7 +285,7 @@
     },
     "numerical_source": "diagnostics\\plot_data\\flag_0_count.npz",
     "caption": "Code 0 count; flag meanings are not assigned.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "flag_0_fraction",
@@ -297,7 +297,7 @@
     },
     "numerical_source": "diagnostics\\plot_data\\flag_0_fraction.npz",
     "caption": "Code 0 frequency.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "flag_0_mean_u",
@@ -309,7 +309,7 @@
     },
     "numerical_source": "diagnostics\\plot_data\\flag_0_mean_u.npz",
     "caption": "Flag 0 population sensitivity: Mean transverse velocity $\\overline{u}$; signed measurements are shown. Diagnostic limits are independent of ensemble limits.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "flag_0_mean_v",
@@ -320,8 +320,8 @@
       "png": "diagnostics\\figures\\flag_0_mean_v.png"
     },
     "numerical_source": "diagnostics\\plot_data\\flag_0_mean_v.npz",
-    "caption": "Flag 0 population sensitivity: Mean axial velocity $\\overline{v}$. Diagnostic limits are independent of ensemble limits. Negative axial velocities are masked only in this contour display and the colour scale starts at zero. All signed values are retained in the numerical data and statistical calculations; no negative value is replaced by zero or an absolute value.",
-    "negative_axial_display_mask": true
+    "caption": "Flag 0 population sensitivity: Mean axial velocity $\\overline{v}$. Diagnostic limits are independent of ensemble limits. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity; limits follow the actual range without symmetric endpoints.",
+    "display_policy": "all_finite_values"
   },
   {
     "id": "flag_0_rms_u",
@@ -333,7 +333,7 @@
     },
     "numerical_source": "diagnostics\\plot_data\\flag_0_rms_u.npz",
     "caption": "Flag 0 population sensitivity: Transverse fluctuation RMS $u_{\\mathrm{rms}}$, using denominator $N$. Diagnostic limits are independent of ensemble limits.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "flag_0_rms_v",
@@ -345,7 +345,7 @@
     },
     "numerical_source": "diagnostics\\plot_data\\flag_0_rms_v.npz",
     "caption": "Flag 0 population sensitivity: Axial fluctuation RMS $v_{\\mathrm{rms}}$, using denominator $N$. Diagnostic limits are independent of ensemble limits.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "flag_1_count",
@@ -357,7 +357,7 @@
     },
     "numerical_source": "diagnostics\\plot_data\\flag_1_count.npz",
     "caption": "Code 1 count; flag meanings are not assigned.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "flag_1_fraction",
@@ -369,7 +369,7 @@
     },
     "numerical_source": "diagnostics\\plot_data\\flag_1_fraction.npz",
     "caption": "Code 1 frequency.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "flag_1_mean_u",
@@ -381,7 +381,7 @@
     },
     "numerical_source": "diagnostics\\plot_data\\flag_1_mean_u.npz",
     "caption": "Flag 1 population sensitivity: Mean transverse velocity $\\overline{u}$; signed measurements are shown. Diagnostic limits are independent of ensemble limits.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "flag_1_mean_v",
@@ -392,8 +392,8 @@
       "png": "diagnostics\\figures\\flag_1_mean_v.png"
     },
     "numerical_source": "diagnostics\\plot_data\\flag_1_mean_v.npz",
-    "caption": "Flag 1 population sensitivity: Mean axial velocity $\\overline{v}$. Diagnostic limits are independent of ensemble limits. Negative axial velocities are masked only in this contour display and the colour scale starts at zero. All signed values are retained in the numerical data and statistical calculations; no negative value is replaced by zero or an absolute value.",
-    "negative_axial_display_mask": true
+    "caption": "Flag 1 population sensitivity: Mean axial velocity $\\overline{v}$. Diagnostic limits are independent of ensemble limits. All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity; limits follow the actual range without symmetric endpoints.",
+    "display_policy": "all_finite_values"
   },
   {
     "id": "flag_1_rms_u",
@@ -405,7 +405,7 @@
     },
     "numerical_source": "diagnostics\\plot_data\\flag_1_rms_u.npz",
     "caption": "Flag 1 population sensitivity: Transverse fluctuation RMS $u_{\\mathrm{rms}}$, using denominator $N$. Diagnostic limits are independent of ensemble limits.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "flag_1_rms_v",
@@ -417,7 +417,7 @@
     },
     "numerical_source": "diagnostics\\plot_data\\flag_1_rms_v.npz",
     "caption": "Flag 1 population sensitivity: Axial fluctuation RMS $v_{\\mathrm{rms}}$, using denominator $N$. Diagnostic limits are independent of ensemble limits.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "profile_mean_v",
@@ -429,7 +429,7 @@
     },
     "numerical_source": "data\\plot_data\\profile_mean_v.npz",
     "caption": "Native transverse profiles at the existing three axial rows; signed measurements are retained, without interpolation or fitting.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "profile_mean_u",
@@ -441,7 +441,7 @@
     },
     "numerical_source": "data\\plot_data\\profile_mean_u.npz",
     "caption": "Native transverse profiles at the existing three axial rows; signed measurements are retained, without interpolation or fitting.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "profile_magnitude_mean_vector",
@@ -453,7 +453,7 @@
     },
     "numerical_source": "data\\plot_data\\profile_magnitude_mean_vector.npz",
     "caption": "Native transverse profiles at the existing three axial rows; signed measurements are retained, without interpolation or fitting.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "profile_mean_instantaneous_velocity_magnitude",
@@ -465,7 +465,7 @@
     },
     "numerical_source": "data\\plot_data\\profile_mean_instantaneous_velocity_magnitude.npz",
     "caption": "Native transverse profiles at the existing three axial rows; signed measurements are retained, without interpolation or fitting.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "profile_rms_u",
@@ -477,7 +477,7 @@
     },
     "numerical_source": "data\\plot_data\\profile_rms_u.npz",
     "caption": "Native transverse profiles at the existing three axial rows; signed measurements are retained, without interpolation or fitting.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "profile_rms_v",
@@ -489,7 +489,7 @@
     },
     "numerical_source": "data\\plot_data\\profile_rms_v.npz",
     "caption": "Native transverse profiles at the existing three axial rows; signed measurements are retained, without interpolation or fitting.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "profile_covariance",
@@ -501,7 +501,7 @@
     },
     "numerical_source": "data\\plot_data\\profile_covariance.npz",
     "caption": "Native transverse profiles at the existing three axial rows; signed measurements are retained, without interpolation or fitting.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "profile_correlation",
@@ -513,7 +513,7 @@
     },
     "numerical_source": "data\\plot_data\\profile_correlation.npz",
     "caption": "Native transverse profiles at the existing three axial rows; signed measurements are retained, without interpolation or fitting.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "u_pdf",
@@ -525,7 +525,7 @@
     },
     "numerical_source": "data\\plot_data\\u_pdf.npz",
     "caption": "Separate native-node full-support empirical histogram PDFs; no spatial pooling. All signed component samples are retained, including negative axial velocities.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "u_cdf",
@@ -537,7 +537,7 @@
     },
     "numerical_source": "data\\plot_data\\u_cdf.npz",
     "caption": "Separate native-node empirical CDFs; no spatial pooling. All signed component samples are retained, including negative axial velocities.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "v_pdf",
@@ -549,7 +549,7 @@
     },
     "numerical_source": "data\\plot_data\\v_pdf.npz",
     "caption": "Separate native-node full-support empirical histogram PDFs; no spatial pooling. All signed component samples are retained, including negative axial velocities.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "v_cdf",
@@ -561,7 +561,7 @@
     },
     "numerical_source": "data\\plot_data\\v_cdf.npz",
     "caption": "Separate native-node empirical CDFs; no spatial pooling. All signed component samples are retained, including negative axial velocities.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "velocity_magnitude_pdf",
@@ -573,7 +573,7 @@
     },
     "numerical_source": "data\\plot_data\\velocity_magnitude_pdf.npz",
     "caption": "Separate native-node full-support empirical histogram PDFs; no spatial pooling. All signed component samples are retained, including negative axial velocities.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "velocity_magnitude_cdf",
@@ -585,7 +585,7 @@
     },
     "numerical_source": "data\\plot_data\\velocity_magnitude_cdf.npz",
     "caption": "Separate native-node empirical CDFs; no spatial pooling. All signed component samples are retained, including negative axial velocities.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "u_normalized_pdf",
@@ -597,7 +597,7 @@
     },
     "numerical_source": "data\\plot_data\\u_normalized_pdf.npz",
     "caption": "Separate native-node full-support empirical histogram PDFs; no spatial pooling. All signed component samples are retained, including negative axial velocities.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   },
   {
     "id": "v_normalized_pdf",
@@ -609,6 +609,6 @@
     },
     "numerical_source": "data\\plot_data\\v_normalized_pdf.npz",
     "caption": "Separate native-node full-support empirical histogram PDFs; no spatial pooling. All signed component samples are retained, including negative axial velocities.",
-    "negative_axial_display_mask": false
+    "display_policy": "all_finite_values"
   }
 ]

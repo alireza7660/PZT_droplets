@@ -18,14 +18,16 @@ statistics are masked. No derivative, jet-width or similarity analysis is
 added. Upstream replacement is not inferred. No additional spatial smoothing,
 gap filling or extrapolation is applied.
 
-Negative axial velocities are masked only in this contour display and the colour scale starts at zero. All signed values are retained in the numerical data and statistical calculations; no negative value is replaced by zero or an absolute value. This policy applies to mean and instantaneous axial contour
-maps, the station-location map and flag-specific mean-axial contour diagnostics.
-Profiles, PDFs/CDFs, quivers and all saved numerical arrays retain signed values.
-Transverse velocity, covariance and correlation retain signed colour scales.
+All finite signed axial measurements are displayed, including negative values. Only missing or invalid data are masked. Blue denotes negative velocity, white zero and red positive velocity; limits follow the actual range without symmetric endpoints. This presentation applies to mean and instantaneous axial
+contours, the station-location map and flag-specific mean-axial diagnostics.
+Profiles, PDFs/CDFs, quivers and numerical arrays also retain signed values.
+All component velocities, covariance and correlation use signed colour scales.
 Main limits are calculated from the actual ensemble and selected instantaneous
 frames; flag-specific extrema do not set ensemble colour limits. Diverging
 normalization centres zero consistently without imposing symmetric endpoints.
-Cells touching a display-masked node are omitted (corner_mask=False).
+Signed contour boundaries include zero exactly. Only cells touching genuinely
+missing or invalid nodes are omitted (corner_mask=False); finite negative
+measurements do not produce artificial cutouts.
 
 Magnitude of the mean vector is sqrt(mean(u)^2+mean(v)^2). Mean instantaneous
 in-plane velocity magnitude is mean(sqrt(u^2+v^2)); the definitions are distinct.
