@@ -1,0 +1,272 @@
+[
+  {
+    "case": "H1_L1_C41",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      1.0779557685705599e-08,
+      8.207371850720013e-09,
+      4.026142296686963e-05,
+      3.077872384593672e-05
+    ]
+  },
+  {
+    "case": "H1_L1_C42",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      1.7891704210196147e-08,
+      1.5895839934262912e-08,
+      7.831562611665399e-05,
+      6.106855405563216e-05
+    ]
+  },
+  {
+    "case": "H1_L1_C43",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      2.7585013348194187e-08,
+      2.6971092649194506e-08,
+      0.00012012291062457603,
+      0.00010267165746946638
+    ]
+  },
+  {
+    "case": "H1_L2_C41",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      2.1607455538349973e-08,
+      1.0885607765881433e-08,
+      9.094131171161202e-05,
+      4.543432638426381e-05
+    ]
+  },
+  {
+    "case": "H1_L2_C42",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      2.309814118792164e-08,
+      1.3139004322905434e-08,
+      9.849721937094102e-05,
+      5.6315598477740814e-05
+    ]
+  },
+  {
+    "case": "H1_L2_C43",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      2.2207445523128588e-08,
+      1.3686638057272549e-08,
+      9.323059768540087e-05,
+      5.926541046363809e-05
+    ]
+  },
+  {
+    "case": "H1_L3_C41",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      2.7200615688657837e-08,
+      1.1388857134274344e-08,
+      0.00011808248004452349,
+      4.8668334506896116e-05
+    ]
+  },
+  {
+    "case": "H1_L3_C42",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      1.520710307158224e-08,
+      7.2688942451965e-09,
+      6.197447104705489e-05,
+      2.812399774498875e-05
+    ]
+  },
+  {
+    "case": "H1_L3_C43",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      1.945497369801319e-08,
+      9.87914980116883e-09,
+      8.479984941534013e-05,
+      4.167357267248484e-05
+    ]
+  },
+  {
+    "case": "H2_L1_C41",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      1.053853260039872e-08,
+      4.48258116216016e-09,
+      3.91466910917293e-05,
+      1.6006446138139285e-05
+    ]
+  },
+  {
+    "case": "H2_L1_C42",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      1.9079774407973482e-08,
+      9.641106720262305e-09,
+      7.420432092364315e-05,
+      3.4818803850367175e-05
+    ]
+  },
+  {
+    "case": "H2_L1_C43",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      2.8892624718071525e-08,
+      1.5684441389759995e-08,
+      0.00011660501244503685,
+      5.863175821130273e-05
+    ]
+  },
+  {
+    "case": "H2_L2_C41",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      2.1965344650792806e-08,
+      7.276814538090259e-09,
+      9.169777588302619e-05,
+      3.0177670762299158e-05
+    ]
+  },
+  {
+    "case": "H2_L2_C42",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      2.3244265947783282e-08,
+      8.591296873569632e-09,
+      9.933333885225881e-05,
+      3.6063521860474346e-05
+    ]
+  },
+  {
+    "case": "H2_L2_C43",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      2.282776253442753e-08,
+      9.167521674083301e-09,
+      9.766098923547073e-05,
+      3.928349565385236e-05
+    ]
+  },
+  {
+    "case": "H2_L3_C41",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      2.7691376122684908e-08,
+      7.677692591065433e-09,
+      0.00011846365037926354,
+      3.303866269654954e-05
+    ]
+  },
+  {
+    "case": "H2_L3_C42",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      1.5663440574090193e-08,
+      4.8636291521964026e-09,
+      6.305510771276168e-05,
+      1.868528260212665e-05
+    ]
+  },
+  {
+    "case": "H2_L3_C43",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      1.7403568310439543e-08,
+      5.807794861353854e-09,
+      7.534664267627722e-05,
+      2.4052261790585838e-05
+    ]
+  },
+  {
+    "case": "H3_L1_C41",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      1.060306066211214e-08,
+      2.3853536715301438e-09,
+      3.847724038519296e-05,
+      8.399337613096414e-06
+    ]
+  },
+  {
+    "case": "H3_L1_C42",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      1.9878776444381963e-08,
+      5.426246119100142e-09,
+      7.327837292159245e-05,
+      1.8964519465924923e-05
+    ]
+  },
+  {
+    "case": "H3_L1_C43",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      3.0021535457266935e-08,
+      9.103615982580804e-09,
+      0.00011380849212155875,
+      3.404940485357555e-05
+    ]
+  },
+  {
+    "case": "H3_L2_C41",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      2.2099137103603894e-08,
+      5.02123580908842e-09,
+      9.188040100405193e-05,
+      2.07958497048244e-05
+    ]
+  },
+  {
+    "case": "H3_L2_C42",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      2.3179771439091335e-08,
+      5.844548844891051e-09,
+      9.823332120251216e-05,
+      2.4421688111397888e-05
+    ]
+  },
+  {
+    "case": "H3_L2_C43",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      2.305271318281399e-08,
+      6.338969415348172e-09,
+      9.772510628680564e-05,
+      2.707372294469268e-05
+    ]
+  },
+  {
+    "case": "H3_L3_C41",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      2.8600732927819283e-08,
+      5.486804902782305e-09,
+      0.00012199331490914123,
+      2.3628883229376285e-05
+    ]
+  },
+  {
+    "case": "H3_L3_C42",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      1.726690336545378e-08,
+      3.6691564370139318e-09,
+      6.898985886016895e-05,
+      1.387443150138723e-05
+    ]
+  },
+  {
+    "case": "H3_L3_C43",
+    "half_step_termination": "outside_measured_jet_domain",
+    "max_errors_x_y_u_v": [
+      1.9018861204672666e-08,
+      4.3830797359645235e-09,
+      8.11243326558353e-05,
+      1.8478252330478284e-05
+    ]
+  }
+]

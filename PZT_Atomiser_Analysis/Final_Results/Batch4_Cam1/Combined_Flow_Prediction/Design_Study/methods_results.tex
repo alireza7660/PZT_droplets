@@ -1,0 +1,43 @@
+\section{Prospective horizontal side-jet design study}
+Relative placement is a design variable, not measured geometry. Nine proposed
+arrangements combine three heights within the measured PZT domain with three
+nozzle-to-plume distances within the measured positive-centreline ZNMF support.
+Selected measured gas-centreline positions are aligned to the existing PZT
+fixed-line anchor; nozzle-axis heights differ by the measured gas-centreline offset.
+Actual native indices, coordinates, nozzle placements and initial signed velocity
+components are exported in the comparison tables. Three adjacent supported native
+PZT columns per placement supply 27 representative releases at nominal $d=10\,\mu$m.
+These are conditional initialisations in the interaction region, not simulated
+unmeasured travel from the atomiser surface.
+
+The separately measured two-component ZNMF mean gas field is prescribed after
+rotation/translation of positions and vectors. PZT mean components initialise
+particles once and are never added to the gas or repeatedly imposed thereafter.
+Finite-Re spherical drag acts on evolving vector slip, with gravity and buoyancy;
+constant diameter and no evaporation are assumed. This one-way mean-field model
+neglects plume-induced gas changes and jet unsteadiness. It is not experimentally
+validated for combined flow. Source cells require four finite vectors; no gas
+extrapolation is used and trajectories stop at unsupported boundaries or the
+configured 30 ms time horizon. Termination reasons are tabulated. Half-step
+comparisons verify position and velocity convergence.
+
+Trajectory Reynolds number uses instantaneous model gas-droplet vector slip.
+Supporting $Stk_{D,local}=\tau_{p,Stokes}\lVert\boldsymbol w_g\rVert/D_0$
+uses the local nozzle-length gas timescale, not nozzle-exit conditions or the
+atomiser frequency. It is not a capture criterion. Deflections and displacements
+refer to each release point. No collection target is defined, so no capture
+efficiency or optimal arrangement is claimed.
+
+\paragraph{Figure captions.} Trajectory panels: proposed placements over
+separately measured mean horizontal gas-velocity contours; curves are integrated
+conditional predictions. Velocity panels: horizontal (solid) and vertical (dashed) components for the same releases. Displacement panels use separate horizontal and vertical ordinates. Particle-Re panels use
+evolving vector slip; supporting Stokes panels use the explicitly local gas timescale.
+
+
+% Actual completed study results
+\paragraph{Completed results.} All 27 integrations succeeded across the nine
+proposed placements. All terminate at the downstream measured-gas boundary,
+not at a physical stopping condition. Endpoint deflections compare different
+supported elapsed times and are not a ranking of collection performance.
+The drag multiplier is unity for $Re_p\leq0.01$ and
+$1+0.15Re_p^{0.687}$ otherwise, with $Re_p<800$ enforced.

@@ -19,7 +19,7 @@ def unrelated_cells(book):
 def signature(cells):return hashlib.sha256(json.dumps(cells,sort_keys=True).encode()).hexdigest()
 
 
-def main():
+def main(reuse_saved=False):
     cfg=json.loads((PROJECT/'config/combined_flow_prediction.json').read_text());out=ROOT/cfg['output']
     target=PROJECT/'notebooks/PZT_final_analysis.ipynb';book=nb.read(target,as_version=4)
     original=signature(unrelated_cells(book));cells=notebook_cells()
@@ -30,7 +30,7 @@ root=Path.cwd().resolve()
 sys.path.insert(0,str(root))
 output=root/'PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1'
 ''')
-    mini=nb.v4.new_notebook(cells=[setup,cells[1],cells[3]])
+    mini=nb.v4.new_notebook(cells=[setup,cells[3]] if reuse_saved else [setup,cells[1],cells[3]])
     runtime=out/'validation/jupyter_runtime';runtime.mkdir(parents=True,exist_ok=True)
     os.environ['JUPYTER_RUNTIME_DIR']=str(runtime)
     if sys.platform=='win32':asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
@@ -38,7 +38,11 @@ output=root/'PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1'
     spec.argv=[sys.executable,'-m','ipykernel_launcher','-f','{connection_file}'];manager.get_kernel_spec=lambda name:spec
     client=NotebookClient(mini,timeout=600,resources={'metadata':{'path':str(ROOT)}})
     client.km=AsyncKernelManager(kernel_name='python3',kernel_spec_manager=manager);client.execute()
-    cells[1]=mini.cells[1];cells[3]=mini.cells[2];book.cells=unrelated_cells(book);book.cells[-1:-1]=cells
+    if reuse_saved:
+        cells[1]=next(c for c in book.cells if c.cell_type=='code' and c.metadata.get('combined_flow_prediction'))
+        cells[3]=mini.cells[1]
+    else:cells[1]=mini.cells[1];cells[3]=mini.cells[2]
+    book.cells=unrelated_cells(book);book.cells[-1:-1]=cells
     assert signature(unrelated_cells(book))==original
     nb.write(book,target);shutil.copy2(target,PROJECT/'notebooks/Spatial_maps.ipynb')
     shutil.copy2(target,ROOT/'PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1/methods/PZT_final_analysis.ipynb')
@@ -51,4 +55,7 @@ output=root/'PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1'
     print('Updated and executed only the combined-flow workflow notebook section.')
 
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser();parser.add_argument('--reuse-saved-studies',action='store_true')
+    main(parser.parse_args().reuse_saved_studies)

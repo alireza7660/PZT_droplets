@@ -166,6 +166,10 @@ are validation checks, not experimental parameter-study results.
         text=text.replace('No numerical droplet prediction is substituted for these missing inputs.',
             'Fixed measured/prototype geometry is not required for the proposed placement study; it is selected and documented from measured coordinate support.')
         text=text.replace('## Specific missing prediction inputs','## Fixed-geometry inputs (not prerequisites for the prospective design study)')
+        text=text.replace('These are the only presently missing experimental/design inputs for the implemented\nfirst-order, two-dimensional model.',
+            'The completed prospective study does not require measured combined geometry. Proposed placements and supported release nodes are specified numerically in its comparison tables.')
+        text=text.replace('Prediction Re and St are not reported until gas slip and\nplacement/release inputs can be evaluated.',
+            'Trajectory slip-based Re and local Stokes diagnostics are reported in Design_Study. Geometry-independent reference and local-centreline numbers are reported in Dimensionless_Numbers.')
         text+='\n## Active prospective outputs\n\nDesign_Study/manifest.json lists proposed trajectories, velocity/displacement/Re/Stokes figures and comparison tables. Dimensionless_Numbers/manifest.json lists independent PZT-reference and ZNMF local-number CSV/PDF/PNG outputs. Dimensionless calculations can also run without any geometry using `python -m PZT_Atomiser_Analysis.analysis.prospective_studies --dimensionless-only`.\n'
     (out/'README.md').write_text(text,encoding='utf-8')
     tex=r'''\section{Prediction workflow for the proposed side-jet arrangement}

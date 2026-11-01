@@ -1,0 +1,27 @@
+{
+  "design": {
+    "successfully_integrated_cases": 27,
+    "placement_count": 9
+  },
+  "dimensionless": {
+    "diameter_um": 10.0,
+    "tau_Stokes_s": 0.00030582503619367357,
+    "actuation_frequency_Hz": 120.0,
+    "acquisition_frequency_Hz_not_used": 10.0,
+    "Stk_f": 0.036699004343240825,
+    "nu_air_m2_s": 1.505093933678104e-05,
+    "D0_m": 0.002,
+    "centreline_valid_rows": 182,
+    "centreline_total_rows": 192,
+    "source": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Final_Result\\tables\\FOV_1_2_3_centreline_and_width.csv",
+    "source_sha256": "6a9817f48ba3f47da571cfc79c239df79e3c32c954dc3903d755631c3caa9efd",
+    "formulas": {
+      "Re_p": "rho_air*d*norm(measured mean droplet vector)/mu_air under explicit zero-background reference",
+      "Re_D_c": "Uc*D0/nu",
+      "Sr_D_c": "f*D0/Uc",
+      "Stk_f": "tau_Stokes*f, no 2*pi",
+      "Stk_D": "tau_Stokes*Uc/D0"
+    }
+  },
+  "source_files_unchanged": true
+}

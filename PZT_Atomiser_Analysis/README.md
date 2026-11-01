@@ -116,8 +116,10 @@ been conducted. The nominal model diameter is now 10 micrometres: a 5 micrometre
 assumed to produce a 5 micrometre jet, giving Rayleigh estimate 1.89*5=9.45
 micrometres, rounded to 10. This is not measured sizing or a validated size
 distribution. The same configurable diameter controls drag, Re, response time
-and Stokes number. Transport predictions still require jet placement and release
-locations; none are invented.
+and Stokes number. Relative placement is a prospective DESIGN VARIABLE. A documented 3-by-3 grid
+within measured support supplies proposed horizontal side-jet arrangements and
+three supported PZT releases each, rather than requiring measured combined geometry.
+These arrangements are proposed, not experimental placements.
 
 Edit `config/combined_flow_prediction.json`. Regenerate the supported measured
 baselines, conditionally enabled predictions, scientific text and notebook with:
@@ -137,3 +139,14 @@ comparison packages, plus old code/configuration snapshots, are preserved under
 records original relative paths, hashes and exact replacement mapping. Authoritative
 experimental inputs/results and unrelated analyses were not moved. Experimental
 notebook cells are retained; the old theory section is replaced by the new workflow.
+
+The active `Combined_Flow_Prediction/Design_Study/` contains the proposed placement
+comparison and conditional trajectories. `Dimensionless_Numbers/` independently
+exports the zero-background reference PZT particle Re, Stokes-limit response time,
+local ZNMF centreline Re_D,c and Sr_D,c, Stk_f and Stk_D. Gas actuation is the
+source-documented 120 Hz, not 10 Hz acquisition or 190 kHz atomiser frequency.
+Run dimensionless outputs without trajectory/geometry processing using:
+
+```powershell
+.\.venv\Scripts\python -m PZT_Atomiser_Analysis.analysis.prospective_studies --dimensionless-only
+```

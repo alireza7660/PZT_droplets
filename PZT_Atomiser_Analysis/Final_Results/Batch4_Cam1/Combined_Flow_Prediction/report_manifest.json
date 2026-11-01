@@ -67,5 +67,7 @@
     "methods.tex",
     "captions.tex"
   ],
-  "archive_manifest": "PZT_Atomiser_Analysis/Archive/20261102T095744_AEDT_superseded_interaction/archive_manifest.json"
+  "archive_manifest": "PZT_Atomiser_Analysis/Archive/20261102T095744_AEDT_superseded_interaction/archive_manifest.json",
+  "prospective_design_manifest": "Design_Study/manifest.json",
+  "dimensionless_manifest": "Dimensionless_Numbers/manifest.json"
 }

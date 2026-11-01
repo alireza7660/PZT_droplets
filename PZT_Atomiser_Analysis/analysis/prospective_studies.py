@@ -16,6 +16,13 @@ def save(fig,out,stem):
 
 
 def lines(out,stem,xlabel,ylabel,curves,log=False):
+    if stem.endswith('_displacement'):
+        fig,axes=plt.subplots(2,1,figsize=(6.6,5.4),sharex=True,layout='constrained')
+        for component,ax in enumerate(axes):
+            for x,y,label,style in curves[component::2]:ax.plot(x,y,label=label.split(',')[0],lw=1.2)
+            ax.set_ylabel(r'$\Delta x\ (\mathrm{mm})$' if component==0 else r'$\Delta y\ (\mathrm{mm})$')
+            ax.legend(frameon=False,fontsize=8)
+        axes[1].set_xlabel(xlabel);save(fig,out,stem);return
     fig,ax=plt.subplots(figsize=(6.6,4.4),layout='constrained')
     for x,y,label,style in curves:ax.plot(x,y,style,label=label,lw=1.2)
     ax.set(xlabel=xlabel,ylabel=ylabel)
@@ -200,8 +207,7 @@ efficiency or optimal arrangement is claimed.
 
 \paragraph{Figure captions.} Trajectory panels: proposed placements over
 separately measured mean horizontal gas-velocity contours; curves are integrated
-conditional predictions. Velocity and displacement panels: horizontal (solid)
-and vertical (dashed) components for the same releases. Particle-Re panels use
+conditional predictions. Velocity panels: horizontal (solid) and vertical (dashed) components for the same releases. Displacement panels use separate horizontal and vertical ordinates. Particle-Re panels use
 evolving vector slip; supporting Stokes panels use the explicitly local gas timescale.
 ''',encoding='utf-8')
     return dict(successfully_integrated_cases=len(cases),placement_count=len(placements))
@@ -242,7 +248,92 @@ def run():
     write_json(out/'report_manifest.json',report)
     for folder in ['Dimensionless_Numbers','Design_Study']:
         write_json(out/folder/'configuration_used.json',cfg);write_json(out/folder/'source_manifest.json',dict(**source,saved_fluid_properties_path=str(props_path),saved_fluid_properties_sha256=sha(props_path)))
+    refresh_reports()
     return dict(design=study,dimensionless=numbers)
+
+
+def refresh_reports():
+    """Summarise completed CSV results without re-integrating trajectories."""
+    cfg=json.loads((PROJECT/'config/combined_flow_prediction.json').read_text());out=ROOT/cfg['output']
+    status=json.loads((out/'prediction_status.json').read_text());sources=json.loads((out/'source_manifest.json').read_text())
+    from .combined_flow_report import write_report
+    write_report(out,cfg,sources,status,json.loads((out/'report_manifest.json').read_text())['figures'])
+    placement=np.genfromtxt(out/'Design_Study/placement_comparison.csv',names=True,delimiter=',',dtype=None,encoding='utf-8')
+    heights=np.unique(placement['centreline_height_mm']);distances=np.unique(placement['nozzle_to_plume_distance_mm'])
+    numbers=json.loads((out/'Dimensionless_Numbers/parameters_and_validation.json').read_text())
+    study=out/'Design_Study'
+    (study/'README.md').write_text(f'''# Prospective horizontal side-jet placements
+
+Successfully integrated: {status['prediction_case_count']} representative droplets,
+across {len(placement)} PROPOSED arrangements. This is not measured combined geometry.
+Jet centreline heights: {heights.tolist()} mm, selected at nearest native PZT rows
+to 25%, 50% and 75% of the measured height range. Nozzle-to-plume distances:
+{distances.tolist()} mm, selected at 20%, 50% and 80% of positive measured gas
+centreline station indices. The measured local gas centreline, not its nominal
+nozzle axis, is aligned at the PZT fixed-line anchor. Three adjacent native columns
+41, 42, 43 initialise both measured signed components at each selected height.
+No travel from an unmeasured atomiser surface is simulated.
+
+All 27 cases reach the downstream measured-gas boundary before the 30 ms limit.
+Endpoints are support limits, not droplet stopping or capture. Their displacements
+occur over different elapsed times and must not be ranked as collection performance.
+No collection target is specified and no optimum or capture efficiency is claimed.
+
+Files: placement_comparison.csv (nine arrangements), case_comparison.csv (27 cases,
+initial vectors, displacement and termination), H*_L*_C*.csv (27 full histories).
+For each H1..H3 / L1..L3 pair, PDF and 600-dpi PNG figures are:
+*_trajectories, *_velocity, *_displacement, *_particle_Re, *_supporting_Stokes.
+Displacement components have separate ordinates; velocities retain signed values.
+CSV histories also contain both gas components, vector slip, Re and defined response
+timescales. Supporting Stokes uses local D0 / gas-vector magnitude, not centreline
+Uc or a nozzle-exit timescale. See methods_results.tex for the prescribed-field
+model approximation, source_manifest.json for sources, manifest.json for exact
+selection/configuration and convergence.json for all half-step comparisons.
+
+Regenerate with the single command in the parent README. To refresh notebook
+display from existing computed CSV/figures without new integration, use
+update_combined_flow_notebook --reuse-saved-studies. This is a display refresh only.
+''',encoding='utf-8')
+    dim=out/'Dimensionless_Numbers'
+    (dim/'README.md').write_text(f'''# Geometry-independent dimensionless diagnostics
+
+Nominal model diameter 10 um; tau_Stokes={numbers['tau_Stokes_s']:.12g} s;
+documented ZNMF actuation f=120 Hz; Stk_f={numbers['Stk_f']:.12g} (no 2*pi).
+Acquisition 10 Hz and atomiser 190 kHz are not used as the jet actuation frequency.
+
+CSV files:
+- nominal_droplet_response.csv: diameter, Stokes-limit time, nu_air, D0, f, Stk_f.
+- pzt_zero_background_reference_field.csv: signed measured mean u/v, coordinates,
+  N and conditional particle Re under an explicit zero-background-gas reference.
+- pzt_fixed_line_zero_background_reference.csv: original fixed-line profile,
+  native indices and the same reference Re. Ambient PZT air was not measured.
+- znmf_local_centreline_numbers.csv: all 192 original rows, measured Uc, support
+  flags, local Re_D,c, Sr_D,c, Stk_D and Stk_f. Ten unsupported rows remain gaps.
+
+PDF/600-dpi PNG stems:
+pzt_Re_p_zero_background_reference; pzt_profile_Re_p_zero_background_reference;
+znmf_Re_D_c; znmf_Sr_D_c; znmf_Stk_D; droplet_Stk_f.
+
+Re_D,c=Uc*D0/nu; Sr_D,c=f*D0/Uc; Stk_D=tau_Stokes*Uc/D0. These are local
+centreline-based diagnostics, never Re0/Sr0 or measured combined-flow trajectories.
+Stokes Stk is distinct from Strouhal Sr. See the single methods_results.tex section,
+parameters_and_validation.json and source_manifest.json for values and provenance.
+
+Run independently of ALL placement settings:
+.\\.venv\\Scripts\\python -m PZT_Atomiser_Analysis.analysis.prospective_studies --dimensionless-only
+''',encoding='utf-8')
+    methods=study/'methods_results.tex'
+    text=methods.read_text(encoding='utf-8').split('% Actual completed study results')[0]
+    text+=r'''
+% Actual completed study results
+\paragraph{Completed results.} All 27 integrations succeeded across the nine
+proposed placements. All terminate at the downstream measured-gas boundary,
+not at a physical stopping condition. Endpoint deflections compare different
+supported elapsed times and are not a ranking of collection performance.
+The drag multiplier is unity for $Re_p\leq0.01$ and
+$1+0.15Re_p^{0.687}$ otherwise, with $Re_p<800$ enforced.
+'''
+    methods.write_text(text,encoding='utf-8')
 
 
 def notebook_cells():
@@ -259,11 +350,13 @@ saved fluid properties, full authoritative centreline support and documented
 print((study_root/'prospective_studies_status.json').read_text())
 for name in ['pzt_profile_Re_p_zero_background_reference','znmf_Re_D_c','znmf_Sr_D_c','znmf_Stk_D','droplet_Stk_f']:
     display(Image(filename=str(study_root/'Dimensionless_Numbers'/(name+'.png')),width=650))
-for height in range(1,4):
-    for length in range(1,4):
-        display(Image(filename=str(study_root/'Design_Study'/f'H{height}_L{length}_trajectories.png'),width=650))
+design_manifest=json.loads((study_root/'Design_Study/manifest.json').read_text())
+trajectory_stems=[s for s in design_manifest['figures'] if s.endswith('_trajectories')]
+for stem in trajectory_stems:
+    display(Image(filename=str(study_root/'Design_Study'/(stem+'.png')),width=650))
+middle=trajectory_stems[len(trajectory_stems)//2].removesuffix('_trajectories')
 for suffix in ['velocity','displacement','particle_Re','supporting_Stokes']:
-    display(Image(filename=str(study_root/'Design_Study'/('H2_L2_'+suffix+'.png')),width=650))
+    display(Image(filename=str(study_root/'Design_Study'/(middle+'_'+suffix+'.png')),width=650))
 '''
     cells=[nb.v4.new_markdown_cell(text),nb.v4.new_code_cell(code)]
     for cell in cells:cell.metadata['prospective_studies']=True

@@ -7,20 +7,17 @@ The PIV values are droplet-phase velocities. Surrounding-air velocity was not
 measured; this experiment is not labelled stationary air. ZNMF-only: gas velocities
 measured without PZT droplets. The proposed combined experiment has not been conducted.
 
-The active status is **awaiting_prediction_inputs**. Baseline results are complete.
-No arbitrary diameter or placement cases are populated. No combined-flow prediction,
-entrainment, capture or experimental model validation is claimed while inputs are missing.
+The active status is **prospective_design_study_complete**. Baseline results are complete.
+The prospective design study integrated 27 conditional particle cases in 9 proposed arrangements. Placement is a DESIGN VARIABLE, not measured geometry. See Design_Study/placement_comparison.csv and case_comparison.csv. No capture efficiency, optimal arrangement or experimental validation is claimed.
 
-## Specific missing prediction inputs
+## Fixed-geometry inputs (not prerequisites for the prospective design study)
 
-- Proposed ZNMF nozzle-centre (x,y) in the PZT image-reference frame and jet direction/rotation (including which side it enters), with placement description
-- Droplet entry/release location(s): native PZT row/column or measured (x,y) identifying those nodes, and ensemble-mean or saved-frame initial velocity selection
+- None; explicit configured cases have been evaluated.
 
-These are the only presently missing experimental/design inputs for the implemented
-first-order, two-dimensional model. A validated size distribution is welcome, but
+The completed prospective study does not require measured combined geometry. Proposed placements and supported release nodes are specified numerically in its comparison tables. A validated size distribution is welcome, but
 an explicitly declared diameter study is also supported. No diameter is inferred
 from pixel calibration, interrogation-window size, image-spot width or nozzle diameter.
-No numerical droplet prediction is substituted for these missing inputs.
+Fixed measured/prototype geometry is not required for the proposed placement study; it is selected and documented from measured coordinate support.
 
 ## Configured nominal droplet diameter
 
@@ -33,8 +30,7 @@ modelling assumptions, not independently verified atomiser sizing. This does not
 establish a measured droplet size, monodispersity or a validated size distribution.
 `data/droplet_model_parameters.csv` records the configured diameter and response
 time. Size and provenance remain configurable for measured sizing or a declared
-later parameter study. Prediction Re and St are not reported until gas slip and
-placement/release inputs can be evaluated.
+later parameter study. Trajectory slip-based Re and local Stokes diagnostics are reported in Design_Study. Geometry-independent reference and local-centreline numbers are reported in Dimensionless_Numbers.
 
 ## Authoritative data and physical frames
 
@@ -154,3 +150,7 @@ source manifest, input-gated configuration and, only when configured, integrated
 trajectory/component/slip/Re/St CSV and figures. `prediction_status.json` is the
 authoritative statement of what was generated. Detailed synthetic solver tests
 are validation checks, not experimental parameter-study results.
+
+## Active prospective outputs
+
+Design_Study/manifest.json lists proposed trajectories, velocity/displacement/Re/Stokes figures and comparison tables. Dimensionless_Numbers/manifest.json lists independent PZT-reference and ZNMF local-number CSV/PDF/PNG outputs. Dimensionless calculations can also run without any geometry using `python -m PZT_Atomiser_Analysis.analysis.prospective_studies --dimensionless-only`.
