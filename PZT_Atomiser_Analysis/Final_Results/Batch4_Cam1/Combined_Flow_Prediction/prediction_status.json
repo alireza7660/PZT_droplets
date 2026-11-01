@@ -1,0 +1,32 @@
+{
+  "status": "awaiting_prediction_inputs",
+  "combined_experiment_conducted": false,
+  "missing_inputs": [
+    "Proposed ZNMF nozzle-centre (x,y) in the PZT image-reference frame and jet direction/rotation (including which side it enters), with placement description",
+    "Droplet entry/release location(s): native PZT row/column or measured (x,y) identifying those nodes, and ensemble-mean or saved-frame initial velocity selection"
+  ],
+  "configured_droplet_diameters_um": [
+    10.0
+  ],
+  "diameter_source_or_assumption": "User-selected nominal model estimate: 5 um nominal mesh aperture, emerging jet diameter assumed equal to aperture; Rayleigh d_drop approximately 1.89*d_jet = 9.45 um, rounded to 10 um. Not measured sizing or a validated size distribution.",
+  "baseline_complete": true,
+  "prediction_case_count": 0,
+  "fixed_profile_maximum": {
+    "native_row": 304,
+    "native_column": 42,
+    "x_mm": 14.54665,
+    "y_mm": 1.284,
+    "mean_v_m_s": 1.6865481421305646,
+    "N": 1757,
+    "finite_maximum_tie_count": 1,
+    "measured_y_range_mm": [
+      0.0856,
+      27.3064
+    ],
+    "profile_y_range_mm": [
+      0.0856,
+      27.3064
+    ]
+  },
+  "cases": []
+}

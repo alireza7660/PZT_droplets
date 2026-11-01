@@ -1,0 +1,92 @@
+{
+  "physics": {
+    "zero_slip_finite": true,
+    "gravity_downward": true,
+    "drag_opposes_slip": true,
+    "low_Re_Stokes_limit": true,
+    "analytic_Stokes_turning_time_height": true,
+    "tau_scales_as_d_squared": true,
+    "vector_norm_3_4_5": true,
+    "Re_validity_enforced": true
+  },
+  "calibration_once": true,
+  "SI_integration": true,
+  "step_convergence": [
+    {
+      "diameter_um": 5,
+      "dt_s": 2.548541968280613e-06,
+      "half_step_endpoint_time_difference_s": 1.3126611636852734e-09,
+      "half_step_endpoint_position_difference_m": [
+        3.954964827856955e-12,
+        3.8710381417266654e-11
+      ],
+      "half_step_endpoint_velocity_difference_m_s": [
+        3.1351441787726836e-11,
+        0.0
+      ],
+      "half_step_turning_height_difference_m": 3.8710381417266654e-11,
+      "max_Re": 0.5524006340403399
+    },
+    {
+      "diameter_um": 10,
+      "dt_s": 1e-05,
+      "half_step_endpoint_time_difference_s": 4.415531675537598e-09,
+      "half_step_endpoint_position_difference_m": [
+        9.132309491954871e-12,
+        6.774499537731682e-11
+      ],
+      "half_step_endpoint_velocity_difference_m_s": [
+        8.35719137827224e-10,
+        0.0
+      ],
+      "half_step_turning_height_difference_m": 6.774499537731682e-11,
+      "max_Re": 1.1048012680806798
+    },
+    {
+      "diameter_um": 20,
+      "dt_s": 1e-05,
+      "half_step_endpoint_time_difference_s": 6.004160877683129e-09,
+      "half_step_endpoint_position_difference_m": [
+        1.7875628061103654e-11,
+        4.387230097442629e-11
+      ],
+      "half_step_endpoint_velocity_difference_m_s": [
+        9.187150243035805e-09,
+        0.0
+      ],
+      "half_step_turning_height_difference_m": 4.387230097442629e-11,
+      "max_Re": 2.2096025361613596
+    },
+    {
+      "diameter_um": 50,
+      "dt_s": 1e-05,
+      "half_step_endpoint_time_difference_s": 6.83481049534862e-16,
+      "half_step_endpoint_position_difference_m": [
+        1.734723475976807e-18,
+        2.8102520310824275e-16
+      ],
+      "half_step_endpoint_velocity_difference_m_s": [
+        8.066464163292153e-17,
+        0.0
+      ],
+      "half_step_turning_height_difference_m": 2.8102520310824275e-16,
+      "max_Re": 5.5240063404034
+    },
+    {
+      "diameter_um": 100,
+      "dt_s": 1e-05,
+      "half_step_endpoint_time_difference_s": 5.814793091474257e-15,
+      "half_step_endpoint_position_difference_m": [
+        1.491862189340054e-16,
+        7.632783294297951e-17
+      ],
+      "half_step_endpoint_velocity_difference_m_s": [
+        1.8388068845354155e-16,
+        0.0
+      ],
+      "half_step_turning_height_difference_m": 7.632783294297951e-17,
+      "max_Re": 11.0480126808068
+    }
+  ],
+  "experimental_files_unchanged": 245
+}

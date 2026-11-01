@@ -1,0 +1,13 @@
+{
+  "authoritative_files_hash_verified": 249,
+  "archived_files_hash_verified": 84,
+  "measured_PZT_arrays_masks_profiles_unchanged": true,
+  "ZNMF_velocities_not_recalibrated": true,
+  "coordinate_dimensionalisation_verified": true,
+  "synthetic_tests_passed": true,
+  "diameters_explicitly_sourced": true,
+  "prediction_status": "awaiting_prediction_inputs",
+  "figure_count": 6,
+  "PNG_dpi": 600,
+  "notebook_executed": true
+}

@@ -106,31 +106,34 @@ The figure stems are `mean_v_vertical_profile_location` and
 directory. Extracted CSV/NPZ are in `data/mean_v_vertical_profile.*`.
 Selection and verification metadata are in `methods/vertical_profile_*.json`.
 
-## Conditional droplet theory comparison
+## Proposed combined side-jet prediction
 
-`Final_Results/Batch4_Cam1/Theory_Comparison/` contains separate model-reference
-figures, CSV values, sourced fluid properties, assumptions, validation and a
-LaTeX methods/results section. Final calibrated experimental arrays are read
-unchanged. The configured diameters and quiescent gas are sensitivity inputs,
-not measured diameter or gas-velocity values. The separate ZNMF profile is
-used only for an explicitly hypothetical jet-interaction Stokes comparison.
-PZT comparison height is h=y-y0 relative to the first finite paired measurement,
-not the atomiser surface. Humidity is unavailable; dry-air properties are an
-approximation, with evaporation neglected.
+Active workflow: `Final_Results/Batch4_Cam1/Combined_Flow_Prediction/`.
+The PZT-only experiment measured droplet velocities with no ZNMF jet; ambient
+PZT air velocity was not measured. The separate ZNMF-only experiment supplies
+the prescribed two-component mean gas field. The combined experiment has not
+been conducted. The nominal model diameter is now 10 micrometres: a 5 micrometre aperture is
+assumed to produce a 5 micrometre jet, giving Rayleigh estimate 1.89*5=9.45
+micrometres, rounded to 10. This is not measured sizing or a validated size
+distribution. The same configurable diameter controls drag, Re, response time
+and Stokes number. Transport predictions still require jet placement and release
+locations; none are invented.
 
-Edit `config/theory_comparison.json` and regenerate figures, numerical exports,
-scientific text and the executed notebook theory section with one command:
+Edit `config/combined_flow_prediction.json`. Regenerate the supported measured
+baselines, conditionally enabled predictions, scientific text and notebook with:
 
 ```powershell
-.\.venv\Scripts\python -m PZT_Atomiser_Analysis.analysis.update_theory_notebook
+.\.venv\Scripts\python -m PZT_Atomiser_Analysis.analysis.update_combined_flow_notebook
 ```
 
-The revised package separates fixed-line ensemble means from stationary-air
-trajectory references and separates their two Reynolds-number calculations.
-The 0-2 mm velocity view uses the same curves and styles as the full view.
-Actual turning heights and plotted endpoints are distinct in `reference_endpoints.csv`.
-Jet Stokes results are isolated in `Jet_Interaction_Sensitivity/`.
-`report_manifest.json` identifies the exact report figures and LaTeX files;
-superseded theory outputs are in `Archive_Before_Report_Revision_1522f54/` and
-are excluded from the report. Existing experimental notebook cells and outputs
-are retained. Computational checks are separate under `Theory_Comparison/validation/`.
+`prediction_status.json` lists any missing prediction inputs. `source_manifest.json`
+records the actual authoritative PZT/ZNMF files, hashes, masks, SI units and transforms.
+`report_manifest.json` explicitly selects active figures and excludes archives.
+The full original PZT calibration, sample selection and signs remain unchanged.
+
+Superseded theory/Re/St, arbitrary-diameter, hypothetical-jet and duplicate axial
+comparison packages, plus old code/configuration snapshots, are preserved under
+`Archive/20261102T095744_AEDT_superseded_interaction/`. Its `archive_manifest.json`
+records original relative paths, hashes and exact replacement mapping. Authoritative
+experimental inputs/results and unrelated analyses were not moved. Experimental
+notebook cells are retained; the old theory section is replaced by the new workflow.

@@ -57,7 +57,8 @@ def contour_boundaries(limits,levels=41,signed=False):
 
 def contour_map(x, y, values, *, label, limits, output, xlabel, ylabel,
                 signed=False, levels=41, data_output=None,
-                markers=None, vertical_lines=None, point_markers=None):
+                markers=None, vertical_lines=None, point_markers=None,
+                figsize=(6.2,5.0)):
     """Piecewise contour interpolation only within fully valid native grid cells.
 
     No filtering, filling, extrapolation or triangulation across missing nodes.
@@ -68,7 +69,7 @@ def contour_map(x, y, values, *, label, limits, output, xlabel, ylabel,
     display_mask=np.ma.getmaskarray(raw).copy()
     z=np.ma.array(raw.data,mask=display_mask)
     boundaries=contour_boundaries(limits,levels,signed)
-    fig, ax = plt.subplots(figsize=(6.2, 5.0), layout='constrained')
+    fig, ax = plt.subplots(figsize=figsize, layout='constrained')
     norm=Normalize(vmin=limits[0],vmax=limits[1])
     m = ax.contourf(x, y, z, levels=boundaries,norm=norm,
                     cmap='RdBu_r' if signed else 'viridis',

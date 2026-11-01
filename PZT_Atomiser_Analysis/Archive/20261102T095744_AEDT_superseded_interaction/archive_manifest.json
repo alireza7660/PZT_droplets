@@ -1,0 +1,617 @@
+{
+  "timestamp": "2026-11-02T09:57:44+11:00",
+  "reason": "Replaced independent still-air/arbitrary-size and axial-overlay comparisons with a prescribed measured side-jet prediction workflow",
+  "records": [
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\ballistic_reference.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\ballistic_reference.csv",
+      "bytes": 32181,
+      "sha256": "b4d5607075b6e726e28a822986444a6351e3d7c1a09183466a5fee4c6b1dc3f9"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\captions.tex",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\captions.tex",
+      "bytes": 3532,
+      "sha256": "6d86a324691a6c14a7d6c97378a8fd491c8fc3f557d5cddf38ff2cfedb377c43"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\diameter_sensitivity.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\diameter_sensitivity.csv",
+      "bytes": 733,
+      "sha256": "287613def0fdad076c1719bf1852a5a38fdb055e4c4e1622942c73de994e0698"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\diameter_sensitivity.pdf",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\diameter_sensitivity.pdf",
+      "bytes": 22444,
+      "sha256": "6fe89bd10b9171eeef9e104f7b83270bc7d44104367591e94ce84da1e15ae507"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\diameter_sensitivity.png",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\diameter_sensitivity.png",
+      "bytes": 186885,
+      "sha256": "2a946e2d22dc199037e9cab16336c51e808566c878a3f5dea616c785c390cca7"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\diameter_sensitivity.svg",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\diameter_sensitivity.svg",
+      "bytes": 22971,
+      "sha256": "7bb993e50f63313c1b7005b7c33c061738a4fb7c38511ccf426326b6d30c9bb5"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\figure_curve_manifest.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\figure_curve_manifest.json",
+      "bytes": 25762,
+      "sha256": "9bc40a9e78d37318f1f261a24365407b9eb727a73c9c4ab5a7a2d93fe3f75447"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\Jet_Interaction_Sensitivity\\parameters_used.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\Jet_Interaction_Sensitivity\\parameters_used.json",
+      "bytes": 804,
+      "sha256": "b63175056c9a3b83b93a9dd876e67841d2251102d9d201673cf1a52d8b4610af"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\Jet_Interaction_Sensitivity\\README.md",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\Jet_Interaction_Sensitivity\\README.md",
+      "bytes": 1045,
+      "sha256": "4850ecd3a6aedc2695518a0c317c47a616b202f211da8755d770bf22b13865da"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\Jet_Interaction_Sensitivity\\znmf_local_nozzle_stokes.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\Jet_Interaction_Sensitivity\\znmf_local_nozzle_stokes.csv",
+      "bytes": 11762,
+      "sha256": "b612b04192723560b4d52c4bb37f439d2d223c2ff545f8d0743354d629503da0"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\Jet_Interaction_Sensitivity\\znmf_local_nozzle_stokes.pdf",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\Jet_Interaction_Sensitivity\\znmf_local_nozzle_stokes.pdf",
+      "bytes": 23502,
+      "sha256": "26ce635d07e0243054e782580b0575cd03a06e6e8c90344a7ef1598ab69801c1"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\Jet_Interaction_Sensitivity\\znmf_local_nozzle_stokes.png",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\Jet_Interaction_Sensitivity\\znmf_local_nozzle_stokes.png",
+      "bytes": 263569,
+      "sha256": "ad3ded81f7acdb0c1621c142f60ffcd6a28906d64bcc52df6ea6657ee34a1557"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\Jet_Interaction_Sensitivity\\znmf_local_nozzle_stokes.svg",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\Jet_Interaction_Sensitivity\\znmf_local_nozzle_stokes.svg",
+      "bytes": 40100,
+      "sha256": "cf7f6c5e8fc4773f11bfb3123209dc557b92e3748c68cf2b1b66e96364d02ba2"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\measured_fixed_x_profile.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\measured_fixed_x_profile.csv",
+      "bytes": 26091,
+      "sha256": "10413b20bec3c6ac9ae6576f95fc90f5f0cdacc5924dc13d9dc0d26ca6fd647f"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\methods_results.tex",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\methods_results.tex",
+      "bytes": 4943,
+      "sha256": "06ac38e34df8ce1c3f2473fb509a6830a3f9fcfd8e20844719127b1d58d1fb1b"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\parameters_used.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\parameters_used.json",
+      "bytes": 8222,
+      "sha256": "c8f809478434f8b5e23406ec7404e51300c0e878c949ac6a4cfe3052a2faeb8a"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\particle_relaxation_time.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\particle_relaxation_time.csv",
+      "bytes": 12030,
+      "sha256": "74e0c8bc37d6cccd2414e75051fd762b3b6e2909f60379a27073b8eef31c2347"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\particle_relaxation_time.pdf",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\particle_relaxation_time.pdf",
+      "bytes": 20306,
+      "sha256": "0c5363f9190ced6b91dc7155e34d2b55e402afef7beff742de4abe999ae15f40"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\particle_relaxation_time.png",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\particle_relaxation_time.png",
+      "bytes": 171158,
+      "sha256": "d8c0640bbe706e16282c297dfe5e2fb638e316259781550ae46c69a6b4fdfcff"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\particle_relaxation_time.svg",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\particle_relaxation_time.svg",
+      "bytes": 23909,
+      "sha256": "0f704e15d5ff383014093c07b82bcf7da8ee0194b0e4916ff82f66151494937e"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\README.md",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\README.md",
+      "bytes": 5597,
+      "sha256": "1f01fa18fc2b366913a3429f9ab01eb58fea756ae2153f45c820831c9eb30d9e"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\reference_endpoints.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\reference_endpoints.csv",
+      "bytes": 1331,
+      "sha256": "0f20543108f3e8d70bc540456110733c4fcdbce8f51407ef792014c3ce200d20"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\references.bib",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\references.bib",
+      "bytes": 1087,
+      "sha256": "e8818741d82e3adef710496cd2a6c756119499a5ef2d07cde1156ed0796cd0ef"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\regenerate.py",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\regenerate.py",
+      "bytes": 172,
+      "sha256": "0ed02b81897625a9f472b66cefad27a4a710220f1af51b8950e42f94c9f288f3"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\report_figures.tex",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\report_figures.tex",
+      "bytes": 4550,
+      "sha256": "f9542d70e1e63ce743b106e0a5dbfae4403d1cc392cacd03602499516bf53a94"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\report_manifest.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\report_manifest.json",
+      "bytes": 1810,
+      "sha256": "f97a183199c3e4c17b4832ece2e01450bc962fb13bbd5ca18cd29b2d158ae231"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\reynolds_measured_velocity_assumed_air.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\reynolds_measured_velocity_assumed_air.csv",
+      "bytes": 56243,
+      "sha256": "985d4ad9eb8b2d158bc480eae2c92c90fc5f32ef4808b46f46376c91ac9ae1e3"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\reynolds_measured_velocity_assumed_air.pdf",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\reynolds_measured_velocity_assumed_air.pdf",
+      "bytes": 25613,
+      "sha256": "3824d85ba73b9a95f14425f90dd355b8106b1c015f83bc640a8192ace12bcdfa"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\reynolds_measured_velocity_assumed_air.png",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\reynolds_measured_velocity_assumed_air.png",
+      "bytes": 298852,
+      "sha256": "8bd0808b29558fb072dcbdc99fcd914016464448af3ba5c8c773e20e4a4f2921"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\reynolds_measured_velocity_assumed_air.svg",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\reynolds_measured_velocity_assumed_air.svg",
+      "bytes": 31835,
+      "sha256": "b1ae8601bb6cd3f2e4fe61617256bed31b8d7b1afc85d5d27833064c8e658ad9"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\reynolds_reference_trajectories.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\reynolds_reference_trajectories.csv",
+      "bytes": 1423356,
+      "sha256": "192ec0d328fc2c0f01364a8031223709079b25dc7f13ad2002871d427dcfbbfd"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\reynolds_reference_trajectories.pdf",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\reynolds_reference_trajectories.pdf",
+      "bytes": 20885,
+      "sha256": "5fc34db3a1e812a25f5e5d83ee802c336bbba32d3e7f105f5fa213c3ab021034"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\reynolds_reference_trajectories.png",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\reynolds_reference_trajectories.png",
+      "bytes": 246413,
+      "sha256": "594a4c750cb0bb76cd38d8b3b9d5009a4254fcb999138634993343f30e71b431"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\reynolds_reference_trajectories.svg",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\reynolds_reference_trajectories.svg",
+      "bytes": 19419,
+      "sha256": "34f9daffd2dfe58aa308858b91be59a5690f35c360cdc4533645e5277f4600db"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\trajectory_stationary_air_d100um.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\trajectory_stationary_air_d100um.csv",
+      "bytes": 857095,
+      "sha256": "e1e95cfa67ec9034bd9ea75e3db7e1526ff36b5e1fef4efc694141f2046d3441"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\trajectory_stationary_air_d10um.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\trajectory_stationary_air_d10um.csv",
+      "bytes": 35591,
+      "sha256": "0ffbd2d008ccf7bf953ffc132bcb31bb7d390211bc5be4d6f9dd573ed011304e"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\trajectory_stationary_air_d20um.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\trajectory_stationary_air_d20um.csv",
+      "bytes": 105729,
+      "sha256": "0632a68dedd64dbb239921b815d1af558ec7f0b155e08d17973067e0d509fe1a"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\trajectory_stationary_air_d50um.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\trajectory_stationary_air_d50um.csv",
+      "bytes": 381812,
+      "sha256": "d909da91ea7c40fa8ba3f41ba86b0b39368a3cac77a822b7310f4fe0dc8a218c"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\trajectory_stationary_air_d5um.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\trajectory_stationary_air_d5um.csv",
+      "bytes": 43625,
+      "sha256": "e6f3cb79092f9ea239a23034658c0ba0015dde1aec257f739ad6ad0c3ace2d6d"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\validation\\experimental_input_hashes.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\validation\\experimental_input_hashes.json",
+      "bytes": 26822,
+      "sha256": "cc51ab0cd3e895713c89bf5dbdb20c27482eed49d2758a30cd1907d86b92b101"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\validation\\numerical_checks.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\validation\\numerical_checks.json",
+      "bytes": 2830,
+      "sha256": "8541bfa5e231ad4eb1265ca2b4b36d8c6e067debdd3517143270effe920ead6e"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\validation\\saved_output_checks.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\validation\\saved_output_checks.json",
+      "bytes": 665,
+      "sha256": "da66f27fc88987d14783aaed1cb70e70f82a40dc742c8af7c77eb14fe139525c"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\validation\\visual_inspection.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\validation\\visual_inspection.json",
+      "bytes": 320,
+      "sha256": "d738f15de61949b39db201421f032ee691ad13b5b57fad4696ef2bacc955dac7"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\validation\\visual_review.png",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\validation\\visual_review.png",
+      "bytes": 297919,
+      "sha256": "6fce45cc22c94defd4551fee176d2aaae4e5c67733c5878db03c772317fdf8a8"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\velocity_reference_full.pdf",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\velocity_reference_full.pdf",
+      "bytes": 25504,
+      "sha256": "85f0988e0a87fd856a69ed01e2529813d096a35be636891692539ea9820d1def"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\velocity_reference_full.png",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\velocity_reference_full.png",
+      "bytes": 376917,
+      "sha256": "c096170c2661579b25d0a769e1e2c1942c6417d6974d3979c3fcf2b3d6dd59e7"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\velocity_reference_full.svg",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\velocity_reference_full.svg",
+      "bytes": 27082,
+      "sha256": "a7955c5a7e4b37975643e413ec9878e297eaed04f593dfb363bf5f87acee10cb"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\velocity_reference_near_origin.pdf",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\velocity_reference_near_origin.pdf",
+      "bytes": 24856,
+      "sha256": "0fd652855ce627b32a3784549b1eb9d054396311380043856f7323e2ab4fc65d"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\velocity_reference_near_origin.png",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\velocity_reference_near_origin.png",
+      "bytes": 348708,
+      "sha256": "67301e3ba57a80b39118c81af0258acce87a1df80b5366ff6f0471e2d1b56d9e"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\velocity_reference_near_origin.svg",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Theory_Comparison\\velocity_reference_near_origin.svg",
+      "bytes": 27237,
+      "sha256": "efa8c193c5af1ee2b8f08af4c3052b1822236a46d5d22c6baba1a3945fdac9e7"
+    },
+    {
+      "action": "moved",
+      "original_path": "Jet_PZT_Comparison\\caption.txt",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\caption.txt",
+      "bytes": 540,
+      "sha256": "61cdc19de9530cacc590de9c921abc90b5fb28da82fa25f590afb31e25955231"
+    },
+    {
+      "action": "moved",
+      "original_path": "Jet_PZT_Comparison\\mean_axial_velocity_comparison.pdf",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\mean_axial_velocity_comparison.pdf",
+      "bytes": 22462,
+      "sha256": "39228ba117e556fc7c4abbe030029ac1a26930f6a49fc863358ef12178273bad"
+    },
+    {
+      "action": "moved",
+      "original_path": "Jet_PZT_Comparison\\mean_axial_velocity_comparison.png",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\mean_axial_velocity_comparison.png",
+      "bytes": 247263,
+      "sha256": "fba80de9c1a014ec16077091bd97381b339ddbc2361bbbe663283c955f226690"
+    },
+    {
+      "action": "moved",
+      "original_path": "Jet_PZT_Comparison\\mean_axial_velocity_comparison.svg",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\mean_axial_velocity_comparison.svg",
+      "bytes": 33456,
+      "sha256": "d1641a01b0d2b7e914267fc184b458b25565393bec0b97c63548087ce35fc5c3"
+    },
+    {
+      "action": "moved",
+      "original_path": "Jet_PZT_Comparison\\plot_comparison.py",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\plot_comparison.py",
+      "bytes": 5173,
+      "sha256": "7179f8bd7b4aaa0fa42e6a8518a50a5a543ba3fd6369bc50d93002d4cf14c029"
+    },
+    {
+      "action": "moved",
+      "original_path": "Jet_PZT_Comparison\\pzt_plotted_data.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\pzt_plotted_data.csv",
+      "bytes": 26849,
+      "sha256": "7739afe40ab121fc14e38eb3adc57ba2f69574b7e58533f5bf48bf065f60ce73"
+    },
+    {
+      "action": "moved",
+      "original_path": "Jet_PZT_Comparison\\README.md",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\README.md",
+      "bytes": 3651,
+      "sha256": "df4fcdc087c4b0a2c2f1009d32f6234dbd2c2e8cdc3e43c952c3f38eb96dde34"
+    },
+    {
+      "action": "moved",
+      "original_path": "Jet_PZT_Comparison\\Short_Labels\\caption.txt",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\Short_Labels\\caption.txt",
+      "bytes": 679,
+      "sha256": "981574d58013104670627178f978b2e2498f6204217644396e39a162c93cea64"
+    },
+    {
+      "action": "moved",
+      "original_path": "Jet_PZT_Comparison\\Short_Labels\\mean_axial_velocity_comparison.pdf",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\Short_Labels\\mean_axial_velocity_comparison.pdf",
+      "bytes": 21337,
+      "sha256": "5c3cb46a15d0f96614848d9b13bc2968924b56b42bc789625ef0e502bb8aee8d"
+    },
+    {
+      "action": "moved",
+      "original_path": "Jet_PZT_Comparison\\Short_Labels\\mean_axial_velocity_comparison.png",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\Short_Labels\\mean_axial_velocity_comparison.png",
+      "bytes": 214280,
+      "sha256": "b17bbe192ef668c6b8ea1b441d2d3056ebee6adb02a1cda2bd392a5dca92716e"
+    },
+    {
+      "action": "moved",
+      "original_path": "Jet_PZT_Comparison\\Short_Labels\\mean_axial_velocity_comparison.svg",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\Short_Labels\\mean_axial_velocity_comparison.svg",
+      "bytes": 29617,
+      "sha256": "5e3d22fce3015977c482a4688aa4f3ec644bacff09cc50a59ed67149a2975a56"
+    },
+    {
+      "action": "moved",
+      "original_path": "Jet_PZT_Comparison\\Short_Labels\\original_file_hashes.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\Short_Labels\\original_file_hashes.json",
+      "bytes": 1056,
+      "sha256": "cb6e1fb6401c0e101693f4fa386a76cec2bb7e6f57677c81c635e6defae34f2c"
+    },
+    {
+      "action": "moved",
+      "original_path": "Jet_PZT_Comparison\\Short_Labels\\plot_comparison.py",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\Short_Labels\\plot_comparison.py",
+      "bytes": 5292,
+      "sha256": "d90235e9110d6fd97088d061c8f684c9b1d01e1e27191280c01e5af58422e21d"
+    },
+    {
+      "action": "moved",
+      "original_path": "Jet_PZT_Comparison\\Short_Labels\\pzt_plotted_data.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\Short_Labels\\pzt_plotted_data.csv",
+      "bytes": 26849,
+      "sha256": "7739afe40ab121fc14e38eb3adc57ba2f69574b7e58533f5bf48bf065f60ce73"
+    },
+    {
+      "action": "moved",
+      "original_path": "Jet_PZT_Comparison\\Short_Labels\\README.md",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\Short_Labels\\README.md",
+      "bytes": 598,
+      "sha256": "8f5c686322b9166f4a9af1b9128a133b2539751765b5c2da64f32acc86c0452e"
+    },
+    {
+      "action": "moved",
+      "original_path": "Jet_PZT_Comparison\\Short_Labels\\verification.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\Short_Labels\\verification.json",
+      "bytes": 1470,
+      "sha256": "df41fda4a7dc21a62e6466ef5285aa82e097ffe1d09d31719dfe3f5516d6cee9"
+    },
+    {
+      "action": "moved",
+      "original_path": "Jet_PZT_Comparison\\Short_Labels\\znmf_plotted_data.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\Short_Labels\\znmf_plotted_data.csv",
+      "bytes": 14310,
+      "sha256": "dbcb27654d75d1e22a0b34c29b548219b6e1411e602654653a923a6122223505"
+    },
+    {
+      "action": "moved",
+      "original_path": "Jet_PZT_Comparison\\verification.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\verification.json",
+      "bytes": 1470,
+      "sha256": "df41fda4a7dc21a62e6466ef5285aa82e097ffe1d09d31719dfe3f5516d6cee9"
+    },
+    {
+      "action": "moved",
+      "original_path": "Jet_PZT_Comparison\\znmf_plotted_data.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\znmf_plotted_data.csv",
+      "bytes": 14310,
+      "sha256": "dbcb27654d75d1e22a0b34c29b548219b6e1411e602654653a923a6122223505"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\For me\\mean_axial_velocity_comparison.png",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\For me\\mean_axial_velocity_comparison.png",
+      "bytes": 214280,
+      "sha256": "b17bbe192ef668c6b8ea1b441d2d3056ebee6adb02a1cda2bd392a5dca92716e"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\config\\theory_comparison.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\config\\theory_comparison.json",
+      "bytes": 2211,
+      "sha256": "594e97a309a1d8a353119e7968cbbb4e3e18465b0c3fd70c8c50f0c43352eaa7"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\analysis\\theory_comparison.py",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\analysis\\theory_comparison.py",
+      "bytes": 8544,
+      "sha256": "cd2c528a6f021352dbefaff81d4a53cc9884a967be33303b9d4df1060b442656"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\analysis\\theory_package.py",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\analysis\\theory_package.py",
+      "bytes": 18673,
+      "sha256": "ba6238461fc21497d4beefe93b8cae34242606b919a9f20d0caf0a1d20f7acf0"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\analysis\\theory_report.py",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\analysis\\theory_report.py",
+      "bytes": 18138,
+      "sha256": "6644a8a4dafb8bb1c27bf04e79f638388dfff9366470f3a9e600cd1642f6998d"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\analysis\\verify_theory_comparison.py",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\analysis\\verify_theory_comparison.py",
+      "bytes": 7532,
+      "sha256": "aed8191869a699c6ce9b010a1db468c9a2972f2f5b35c6cb4b3fd6cbf2feacc8"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\analysis\\update_theory_notebook.py",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\analysis\\update_theory_notebook.py",
+      "bytes": 1923,
+      "sha256": "50a17a60b78ce9de4d0b0dcb15ceb64efacd20ce13e7b9d0b749bfddab8700ec"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\analysis\\__pycache__\\theory_comparison.cpython-312.pyc",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\analysis\\__pycache__\\theory_comparison.cpython-312.pyc",
+      "bytes": 14579,
+      "sha256": "85ad54ce8cb90befbead6eebf42735f849dfc771a2321bf44b0ef4cdb8b2395d"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\analysis\\__pycache__\\theory_package.cpython-312.pyc",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\analysis\\__pycache__\\theory_package.cpython-312.pyc",
+      "bytes": 26543,
+      "sha256": "89a5c7db74947be3b5d3c73b856cfa548085fd5936eabd9a7198403111b93a38"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\analysis\\__pycache__\\theory_report.cpython-312.pyc",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\analysis\\__pycache__\\theory_report.cpython-312.pyc",
+      "bytes": 19588,
+      "sha256": "920f48bc9d16c75ed7b7bb306a7b20e0ca1eb5f1a52352fc7db632bad9ed0b1c"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\analysis\\__pycache__\\update_theory_notebook.cpython-312.pyc",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\analysis\\__pycache__\\update_theory_notebook.cpython-312.pyc",
+      "bytes": 3604,
+      "sha256": "87be72782b6878b786b6579f11eb32e5babde27e73d1d529a09b71508a997365"
+    },
+    {
+      "action": "moved",
+      "original_path": "PZT_Atomiser_Analysis\\analysis\\__pycache__\\verify_theory_comparison.cpython-312.pyc",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\PZT_Atomiser_Analysis\\analysis\\__pycache__\\verify_theory_comparison.cpython-312.pyc",
+      "bytes": 13397,
+      "sha256": "c2d1bbeb267d4853608f352bdfbadf594539595f553e3aa49a20d755fd0e648d"
+    },
+    {
+      "action": "snapshot_copy",
+      "original_path": "PZT_Atomiser_Analysis/README.md",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Snapshots\\PZT_Atomiser_Analysis\\README.md",
+      "bytes": 7428,
+      "sha256": "6d9b5316c6a0f689edda32103a49c81490426e9558d5b5f32c5eb9ba498fead2"
+    },
+    {
+      "action": "snapshot_copy",
+      "original_path": "PZT_Atomiser_Analysis/analysis/build_final_notebook.py",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Snapshots\\PZT_Atomiser_Analysis\\analysis\\build_final_notebook.py",
+      "bytes": 5748,
+      "sha256": "ecd0928b40685fda389712f4d4ead088062ec459a24150c33534f0a0b6ed2568"
+    },
+    {
+      "action": "generated_notebook_snapshot",
+      "original_path": "previous_theory_notebook_section.ipynb",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\previous_theory_notebook_section.ipynb",
+      "bytes": 2528726,
+      "sha256": "001339ae8bc2303fbae7038767436adaa6eb1a23359136f8d6b2b0379352d125"
+    }
+  ],
+  "excludes": [
+    "Original RAW_data",
+    "Authoritative final PZT data/figures",
+    "ZNMF_Results/Final_Result",
+    "PZT_droplets_GitHub checkout/history",
+    "Unrelated analyses and experimental For me copies"
+  ],
+  "superseded_by": "PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1/Combined_Flow_Prediction/report_manifest.json",
+  "replacement_mapping": [
+    {
+      "previous": "Theory_Comparison and arbitrary-diameter/jet-Stokes outputs",
+      "replacement": "Combined_Flow_Prediction baseline and input-gated prescribed-gas predictions; no direct replacement numerical Re/St until required inputs exist"
+    },
+    {
+      "previous": "Jet_PZT_Comparison including Short_Labels and For me overlay",
+      "replacement": "Separate PZT baseline and native ZNMF field inventory; no equal-origin axial overlay"
+    },
+    {
+      "previous": "theory_comparison.json and analysis/theory_*",
+      "replacement": "config/combined_flow_prediction.json, analysis/combined_flow_prediction.py and droplet_dynamics.py"
+    }
+  ],
+  "inventory_method": "Windows extended-length paths, recursive os.walk; no nested archive skipped"
+}

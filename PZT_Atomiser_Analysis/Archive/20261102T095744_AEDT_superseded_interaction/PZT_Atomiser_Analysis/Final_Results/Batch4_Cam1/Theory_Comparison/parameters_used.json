@@ -1,0 +1,188 @@
+{
+  "configuration": {
+    "diameters_um": [
+      5,
+      10,
+      20,
+      50,
+      100
+    ],
+    "diameter_status": "Analyst-configured sensitivity cases; not measured diameters or a measured distribution",
+    "temperature_C": 20.0,
+    "pressure_Pa": 101325.0,
+    "relative_humidity": null,
+    "air_property_approximation": "Dry-air properties; actual humidity unavailable, no evaporation model",
+    "atmosphere_status": "101325 Pa explicitly assumed; 20 C recorded; humidity unavailable",
+    "water_temperature_status": "Assumed equal to recorded air temperature",
+    "gas_velocity_m_s": [
+      0.0,
+      0.0
+    ],
+    "gas_velocity_status": "Assumed quiescent-air reference, not measured gas velocity",
+    "measured_gas_profile_csv": null,
+    "measured_gas_profile_columns": [
+      "y_mm",
+      "u_air_m_s",
+      "v_air_m_s"
+    ],
+    "measured_gas_profile_registration": null,
+    "znmf_nozzle_diameter_m": 0.002,
+    "znmf_profile_csv": "Jet_PZT_Comparison/znmf_plotted_data.csv",
+    "znmf_status": "Hypothetical jet-interaction comparison using separate ZNMF local velocity, never measured PZT gas velocity; no spatial registration",
+    "height_reference": "h=y-y0, y0 is first finite paired sample with N>=minimum_initial_sample_count; not atomiser surface",
+    "velocity_figure_near_origin_limits_mm": [
+      0.0,
+      2.0
+    ],
+    "report_policy": "Fixed-line ensemble means and stationary-air single-droplet references are distinct; no fitted diameter or gas field; archives excluded",
+    "trajectory_endpoint_policy": "Plot upward branch to turning point or measured boundary; calculate actual stationary-air turning height separately",
+    "jet_interaction_output_subdirectory": "Jet_Interaction_Sensitivity",
+    "jet_stokes_ordinate": "logarithmic",
+    "stokes_drag_re_threshold": 0.01,
+    "schiller_naumann_re_limit_exclusive": 800.0,
+    "trajectory_time_step_s": 1e-05,
+    "trajectory_max_time_s": 1.0,
+    "minimum_initial_sample_count": 2,
+    "initial_condition": "Lowest finite paired mean-u/v location on the existing fixed-x column with N>=minimum_initial_sample_count; reliability criterion is sample availability only",
+    "constant_diameter": true,
+    "include_evaporation": false,
+    "include_horizontal_motion": true,
+    "atomiser_frequency_Hz": 190000,
+    "atomiser_drive_Vpp": 9,
+    "frequency_based_stokes_number": false
+  },
+  "properties": {
+    "rho_water_kg_m3": 998.2067455596167,
+    "rho_air_kg_m3": 1.20479,
+    "mu_air_Pa_s": 1.813322120356043e-05,
+    "g_m_s2": 9.80665,
+    "air_density_note": "NIST dry-air reference 1.20479 kg/m3; approximate 20 C, pressure scaled; not measured density",
+    "mu_air_note": "Sutherland: mu0=1.716e-5 Pa s, T0=273.15 K, S=110.4 K",
+    "sources": {
+      "water_density": "https://www.nist.gov/system/files/documents/2017/05/09/NISTIR_7383_2013-04-24_2015-07-13Rev.pdf",
+      "air_density": "https://physics.nist.gov/cgi-bin/Star/compos.pl?matno=104&refer=ap",
+      "air_viscosity": "https://ntrs.nasa.gov/api/citations/20250005707/downloads/main.pdf?attachment=true",
+      "drag_and_response": "https://doc.comsol.com/6.4/doc/com.comsol.help.particle/particle_ug_fluid_flow.08.36.html"
+    }
+  },
+  "calibration": {
+    "um_per_pixel": 5.35,
+    "pulse_separation_s": 2.5e-05,
+    "velocity_conversion_m_s_per_pixel": 0.214,
+    "action": "Saved final SI fields used unchanged; no repeated calibration"
+  },
+  "initial_condition": {
+    "initial_y_mm": 0.0856,
+    "initial_u_m_s": 0.16106471861399357,
+    "initial_v_m_s": 1.655010792336548,
+    "initial_native_row": 318,
+    "initial_native_column": 42,
+    "fixed_x_mm": 14.54665,
+    "measurement_height_extent_mm": 27.2208,
+    "maximum": {
+      "native_row": 304,
+      "native_column": 42,
+      "x_mm": 14.54665,
+      "y_mm": 1.284,
+      "mean_v_m_s": 1.6865481421305646,
+      "N": 1757,
+      "finite_maximum_tie_count": 1,
+      "measured_y_range_mm": [
+        0.0856,
+        27.3064
+      ],
+      "profile_y_range_mm": [
+        0.0856,
+        27.3064
+      ]
+    },
+    "endpoints": [
+      {
+        "reference": "gravity_only",
+        "assumed_diameter_um": null,
+        "actual_turning_height_mm": 139.65323136598374,
+        "actual_turning_y_mm": 139.73883136598374,
+        "actual_turning_time_s": 0.16876413375990254,
+        "plotted_endpoint_height_mm": 27.2208,
+        "plotted_endpoint_y_mm": 27.3064,
+        "plotted_endpoint_time_s": 0.017338129963710532,
+        "plotted_endpoint_reason": "domain_top",
+        "initial_u_m_s": 0.16106471861399357,
+        "initial_v_m_s": 1.655010792336548
+      },
+      {
+        "reference": "stationary_air",
+        "assumed_diameter_um": 5,
+        "actual_turning_height_mm": 0.11912677751609253,
+        "actual_turning_y_mm": 0.20472677751609253,
+        "actual_turning_time_s": 0.0005789754269787276,
+        "plotted_endpoint_height_mm": 0.11912677751609253,
+        "plotted_endpoint_y_mm": 0.20472677751609253,
+        "plotted_endpoint_time_s": 0.0005789754269787276,
+        "plotted_endpoint_reason": "turning_point",
+        "initial_u_m_s": 0.16106471861399357,
+        "initial_v_m_s": 1.655010792336548
+      },
+      {
+        "reference": "stationary_air",
+        "assumed_diameter_um": 10,
+        "actual_turning_height_mm": 0.45743455206332506,
+        "actual_turning_y_mm": 0.5430345520633251,
+        "actual_turning_time_s": 0.001869839868017077,
+        "plotted_endpoint_height_mm": 0.45743455206332506,
+        "plotted_endpoint_y_mm": 0.5430345520633251,
+        "plotted_endpoint_time_s": 0.001869839868017077,
+        "plotted_endpoint_reason": "turning_point",
+        "initial_u_m_s": 0.16106471861399357,
+        "initial_v_m_s": 1.655010792336548
+      },
+      {
+        "reference": "stationary_air",
+        "assumed_diameter_um": 20,
+        "actual_turning_height_mm": 1.6977757374433127,
+        "actual_turning_y_mm": 1.7833757374433126,
+        "actual_turning_time_s": 0.005678834708025089,
+        "plotted_endpoint_height_mm": 1.6977757374433127,
+        "plotted_endpoint_y_mm": 1.7833757374433126,
+        "plotted_endpoint_time_s": 0.005678834708025089,
+        "plotted_endpoint_reason": "turning_point",
+        "initial_u_m_s": 0.16106471861399357,
+        "initial_v_m_s": 1.655010792336548
+      },
+      {
+        "reference": "stationary_air",
+        "assumed_diameter_um": 50,
+        "actual_turning_height_mm": 8.555109380652455,
+        "actual_turning_y_mm": 8.640709380652455,
+        "actual_turning_time_s": 0.021102394956574108,
+        "plotted_endpoint_height_mm": 8.555109380652455,
+        "plotted_endpoint_y_mm": 8.640709380652455,
+        "plotted_endpoint_time_s": 0.021102394956574108,
+        "plotted_endpoint_reason": "turning_point",
+        "initial_u_m_s": 0.16106471861399357,
+        "initial_v_m_s": 1.655010792336548
+      },
+      {
+        "reference": "stationary_air",
+        "assumed_diameter_um": 100,
+        "actual_turning_height_mm": 24.344336012715956,
+        "actual_turning_y_mm": 24.429936012715956,
+        "actual_turning_time_s": 0.047311190975837664,
+        "plotted_endpoint_height_mm": 24.344336012715956,
+        "plotted_endpoint_y_mm": 24.429936012715956,
+        "plotted_endpoint_time_s": 0.047311190975837664,
+        "plotted_endpoint_reason": "turning_point",
+        "initial_u_m_s": 0.16106471861399357,
+        "initial_v_m_s": 1.655010792336548
+      }
+    ]
+  },
+  "jet_input": {
+    "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\Jet_PZT_Comparison\\znmf_plotted_data.csv",
+    "sha256": "dbcb27654d75d1e22a0b34c29b548219b6e1411e602654653a923a6122223505",
+    "registration": "Separate ZNMF coordinate retained; no spatial registration to PZT",
+    "input_subset": "Existing separately measured comparison table; only finite positive measured Uc rows"
+  },
+  "reviewed_commit": "1522f54161c7",
+  "subsequent_change_check": "No later commits; active source/config matched reviewed checkout before revision"
+}

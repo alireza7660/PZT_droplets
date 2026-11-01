@@ -87,8 +87,8 @@ for captions. Previous calibrated archives and original HDF5 files are retained.
 ''')]
     from .vertical_profile import notebook_cells
     b.cells[-1:-1]=notebook_cells()
-    from .theory_comparison import notebook_cells as theory_cells
-    b.cells[-1:-1]=theory_cells()
+    from .combined_flow_prediction import notebook_cells as prediction_cells
+    b.cells[-1:-1]=prediction_cells()
     target=project/'notebooks/PZT_final_analysis.ipynb';target.parent.mkdir(exist_ok=True)
     nb.write(b,target)
     manager=KernelSpecManager();spec=manager.get_kernel_spec('python3')

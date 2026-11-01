@@ -1,0 +1,71 @@
+{
+  "figures": [
+    {
+      "stem": "pzt_only_mean_u",
+      "kind": "PZT-only measured droplet baseline",
+      "exports": [
+        "figures/pzt_only_mean_u.pdf",
+        "figures/pzt_only_mean_u.svg",
+        "figures/pzt_only_mean_u.png"
+      ],
+      "caption": "PZT-only ensemble mean_u in the preserved image-reference frame. The ZNMF jet was absent; surrounding-air velocity was not measured. All signed values and existing finite-data support are retained. No gas velocity is inferred."
+    },
+    {
+      "stem": "pzt_only_mean_v",
+      "kind": "PZT-only measured droplet baseline",
+      "exports": [
+        "figures/pzt_only_mean_v.pdf",
+        "figures/pzt_only_mean_v.svg",
+        "figures/pzt_only_mean_v.png"
+      ],
+      "caption": "PZT-only ensemble mean_v in the preserved image-reference frame. The ZNMF jet was absent; surrounding-air velocity was not measured. All signed values and existing finite-data support are retained. No gas velocity is inferred."
+    },
+    {
+      "stem": "pzt_only_mean_u_vertical_profile",
+      "kind": "PZT-only measured droplet baseline",
+      "exports": [
+        "figures/pzt_only_mean_u_vertical_profile.pdf",
+        "figures/pzt_only_mean_u_vertical_profile.svg",
+        "figures/pzt_only_mean_u_vertical_profile.png"
+      ],
+      "caption": "Fixed-x ensemble-mean droplet u profile through the existing global mean-v maximum, x=14.54665 mm. One native column is retained over all measured y values, preserving signs and gaps. This is not an individual droplet trajectory or tracked plume centreline. The surrounding-air velocity is unknown."
+    },
+    {
+      "stem": "pzt_only_mean_v_vertical_profile",
+      "kind": "PZT-only measured droplet baseline",
+      "exports": [
+        "figures/pzt_only_mean_v_vertical_profile.pdf",
+        "figures/pzt_only_mean_v_vertical_profile.svg",
+        "figures/pzt_only_mean_v_vertical_profile.png"
+      ],
+      "caption": "Fixed-x ensemble-mean droplet v profile through the existing global mean-v maximum, x=14.54665 mm. One native column is retained over all measured y values, preserving signs and gaps. This is not an individual droplet trajectory or tracked plume centreline. The surrounding-air velocity is unknown."
+    },
+    {
+      "stem": "znmf_only_mean_U",
+      "kind": "ZNMF-only measured gas input",
+      "exports": [
+        "figures/znmf_only_mean_U.pdf",
+        "figures/znmf_only_mean_U.svg",
+        "figures/znmf_only_mean_U.png"
+      ],
+      "caption": "Separate ZNMF-only mean gas component in its own nozzle-centred local frame. Xj is downstream and Yj transverse/upward. Existing velocity signs and reconstruction masks are retained. No placement in the PZT frame has been assumed."
+    },
+    {
+      "stem": "znmf_only_mean_V",
+      "kind": "ZNMF-only measured gas input",
+      "exports": [
+        "figures/znmf_only_mean_V.pdf",
+        "figures/znmf_only_mean_V.svg",
+        "figures/znmf_only_mean_V.png"
+      ],
+      "caption": "Separate ZNMF-only mean gas component in its own nozzle-centred local frame. Xj is downstream and Yj transverse/upward. Existing velocity signs and reconstruction masks are retained. No placement in the PZT frame has been assumed."
+    }
+  ],
+  "discovery": "Explicit entries only; no recursive archive/old-theory discovery",
+  "text": [
+    "README.md",
+    "methods.tex",
+    "captions.tex"
+  ],
+  "archive_manifest": "PZT_Atomiser_Analysis/Archive/20261102T095744_AEDT_superseded_interaction/archive_manifest.json"
+}

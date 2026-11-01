@@ -1,0 +1,14 @@
+{
+  "rho_water_kg_m3": 998.2067455596167,
+  "rho_air_kg_m3": 1.20479,
+  "mu_air_Pa_s": 1.813322120356043e-05,
+  "g_m_s2": 9.80665,
+  "air_density_note": "NIST dry-air reference 1.20479 kg/m3; approximate 20 C, pressure scaled; not measured density",
+  "mu_air_note": "Sutherland: mu0=1.716e-5 Pa s, T0=273.15 K, S=110.4 K",
+  "sources": {
+    "water_density": "https://www.nist.gov/system/files/documents/2017/05/09/NISTIR_7383_2013-04-24_2015-07-13Rev.pdf",
+    "air_density": "https://physics.nist.gov/cgi-bin/Star/compos.pl?matno=104&refer=ap",
+    "air_viscosity": "https://ntrs.nasa.gov/api/citations/20250005707/downloads/main.pdf?attachment=true",
+    "drag_and_response": "https://doc.comsol.com/6.4/doc/com.comsol.help.particle/particle_ug_fluid_flow.08.36.html"
+  }
+}

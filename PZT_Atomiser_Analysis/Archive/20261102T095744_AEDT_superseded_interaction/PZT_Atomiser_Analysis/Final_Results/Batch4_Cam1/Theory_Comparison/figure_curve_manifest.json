@@ -1,0 +1,809 @@
+[
+  {
+    "stem": "velocity_reference_full",
+    "category": "reference",
+    "curves": [
+      {
+        "csv": "measured_fixed_x_profile.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "mean_v",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "Ensemble mean (fixed x)",
+        "color": "#d62728",
+        "linestyle": "-",
+        "linewidth": 1.7,
+        "point_count": 319,
+        "x_sha256": "69d00be3df05e580c4934fdaec39b2284fd5605ade454c038175e0a81185173d",
+        "y_sha256": "a2cc6b54cd380e4a693519585462e3531e491d8debb5d9ca5249d7fb779ed1d4"
+      },
+      {
+        "csv": "ballistic_reference.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "v_m_s",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "Gravity only",
+        "color": "black",
+        "linestyle": "--",
+        "linewidth": 1.2,
+        "point_count": 501,
+        "x_sha256": "0ba618f070b7c7513cdf8b6cc0bef2af3f01a179f89bf2c4084fb1d9431a1e11",
+        "y_sha256": "722c3e69ddcdd3dcf8dd90ef0c4352604bb049b7ac28d47e825f090670daf8a2"
+      },
+      {
+        "csv": "trajectory_stationary_air_d5um.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "v_m_s",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "$d=5\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.280267,
+          0.073417,
+          0.397163,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 229,
+        "x_sha256": "c495fff5974b1712ca931f66438eae071b743d7c6b7701660f778632739f3ed0",
+        "y_sha256": "909228da0f172633a9db5a7308b219ef759beb16a02dd0e034775e94295bd2bf"
+      },
+      {
+        "csv": "trajectory_stationary_air_d10um.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "v_m_s",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "$d=10\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.237441,
+          0.305202,
+          0.541921,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 188,
+        "x_sha256": "8775dfe26772f675802b1a20444f9c39e14015c162e0320e2a9e9ebf2c3f8795",
+        "y_sha256": "929f97fb4d96e0d054fa293785bb7a3e59d15957c173513790e810b67206f324"
+      },
+      {
+        "csv": "trajectory_stationary_air_d20um.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "v_m_s",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "$d=20\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.154815,
+          0.493313,
+          0.55784,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 569,
+        "x_sha256": "9b77f04eb1993b9a3a74373a4091cca26cbad51303b41c9bce44b6b4b09adaa7",
+        "y_sha256": "9bcec5c7f2b8884bd02d7be3a49ae725a391e49714c4115826bbcad4e57ca8b4"
+      },
+      {
+        "csv": "trajectory_stationary_air_d50um.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "v_m_s",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "$d=50\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.143303,
+          0.669459,
+          0.511215,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 2112,
+        "x_sha256": "c766018febbb0b45263db5a4299276223cc9e636d7abdd525268344497159b83",
+        "y_sha256": "a5dbff1aca81732ec3263e4b500788ccf23d166ae816cff5911a329ab1012bc4"
+      },
+      {
+        "csv": "trajectory_stationary_air_d100um.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "v_m_s",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "$d=100\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.477504,
+          0.821444,
+          0.318195,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 4733,
+        "x_sha256": "e917bb3e87f508cdf90cd0722cc89876cbeed5a0f0801656f92bce1b98f9652a",
+        "y_sha256": "6067f1939d8ed1eba7a09b82dc3ef0a06f06390b0fab7a98c1ab064d36a6204e"
+      }
+    ],
+    "xlim": [
+      0.0,
+      27.2208
+    ],
+    "ylim": [
+      -0.06746192568522258,
+      1.7540100678157873
+    ],
+    "xscale": "linear",
+    "yscale": "linear",
+    "exports": [
+      "velocity_reference_full.pdf",
+      "velocity_reference_full.svg",
+      "velocity_reference_full.png"
+    ],
+    "png_dpi": 600
+  },
+  {
+    "stem": "velocity_reference_near_origin",
+    "category": "reference",
+    "curves": [
+      {
+        "csv": "measured_fixed_x_profile.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "mean_v",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "Ensemble mean (fixed x)",
+        "color": "#d62728",
+        "linestyle": "-",
+        "linewidth": 1.7,
+        "point_count": 319,
+        "x_sha256": "69d00be3df05e580c4934fdaec39b2284fd5605ade454c038175e0a81185173d",
+        "y_sha256": "a2cc6b54cd380e4a693519585462e3531e491d8debb5d9ca5249d7fb779ed1d4"
+      },
+      {
+        "csv": "ballistic_reference.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "v_m_s",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "Gravity only",
+        "color": "black",
+        "linestyle": "--",
+        "linewidth": 1.2,
+        "point_count": 501,
+        "x_sha256": "0ba618f070b7c7513cdf8b6cc0bef2af3f01a179f89bf2c4084fb1d9431a1e11",
+        "y_sha256": "722c3e69ddcdd3dcf8dd90ef0c4352604bb049b7ac28d47e825f090670daf8a2"
+      },
+      {
+        "csv": "trajectory_stationary_air_d5um.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "v_m_s",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "$d=5\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.280267,
+          0.073417,
+          0.397163,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 229,
+        "x_sha256": "c495fff5974b1712ca931f66438eae071b743d7c6b7701660f778632739f3ed0",
+        "y_sha256": "909228da0f172633a9db5a7308b219ef759beb16a02dd0e034775e94295bd2bf"
+      },
+      {
+        "csv": "trajectory_stationary_air_d10um.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "v_m_s",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "$d=10\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.237441,
+          0.305202,
+          0.541921,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 188,
+        "x_sha256": "8775dfe26772f675802b1a20444f9c39e14015c162e0320e2a9e9ebf2c3f8795",
+        "y_sha256": "929f97fb4d96e0d054fa293785bb7a3e59d15957c173513790e810b67206f324"
+      },
+      {
+        "csv": "trajectory_stationary_air_d20um.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "v_m_s",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "$d=20\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.154815,
+          0.493313,
+          0.55784,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 569,
+        "x_sha256": "9b77f04eb1993b9a3a74373a4091cca26cbad51303b41c9bce44b6b4b09adaa7",
+        "y_sha256": "9bcec5c7f2b8884bd02d7be3a49ae725a391e49714c4115826bbcad4e57ca8b4"
+      },
+      {
+        "csv": "trajectory_stationary_air_d50um.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "v_m_s",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "$d=50\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.143303,
+          0.669459,
+          0.511215,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 2112,
+        "x_sha256": "c766018febbb0b45263db5a4299276223cc9e636d7abdd525268344497159b83",
+        "y_sha256": "a5dbff1aca81732ec3263e4b500788ccf23d166ae816cff5911a329ab1012bc4"
+      },
+      {
+        "csv": "trajectory_stationary_air_d100um.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "v_m_s",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "$d=100\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.477504,
+          0.821444,
+          0.318195,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 4733,
+        "x_sha256": "e917bb3e87f508cdf90cd0722cc89876cbeed5a0f0801656f92bce1b98f9652a",
+        "y_sha256": "6067f1939d8ed1eba7a09b82dc3ef0a06f06390b0fab7a98c1ab064d36a6204e"
+      }
+    ],
+    "xlim": [
+      0.0,
+      2.0
+    ],
+    "ylim": [
+      -0.06746192568522258,
+      1.7540100678157873
+    ],
+    "xscale": "linear",
+    "yscale": "linear",
+    "exports": [
+      "velocity_reference_near_origin.pdf",
+      "velocity_reference_near_origin.svg",
+      "velocity_reference_near_origin.png"
+    ],
+    "png_dpi": 600
+  },
+  {
+    "stem": "reynolds_measured_velocity_assumed_air",
+    "category": "conditional_estimate",
+    "curves": [
+      {
+        "csv": "reynolds_measured_velocity_assumed_air.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "Re_mean_vector_d5um",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "$d=5\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.280267,
+          0.073417,
+          0.397163,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 319,
+        "x_sha256": "69d00be3df05e580c4934fdaec39b2284fd5605ade454c038175e0a81185173d",
+        "y_sha256": "91ac2d051de2afe88b9cd5c87266262e44be2001e3e6f1f4e46ad9bfc5b5ed3b"
+      },
+      {
+        "csv": "reynolds_measured_velocity_assumed_air.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "Re_mean_vector_d10um",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "$d=10\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.237441,
+          0.305202,
+          0.541921,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 319,
+        "x_sha256": "69d00be3df05e580c4934fdaec39b2284fd5605ade454c038175e0a81185173d",
+        "y_sha256": "fdc8d6d79a9b75a398c44dfc4e5a6b4e655da48c010ae900e6b9ab428cd2eeb8"
+      },
+      {
+        "csv": "reynolds_measured_velocity_assumed_air.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "Re_mean_vector_d20um",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "$d=20\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.154815,
+          0.493313,
+          0.55784,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 319,
+        "x_sha256": "69d00be3df05e580c4934fdaec39b2284fd5605ade454c038175e0a81185173d",
+        "y_sha256": "c609d469df3cd218b7e1b86cad3d74114a27b4a4a04ef0141b638207a9d105de"
+      },
+      {
+        "csv": "reynolds_measured_velocity_assumed_air.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "Re_mean_vector_d50um",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "$d=50\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.143303,
+          0.669459,
+          0.511215,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 319,
+        "x_sha256": "69d00be3df05e580c4934fdaec39b2284fd5605ade454c038175e0a81185173d",
+        "y_sha256": "199b2fee1d00320b34dffd8ac5d53007dbb8ed7161892c47222b7746ae0a9aa9"
+      },
+      {
+        "csv": "reynolds_measured_velocity_assumed_air.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "Re_mean_vector_d100um",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "$d=100\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.477504,
+          0.821444,
+          0.318195,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 319,
+        "x_sha256": "69d00be3df05e580c4934fdaec39b2284fd5605ade454c038175e0a81185173d",
+        "y_sha256": "a2663b810b0de6d18e484b6f6f1947c7642f525f3ea16a746e5e1622f4788c50"
+      }
+    ],
+    "xlim": [
+      0.0,
+      27.2208
+    ],
+    "ylim": [
+      -0.4245012363732639,
+      11.80782011120325
+    ],
+    "xscale": "linear",
+    "yscale": "linear",
+    "exports": [
+      "reynolds_measured_velocity_assumed_air.pdf",
+      "reynolds_measured_velocity_assumed_air.svg",
+      "reynolds_measured_velocity_assumed_air.png"
+    ],
+    "png_dpi": 600
+  },
+  {
+    "stem": "reynolds_reference_trajectories",
+    "category": "reference",
+    "curves": [
+      {
+        "csv": "reynolds_reference_trajectories.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "Re_in_plane",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": "assumed_diameter_um",
+        "filter_value": 5,
+        "label": "$d=5\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.280267,
+          0.073417,
+          0.397163,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 229,
+        "x_sha256": "c495fff5974b1712ca931f66438eae071b743d7c6b7701660f778632739f3ed0",
+        "y_sha256": "6c648b62d28a57e850587a4e500b226c6b9ef38306086aea1c570b06c2731c8e"
+      },
+      {
+        "csv": "reynolds_reference_trajectories.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "Re_in_plane",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": "assumed_diameter_um",
+        "filter_value": 10,
+        "label": "$d=10\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.237441,
+          0.305202,
+          0.541921,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 188,
+        "x_sha256": "8775dfe26772f675802b1a20444f9c39e14015c162e0320e2a9e9ebf2c3f8795",
+        "y_sha256": "050930ff8d13ef934fe083ed15dea3c282d089f28632b35d4689fb816c2752fd"
+      },
+      {
+        "csv": "reynolds_reference_trajectories.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "Re_in_plane",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": "assumed_diameter_um",
+        "filter_value": 20,
+        "label": "$d=20\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.154815,
+          0.493313,
+          0.55784,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 569,
+        "x_sha256": "9b77f04eb1993b9a3a74373a4091cca26cbad51303b41c9bce44b6b4b09adaa7",
+        "y_sha256": "aefcd8d2a97fa4da4c31df334f154e356131f1dbcdeafe7eb68182ed5f2367b2"
+      },
+      {
+        "csv": "reynolds_reference_trajectories.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "Re_in_plane",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": "assumed_diameter_um",
+        "filter_value": 50,
+        "label": "$d=50\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.143303,
+          0.669459,
+          0.511215,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 2112,
+        "x_sha256": "c766018febbb0b45263db5a4299276223cc9e636d7abdd525268344497159b83",
+        "y_sha256": "98629b7a4ac67b467335ada0b9c5583e16b5498c00c6d4d5447bfc651cd1f4ee"
+      },
+      {
+        "csv": "reynolds_reference_trajectories.csv",
+        "x_column": "height_above_first_measurement_mm",
+        "y_column": "Re_in_plane",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": "assumed_diameter_um",
+        "filter_value": 100,
+        "label": "$d=100\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.477504,
+          0.821444,
+          0.318195,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 4733,
+        "x_sha256": "e917bb3e87f508cdf90cd0722cc89876cbeed5a0f0801656f92bce1b98f9652a",
+        "y_sha256": "4ff11c631290ba01343ade33ab0fc2f6f1d4cb96a9b424155821cd80a334f02b"
+      }
+    ],
+    "xlim": [
+      0.0,
+      27.2208
+    ],
+    "ylim": [
+      -0.5523752326756801,
+      11.600412105258346
+    ],
+    "xscale": "linear",
+    "yscale": "linear",
+    "exports": [
+      "reynolds_reference_trajectories.pdf",
+      "reynolds_reference_trajectories.svg",
+      "reynolds_reference_trajectories.png"
+    ],
+    "png_dpi": 600
+  },
+  {
+    "stem": "particle_relaxation_time",
+    "category": "reference",
+    "curves": [
+      {
+        "csv": "particle_relaxation_time.csv",
+        "x_column": "assumed_diameter_um",
+        "y_column": "tau_stokes_ms",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "Stokes-limit response time",
+        "color": "tab:blue",
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 201,
+        "x_sha256": "85957a85f81f500d4758ee93bf6f067ecc7690b48f4fe12d7c56cc3b8349f383",
+        "y_sha256": "5afb01b654370bebdf15b0ff987483d0d1abcc5adafe66d7a890b2c99f826084"
+      }
+    ],
+    "xlim": [
+      4.304458296658676,
+      116.15863496415437
+    ],
+    "ylim": [
+      0.05666436743062763,
+      41.264447572527054
+    ],
+    "xscale": "log",
+    "yscale": "log",
+    "exports": [
+      "particle_relaxation_time.pdf",
+      "particle_relaxation_time.svg",
+      "particle_relaxation_time.png"
+    ],
+    "png_dpi": 600
+  },
+  {
+    "stem": "diameter_sensitivity",
+    "category": "supplementary",
+    "curves": [
+      {
+        "csv": "diameter_sensitivity.csv",
+        "x_column": "assumed_diameter_um",
+        "y_column": "actual_stationary_air_turning_height_mm",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "Stationary-air turning height",
+        "color": "tab:blue",
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 5,
+        "x_sha256": "a26830857730ad059e5b2fe96ceb93752662eee4dd5fd45c921b6e38acfc6e27",
+        "y_sha256": "c817733abb373ff1285d472b3368c5999a65aa73f1578f03280d91fc02f41508"
+      },
+      {
+        "csv": "diameter_sensitivity.csv",
+        "x_column": "assumed_diameter_um",
+        "y_column": "gravity_only_actual_turning_height_mm",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "Gravity-only turning height",
+        "color": "black",
+        "linestyle": "--",
+        "linewidth": 1.2,
+        "point_count": 5,
+        "x_sha256": "a26830857730ad059e5b2fe96ceb93752662eee4dd5fd45c921b6e38acfc6e27",
+        "y_sha256": "de051a9e72e51cb3c19028110566a76a8883228dd6a25cd28373c223257cc808"
+      },
+      {
+        "csv": "diameter_sensitivity.csv",
+        "x_column": "assumed_diameter_um",
+        "y_column": "measurement_height_extent_mm",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "Measurement boundary",
+        "color": "0.5",
+        "linestyle": ":",
+        "linewidth": 1.2,
+        "point_count": 5,
+        "x_sha256": "a26830857730ad059e5b2fe96ceb93752662eee4dd5fd45c921b6e38acfc6e27",
+        "y_sha256": "47047a937671644d4b6727cc0ed145ad3cf34ec107934bf62a8ae5a619a243f1"
+      }
+    ],
+    "xlim": [
+      0.25,
+      104.75
+    ],
+    "ylim": [
+      0.08366760051684578,
+      198.8396860860056
+    ],
+    "xscale": "linear",
+    "yscale": "log",
+    "exports": [
+      "diameter_sensitivity.pdf",
+      "diameter_sensitivity.svg",
+      "diameter_sensitivity.png"
+    ],
+    "png_dpi": 600
+  },
+  {
+    "stem": "Jet_Interaction_Sensitivity/znmf_local_nozzle_stokes",
+    "category": "hypothetical_jet_interaction",
+    "curves": [
+      {
+        "csv": "Jet_Interaction_Sensitivity/znmf_local_nozzle_stokes.csv",
+        "x_column": "x_ZNMF_mm",
+        "y_column": "St_D_d5um",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "$d=5\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.280267,
+          0.073417,
+          0.397163,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 75,
+        "x_sha256": "5033705abae5e425f2a945211e71422001f9084dad53b93c98462451bdc901c2",
+        "y_sha256": "598db665e4ca4626db78ba03f83028e1d0093f63b929fec607af5923e7f8b2ab"
+      },
+      {
+        "csv": "Jet_Interaction_Sensitivity/znmf_local_nozzle_stokes.csv",
+        "x_column": "x_ZNMF_mm",
+        "y_column": "St_D_d10um",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "$d=10\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.237441,
+          0.305202,
+          0.541921,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 75,
+        "x_sha256": "5033705abae5e425f2a945211e71422001f9084dad53b93c98462451bdc901c2",
+        "y_sha256": "ad13f1a828a665d3128ea14e666d0cd705efb7a03f2a16d59f71cdc9d17e8a9d"
+      },
+      {
+        "csv": "Jet_Interaction_Sensitivity/znmf_local_nozzle_stokes.csv",
+        "x_column": "x_ZNMF_mm",
+        "y_column": "St_D_d20um",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "$d=20\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.154815,
+          0.493313,
+          0.55784,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 75,
+        "x_sha256": "5033705abae5e425f2a945211e71422001f9084dad53b93c98462451bdc901c2",
+        "y_sha256": "11ec40d2852f35c0872ca4d8ada22a6ba9b7b60a3983eed9f1c469e938bf5da8"
+      },
+      {
+        "csv": "Jet_Interaction_Sensitivity/znmf_local_nozzle_stokes.csv",
+        "x_column": "x_ZNMF_mm",
+        "y_column": "St_D_d50um",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "$d=50\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.143303,
+          0.669459,
+          0.511215,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 75,
+        "x_sha256": "5033705abae5e425f2a945211e71422001f9084dad53b93c98462451bdc901c2",
+        "y_sha256": "8c3db1e2b7b0b6e909a07d955f7bc510faae88ec590b8ee5f464c5f7636cb9d0"
+      },
+      {
+        "csv": "Jet_Interaction_Sensitivity/znmf_local_nozzle_stokes.csv",
+        "x_column": "x_ZNMF_mm",
+        "y_column": "St_D_d100um",
+        "x_factor": 1.0,
+        "y_factor": 1.0,
+        "filter_column": null,
+        "filter_value": null,
+        "label": "$d=100\\,\\mu\\mathrm{m}$",
+        "color": [
+          0.477504,
+          0.821444,
+          0.318195,
+          1.0
+        ],
+        "linestyle": "-",
+        "linewidth": 1.2,
+        "point_count": 75,
+        "x_sha256": "5033705abae5e425f2a945211e71422001f9084dad53b93c98462451bdc901c2",
+        "y_sha256": "a2908c0b6eb28e983a2bebb171a8d469b87e9a8506abb8059feb9a5807d9a6aa"
+      }
+    ],
+    "xlim": [
+      1.0342399999999994,
+      28.05375999999999
+    ],
+    "ylim": [
+      0.002152978335673245,
+      49.99342089671785
+    ],
+    "xscale": "linear",
+    "yscale": "log",
+    "exports": [
+      "Jet_Interaction_Sensitivity/znmf_local_nozzle_stokes.pdf",
+      "Jet_Interaction_Sensitivity/znmf_local_nozzle_stokes.svg",
+      "Jet_Interaction_Sensitivity/znmf_local_nozzle_stokes.png"
+    ],
+    "png_dpi": 600
+  }
+]

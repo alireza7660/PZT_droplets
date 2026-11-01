@@ -1,0 +1,74 @@
+\section{Droplet velocities and conditional reference comparisons}
+The PZT atomiser operated at 190 kHz and 9 Vpp. Final calibrated correlation-derived
+droplet velocities were used unchanged: $5.35\,\mu\mathrm{m/pixel}$,
+$\Delta t=25\,\mu\mathrm{s}$, and $0.214\,\mathrm{m\,s^{-1}}$ per pixel
+displacement, applied once in the experimental analysis. Coordinates $x,u$ are
+horizontal/rightward and $y,v$ upward. The measured profile is the ensemble mean
+$\overline{v}(x_*,y)$ along the existing fixed line $x_*=14.54665\,\mathrm{mm}$;
+it is neither an individual droplet trajectory nor a tracked plume centreline.
+We use $h=y-y_0$, with image-reference $y_0=0.0856\,\mathrm{mm}$
+at the first finite paired measurement used for initialisation. It is not an
+established atomiser surface. The initial measured axial velocity is
+$v_0=1.65501079\,\mathrm{m\,s^{-1}}$; the measured horizontal
+mean is also retained in the two-component reference calculation.
+
+Individual spherical water-droplet references are calculated in assumed stationary
+air, with constant assumed diameters 5, 10, 20, 50 and $100\,\mu\mathrm{m}$,
+neglecting evaporation. The air temperature is $20\,^{\circ}\mathrm{C}$;
+pressure 101.325 kPa and equal water/air temperature are assumptions. Humidity is
+unavailable; dry-air properties are an approximation. Adopted values are
+$\rho_a=1.20479\,\mathrm{kg\,m^{-3}}$,
+$\rho_w=998.20675\,\mathrm{kg\,m^{-3}}$ and
+$\mu_a=1.813322\times10^{-5}\,\mathrm{Pa\,s}$.
+Water density follows NIST GLP10, air density uses a NIST dry-air reference,
+and viscosity uses the NASA-reported Sutherland constants
+\cite{pzt-water,pzt-air,pzt-viscosity}.
+\begin{align}
+\dot{\boldsymbol q}&=\boldsymbol w_d,\\
+\dot{\boldsymbol w}_d&=-g(1-\rho_a/\rho_w)\boldsymbol e_y
++\frac{f(Re_d)}{\tau_{p,\mathrm{Stokes}}}
+(\boldsymbol w_a-\boldsymbol w_d),\qquad \boldsymbol w_a=\boldsymbol 0,\\
+Re_d&=\frac{\rho_a d\lVert\boldsymbol w_a-\boldsymbol w_d\rVert}{\mu_a},
+\qquad\tau_{p,\mathrm{Stokes}}=\frac{\rho_w d^2}{18\mu_a}.
+\end{align}
+Here $g=9.80665\,\mathrm{m\,s^{-2}}$ and the spherical drag multiplier is
+$f=1$ for $Re_d\leq0.01$ and $f=1+0.15Re_d^{0.687}$ otherwise, with
+$Re_d<800$ enforced \cite{pzt-drag}. Only in-plane slip is available. Rigid-interface spherical
+drag, fixed diameter and one-way coupling are model assumptions; deformation,
+internal circulation, evaporation and particle interactions are omitted.
+The gravity-only reference omits drag and buoyancy. Each displayed upward
+trajectory terminates at its turning point or the measurement boundary.
+
+For assumed diameters 5, 10, 20, 50 and $100\,\mu\mathrm{m}$, the stationary-air
+turning heights are 0.11913, 0.45743, 1.6978, 8.5551, 24.344$\,\mathrm{mm}$, respectively.
+The gravity-only turning height is $139.653\,\mathrm{mm}$,
+whereas the plotted measurement extent is only $27.2208\,\mathrm{mm}$.
+These are different quantities. The full and $0$--$2\,\mathrm{mm}$ views
+show the same unsmoothed measurements and unchanged reference curves.
+Disagreement with stationary-air trajectories does not itself identify a coding
+error or determine droplet size. Possible contributors include surrounding gas
+motion, size and initial-velocity distributions, and lateral plume displacement;
+the available evidence does not establish which dominates. Neither diameter nor
+an unknown gas field is fitted, and the reference model is not experimentally validated.
+
+Two Reynolds-number quantities are reported separately. The conditional estimate
+$Re_d^{\mathrm{mean}}=\rho_a d\lVert\overline{\boldsymbol w}_d\rVert/\mu_a$
+uses the measured mean vector and assumed stationary air; it is not
+$\overline{Re_d}$ from instantaneous samples and spans the measurement domain.
+The trajectory reference $Re_d^{\mathrm{ref}}$ uses the model's instantaneous
+velocity and ends at that trajectory's endpoint. They are not equivalent results.
+The response-time plot reports the Stokes-limit $\tau_{p,\mathrm{Stokes}}$.
+At finite Reynolds number the exported $\tau_{\mathrm{drag,sec}}=
+\tau_{p,\mathrm{Stokes}}/f(Re_d)$ is an instantaneous drag/slip coefficient
+timescale, not an exact or linearised relaxation time.
+
+The separate hypothetical jet-interaction comparison uses
+$St_D(x)=\tau_{p,\mathrm{Stokes}}U_c(x)/D_0$, $D_0=2\,\mathrm{mm}$,
+where $U_c(x)$ is from the separately measured ZNMF jet and its own downstream
+coordinate. The assumed diameters and the local timescale $D_0/U_c(x)$ define a
+local nozzle-length-based response comparison; the downstream trend reflects
+that chosen timescale. This is neither a measured PZT-plume Stokes number nor
+a nozzle-exit Stokes number. No spatial registration to the PZT field is assumed,
+the separate jet velocity is not inserted into the PZT droplet slip, and the
+calculation does not demonstrate entrainment. The 190 kHz atomiser frequency is
+not a gas-flow frequency in this analysis.

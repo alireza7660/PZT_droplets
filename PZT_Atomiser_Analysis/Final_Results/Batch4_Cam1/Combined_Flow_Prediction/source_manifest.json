@@ -1,0 +1,69 @@
+{
+  "sources": [
+    {
+      "role": "pzt_statistics",
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\data\\statistics.npz",
+      "sha256": "c7e701c027a25ad4d2d4c75b9b5c9c5b6cfe869c68f3ecac28cdbc093a2010c9"
+    },
+    {
+      "role": "pzt_configuration",
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\config\\analysis.json",
+      "sha256": "935f93f10b9937066c581c76a2bc4f2e367cc2f3d8b3dd171f175639a1db797c"
+    },
+    {
+      "role": "znmf_field",
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Final_Result\\tables\\FOV_1_2_3_reconstructed_fields.npz",
+      "sha256": "d059767271a6e30eff4c9718072e49ec38eb65c59cca7acb533d0e1d503c41d6"
+    },
+    {
+      "role": "znmf_configuration",
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Final_Result\\analysis\\configuration.json",
+      "sha256": "c57a01709c96a6dce932112fc5889afbd3977772e5b80b4c0a2d6ce67c62bdde"
+    },
+    {
+      "role": "znmf_nozzle_reference",
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Final_Result\\report\\presentation_reference.json",
+      "sha256": "a0d7d2c7d636c34b7d9f87cd92b15d736a6fc906ef306d2e44544c944352543a"
+    }
+  ],
+  "experiments": {
+    "PZT": "Atomiser only, 190 kHz/9 Vpp; no ZNMF jet; measured droplet-phase velocities; ambient gas unmeasured",
+    "ZNMF": "Air jet only without PZT droplets; mean two-component gas velocities",
+    "combined": "Not conducted; predictions are unvalidated"
+  },
+  "pzt": {
+    "coordinates": "Saved x_mm,y_mm retained in image-reference frame, x right/y up",
+    "velocities": "Saved mean_u,mean_v and frame u,v read directly in m/s",
+    "scaling": "No velocity recalibration; coordinates converted mm to m only for integration",
+    "population": "Finite-pair population without flag-code rejection; upstream replacement and flag meanings are not assigned.",
+    "finite_paired_vectors": 25520
+  },
+  "znmf": {
+    "coordinates": "Local Xj=x*D0; Yj=(y-6.868)*D0, from registered dimensionless arrays; no use of y_plot",
+    "nozzle_y_registered_D0": 6.868,
+    "D0_m": 0.002,
+    "velocity": "U,V already m/s; downstream sign reversal already applied upstream, not applied again",
+    "masks": "Both stored U,V finite; preserve upstream reconstruction support; bilinear evaluation only in cells with four finite paired vectors",
+    "finite_paired_vectors": 58176,
+    "local_x_range_mm": [
+      0.3232,
+      62.05439999999998
+    ],
+    "local_y_range_mm": [
+      -13.6552,
+      10.74639999999999
+    ],
+    "reconstruction": "Authoritative three-FOV reconstructed mean, including its existing overlap registration/blending; not reprocessed"
+  },
+  "placement": {
+    "common_frame": "PZT image-reference frame: x rightward/horizontal, y upward; the side-jet axis must be horizontal in this frame",
+    "transformation": "q_common=R(theta)*q_jet_local+nozzle_position; w_common=R(theta)*(U,V)",
+    "pzt_transform": "Identity: common frame retains final PZT right/up axes and image-reference origin",
+    "geometry": {
+      "jet_nozzle_position_in_pzt_frame_mm": null,
+      "jet_rotation_degrees": null,
+      "placement_source": null
+    },
+    "warning": "Origins of the two experiments are not equated"
+  }
+}

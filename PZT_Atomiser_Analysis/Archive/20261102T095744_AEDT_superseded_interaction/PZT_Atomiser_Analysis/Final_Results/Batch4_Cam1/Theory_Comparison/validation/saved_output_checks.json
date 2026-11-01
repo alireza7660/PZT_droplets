@@ -1,0 +1,17 @@
+{
+  "experimental_files_hash_verified": 245,
+  "profile_exact_native_samples": true,
+  "full_near_velocity_curve_arrays_and_styles_identical": true,
+  "mean_and_trajectory_Re_separate": true,
+  "actual_turning_and_truncated_endpoints_separate": true,
+  "physics_source_functions_unchanged": 7,
+  "original_trajectory_arrays_unchanged": 5,
+  "figure_CSV_curves_verified": 33,
+  "jet_Stokes_definition_verified": true,
+  "jet_log_ordinate": true,
+  "archive_excluded_from_report": true,
+  "figure_count": 7,
+  "png_dpi": 600,
+  "executed_notebook_figures": 7,
+  "PDF_raster_review": "No PDF renderer available; final exported PNGs visually reviewed"
+}

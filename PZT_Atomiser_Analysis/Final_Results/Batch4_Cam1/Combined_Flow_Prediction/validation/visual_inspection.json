@@ -1,0 +1,9 @@
+{
+  "PNG_figures_reviewed": 6,
+  "title_free": true,
+  "labels_and_full_borders_clear": true,
+  "physical_aspect_preserved": true,
+  "PZT_signed_maps": true,
+  "separate_unregistered_gas_views": true,
+  "PDF_raster_review": "Unavailable: no PDF renderer; PNG and PDF use the same Matplotlib figure"
+}
