@@ -13,7 +13,7 @@ from .combined_flow_prediction import ROOT,PROJECT,notebook_cells,write_json
 
 
 def unrelated_cells(book):
-    return [c for c in book.cells if not c.metadata.get('theory_comparison') and not c.metadata.get('combined_flow_prediction') and not c.metadata.get('prospective_studies')]
+    return [c for c in book.cells if not c.metadata.get('theory_comparison') and not c.metadata.get('combined_flow_prediction') and not c.metadata.get('prospective_studies') and not c.metadata.get('co_directed')]
 
 
 def signature(cells):return hashlib.sha256(json.dumps(cells,sort_keys=True).encode()).hexdigest()
@@ -47,7 +47,10 @@ output=root/'PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1'
     nb.write(book,target);shutil.copy2(target,PROJECT/'notebooks/Spatial_maps.ipynb')
     shutil.copy2(target,ROOT/'PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1/methods/PZT_final_analysis.ipynb')
     write_json(out/'validation/notebook_preservation.json',dict(nonprediction_cells_sha256=original,experimental_cells_preserved=True))
-    from .validate_combined_flow import main as validate
+    if cfg.get('co_directed',{}).get('enabled'):
+        from .validate_co_directed import main as validate
+    else:
+        from .validate_combined_flow import main as validate
     validate()
     if cfg.get('design_study',{}).get('enabled'):
         from .validate_prospective_studies import main as validate_studies

@@ -1,0 +1,79 @@
+[
+  {
+    "release": "release_01",
+    "time_step_s": 2.5e-06,
+    "max_errors_x_y_u_v": [
+      6.024297970197434e-10,
+      3.924045005815682e-09,
+      2.079800013647659e-06,
+      1.4702691268464463e-05
+    ],
+    "half_step_termination": "outside_measured_jet_domain"
+  },
+  {
+    "release": "release_02",
+    "time_step_s": 2.5e-06,
+    "max_errors_x_y_u_v": [
+      1.971019840396604e-10,
+      4.110991673163603e-09,
+      9.322933520045096e-07,
+      1.6074423172973695e-05
+    ],
+    "half_step_termination": "outside_measured_jet_domain"
+  },
+  {
+    "release": "release_03",
+    "time_step_s": 2.5e-06,
+    "max_errors_x_y_u_v": [
+      2.5134064968179715e-10,
+      6.324471223801125e-09,
+      5.690834511823395e-07,
+      2.6359815884058335e-05
+    ],
+    "half_step_termination": "outside_measured_jet_domain"
+  },
+  {
+    "release": "release_04",
+    "time_step_s": 2.5e-06,
+    "max_errors_x_y_u_v": [
+      6.515067721424295e-10,
+      4.8193602630370496e-09,
+      2.0676339018005363e-06,
+      1.9995370473147034e-05
+    ],
+    "half_step_termination": "outside_measured_jet_domain"
+  },
+  {
+    "release": "release_05",
+    "time_step_s": 2.5e-06,
+    "max_errors_x_y_u_v": [
+      9.853967763290283e-10,
+      4.839102623764493e-09,
+      2.7079461152046402e-06,
+      1.762328259879986e-05
+    ],
+    "half_step_termination": "outside_measured_jet_domain"
+  },
+  {
+    "release": "release_06",
+    "time_step_s": 2.5e-06,
+    "max_errors_x_y_u_v": [
+      1.2557296712872867e-09,
+      3.2100987007861693e-09,
+      3.998438576423291e-06,
+      1.1875903727753823e-05
+    ],
+    "half_step_termination": "outside_measured_jet_domain"
+  },
+  {
+    "release": "release_07",
+    "time_step_s": 2.5e-06,
+    "max_errors_x_y_u_v": [
+      1.4801645915885064e-09,
+      3.129633983431769e-09,
+      5.138515129558818e-06,
+      1.1356965395004082e-05
+    ],
+    "half_step_termination": "outside_measured_jet_domain"
+  }
+]

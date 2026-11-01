@@ -1,0 +1,2 @@
+nominal_diameter_um,tau_Stokes_s,tau_Stokes_ms,jet_actuation_frequency_Hz,acquisition_frequency_Hz_not_used,D0_m,Stk_f,rho_air_kg_m3,rho_water_kg_m3,mu_air_Pa_s,nu_air_m2_s
+10.0,0.00030582503619367357,0.30582503619367357,120.0,10.0,0.002,0.036699004343240825,1.20479,998.2067455596167,1.813322120356043e-05,1.505093933678104e-05

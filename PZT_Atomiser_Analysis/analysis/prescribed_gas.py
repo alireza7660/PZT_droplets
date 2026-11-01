@@ -13,7 +13,10 @@ class DragValidityLimit(Exception):
 
 def rotation(degrees):
     angle=np.deg2rad(float(degrees));c,s=np.cos(angle),np.sin(angle)
-    return np.array([[c,-s],[s,c]])
+    matrix=np.array([[c,-s],[s,c]])
+    # Exact cardinal rotations avoid false boundary rejections from cos(pi/2).
+    matrix[np.abs(matrix)<1e-15]=0.
+    return matrix
 
 
 class MeasuredGasField:

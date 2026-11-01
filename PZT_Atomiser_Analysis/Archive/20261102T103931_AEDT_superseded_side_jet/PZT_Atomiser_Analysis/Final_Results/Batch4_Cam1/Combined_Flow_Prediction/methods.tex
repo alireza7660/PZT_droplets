@@ -1,0 +1,64 @@
+\section{Prediction workflow for the proposed side-jet arrangement}
+The PZT-only experiment measured droplet-phase velocities in an upward plume
+without the ZNMF jet. Its surrounding-air velocity was not measured. The separate
+ZNMF-only experiment measured a gas jet without PZT droplets. The proposed combined
+experiment has not been conducted. Consequently, the experimental fields are
+kept separate and predictions are not described as validated combined measurements.
+
+Final PZT velocities retain the $5.35\,\mu\mathrm{m/pixel}$ calibration,
+$25\,\mu\mathrm{s}$ pulse separation and $0.214\,\mathrm{m\,s^{-1}}$ per pixel
+displacement conversion already applied in processing. The atomiser operates at
+190 kHz and 9 Vpp. Signed mean fields and existing sample selection are unchanged.
+The fixed vertical-line profiles are ensemble means, not particle trajectories
+or tracked plume centrelines. No ambient gas velocity or measured droplet size
+is inferred from them.
+
+The common frame retains the PZT image-reference origin, $x$ rightward and $y$
+upward. The ZNMF registered coordinates are dimensionalised once using $D_0=2\,$mm
+and translated to its documented geometric nozzle centre. Configured placement
+then applies $\boldsymbol q=R\boldsymbol q_j+\boldsymbol q_N$ and
+$\boldsymbol w_g=R(U,V)$ to positions and components consistently; independent
+experimental origins are not equated.
+
+When diameter and placement/release inputs are explicitly provided, PZT velocities
+initialise representative droplets once. They are not subsequently added to the
+gas or repeatedly imposed on the particles. The separately measured two-component
+ZNMF mean alone is the prescribed gas field:
+\begin{align}
+\dot{\boldsymbol q}_d&=\boldsymbol w_d,\\
+\dot{\boldsymbol w}_d&=-g(1-\rho_a/\rho_w)\boldsymbol e_y+
+\frac{f(Re_d)}{\tau_{p,\mathrm{Stokes}}}(\boldsymbol w_g-\boldsymbol w_d),\\
+Re_d&=\frac{\rho_a d\lVert\boldsymbol w_g-\boldsymbol w_d\rVert}{\mu_a},
+\qquad \tau_{p,\mathrm{Stokes}}=\frac{\rho_wd^2}{18\mu_a}.
+\end{align}
+Here $f=1$ for $Re_d\leq0.01$, otherwise $f=1+0.15Re_d^{0.687}$, restricted
+to $Re_d<800$. The force is finite at zero slip. Gas evaluation is confined to
+four-finite-vector measured cells, without extrapolation; predictions terminate
+at unsupported boundaries/gaps, a drag-law limit or the configured time horizon.
+Gravity acts downward in the physical frame; jet rotation does not rotate gravity.
+
+The model prescribes a gas-only mean and neglects plume-induced gas changes and
+jet unsteadiness. Constant spherical diameter, no evaporation and one-way coupling
+are assumptions. At 20 degrees C, dry-air properties approximate unknown humidity;
+101.325 kPa and equal water/air temperature are assumed. Property sources and
+values are recorded separately. No dominant entrainment or transport mechanism
+is inferred without the required inputs or combined measurements.
+
+The Stokes-limit response time is distinct from the finite-Re drag/slip coefficient
+timescale $\tau_{\mathrm{drag,coef}}=\tau_{p,\mathrm{Stokes}}/f(Re_d)$.
+An explicitly defined local comparison may use $\tau_{flow}=D_0/\lVert\boldsymbol w_g\rVert$
+and $St_{D,local}=\tau_{p,\mathrm{Stokes}}\lVert\boldsymbol w_g\rVert/D_0$.
+This is not a nozzle-exit or atomiser-frequency response comparison and cannot
+alone predict transport, capture or successful entrainment.
+
+The nominal mesh aperture diameter is $5\,\mu\mathrm{m}$. Assuming that the
+emerging cylindrical jet has the same diameter, the classical Rayleigh estimate
+$d_{drop}\simeq1.89d_{jet}$ gives $9.45\,\mu\mathrm{m}$. A nominal
+$d=10\,\mu\mathrm{m}$ is adopted for the initial case. This is a model-based
+estimate, not a measured droplet size or validated size distribution. Neither
+the aperture-to-jet equality nor Rayleigh breakup applicability is independently
+validated for this driven mesh atomiser. The adopted value, rather than the
+unrounded estimate, is used consistently for drag, Reynolds number,
+$\tau_{p,\mathrm{Stokes}}$ and Stokes number; diameter remains configurable
+for replacement by measured sizing. The configured response time is exported
+even when geometry is not yet sufficient for transport prediction.

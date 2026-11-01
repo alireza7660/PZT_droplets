@@ -49,7 +49,8 @@ def acceleration(velocity,d_m,gas_velocity,properties,config,drag=True,buoyancy=
     a[...,1]=-properties['g_m_s2']*(1-properties['rho_air_kg_m3']/properties['rho_water_kg_m3'] if buoyancy else 1)
     if drag:
         re=reynolds(d_m,velocity,gas_velocity,properties)
-        a=a+slip*drag_factor(re,config)/relaxation_time(d_m,properties)
+        coefficient=drag_factor(re,config)/relaxation_time(d_m,properties)
+        a=a+slip*np.asarray(coefficient)[...,None]
     return a
 
 

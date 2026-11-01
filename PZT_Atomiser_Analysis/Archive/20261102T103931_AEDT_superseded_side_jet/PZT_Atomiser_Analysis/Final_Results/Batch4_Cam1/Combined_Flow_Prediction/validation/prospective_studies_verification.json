@@ -1,0 +1,16 @@
+{
+  "successfully_integrated_cases": 27,
+  "proposed_placements": 9,
+  "termination_counts": {
+    "outside_measured_jet_domain": 27
+  },
+  "release_measured_components_and_positions_verified": true,
+  "all_trajectory_gas_points_supported": true,
+  "evolving_slip_Re_and_local_Stokes_verified": true,
+  "half_step_convergence_passed": true,
+  "dimensionless_positive_measured_gaps_preserved": true,
+  "actuation_frequency_Hz": 120.0,
+  "Stk_f": 0.036699004343240825,
+  "zero_background_reference_not_measured_gas": true,
+  "original_PZT_signed_components_preserved": true
+}

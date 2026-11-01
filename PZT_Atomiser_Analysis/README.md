@@ -106,47 +106,33 @@ The figure stems are `mean_v_vertical_profile_location` and
 directory. Extracted CSV/NPZ are in `data/mean_v_vertical_profile.*`.
 Selection and verification metadata are in `methods/vertical_profile_*.json`.
 
-## Proposed combined side-jet prediction
+## Upward co-directed prediction
 
-Active workflow: `Final_Results/Batch4_Cam1/Combined_Flow_Prediction/`.
-The PZT-only experiment measured droplet velocities with no ZNMF jet; ambient
-PZT air velocity was not measured. The separate ZNMF-only experiment supplies
-the prescribed two-component mean gas field. The combined experiment has not
-been conducted. The nominal model diameter is now 10 micrometres: a 5 micrometre aperture is
-assumed to produce a 5 micrometre jet, giving Rayleigh estimate 1.89*5=9.45
-micrometres, rounded to 10. This is not measured sizing or a validated size
-distribution. The same configurable diameter controls drag, Re, response time
-and Stokes number. Relative placement is a prospective DESIGN VARIABLE. A documented 3-by-3 grid
-within measured support supplies proposed horizontal side-jet arrangements and
-three supported PZT releases each, rather than requiring measured combined geometry.
-These arrangements are proposed, not experimental placements.
+Active package: `Final_Results/Batch4_Cam1/Combined_Flow_Prediction/Co_Directed/`.
+Separate PZT droplet and ZNMF gas SI velocities are preserved. Analysis copies
+rotate the gas downstream axis upward (+90 degrees) and align its nominal axis
+to the documented PZT fixed-line reference. The lowest supported measurement
+planes coincide by assumption; no physical-exit coincidence is claimed.
+Relative axial offset remains configurable under co_directed in the configuration.
+The nominal 10 micrometre water diameter remains a Rayleigh/aperture model
+estimate, not measured sizing. Signed gas reversals and wandering are retained.
 
-Edit `config/combined_flow_prediction.json`. Regenerate the supported measured
-baselines, conditionally enabled predictions, scientific text and notebook with:
+Regenerate figures, tables, concise LaTeX and the executed notebook section:
 
 ```powershell
 .\.venv\Scripts\python -m PZT_Atomiser_Analysis.analysis.update_combined_flow_notebook
 ```
 
-`prediction_status.json` lists any missing prediction inputs. `source_manifest.json`
-records the actual authoritative PZT/ZNMF files, hashes, masks, SI units and transforms.
-`report_manifest.json` explicitly selects active figures and excludes archives.
-The full original PZT calibration, sample selection and signs remain unchanged.
+`Co_Directed/results_summary.json` reports actual integrations and common-height
+velocity/travel-time comparisons. `data/` contains histories, forces, scalar
+response/frequency values and local jet dimensionless numbers. Report figures
+are explicitly selected by `Co_Directed/report_manifest.json`; archived side-jet
+outputs, H/L/C labels and constant-line plots are excluded. The measured PZT-only
+profile remains a separate red ensemble-mean baseline.
 
-Superseded theory/Re/St, arbitrary-diameter, hypothetical-jet and duplicate axial
-comparison packages, plus old code/configuration snapshots, are preserved under
-`Archive/20261102T095744_AEDT_superseded_interaction/`. Its `archive_manifest.json`
-records original relative paths, hashes and exact replacement mapping. Authoritative
-experimental inputs/results and unrelated analyses were not moved. Experimental
-notebook cells are retained; the old theory section is replaced by the new workflow.
-
-The active `Combined_Flow_Prediction/Design_Study/` contains the proposed placement
-comparison and conditional trajectories. `Dimensionless_Numbers/` independently
-exports the zero-background reference PZT particle Re, Stokes-limit response time,
-local ZNMF centreline Re_D,c and Sr_D,c, Stk_f and Stk_D. Gas actuation is the
-source-documented 120 Hz, not 10 Hz acquisition or 190 kHz atomiser frequency.
-Run dimensionless outputs without trajectory/geometry processing using:
-
-```powershell
-.\.venv\Scripts\python -m PZT_Atomiser_Analysis.analysis.prospective_studies --dimensionless-only
-```
+Superseded side-jet outputs and configuration/code snapshots are preserved in
+`Archive/20261102T103931_AEDT_superseded_side_jet/archive_manifest.json`.
+Original inputs, authoritative calibrated experimental results and reusable
+solver code are preserved. Validation checks SI units, transformations, forces,
+support, convergence and source hashes. No collection, deposition or combined-
+experiment validation is claimed.

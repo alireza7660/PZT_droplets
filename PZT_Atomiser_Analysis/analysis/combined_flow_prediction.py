@@ -58,7 +58,7 @@ def sources_and_arrays(cfg):
                   reconstruction='Authoritative three-FOV reconstructed mean, including its existing overlap registration/blending; not reprocessed'),
         placement=dict(common_frame=cfg['common_frame'],transformation='q_common=R(theta)*q_jet_local+nozzle_position; w_common=R(theta)*(U,V)',
                        pzt_transform='Identity: common frame retains final PZT right/up axes and image-reference origin',
-                       geometry=cfg['geometry'],warning='Origins of the two experiments are not equated'))
+                       geometry=cfg.get('geometry',{}),warning='Origins of the two experiments are not equated'))
     return pzt,jet,local_x,local_y,D0,manifest
 
 
@@ -166,6 +166,9 @@ def prediction_figures(out,field,cases,manifest):
 
 def run(config_path=None):
     cfg_path=Path(config_path or PROJECT/'config/combined_flow_prediction.json');cfg=json.loads(cfg_path.read_text())
+    if cfg.get('co_directed',{}).get('enabled'):
+        from .co_directed import run as run_upward
+        return run_upward()
     out=(ROOT/cfg['output']).resolve();out.mkdir(parents=True,exist_ok=True)
     if not out.is_relative_to(PROJECT.resolve()):raise ValueError('Output must stay in PZT analysis workspace')
     pzt,jet,xj,yj,D0,sources=sources_and_arrays(cfg);props=fluid_properties(cfg)
@@ -234,6 +237,10 @@ def run(config_path=None):
 
 def notebook_cells():
     import nbformat as nb
+    active=json.loads((PROJECT/'config/combined_flow_prediction.json').read_text())
+    if active.get('co_directed',{}).get('enabled'):
+        from .co_directed import notebook_cells as upward_cells
+        return upward_cells()
     text='''## Proposed side-jet combined-flow prediction
 
 PZT-only measurements supply droplet velocities; the surrounding air was not

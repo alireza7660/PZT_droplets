@@ -1,0 +1,17 @@
+{
+  "figures": [
+    "pzt_Re_p_zero_background_reference",
+    "pzt_profile_Re_p_zero_background_reference",
+    "znmf_Re_D_c",
+    "znmf_Sr_D_c",
+    "znmf_Stk_D",
+    "droplet_Stk_f"
+  ],
+  "CSVs": [
+    "nominal_droplet_response.csv",
+    "pzt_fixed_line_zero_background_reference.csv",
+    "pzt_zero_background_reference_field.csv",
+    "znmf_local_centreline_numbers.csv"
+  ],
+  "geometry_independent": true
+}

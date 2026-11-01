@@ -1,0 +1,32 @@
+{
+  "successfully_integrated_cases": 7,
+  "rotation_and_vector_signs_verified": true,
+  "reference_plane_alignment_verified": true,
+  "signed_gas_reversals_retained": true,
+  "initial_measured_PZT_components_verified": true,
+  "all_saved_positions_supported": true,
+  "drag_gravity_and_buoyancy_verified": true,
+  "common_interval_comparison_verified": true,
+  "step_convergence_passed": true,
+  "local_jet_gaps_retained": true,
+  "scalars_tabulated_not_constant_line_figures": true,
+  "authoritative_files_hash_verified": 249,
+  "archived_files_hash_verified": 168,
+  "notebook_executed": true,
+  "figure_count": 7,
+  "synthetic_solver_tests": {
+    "synthetic_only": true,
+    "coordinate_and_vector_rotation": true,
+    "bilinear_affine_field_exact": true,
+    "gravity_downward": true,
+    "drag_opposes_vector_slip": true,
+    "zero_slip_finite": true,
+    "low_Re_analytic_Stokes_limit": true,
+    "half_step_convergence": true,
+    "finite_Re_validity_enforced": true,
+    "no_upward_only_stop": true,
+    "source_boundary_stopping": true,
+    "missing_gas_cell_rejected": true,
+    "zero_gas_local_Stokes_handled": true
+  }
+}
