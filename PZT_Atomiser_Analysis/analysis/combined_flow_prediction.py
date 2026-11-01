@@ -224,6 +224,11 @@ def run(config_path=None):
     from .combined_flow_report import write_report
     write_report(out,cfg,sources,receipt,manifest)
     for path,digest in protected.items():assert sha(path)==digest,path
+    from .prospective_studies import run as run_studies
+    run_studies()  # Dimensionless calculations never depend on placement readiness.
+    if cfg.get('design_study',{}).get('enabled'):
+        receipt=json.loads((out/'prediction_status.json').read_text())
+        write_report(out,cfg,sources,receipt,manifest)
     return receipt
 
 
@@ -253,7 +258,8 @@ for figure in manifest['figures']:
 '''
     cells=[nb.v4.new_markdown_cell(text),nb.v4.new_code_cell(code)]
     for c in cells:c.metadata['combined_flow_prediction']=True
-    return cells
+    from .prospective_studies import notebook_cells as study_cells
+    return cells+study_cells()
 
 
 if __name__=='__main__':

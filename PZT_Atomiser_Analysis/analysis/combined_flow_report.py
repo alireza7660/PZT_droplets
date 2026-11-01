@@ -160,6 +160,13 @@ trajectory/component/slip/Re/St CSV and figures. `prediction_status.json` is the
 authoritative statement of what was generated. Detailed synthetic solver tests
 are validation checks, not experimental parameter-study results.
 '''
+    if cfg.get('design_study',{}).get('enabled') and status.get('prediction_case_count',0)>0:
+        text=text.replace('No arbitrary diameter or placement cases are populated. No combined-flow prediction,\nentrainment, capture or experimental model validation is claimed while inputs are missing.',
+            f"The prospective design study integrated {status['prediction_case_count']} conditional particle cases in {status.get('proposed_design_placement_count',0)} proposed arrangements. Placement is a DESIGN VARIABLE, not measured geometry. See Design_Study/placement_comparison.csv and case_comparison.csv. No capture efficiency, optimal arrangement or experimental validation is claimed.")
+        text=text.replace('No numerical droplet prediction is substituted for these missing inputs.',
+            'Fixed measured/prototype geometry is not required for the proposed placement study; it is selected and documented from measured coordinate support.')
+        text=text.replace('## Specific missing prediction inputs','## Fixed-geometry inputs (not prerequisites for the prospective design study)')
+        text+='\n## Active prospective outputs\n\nDesign_Study/manifest.json lists proposed trajectories, velocity/displacement/Re/Stokes figures and comparison tables. Dimensionless_Numbers/manifest.json lists independent PZT-reference and ZNMF local-number CSV/PDF/PNG outputs. Dimensionless calculations can also run without any geometry using `python -m PZT_Atomiser_Analysis.analysis.prospective_studies --dimensionless-only`.\n'
     (out/'README.md').write_text(text,encoding='utf-8')
     tex=r'''\section{Prediction workflow for the proposed side-jet arrangement}
 The PZT-only experiment measured droplet-phase velocities in an upward plume

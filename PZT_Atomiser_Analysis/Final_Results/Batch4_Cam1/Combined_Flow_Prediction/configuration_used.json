@@ -32,6 +32,27 @@
   "relative_humidity": null,
   "properties_assumptions": "Pressure 101325 Pa; water at the recorded air temperature of 20 C; dry-air properties approximate unknown humidity",
   "constant_diameter": true,
+  "design_study": {
+    "enabled": true,
+    "placement_status": "Proposed horizontal side-jet arrangements selected from measured support; not measured geometry",
+    "plume_height_fractions": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "jet_downstream_support_fractions": [
+      0.2,
+      0.5,
+      0.8
+    ],
+    "release_column_offsets": [
+      -1,
+      0,
+      1
+    ],
+    "maximum_time_s": 0.03,
+    "collection_target": null
+  },
   "evaporation": false,
   "stokes_drag_re_threshold": 0.01,
   "schiller_naumann_re_limit_exclusive": 800.0,

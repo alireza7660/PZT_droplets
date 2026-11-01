@@ -102,7 +102,9 @@ def main():
         for path in item['exports']:assert (out/path).stat().st_size>1000
         with Image.open(out/'figures'/(item['stem']+'.png')) as im:assert min(im.info['dpi'])>599
     if missing_inputs(cfg):
-        assert status['status']=='awaiting_prediction_inputs' and status['prediction_case_count']==0
+        if cfg.get('design_study',{}).get('enabled'):
+            assert status['status']=='prospective_design_study_complete' and status['prediction_case_count']>0
+        else:assert status['status']=='awaiting_prediction_inputs' and status['prediction_case_count']==0
         assert not list((out/'figures').glob('predicted_*'))
     book=nbformat.read(PROJECT/'notebooks/PZT_final_analysis.ipynb',as_version=4)
     assert not any(c.metadata.get('theory_comparison') for c in book.cells)
