@@ -1,0 +1,19 @@
+{
+  "definition": "St_D(x)=tau_p,Stokes*Uc(x)/D0",
+  "D0_m": 0.002,
+  "assumed_diameters_um": [
+    5,
+    10,
+    20,
+    50,
+    100
+  ],
+  "tau_definition": "rho_water*d^2/(18*mu_air), Stokes-limit baseline",
+  "provenance": {
+    "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\Jet_PZT_Comparison\\znmf_plotted_data.csv",
+    "sha256": "dbcb27654d75d1e22a0b34c29b548219b6e1411e602654653a923a6122223505",
+    "registration": "Separate ZNMF coordinate retained; no spatial registration to PZT",
+    "input_subset": "Existing separately measured comparison table; only finite positive measured Uc rows"
+  },
+  "interpretation": "Hypothetical local nozzle-length response comparison; neither PZT-plume nor nozzle-exit Stokes number"
+}

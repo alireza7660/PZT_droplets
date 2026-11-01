@@ -37,6 +37,8 @@ output=root/'PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1'
     nb.write(book,target)
     shutil.copy2(target,PROJECT/'notebooks/Spatial_maps.ipynb')
     shutil.copy2(target,FINAL/'methods/PZT_final_analysis.ipynb')
+    from .verify_theory_comparison import main as verify_saved
+    verify_saved()
     print('Executed added theory section; existing experimental cells retained.')
 
 

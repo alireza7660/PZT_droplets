@@ -118,13 +118,19 @@ PZT comparison height is h=y-y0 relative to the first finite paired measurement,
 not the atomiser surface. Humidity is unavailable; dry-air properties are an
 approximation, with evaporation neglected.
 
-Edit `config/theory_comparison.json` and regenerate with:
+Edit `config/theory_comparison.json` and regenerate figures, numerical exports,
+scientific text and the executed notebook theory section with one command:
 
 ```powershell
-.\.venv\Scripts\python -m PZT_Atomiser_Analysis.analysis.theory_comparison
-.\.venv\Scripts\python -m PZT_Atomiser_Analysis.analysis.verify_theory_comparison
+.\.venv\Scripts\python -m PZT_Atomiser_Analysis.analysis.update_theory_notebook
 ```
 
-The final notebook includes an executed theory section. To refresh only that
-section, run `python -m PZT_Atomiser_Analysis.analysis.update_theory_notebook`
-using the project environment. Existing experimental analysis cells are retained.
+The revised package separates fixed-line ensemble means from stationary-air
+trajectory references and separates their two Reynolds-number calculations.
+The 0-2 mm velocity view uses the same curves and styles as the full view.
+Actual turning heights and plotted endpoints are distinct in `reference_endpoints.csv`.
+Jet Stokes results are isolated in `Jet_Interaction_Sensitivity/`.
+`report_manifest.json` identifies the exact report figures and LaTeX files;
+superseded theory outputs are in `Archive_Before_Report_Revision_1522f54/` and
+are excluded from the report. Existing experimental notebook cells and outputs
+are retained. Computational checks are separate under `Theory_Comparison/validation/`.

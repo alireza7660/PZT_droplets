@@ -1,0 +1,57 @@
+{
+  "figures": [
+    {
+      "stem": "velocity_reference_full",
+      "pdf": "velocity_reference_full.pdf",
+      "png": "velocity_reference_full.png",
+      "category": "reference"
+    },
+    {
+      "stem": "velocity_reference_near_origin",
+      "pdf": "velocity_reference_near_origin.pdf",
+      "png": "velocity_reference_near_origin.png",
+      "category": "reference"
+    },
+    {
+      "stem": "reynolds_measured_velocity_assumed_air",
+      "pdf": "reynolds_measured_velocity_assumed_air.pdf",
+      "png": "reynolds_measured_velocity_assumed_air.png",
+      "category": "conditional_estimate"
+    },
+    {
+      "stem": "reynolds_reference_trajectories",
+      "pdf": "reynolds_reference_trajectories.pdf",
+      "png": "reynolds_reference_trajectories.png",
+      "category": "reference"
+    },
+    {
+      "stem": "particle_relaxation_time",
+      "pdf": "particle_relaxation_time.pdf",
+      "png": "particle_relaxation_time.png",
+      "category": "reference"
+    },
+    {
+      "stem": "diameter_sensitivity",
+      "pdf": "diameter_sensitivity.pdf",
+      "png": "diameter_sensitivity.png",
+      "category": "supplementary"
+    },
+    {
+      "stem": "Jet_Interaction_Sensitivity/znmf_local_nozzle_stokes",
+      "pdf": "Jet_Interaction_Sensitivity/znmf_local_nozzle_stokes.pdf",
+      "png": "Jet_Interaction_Sensitivity/znmf_local_nozzle_stokes.png",
+      "category": "hypothetical_jet_interaction"
+    }
+  ],
+  "text": [
+    "methods_results.tex",
+    "captions.tex",
+    "report_figures.tex",
+    "references.bib"
+  ],
+  "excluded": [
+    "Archive_Before_Report_Revision_1522f54/",
+    "validation/"
+  ],
+  "notes": "Only listed active files are selected for the scientific report; archives and computational checks are excluded."
+}

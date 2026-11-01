@@ -1,0 +1,14 @@
+{
+  "figures_reviewed": 7,
+  "near_origin_range_mm": [
+    0,
+    2
+  ],
+  "legends_and_labels_clear": true,
+  "title_free": true,
+  "full_borders": true,
+  "matching_velocity_styles": true,
+  "trajectory_endpoints_visible": true,
+  "jet_log_ordinate_clear": true,
+  "pdf_raster_renderer_available": false
+}

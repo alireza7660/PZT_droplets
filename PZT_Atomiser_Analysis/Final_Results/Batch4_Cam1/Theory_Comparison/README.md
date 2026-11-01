@@ -1,69 +1,94 @@
-# Droplet theory comparison: conditional references
+# Fixed-line droplet mean velocities and stationary-air references
 
-Final PZT data: 190 kHz, 9 Vpp; 5.35 micrometres/pixel, 25 microseconds, 0.214 m/s per pixel displacement. Saved SI fields are read without applying calibration again. x/u are horizontal/rightward, y/v upward. All signed experimental velocities remain unchanged.
+This package distinguishes a measured ensemble-mean profile from individual
+monodisperse reference trajectories. Assumed diameters are [5, 10, 20, 50, 100]
+micrometres. They are not measured or fitted sizes. Air at 20 C is recorded;
+stationary air, pressure 101325 Pa and equal water temperature are assumptions.
+Humidity is unavailable; dry-air properties are approximate and evaporation is omitted.
 
-## Available evidence and missing inputs
+## Measurement and references
 
-`../data/statistics.npz` provides ensemble mean u/v, RMS, covariance and N; `../data/frame_1.npz`, frame_879 and frame_1757 provide representative instantaneous vector fields. RAW_data/Batch4_Cam1.h5 contains correlation-export fields us/vs and flags, not droplet identities or trajectories. analysis/calibrated.py accumulates finite paired samples; analysis/final_analysis.py adopts the final convention. No validated sizing result or simultaneous gas field was found in the active project or RAW_data. Image-spot width, the water-flow-rate image and nozzle dimensions are not diameter evidence. The exported (0,0) reference is not a located atomiser surface. The adopted component/displacement interpretation remains documented in the experimental configuration; this comparison does not independently verify it.
+The native fixed line is x=14.54665 mm. It is not a tracked centreline.
+Height h=y-y0 starts at y0=0.0856 mm (image reference), with measured
+initial v=1.65501079 m/s and u=0.161064719 m/s. The location
+is selected by finite paired means and N>=2; this
+is sample support, not independent physical validation or an atomiser-surface location.
+Every profile row, signed value, gap, native index and original y coordinate is retained.
+Existing final calibration and sample selection are unchanged; SI velocities are not recalibrated.
 
-The fixed-x profile is column 42 through the global mean-v maximum, not a tracked centreline. A declining value there may partly reflect lateral plume displacement. Neither a fixed-position profile nor a height-wise maximum of ensemble means is an individual droplet trajectory. No height-wise maximum is substituted here.
+Gravity, buoyancy and spherical finite-Re drag define the stationary-air references.
+The same physical equations, properties and measured initial state used before this
+revision are retained. Each upward branch stops at v=0 or the measured upper boundary.
+`reference_endpoints.csv` separates actual turning heights from plotted endpoints.
+Gravity-only actual rise is 139.65323 mm;
+its plotted curve stops at the 27.2208 mm measurement
+boundary, not at its turning point. The full and 0-2 mm figures contain identical
+curve arrays and styles, with different horizontal viewing limits.
 
-## Properties and model
+`reynolds_measured_velocity_assumed_air.csv` uses the magnitude of the measured
+mean in-plane vector with stationary air and assumed diameters. This is not mean
+instantaneous Re. It spans the measured domain. `reynolds_reference_trajectories.csv`
+uses each model trajectory's instantaneous vector and ends at its own endpoint.
+Gas density and viscosity enter both definitions; the missing third component is not invented.
 
-Air temperature is recorded as 20 C. Pressure 101325 Pa, water also at 20 C, and constant spherical diameter are assumptions. Humidity is unavailable; dry-air properties are an approximation, not a recorded zero-humidity condition. Evaporation is neglected. rho_air=1.20479 kg/m3; rho_water=998.206746 kg/m3; mu_air=1.81332212e-05 Pa s; g=9.80665 m/s2. Water density uses NIST GLP10's Tanaka polynomial; air uses the approximate NIST dry-air reference; Sutherland viscosity uses constants reported in NASA's wake-validation paper. No liquid viscosity enters Re or relaxation time.
+`particle_relaxation_time.csv` gives tau_p,Stokes=rho_water*d^2/(18*mu_air).
+Each trajectory CSV also gives tau_drag_secant=tau_p,Stokes/f(Re), which is an
+instantaneous drag/slip coefficient timescale, not an exact finite-Re relaxation time.
 
-Vector equations use dq/dt=w_d and dw_d/dt=(0,-g(1-rho_air/rho_water))+(w_air-w_d) f(Re)/tau_p, where Re=rho_air*d*norm(w_air-w_d)/mu_air, tau_p=rho_water*d^2/(18*mu_air). f=1 for Re<=0.01 (creeping-flow approximation); otherwise f=1+0.15 Re^0.687, equivalent to C_D=24*f/Re. This implementation enforces Re<800 following the cited COMSOL range. Using slip*f/tau avoids division by Re at zero slip. The rigid-sphere approximation omits internal circulation, deformation, evaporation, added mass, history forces, collisions and two-way coupling. These may limit quantitative applicability.
+The hypothetical ZNMF-based Stokes comparison is isolated in
+`Jet_Interaction_Sensitivity/`. Its own downstream coordinate is preserved.
+It is not simultaneous PZT gas data, a nozzle-exit Stokes number or evidence of entrainment.
 
-Both in-plane components enter drag and Re; the unmeasured out-of-plane component is omitted, so Re is an in-plane-slip estimate. Re of a mean vector is not the ensemble mean of instantaneous Re. No instantaneous sample population is relabelled as a measured diameter-resolved quantity. Assumed diameters [5, 10, 20, 50, 100] micrometres are sensitivity cases, not an inferred size distribution.
+Differences between measurements and stationary-air references do not by themselves
+identify a coding error or a droplet size. Gas motion, size/initial-velocity distributions,
+and lateral plume displacement may contribute; no dominant mechanism is established.
+No unknown gas field or diameter distribution is fitted and no experimental model
+validation is claimed.
 
-The initial state is the lowest finite paired mean-u/v sample with N>=2, y0=0.0856 mm, v0=1.65501079 m/s at fixed x=14.54665 mm. This is a sample-availability criterion, not independent physical validation. It is not an outlet launch condition. All PZT comparison heights use h=y-y0; absolute image-reference y values are also retained in CSVs. RK4 integrates individual monodisperse reference trajectories in assumed stationary air, including horizontal motion, and stops at the first v=0 turning point or measured upper boundary. Each reference starts at the measured x but may drift horizontally: it is not a prediction along the fixed-x measurement column. Gravity-only ballistic motion excludes both drag and buoyancy. No descending branch is joined to the ascending curve; no terminal settling prediction is compared to upward plume velocity.
+## Exact report files
 
-## Response question and Stokes number
+`report_manifest.json` lists the selected files. Use `methods_results.tex` for the
+concise scientific section and `captions.tex` for standalone captions;
+`report_figures.tex` supplies matching figure environments. These snippets require
+amsmath and graphicx in the host report. Add references.bib to the host report's
+bibliography. Figure paths are relative to this folder.
 
-The particle relaxation time is defined as the Stokes-limit baseline tau_p=rho_water*d^2/(18*mu_air). It is reported for every assumed diameter, even when finite-Re drag is needed; it is not represented as an exact finite-Re relaxation time. Along trajectories tau_drag_secant=tau_p/f(Re) is also exported: this is an instantaneous drag/slip coefficient timescale, not a linear perturbation response time. The longitudinal linearized drag response would involve the derivative of slip*f. No arbitrary gas disturbance duration or atomiser-frequency timescale is assigned to the active Stokes-number results.
+- `velocity_reference_full.pdf` (also 600-dpi PNG and SVG).
+- `velocity_reference_near_origin.pdf` (also 600-dpi PNG and SVG).
+- `reynolds_measured_velocity_assumed_air.pdf` (also 600-dpi PNG and SVG).
+- `reynolds_reference_trajectories.pdf` (also 600-dpi PNG and SVG).
+- `particle_relaxation_time.pdf` (also 600-dpi PNG and SVG).
+- `diameter_sensitivity.pdf` (also 600-dpi PNG and SVG).
+- `Jet_Interaction_Sensitivity/znmf_local_nozzle_stokes.pdf` (also 600-dpi PNG and SVG).
 
-For an explicitly hypothetical jet-interaction comparison, the separate ZNMF table supplies its measured local Uc(s) for St_D(s)=tau_p*Uc(s)/0.002. This is a local nozzle-length-based comparison, not nozzle-exit Stokes number, and not a measured PZT Stokes number. Its own s origin is retained without registering it to PZT y. No combined-flow or entrainment claim is made and no ZNMF velocity is substituted into PZT slip. The 190 kHz atomiser frequency is not used as a gas-flow frequency. No frequency-based Stokes number is computed.
+Every curve has CSV provenance in `figure_curve_manifest.json`; figures are drawn
+directly from those CSV values. Per-diameter trajectory CSVs include original y,
+relative height h, time, vector components, in-plane Re and defined timescales.
+`diameter_sensitivity.csv` reports actual versus displayed endpoints; the full
+endpoint table also includes gravity-only motion. `parameters_used.json` records
+all assumptions, properties, source URLs, calibration, initial state and ZNMF provenance.
 
-## Results and limits
+## Regeneration
 
-The measured maximum remains 1.686548142 m/s at x=14.54665 mm, y=1.284 mm. The quiescent-air model curves describe conditional deceleration and rise distances for the selected diameters, not fitted or validated experimental trajectories. Diameter, coflow and spatial sampling can all alter comparison; disagreement cannot uniquely identify any one cause. Without measured diameter and simultaneous gas velocity there is no uniquely measured Re_d or PZT Stokes number. The separate ZNMF profile exceeding some droplet velocities does not establish successful entrainment.
+From the PZT_droplets workspace root, run this single command using the project environment:
 
-## Files and regeneration
+```powershell
+.\.venv\Scripts\python -m PZT_Atomiser_Analysis.analysis.update_theory_notebook
+```
 
-Every plotted line has CSV values: measured_fixed_x_profile.csv, ballistic_reference.csv, trajectory_quiescent_d*um.csv, reynolds_vs_height.csv, particle_relaxation_time.csv, diameter_sensitivity.csv and znmf_local_nozzle_stokes.csv. parameters_used.json records properties, assumptions, sources, initial state and calibration provenance. validation.json records signs, units/scale checks, low-Re limit, numerical step convergence and unchanged experimental hashes. Configuration: ../../../config/theory_comparison.json. Reusable source: ../../../analysis/theory_comparison.py.
+This rebuilds the theory package from final saved SI data, refreshes only the
+theory section of the existing notebook and runs saved-output validation. Existing
+experimental cells, figures and data are preserved. Configure assumptions in
+`../../../config/theory_comparison.json`. Reusable physics is in
+`../../../analysis/theory_comparison.py`, orchestration in `theory_package.py`,
+and scientific text in `theory_report.py` in the same analysis directory.
 
-From workspace root: `.\.venv\Scripts\python -m PZT_Atomiser_Analysis.analysis.theory_comparison`.
+## Review history, archive and validation
 
-Optional simultaneous gas data must use identical native y nodes and documented registration in the configuration. Its two components can produce measured-gas-slip Re sensitivity cases. A spatial trajectory comparison in a nonuniform measured gas field additionally needs a spatially resolved gas interpolant valid along the droplet path; the fixed-x gas column alone is not used to invent one.
-
-## Figure captions
-
-velocity_theory_comparison: Signed fixed-x mean axial droplet velocity versus h=y-y0 relative to the first finite paired measurement, gravity-only ballistic reference and assumed quiescent-air spherical-droplet trajectories for configured diameters. Model branches terminate at their turning points or the upper domain; the ensemble profile is not a trajectory.
-
-reynolds_vs_height: In-plane-slip Reynolds estimates versus h=y-y0 from the measured mean droplet vector under assumed stationary gas and configured diameters. No measured diameter or gas velocity is implied.
-
-particle_relaxation_time: Stokes-limit particle relaxation time versus assumed constant diameter; finite-Re drag requires the separately documented correction.
-
-diameter_sensitivity: Ascending rise within the measured domain for assumed still-air droplets; endpoints are turning points unless marked domain_top in the CSV. The ballistic reference uses the same measured initial axial velocity.
-
-znmf_local_nozzle_stokes: Hypothetical jet-interaction local nozzle-length Stokes comparison using separately measured ZNMF Uc(s), D0=2 mm, and assumed droplet diameters. No PZT gas registration or coflow is implied.
-
-## Sources
-
-- water_density: https://www.nist.gov/system/files/documents/2017/05/09/NISTIR_7383_2013-04-24_2015-07-13Rev.pdf
-
-- air_density: https://physics.nist.gov/cgi-bin/Star/compos.pl?matno=104&refer=ap
-
-- air_viscosity: https://ntrs.nasa.gov/api/citations/20250005707/downloads/main.pdf?attachment=true
-
-- drag_and_response: https://doc.comsol.com/6.4/doc/com.comsol.help.particle/particle_ug_fluid_flow.08.36.html
-
-## Computed sensitivity summary
-
-| Assumed d (micrometres) | Stokes-limit tau (ms) | Rise from y0 (mm) | Maximum trajectory in-plane Re |
-|---|---|---|---|
-| 5 | 0.0764563 | 0.119127 | 0.552401 |
-| 10 | 0.305825 | 0.457435 | 1.1048 |
-| 20 | 1.2233 | 1.69778 | 2.2096 |
-| 50 | 7.64563 | 8.55511 | 5.52401 |
-| 100 | 30.5825 | 24.3443 | 11.048 |
+The local Git checkout had no commits later than reviewed commit 1522f54161c7.
+The active theory source/configuration matched that checkout before editing.
+`Archive_Before_Report_Revision_1522f54/` contains the superseded theory outputs
+and source/configuration snapshots; it is excluded from report_manifest.json.
+No final experimental output outside Theory_Comparison was archived.
+Detailed signs, units, convergence, endpoints, calibration, figure/CSV agreement
+and experimental-file hash checks are kept separately under `validation/`.
