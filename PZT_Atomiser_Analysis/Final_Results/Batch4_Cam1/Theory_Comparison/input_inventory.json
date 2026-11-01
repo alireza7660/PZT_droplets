@@ -1,0 +1,53 @@
+{
+  "hdf5_path": "RAW_data/Batch4_Cam1.h5",
+  "root_groups": [
+    "PARAMETERS",
+    "PIV FIELDS",
+    "STATISTICS"
+  ],
+  "root_attribute_names": [],
+  "field_count": 1757,
+  "representative_field": "1",
+  "field_datasets": [
+    "flag",
+    "omega",
+    "u",
+    "us",
+    "v",
+    "vs"
+  ],
+  "statistics_datasets": [
+    "NoSamples",
+    "Omega",
+    "U",
+    "V",
+    "omega_sq",
+    "uu",
+    "uv",
+    "vv"
+  ],
+  "saved_statistic_arrays": [
+    "x_mm",
+    "y_mm",
+    "N",
+    "variance_u",
+    "variance_v",
+    "mean_v",
+    "mean_u",
+    "rms_v",
+    "rms_u",
+    "magnitude_mean_vector",
+    "mean_instantaneous_velocity_magnitude",
+    "covariance",
+    "correlation"
+  ],
+  "instantaneous_final_arrays": [
+    "frame_1.npz: u,v",
+    "frame_879.npz: u,v",
+    "frame_1757.npz: u,v"
+  ],
+  "velocity_method": "PIV image-correlation export, not identified droplet tracks",
+  "diameter_evidence": "No validated sizing result located in active project or RAW_data; sensitivity only",
+  "simultaneous_gas": "Not found; separate ZNMF experiment exists",
+  "spatial_origin": "Exported (0,0) image reference retained; x horizontal/rightward and y vertical/upward; no atomiser-centred origin"
+}

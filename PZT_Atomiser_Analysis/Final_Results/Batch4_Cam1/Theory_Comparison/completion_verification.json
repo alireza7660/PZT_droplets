@@ -1,0 +1,14 @@
+{
+  "experimental_files_hash_verified": 245,
+  "profile_CSV_exact_native_samples": true,
+  "relative_height_zero_and_alignment": true,
+  "Re_CSV_recalculated": true,
+  "trajectory_CSV_ascending_only": true,
+  "secant_time_CSV_verified": true,
+  "figure_count": 5,
+  "all_three_formats": true,
+  "png_dpi": 600,
+  "executed_notebook_figures": 5,
+  "PDF_raster_review": "Unavailable: no Poppler or PDFium renderer; exported PNGs visually reviewed",
+  "pdf_skill_marker": "Node.js unavailable; marker invocation failed before authoring"
+}

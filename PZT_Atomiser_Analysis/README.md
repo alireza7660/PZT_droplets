@@ -105,3 +105,26 @@ The figure stems are `mean_v_vertical_profile_location` and
 `mean_v_vertical_profile`, with PDF, SVG and 600-dpi PNG in the final figures
 directory. Extracted CSV/NPZ are in `data/mean_v_vertical_profile.*`.
 Selection and verification metadata are in `methods/vertical_profile_*.json`.
+
+## Conditional droplet theory comparison
+
+`Final_Results/Batch4_Cam1/Theory_Comparison/` contains separate model-reference
+figures, CSV values, sourced fluid properties, assumptions, validation and a
+LaTeX methods/results section. Final calibrated experimental arrays are read
+unchanged. The configured diameters and quiescent gas are sensitivity inputs,
+not measured diameter or gas-velocity values. The separate ZNMF profile is
+used only for an explicitly hypothetical jet-interaction Stokes comparison.
+PZT comparison height is h=y-y0 relative to the first finite paired measurement,
+not the atomiser surface. Humidity is unavailable; dry-air properties are an
+approximation, with evaporation neglected.
+
+Edit `config/theory_comparison.json` and regenerate with:
+
+```powershell
+.\.venv\Scripts\python -m PZT_Atomiser_Analysis.analysis.theory_comparison
+.\.venv\Scripts\python -m PZT_Atomiser_Analysis.analysis.verify_theory_comparison
+```
+
+The final notebook includes an executed theory section. To refresh only that
+section, run `python -m PZT_Atomiser_Analysis.analysis.update_theory_notebook`
+using the project environment. Existing experimental analysis cells are retained.

@@ -1,0 +1,86 @@
+{
+  "cases": [
+    {
+      "diameter_um": 5,
+      "tau_stokes_s": 7.645625904841839e-05,
+      "termination": "turning_point",
+      "end_y_mm": 0.20472677751609253,
+      "end_t_s": 0.0005789754269787276,
+      "max_Re": 0.5524006340403399,
+      "half_step_max_state_difference": 1.3126611636852734e-09
+    },
+    {
+      "diameter_um": 10,
+      "tau_stokes_s": 0.00030582503619367357,
+      "termination": "turning_point",
+      "end_y_mm": 0.5430345520633251,
+      "end_t_s": 0.001869839868017077,
+      "max_Re": 1.1048012680806798,
+      "half_step_max_state_difference": 4.415531675537598e-09
+    },
+    {
+      "diameter_um": 20,
+      "tau_stokes_s": 0.0012233001447746943,
+      "termination": "turning_point",
+      "end_y_mm": 1.7833757374433126,
+      "end_t_s": 0.005678834708025089,
+      "max_Re": 2.2096025361613596,
+      "half_step_max_state_difference": 9.187150243035805e-09
+    },
+    {
+      "diameter_um": 50,
+      "tau_stokes_s": 0.007645625904841841,
+      "termination": "turning_point",
+      "end_y_mm": 8.640709380652455,
+      "end_t_s": 0.021102394956574108,
+      "max_Re": 5.5240063404034,
+      "half_step_max_state_difference": 6.83481049534862e-16
+    },
+    {
+      "diameter_um": 100,
+      "tau_stokes_s": 0.030582503619367363,
+      "termination": "turning_point",
+      "end_y_mm": 24.429936012715956,
+      "end_t_s": 0.047311190975837664,
+      "max_Re": 11.0480126808068,
+      "half_step_max_state_difference": 5.814793091474257e-15
+    }
+  ],
+  "maximum": {
+    "native_row": 304,
+    "native_column": 42,
+    "x_mm": 14.54665,
+    "y_mm": 1.284,
+    "mean_v_m_s": 1.6865481421305646,
+    "N": 1757,
+    "finite_maximum_tie_count": 1,
+    "measured_y_range_mm": [
+      0.0856,
+      27.3064
+    ],
+    "profile_y_range_mm": [
+      0.0856,
+      27.3064
+    ]
+  },
+  "initial_y_mm": 0.0856,
+  "comparison_height_range_mm": [
+    0.0,
+    27.2208
+  ],
+  "initial_mean_v_m_s": 1.655010792336548,
+  "fixed_x_mm": 14.54665,
+  "protected_files_unchanged": 245,
+  "physics_checks": {
+    "zero_slip_finite": true,
+    "gravity_downward": true,
+    "drag_opposes_slip": true,
+    "low_Re_Stokes_limit": true,
+    "analytic_Stokes_turning_time_height": true,
+    "tau_scales_as_d_squared": true,
+    "vector_norm_3_4_5": true,
+    "Re_validity_enforced": true
+  },
+  "measured_gas_available": false,
+  "diameters_measured": false
+}
