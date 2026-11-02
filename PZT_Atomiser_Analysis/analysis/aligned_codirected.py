@@ -18,9 +18,6 @@ def archive_existing(out):
     dest=out.parent/'Archive'/('Co_Directed_'+datetime.now().strftime('%Y%m%d_%H%M%S_%f'))
     assert dest.resolve().is_relative_to(PROJECT.resolve()) and out.resolve().is_relative_to(PROJECT.resolve())
     dest.mkdir(parents=True);shutil.move(str(out),str(dest/'generated'))
-    (dest/'source').mkdir()
-    for path in (PROJECT/'analysis').glob('*codirected*.py'):shutil.copy2(path,dest/'source'/path.name)
-    shutil.copy2(PROJECT/'config/combined_flow_prediction.json',dest/'source/configuration.json')
     receipt=dict(reason='Superseded generated co-directed prediction; measurements unchanged',generated_package=str((dest/'generated').relative_to(ROOT)))
     write_json(dest/'archive_manifest.json',receipt)
     return str((dest/'archive_manifest.json').relative_to(ROOT))
@@ -124,6 +121,7 @@ def prepare(ctx,write=True):
     audit=dict(crossing=crossing,all_supported_overtaking_crossings=roots,selected_entry=selected,entry_candidates=attempts,original_comparison_domain_mm=domain,comparison_mapping_evidence=str(COMPARISON/'plot_comparison.py'),source_curve_changed='PZT fixed laboratory-column mean_v replaced by saved fixed fitted-axis mean_v_p; original laboratory-height pairing retained.',initial_conditions_exported_before_integration=True,calibration_reapplied=False,report_crop_used=False,gas_centreline_difference='Measured Uc is interpolated at each native measured centreline. A field sample follows the bilinear two-component field at the release/trajectory location. At the chosen native entry column the reference matches Uc to rounding; off-axis samples differ and downstream the fixed jet placement retains measured centreline wandering.')
     if write:
         out=ctx['out'];write_csv(out/'data/initial_conditions.csv',{k:[r[k] for r in table] for k in table[0]});write_json(out/'data/initial_interpolation_stencils.json',stencils);write_json(out/'interaction_plane_audit.json',audit);write_json(out/'transformation.json',alignment)
+        write_csv(out/'data/entry_mapping.csv',dict(frame=['ZNMF local nozzle-reference','PZT original laboratory','Common plume-aligned'],coordinate_1_mm=[selected['ZNMF_downstream_mm'],selected['PZT_lab_x_mm'],0.],coordinate_2_mm=[selected['ZNMF_local_centreline_Y_mm'],selected['PZT_lab_y_mm'],selected['y_p_mm']],axis_names=['Xj downstream; Yj transverse','x right; y laboratory up','x_p transverse; y_p plume-aligned']))
         write_csv(out/'data/PZT_corrected_axis_profile.csv',p)
         gy_pair=(sx+offset-ctx['origin'][1])/ctx['Q'][0,0];gy_rigid=entry_yp+sx-entry_s
         write_csv(out/'data/ZNMF_profile_coordinate_mapping.csv',dict(ZNMF_downstream_mm=sx,comparison_pair_PZT_lab_y_mm=sx+offset,comparison_y_p_mm=gy_pair,rigidly_placed_y_p_mm=gy_rigid,measured_Uc_m_s=uc,centreline_valid=valid,status=ctx['gas']['status']))
@@ -131,7 +129,9 @@ def prepare(ctx,write=True):
 
 
 def run():
-    ctx=load_context();out=ctx['out'];archive=archive_existing(out)
+    ctx=load_context();out=ctx['out']
+    previous_summary=json.loads((out/'results_summary.json').read_text()) if (out/'results_summary.json').exists() else None
+    archive=archive_existing(out)
     for name in ('data','figures','validation'):(out/name).mkdir(parents=True,exist_ok=True)
     cfg=copy.deepcopy(ctx['cfg']);cfg['solver']['maximum_time_s']=cfg['co_directed']['maximum_time_s'];cfg['solver']['time_step_s']=cfg['co_directed']['time_step_s'];ctx['cfg']=cfg
     protected={s['path']:s['sha256'] for s in ctx['sources']['sources']}
@@ -139,6 +139,9 @@ def run():
     for path in final.rglob('*'):
         if path.is_file() and out.parent not in path.resolve().parents and ('Plume_Aligned' in path.parts or path.suffix.lower() in ('.npz','.csv','.pdf','.png','.svg')):protected[str(path.resolve())]=sha(path)
     field,states,initial,alignment,audit=prepare(ctx)
+    from .momentum_audit import release_coverage,export_placed_gas
+    export_placed_gas(ctx,field)
+    coverage=release_coverage(ctx,states);write_json(out/'data/release_coverage.json',coverage)
     d=float(cfg['droplet_diameters_um'][0])*1e-6;assert len(cfg['droplet_diameters_um'])==1
     tau=float(relaxation_time(d,ctx['props']));histories=[];records=[];convergence=[]
     gravity=np.array(cfg['gravity_vector_m_s2'])*(1-ctx['props']['rho_air_kg_m3']/ctx['props']['rho_water_kg_m3'])
@@ -156,6 +159,8 @@ def run():
         for old,new in [('droplet_u_m_s','droplet_u_p_m_s'),('droplet_v_m_s','droplet_v_p_m_s'),('gas_u_m_s','gas_u_p_m_s'),('gas_v_m_s','gas_v_p_m_s'),('slip_u_m_s','slip_u_p_m_s'),('slip_v_m_s','slip_v_p_m_s'),('Re_in_plane','Re_p'),('St_D_local','Stk_D_local')]:q[new]=q.pop(old)
         acc=acceleration(tr[:,3:5],d,np.c_[q['gas_u_p_m_s'],q['gas_v_p_m_s']],ctx['props'],cfg)
         q['net_a_x_p_m_s2']=acc[:,0];q['net_a_y_p_m_s2']=acc[:,1];q['drag_a_y_p_m_s2']=acc[:,1]-gravity[1]
+        from .momentum_audit import add_force_and_impulse_fields, budget_record
+        add_force_and_impulse_fields(q,tr,d,ctx['props'],cfg,acc)
         q['ZNMF_downstream_mm']=q['y_p_mm']-alignment['entry']['y_p_mm']+alignment['entry']['ZNMF_downstream_mm']
         uc_on=[]
         for s in q['ZNMF_downstream_mm']:
@@ -168,7 +173,7 @@ def run():
         number=state['number'];write_csv(out/'data'/f'release_{number:02d}.csv',q)
         h=dict(number=number,reference=state['reference'],q=q,peak=peak,termination=reason);histories.append(h)
         records.append(dict(release_number=number,is_reference=state['reference'],initial_x_p_mm=float(q['x_p_mm'][0]),initial_y_p_mm=float(q['y_p_mm'][0]),initial_u_p_m_s=float(q['droplet_u_p_m_s'][0]),initial_v_p_m_s=float(q['droplet_v_p_m_s'][0]),initial_gas_u_p_m_s=float(q['gas_u_p_m_s'][0]),initial_gas_v_p_m_s=float(q['gas_v_p_m_s'][0]),end_time_s=float(q['t_s'][-1]),end_y_p_mm=float(q['y_p_mm'][-1]),end_v_p_m_s=float(q['droplet_v_p_m_s'][-1]),delta_x_p_mm=float(q['delta_x_p_mm'][-1]),delta_v_p_m_s=float(q['droplet_v_p_m_s'][-1]-q['droplet_v_p_m_s'][0]),max_Re_p=float(np.max(q['Re_p'])),termination=reason))
-        convergence.append(dict(release_number=number,time_step_s=controls['solver']['time_step_s'],maximum_errors_x_y_u_v=errors,termination=reason,half_step_termination=fine_reason,terminal_time_difference_s=float(abs(tr[-1,0]-fine[-1,0]))))
+        convergence.append(dict(release_number=number,time_step_s=controls['solver']['time_step_s'],maximum_errors_x_y_u_v=errors,termination=reason,half_step_termination=fine_reason,terminal_time_difference_s=float(abs(tr[-1,0]-fine[-1,0])),maximum_RK4_impulse_closure_equivalent_m_s=float(np.max(abs((tr[:,3:5]-state['initial'][2:4])-tr[:,5:7]-tr[:,7:9]))),maximum_half_step_RK4_impulse_closure_equivalent_m_s=float(np.max(abs((fine[:,3:5]-state['initial'][2:4])-fine[:,5:7]-fine[:,7:9])))))
     lower=alignment['entry']['y_p_mm'];upper=min(float(ctx['profile']['y_p_mm'][np.isfinite(ctx['profile']['mean_v_p_m_s'])].max()),min(float(h['q']['y_p_mm'][h['peak']]) for h in histories))
     if upper<=lower:raise ValueError('No common ascending interval')
     common=[]
@@ -178,11 +183,17 @@ def run():
         baseline=supported_value(ctx['profile']['y_p_mm'],ctx['profile']['mean_v_p_m_s'],ctx['profile']['finite_pair'],upper)
         common.append(dict(release_number=h['number'],is_reference=h['reference'],lower_y_p_mm=lower,upper_y_p_mm=upper,transit_time_ms=vals['t_s']*1e3,entry_droplet_v_p_m_s=float(q['droplet_v_p_m_s'][0]),end_droplet_v_p_m_s=vals['droplet_v_p_m_s'],delta_v_p_m_s=vals['droplet_v_p_m_s']-float(q['droplet_v_p_m_s'][0]),end_sampled_gas_v_p_m_s=vals['gas_v_p_m_s'],PZT_only_axis_v_at_upper_m_s=baseline,lateral_displacement_mm=vals['x_p_mm']-float(q['x_p_mm'][0])))
     for name,rows in [('trajectory_summary',records),('common_height_comparison',common)]:write_csv(out/'data'/(name+'.csv'),{k:[r[k] for r in rows] for k in rows[0]})
+    from .momentum_audit import write_momentum_tables,synthetic_force_checks
+    momentum_summary=write_momentum_tables(ctx,histories,lower,upper)
+    synthetic=synthetic_force_checks(cfg,ctx['props'],d);write_json(out/'validation/analytical_force_checks.json',synthetic)
     from .aligned_codirected_report import make_figures_and_report
-    result=dict(successfully_integrated_cases=len(histories),crossing=alignment['crossing'],entry=alignment['entry'],common_interval_y_p_mm=[lower,upper],common_comparison=common,reference_comparison=next(r for r in common if r['is_reference']),tau_stokes_s=tau,nominal_diameter_um=d*1e6,gravity_plume_m_s2=cfg['gravity_vector_m_s2'],termination_reasons={r:sum(h['termination']==r for h in histories) for r in set(h['termination'] for h in histories)},archive_manifest=archive or cfg['co_directed']['archive_manifest'])
+    result=dict(momentum=momentum_summary,release_coverage=coverage,successfully_integrated_cases=len(histories),crossing=alignment['crossing'],entry=alignment['entry'],common_interval_y_p_mm=[lower,upper],common_comparison=common,reference_comparison=next(r for r in common if r['is_reference']),tau_stokes_s=tau,nominal_diameter_um=d*1e6,gravity_plume_m_s2=cfg['gravity_vector_m_s2'],termination_reasons={r:sum(h['termination']==r for h in histories) for r in set(h['termination'] for h in histories)},archive_manifest=archive or cfg['co_directed']['archive_manifest'])
+    if previous_summary:
+        comparison={k:dict(previous=float(previous_summary['reference_comparison'][k]),current=float(result['reference_comparison'][k]),difference=float(result['reference_comparison'][k]-previous_summary['reference_comparison'][k])) for k in ('entry_droplet_v_p_m_s','end_droplet_v_p_m_s','transit_time_ms','lateral_displacement_mm')}
+        write_json(out/'validation/previous_reference_comparison.json',comparison)
     stems=make_figures_and_report(ctx,field,histories,alignment,result)
     write_json(out/'results_summary.json',result);write_json(out/'configuration_used.json',cfg);write_json(out/'validation/convergence.json',convergence)
-    code_paths=set((PROJECT/'analysis').glob('*codirected*.py'))|{PROJECT/'analysis'/name for name in ('co_directed.py','co_directed_report.py','droplet_dynamics.py','prescribed_gas.py','update_combined_flow_notebook.py','validate_co_directed.py','combined_flow_prediction.py','interaction_plane.py','prospective_studies.py')}
+    code_paths=set((PROJECT/'analysis').glob('*codirected*.py'))|{PROJECT/'analysis'/name for name in ('co_directed.py','co_directed_report.py','droplet_dynamics.py','prescribed_gas.py','update_combined_flow_notebook.py','validate_co_directed.py','combined_flow_prediction.py','interaction_plane.py','prospective_studies.py','momentum_audit.py')}
     ctx['sources']['reusable_code']={str(p):sha(p) for p in sorted(code_paths)}
     ctx['sources']['run_configuration']=dict(path=str(PROJECT/'config/combined_flow_prediction.json'),sha256=sha(PROJECT/'config/combined_flow_prediction.json'));ctx['sources']['aligned_placement']=alignment;ctx['sources']['properties']=ctx['props'];write_json(out/'source_manifest.json',ctx['sources'])
     write_json(out/'report_manifest.json',dict(figures=stems,numerical_files=[str(p.relative_to(out)) for p in (out/'data').glob('*')],text=['README.md','methods_results.tex','captions.tex'],interaction_entry_calculated_not_hardcoded=True))

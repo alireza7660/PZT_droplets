@@ -142,3 +142,5 @@ Combined_Flow_Prediction/Archive. See the active package for the calculated
 crossing/entry coordinates, initial interpolation audit, convergence tests,
 common-interval comparison and report figures. No combined experiment or
 collection efficiency is inferred.
+
+The current co-directed package includes an explicit vector drag/effective-gravity force balance, RK4 impulse budgets and an independent saved-force quadrature check. The seven starts are one axis reference plus six unweighted sensitivity locations; initial_condition_coverage documents their limited entry-plane coverage. See Report_Files/Co_Directed_links.md for the active force, momentum and coverage figures.

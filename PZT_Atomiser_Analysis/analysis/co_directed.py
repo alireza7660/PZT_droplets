@@ -1,4 +1,4 @@
-﻿"""Active co-directed prediction from full-support plume-aligned measurements."""
+"""Active co-directed prediction from full-support plume-aligned measurements."""
 from .aligned_codirected import run,load_context,prepare
 
 
@@ -16,7 +16,8 @@ for name in ['source_comparison_reproduced','measured_and_predicted_axial_compar
     plots=nb.v4.new_code_cell('''print((package/'data/initial_conditions.csv').read_text())
 print((package/'data/common_height_comparison.csv').read_text())
 print((package/'data/scalar_quantities.csv').read_text())
-for name in ['axial_slip','particle_Re','particle_Stokes','axial_acceleration','jet_local_Reynolds','jet_local_Strouhal']:
+print((package/'data/momentum_budget.csv').read_text())
+for name in ['axial_slip','particle_Re','particle_Stokes','axial_acceleration','jet_local_Reynolds','jet_local_Strouhal','initial_condition_coverage','axial_momentum_budget']:
     display(Image(filename=str(package/'figures'/(name+'.png')),width=700))
 ''')
     for cell in (first,code,text,plots):cell.metadata['co_directed']=True;cell.metadata['combined_flow_prediction']=True

@@ -10,7 +10,9 @@
     ],
     "termination": "outside_measured_jet_domain",
     "half_step_termination": "outside_measured_jet_domain",
-    "terminal_time_difference_s": 2.0022027091837202e-10
+    "terminal_time_difference_s": 2.0022027091837202e-10,
+    "maximum_RK4_impulse_closure_equivalent_m_s": 1.1046719095020308e-14,
+    "maximum_half_step_RK4_impulse_closure_equivalent_m_s": 3.3861802251067274e-14
   },
   {
     "release_number": 2,
@@ -23,7 +25,9 @@
     ],
     "termination": "outside_measured_jet_domain",
     "half_step_termination": "outside_measured_jet_domain",
-    "terminal_time_difference_s": 1.3498998412131424e-09
+    "terminal_time_difference_s": 1.3498998412131424e-09,
+    "maximum_RK4_impulse_closure_equivalent_m_s": 8.548717289613705e-15,
+    "maximum_half_step_RK4_impulse_closure_equivalent_m_s": 2.942091015256665e-14
   },
   {
     "release_number": 3,
@@ -36,7 +40,9 @@
     ],
     "termination": "outside_measured_jet_domain",
     "half_step_termination": "outside_measured_jet_domain",
-    "terminal_time_difference_s": 2.188787665002856e-09
+    "terminal_time_difference_s": 2.188787665002856e-09,
+    "maximum_RK4_impulse_closure_equivalent_m_s": 1.7569279364693102e-14,
+    "maximum_half_step_RK4_impulse_closure_equivalent_m_s": 2.9753977059954195e-14
   },
   {
     "release_number": 4,
@@ -49,7 +55,9 @@
     ],
     "termination": "outside_measured_jet_domain",
     "half_step_termination": "outside_measured_jet_domain",
-    "terminal_time_difference_s": 9.543415016577406e-10
+    "terminal_time_difference_s": 9.543415016577406e-10,
+    "maximum_RK4_impulse_closure_equivalent_m_s": 7.382983113757291e-15,
+    "maximum_half_step_RK4_impulse_closure_equivalent_m_s": 1.715294573045867e-14
   },
   {
     "release_number": 5,
@@ -62,7 +70,9 @@
     ],
     "termination": "outside_measured_jet_domain",
     "half_step_termination": "outside_measured_jet_domain",
-    "terminal_time_difference_s": 1.1868231189482437e-09
+    "terminal_time_difference_s": 1.1868231189482437e-09,
+    "maximum_RK4_impulse_closure_equivalent_m_s": 1.04638520070921e-14,
+    "maximum_half_step_RK4_impulse_closure_equivalent_m_s": 1.9095836023552692e-14
   },
   {
     "release_number": 6,
@@ -75,7 +85,9 @@
     ],
     "termination": "outside_measured_jet_domain",
     "half_step_termination": "outside_measured_jet_domain",
-    "terminal_time_difference_s": 6.295059612471121e-10
+    "terminal_time_difference_s": 6.295059612471121e-10,
+    "maximum_RK4_impulse_closure_equivalent_m_s": 1.5792922525292852e-14,
+    "maximum_half_step_RK4_impulse_closure_equivalent_m_s": 4.424238753131249e-14
   },
   {
     "release_number": 7,
@@ -88,6 +100,8 @@
     ],
     "termination": "outside_measured_jet_domain",
     "half_step_termination": "outside_measured_jet_domain",
-    "terminal_time_difference_s": 8.548776062045071e-10
+    "terminal_time_difference_s": 8.548776062045071e-10,
+    "maximum_RK4_impulse_closure_equivalent_m_s": 8.798517470154366e-15,
+    "maximum_half_step_RK4_impulse_closure_equivalent_m_s": 1.7819079545233762e-14
   }
 ]

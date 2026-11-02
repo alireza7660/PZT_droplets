@@ -1,0 +1,22 @@
+{
+  "entry_droplet_v_p_m_s": {
+    "previous": 1.039291013565735,
+    "current": 1.039291013565735,
+    "difference": 0.0
+  },
+  "end_droplet_v_p_m_s": {
+    "previous": 2.052240144112171,
+    "current": 2.052240144112171,
+    "difference": 0.0
+  },
+  "transit_time_ms": {
+    "previous": 11.168828703014185,
+    "current": 11.168828703014185,
+    "difference": 0.0
+  },
+  "lateral_displacement_mm": {
+    "previous": -1.4495916568861102,
+    "current": -1.4495916568861102,
+    "difference": 0.0
+  }
+}

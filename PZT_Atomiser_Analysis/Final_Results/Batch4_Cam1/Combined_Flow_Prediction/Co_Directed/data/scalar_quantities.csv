@@ -1,2 +1,2 @@
-nominal_estimated_diameter_um,tau_stokes_s,Stk_f,forcing_frequency_Hz,PIV_acquisition_frequency_Hz_not_used,D0_m,nu_air_m2_s,rho_air_kg_m3,rho_water_kg_m3,mu_air_Pa_s
-10.0,0.00030582503619367357,0.036699004343240825,120.0,10.0,0.002,1.505093933678104e-05,1.20479,998.2067455596167,1.813322120356043e-05
+nominal_estimated_diameter_um,tau_stokes_s,Stk_f,forcing_frequency_Hz,PIV_acquisition_frequency_Hz_not_used,D0_m,nu_air_m2_s,rho_air_kg_m3,rho_water_kg_m3,mu_air_Pa_s,droplet_mass_kg,projected_area_m2
+10.0,0.00030582503619367357,0.036699004343240825,120.0,10.0,0.002,1.505093933678104e-05,1.20479,998.2067455596167,1.813322120356043e-05,5.226598297689778e-13,7.853981633974481e-11

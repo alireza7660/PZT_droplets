@@ -1,0 +1,65 @@
+[
+  {
+    "release_number": 1,
+    "minimum_Re_p": 0.0002921570945232152,
+    "maximum_Re_p": 0.13396048380815181,
+    "Stokes_branch_samples": 1019,
+    "SN_branch_samples": 2357,
+    "every_RK_stage_checks_upper_Re_limit": true,
+    "Re_limit_exclusive": 800.0
+  },
+  {
+    "release_number": 2,
+    "minimum_Re_p": 0.00045931789547077397,
+    "maximum_Re_p": 0.16683981408047527,
+    "Stokes_branch_samples": 902,
+    "SN_branch_samples": 2463,
+    "every_RK_stage_checks_upper_Re_limit": true,
+    "Re_limit_exclusive": 800.0
+  },
+  {
+    "release_number": 3,
+    "minimum_Re_p": 0.00046424956585607285,
+    "maximum_Re_p": 0.17824664378122615,
+    "Stokes_branch_samples": 887,
+    "SN_branch_samples": 2458,
+    "every_RK_stage_checks_upper_Re_limit": true,
+    "Re_limit_exclusive": 800.0
+  },
+  {
+    "release_number": 4,
+    "minimum_Re_p": 0.00035226946278962254,
+    "maximum_Re_p": 0.17493189709837534,
+    "Stokes_branch_samples": 830,
+    "SN_branch_samples": 2493,
+    "every_RK_stage_checks_upper_Re_limit": true,
+    "Re_limit_exclusive": 800.0
+  },
+  {
+    "release_number": 5,
+    "minimum_Re_p": 0.00017897721433082002,
+    "maximum_Re_p": 0.1796280874497871,
+    "Stokes_branch_samples": 1064,
+    "SN_branch_samples": 2258,
+    "every_RK_stage_checks_upper_Re_limit": true,
+    "Re_limit_exclusive": 800.0
+  },
+  {
+    "release_number": 6,
+    "minimum_Re_p": 0.0001533156989052297,
+    "maximum_Re_p": 0.20815559442180356,
+    "Stokes_branch_samples": 946,
+    "SN_branch_samples": 2378,
+    "every_RK_stage_checks_upper_Re_limit": true,
+    "Re_limit_exclusive": 800.0
+  },
+  {
+    "release_number": 7,
+    "minimum_Re_p": 0.00015685387281499393,
+    "maximum_Re_p": 0.24148555926777307,
+    "Stokes_branch_samples": 939,
+    "SN_branch_samples": 2394,
+    "every_RK_stage_checks_upper_Re_limit": true,
+    "Re_limit_exclusive": 800.0
+  }
+]

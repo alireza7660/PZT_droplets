@@ -1,0 +1,93 @@
+[
+  {
+    "release_number": 1,
+    "time_step_s": 1e-05,
+    "maximum_errors_x_y_u_v": [
+      4.361197609211581e-09,
+      2.7934588565925456e-09,
+      1.5055960860203832e-05,
+      4.2835300784194175e-06
+    ],
+    "termination": "outside_measured_jet_domain",
+    "half_step_termination": "outside_measured_jet_domain",
+    "terminal_time_difference_s": 2.0022027091837202e-10
+  },
+  {
+    "release_number": 2,
+    "time_step_s": 1e-05,
+    "maximum_errors_x_y_u_v": [
+      6.583737276600991e-09,
+      3.653458452435032e-09,
+      2.4207199226758402e-05,
+      3.773291760378328e-06
+    ],
+    "termination": "outside_measured_jet_domain",
+    "half_step_termination": "outside_measured_jet_domain",
+    "terminal_time_difference_s": 1.3498998412131424e-09
+  },
+  {
+    "release_number": 3,
+    "time_step_s": 1e-05,
+    "maximum_errors_x_y_u_v": [
+      8.447259177844953e-09,
+      6.1871817808034635e-09,
+      3.0059319946068586e-05,
+      5.7291506347922905e-06
+    ],
+    "termination": "outside_measured_jet_domain",
+    "half_step_termination": "outside_measured_jet_domain",
+    "terminal_time_difference_s": 2.188787665002856e-09
+  },
+  {
+    "release_number": 4,
+    "time_step_s": 1e-05,
+    "maximum_errors_x_y_u_v": [
+      7.731144885044237e-09,
+      2.6996173005389146e-09,
+      2.8112139518865487e-05,
+      3.3898724622893894e-06
+    ],
+    "termination": "outside_measured_jet_domain",
+    "half_step_termination": "outside_measured_jet_domain",
+    "terminal_time_difference_s": 9.543415016577406e-10
+  },
+  {
+    "release_number": 5,
+    "time_step_s": 1e-05,
+    "maximum_errors_x_y_u_v": [
+      7.513920466677062e-09,
+      4.1655349031222144e-09,
+      2.6302652478049637e-05,
+      6.429921116213322e-06
+    ],
+    "termination": "outside_measured_jet_domain",
+    "half_step_termination": "outside_measured_jet_domain",
+    "terminal_time_difference_s": 1.1868231189482437e-09
+  },
+  {
+    "release_number": 6,
+    "time_step_s": 1e-05,
+    "maximum_errors_x_y_u_v": [
+      8.695914178622963e-09,
+      2.223579709248469e-09,
+      3.0193894648082586e-05,
+      5.63796047603482e-06
+    ],
+    "termination": "outside_measured_jet_domain",
+    "half_step_termination": "outside_measured_jet_domain",
+    "terminal_time_difference_s": 6.295059612471121e-10
+  },
+  {
+    "release_number": 7,
+    "time_step_s": 1e-05,
+    "maximum_errors_x_y_u_v": [
+      1.0796677332768415e-08,
+      2.4344931418007754e-09,
+      3.9143982279360445e-05,
+      5.540594288699907e-06
+    ],
+    "termination": "outside_measured_jet_domain",
+    "half_step_termination": "outside_measured_jet_domain",
+    "terminal_time_difference_s": 8.548776062045071e-10
+  }
+]

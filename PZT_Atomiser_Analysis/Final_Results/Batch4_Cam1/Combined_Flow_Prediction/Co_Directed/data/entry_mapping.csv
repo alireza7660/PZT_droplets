@@ -1,0 +1,4 @@
+frame,coordinate_1_mm,coordinate_2_mm,axis_names
+ZNMF local nozzle-reference,11.635199999999996,-0.7144398537297931,Xj downstream; Yj transverse
+PZT original laboratory,15.574003281653717,11.635199999999996,x right; y laboratory up
+Common plume-aligned,0.0,11.59842340603258,x_p transverse; y_p plume-aligned

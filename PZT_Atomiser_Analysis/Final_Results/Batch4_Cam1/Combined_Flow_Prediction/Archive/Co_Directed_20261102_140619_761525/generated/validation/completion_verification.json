@@ -1,0 +1,20 @@
+{
+  "successfully_integrated_cases": 7,
+  "source_coordinate_pairing_preserved": true,
+  "crossing_calculated_with_valid_adjacent_intervals": true,
+  "first_supported_native_actual_gas_overtaking_entry": true,
+  "single_rigid_gas_placement": true,
+  "position_vector_inverse_verified": true,
+  "gravity_inverse_verified": true,
+  "aligned_measured_component_interpolation_verified": true,
+  "all_saved_positions_within_finite_gas_support": true,
+  "slip_direction_drag_verified": true,
+  "time_step_convergence_passed": true,
+  "local_centreline_Re_Sr_formulas_and_gaps_verified": true,
+  "common_supported_interval_verified": true,
+  "authoritative_files_hash_verified": 828,
+  "Plume_Aligned_files_unchanged": 575,
+  "executed_notebook_verified": true,
+  "figure_count": 10,
+  "PDF_SVG_600dpi_PNG_verified": true
+}

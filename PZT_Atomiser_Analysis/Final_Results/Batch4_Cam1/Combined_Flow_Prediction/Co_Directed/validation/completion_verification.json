@@ -1,4 +1,8 @@
 {
+  "analytical_constant_gas_Stokes_solution_verified": true,
+  "momentum_RK4_and_independent_trapezoid_verified": true,
+  "unchanged_previous_reference_result_verified": true,
+  "seven_starts_audited_as_unweighted_sensitivity": true,
   "successfully_integrated_cases": 7,
   "source_coordinate_pairing_preserved": true,
   "crossing_calculated_with_valid_adjacent_intervals": true,
@@ -15,6 +19,6 @@
   "authoritative_files_hash_verified": 828,
   "Plume_Aligned_files_unchanged": 575,
   "executed_notebook_verified": true,
-  "figure_count": 10,
+  "figure_count": 12,
   "PDF_SVG_600dpi_PNG_verified": true
 }

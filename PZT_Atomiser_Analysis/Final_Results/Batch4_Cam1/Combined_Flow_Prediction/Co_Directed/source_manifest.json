@@ -101,18 +101,23 @@
     "warning": "Original comparison coordinate pairing is a design placement, not proof of coincident physical origins"
   },
   "reusable_code": {
-    "PZT_Atomiser_Analysis\\analysis\\aligned_codirected.py": "69c2e592d026743eaddc7f76a17748879d64f25397d27032278a8d2ff024e084",
-    "PZT_Atomiser_Analysis\\analysis\\aligned_codirected_report.py": "3d278c997953699878488d391a87da2fb1009581488a5747e829e9b5def932bb",
-    "PZT_Atomiser_Analysis\\analysis\\co_directed.py": "dd22be8458925b95eec966b6faf93d288240425113bdcdcac451d604a834c5ba",
-    "PZT_Atomiser_Analysis\\analysis\\co_directed_report.py": "8b6bb3c1f8ba3fb0a4426da9e54e75d5aa9415849f2e8d9bbdbb7c539050d8c6",
-    "PZT_Atomiser_Analysis\\analysis\\combined_flow_prediction.py": "c05a8c08e6085e8c425a9b0de834f09d5720e01e41b100c698a7451247dddd0f",
-    "PZT_Atomiser_Analysis\\analysis\\droplet_dynamics.py": "4565a84fb325f674f4acb8fa4fdb5d5bc2d4b8ee3a6a319938e9bb4817164c5e",
-    "PZT_Atomiser_Analysis\\analysis\\interaction_plane.py": "409e420bb14d7dd5e4f7e26afca2794c914c68b8fa947d8f2756c865cce4a008",
-    "PZT_Atomiser_Analysis\\analysis\\prescribed_gas.py": "c6c56bb43fd4e741379b47d022d4e2b6b8769ee474be3b22ada2efe0a16c4c97",
-    "PZT_Atomiser_Analysis\\analysis\\prospective_studies.py": "05dc8bd8c3eb6635ef5b42fd26757bdaa5d689bbf2a105eaef5ae93fc86ef128",
-    "PZT_Atomiser_Analysis\\analysis\\update_combined_flow_notebook.py": "aaacd1cf3dc217c02108164e918e6f81f5cabf5a8ab1ed55329b18b5c049c886",
-    "PZT_Atomiser_Analysis\\analysis\\validate_aligned_codirected.py": "82f0fb73944920c62db324384cbe1e4aa8365d3712093b1fb337d2c800dcf67e",
-    "PZT_Atomiser_Analysis\\analysis\\validate_co_directed.py": "d6ee75475021341c5cedd86ef90a5d4bad8a109549c695db42eb9014089a00dc"
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\aligned_codirected.py": "598cf198c7ce19c3bcb6efa4bdc2c9f9b62ebdb3fa3e81565a7a852728f1d785",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\aligned_codirected_report.py": "42eb1296dafbf4d36f8069dcbd039939e8031a3f2dc9380665dab9e1f3f7a084",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\co_directed.py": "37da3c0fd36c8def1a736115700c8ae4ec76ddd0c19ecc9aed21a888b09eb395",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\co_directed_report.py": "8b6bb3c1f8ba3fb0a4426da9e54e75d5aa9415849f2e8d9bbdbb7c539050d8c6",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\combined_flow_prediction.py": "c05a8c08e6085e8c425a9b0de834f09d5720e01e41b100c698a7451247dddd0f",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\droplet_dynamics.py": "4565a84fb325f674f4acb8fa4fdb5d5bc2d4b8ee3a6a319938e9bb4817164c5e",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\interaction_plane.py": "409e420bb14d7dd5e4f7e26afca2794c914c68b8fa947d8f2756c865cce4a008",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\momentum_audit.py": "6df8e4eb229f4e9c8517ba5bc049ae89f00a9483424514dc98130f5d98afa7dc",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\prescribed_gas.py": "e04664a92edf3b161b625962e1161dc09fad9c1de04015356661bcf97554e405",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\prospective_studies.py": "05dc8bd8c3eb6635ef5b42fd26757bdaa5d689bbf2a105eaef5ae93fc86ef128",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\update_combined_flow_notebook.py": "aaacd1cf3dc217c02108164e918e6f81f5cabf5a8ab1ed55329b18b5c049c886",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\validate_aligned_codirected.py": "9f37fa589e4cf466da8657a3f3b88be37475252a792b709b44ee35461ad49d20",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\validate_co_directed.py": "d6ee75475021341c5cedd86ef90a5d4bad8a109549c695db42eb9014089a00dc"
+  },
+  "run_configuration": {
+    "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\config\\combined_flow_prediction.json",
+    "sha256": "53a6677eb6e015b88d4cc21a9f7e01acc0175132c89421c5b4b8b81daa00f331"
   },
   "aligned_placement": {
     "entry": {
@@ -194,8 +199,5 @@
       "drag_and_response": "https://doc.comsol.com/6.4/doc/com.comsol.help.particle/particle_ug_fluid_flow.08.36.html"
     }
   },
-  "run_configuration": {
-    "path": "PZT_Atomiser_Analysis/config/combined_flow_prediction.json",
-    "sha256": "8594fa99a303a9710fe0587b572e29e7bbc1a6bf0f74c2874e47ad265e45cf51"
-  }
+  "drag_law_documentation_verified": "COMSOL 6.4 Particle Motion in a Fluid; Stokes response and Schiller-Naumann Re<800. The existing low-Re<=0.01 Stokes branch is explicitly identified as a hybrid approximation."
 }

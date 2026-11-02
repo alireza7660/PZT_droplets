@@ -14,3 +14,8 @@
 - [axial acceleration](../Final_Results/Batch4_Cam1/Combined_Flow_Prediction/Co_Directed/figures/axial_acceleration.pdf)
 - [jet local Reynolds](../Final_Results/Batch4_Cam1/Combined_Flow_Prediction/Co_Directed/figures/jet_local_Reynolds.pdf)
 - [jet local Strouhal](../Final_Results/Batch4_Cam1/Combined_Flow_Prediction/Co_Directed/figures/jet_local_Strouhal.pdf)
+
+- [Initial-condition spatial coverage audit](../Final_Results/Batch4_Cam1/Combined_Flow_Prediction/Co_Directed/figures/initial_condition_coverage.pdf)
+- [Axial momentum budget](../Final_Results/Batch4_Cam1/Combined_Flow_Prediction/Co_Directed/figures/axial_momentum_budget.pdf)
+- [Per-droplet force and momentum tables](../Final_Results/Batch4_Cam1/Combined_Flow_Prediction/Co_Directed/data/momentum_budget.csv)
+- [Verified entry mapping](../Final_Results/Batch4_Cam1/Combined_Flow_Prediction/Co_Directed/data/entry_mapping.csv)

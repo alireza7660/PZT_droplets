@@ -31,6 +31,14 @@ def main():
         np.testing.assert_allclose(drop[0],st['initial'][2:],atol=1e-15);np.testing.assert_allclose(points[0],st['initial'][:2],atol=1e-15)
         np.testing.assert_allclose(q['Re_p'],reynolds(d,drop,gas,props),rtol=1e-12,atol=1e-13);np.testing.assert_allclose(q['net_a_x_p_m_s2'],acc[:,0],rtol=1e-10,atol=1e-9);np.testing.assert_allclose(q['net_a_y_p_m_s2'],acc[:,1],rtol=1e-10,atol=1e-9)
         drag=acc-gravity;np.testing.assert_allclose(drag,(drag_factor(q['Re_p'],cfg)/tau)[:,None]*slip,rtol=1e-10,atol=1e-9);assert np.all(np.sum(drag*slip,axis=1)>=-1e-12)
+        for k,component in enumerate(('x_p','y_p')):
+            np.testing.assert_allclose(q['drag_a_'+component+'_m_s2'],drag[:,k],rtol=1e-12,atol=1e-10)
+            np.testing.assert_allclose(q['effective_gravity_a_'+component+'_m_s2'],gravity[k],atol=1e-14)
+            mass=q['droplet_mass_kg'];np.testing.assert_allclose(q['force_drag_'+component+'_N'],mass*drag[:,k],rtol=1e-12,atol=1e-23)
+            momentum=mass*(drop[:,k]-drop[0,k]);residual=momentum-q['drag_impulse_'+component+'_N_s']-q['effective_gravity_impulse_'+component+'_N_s']
+            np.testing.assert_allclose(q['momentum_residual_RK4_'+component+'_N_s'],residual,atol=1e-26);assert np.max(abs(residual/mass))<1e-10
+            assert np.max(abs(q['force_balance_residual_'+component+'_m_s2']))<cfg['momentum_audit']['force_balance_tolerance_m_s2']
+            assert np.max(abs(q['momentum_residual_trapezoid_'+component+'_N_s']/mass))<cfg['momentum_audit']['independent_trapezoid_velocity_residual_tolerance_m_s']
         np.testing.assert_allclose(q['Stk_D_local'],tau*np.linalg.norm(gas,axis=1)/ctx['D0'],rtol=1e-12)
     try:field.sample(field.to_common([field.x.min()-1e-3,field.y.min()]))
     except UnsupportedPosition:pass
@@ -47,6 +55,14 @@ def main():
     result=json.loads((out/'results_summary.json').read_text());common=read(out/'data/common_height_comparison.csv')
     for r in common:np.testing.assert_allclose([r['lower_y_p_mm'],r['upper_y_p_mm']],result['common_interval_y_p_mm'],atol=1e-12);assert r['transit_time_ms']>0
     protected=json.loads((out/'validation/authoritative_hashes.json').read_text());assert all(sha(p)==h for p,h in protected.items())
+    exported=np.load(out/'data/prescribed_gas_plume_frame.npz');xx,yy,ug,vg=field.common_mesh()
+    for key,expected in [('x_p_mm',xx*1e3),('y_p_mm',yy*1e3),('mean_gas_u_p_m_s',ug),('mean_gas_v_p_m_s',vg)]:np.testing.assert_allclose(exported[key],expected,atol=1e-13)
+    np.testing.assert_array_equal(exported['finite_pair'],field.valid)
+    endpoints=read(out/'data/entry_exit_conditions.csv');assert len(endpoints)==2*len(states)
+    summaries=read(out/'data/trajectory_summary.csv')
+    for row in summaries:
+        exit_row=endpoints[(endpoints['stage']=='exit')&(endpoints['release_number']==row['release_number'])][0]
+        assert exit_row['termination_reason']==row['termination']
     manifest=json.loads((out/'report_manifest.json').read_text());paths=[]
     for stem in manifest['figures']:
         p=out/'figures'/stem
@@ -61,7 +77,10 @@ def main():
         canvas.save(out/'validation'/f'visual_review_{start//6+1}.png')
     book=nb.read(PROJECT/'notebooks/PZT_final_analysis.ipynb',as_version=4);cells=[c for c in book.cells if c.cell_type=='code' and c.metadata.get('co_directed')];assert len(cells)==2 and all(c.execution_count is not None for c in cells);assert not any(o.get('output_type')=='error' for c in cells for o in c.outputs)
     assert sum('image/png' in o.get('data',{}) for c in cells for o in c.outputs)==len(paths)
-    receipt=dict(successfully_integrated_cases=len(states),source_coordinate_pairing_preserved=True,crossing_calculated_with_valid_adjacent_intervals=True,first_supported_native_actual_gas_overtaking_entry=True,single_rigid_gas_placement=True,position_vector_inverse_verified=True,gravity_inverse_verified=True,aligned_measured_component_interpolation_verified=True,all_saved_positions_within_finite_gas_support=True,slip_direction_drag_verified=True,time_step_convergence_passed=True,local_centreline_Re_Sr_formulas_and_gaps_verified=True,common_supported_interval_verified=True,authoritative_files_hash_verified=len(protected),Plume_Aligned_files_unchanged=sum('Plume_Aligned' in Path(p).parts for p in protected),executed_notebook_verified=True,figure_count=len(paths),PDF_SVG_600dpi_PNG_verified=True)
+    synthetic=json.loads((out/'validation/analytical_force_checks.json').read_text());assert synthetic['zero_slip_drag_zero'] and synthetic['analytical_Stokes_constant_gas_2D_position_and_velocity_pass']
+    coverage=json.loads((out/'data/release_coverage.json').read_text());assert not coverage['whole_plume_distribution'] and len(coverage['initial_x_p_mm'])==7
+    previous=json.loads((out/'validation/previous_reference_comparison.json').read_text());assert all(abs(r['difference'])<1e-10 for r in previous.values())
+    receipt=dict(analytical_constant_gas_Stokes_solution_verified=True,momentum_RK4_and_independent_trapezoid_verified=True,unchanged_previous_reference_result_verified=True,seven_starts_audited_as_unweighted_sensitivity=True,successfully_integrated_cases=len(states),source_coordinate_pairing_preserved=True,crossing_calculated_with_valid_adjacent_intervals=True,first_supported_native_actual_gas_overtaking_entry=True,single_rigid_gas_placement=True,position_vector_inverse_verified=True,gravity_inverse_verified=True,aligned_measured_component_interpolation_verified=True,all_saved_positions_within_finite_gas_support=True,slip_direction_drag_verified=True,time_step_convergence_passed=True,local_centreline_Re_Sr_formulas_and_gaps_verified=True,common_supported_interval_verified=True,authoritative_files_hash_verified=len(protected),Plume_Aligned_files_unchanged=sum('Plume_Aligned' in Path(p).parts for p in protected),executed_notebook_verified=True,figure_count=len(paths),PDF_SVG_600dpi_PNG_verified=True)
     write_json(out/'validation/completion_verification.json',receipt);print(json.dumps(receipt,indent=2));return receipt
 
 

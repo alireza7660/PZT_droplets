@@ -20,7 +20,13 @@
 \caption{Stk\_D,local = tau\_0 |v\_g| / D0; tau\_0 = rho\_water d^2/(18 mu\_air), and flow timescale D0/|v\_g|. This is a Stokes-limit particle response diagnostic; finite-Re drag is used for the actual acceleration.}
 
 % axial_acceleration
-\caption{Signed net axial acceleration includes finite-Re spherical drag and gravity-minus-buoyancy in the corrected inclined plume frame; no positive acceleration is imposed.}
+\caption{Reference-droplet force balance: signed aerodynamic drag acceleration, effective gravity and their sum. Upward drag need not imply net upward acceleration: it must exceed effective weight. Gas momentum transfer is already the aerodynamic drag term; there is no additional jet force.}
+
+% axial_momentum_budget
+\caption{Single model-droplet axial momentum change equals integrated drag plus integrated effective gravity. RK4-stage impulses and residuals are exported, together with an independent trapezoidal check from saved forces; neither residual is forced to zero. These are not whole-plume momentum fluxes.}
+
+% initial_condition_coverage
+\caption{Audit of the retained seven initial conditions: one axis reference and six unweighted central-region sensitivity starts. Their regular spacing was a numerical convenience, not a measured particle distribution. The measured entry-plane profile and its asymmetric half-maximum crossings show their limited coverage. No population weights, whole-plume representativeness or collection efficiency are inferred.}
 
 % jet_local_Reynolds
 \caption{Local measured-centreline quantity. Re\_D,c = Uc D0/nu; Sr\_D,c = f D0/Uc. D0 = 2 mm and measured jet actuation f = 120 Hz; PIV acquisition is 10 Hz and is not used as actuation. Gaps and nonpositive Uc remain undefined. These are not nozzle-exit Re0 or Sr0.}

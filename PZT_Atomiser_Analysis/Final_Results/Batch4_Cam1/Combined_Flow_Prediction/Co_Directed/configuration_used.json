@@ -60,12 +60,27 @@
     "time_step_s": 1e-05,
     "interaction_mode": "first_supported_gas_overtaking_crossing_of_source_profiles",
     "release_definition": "Fixed y_p entry plane; x_p offsets are configured integer offsets times the rotated native horizontal-grid transverse spacing. Four-finite-corner measured aligned components initialise each developed droplet.",
-    "comparison_coordinate_pairing": "ZNMF downstream Xj [mm] is paired with original PZT laboratory height y_lab=Xj+offset; fitted-axis y_p=(y_lab-reference_y)/cos(theta). No pairing of new zero with nozzle origin."
+    "comparison_coordinate_pairing": "ZNMF downstream Xj [mm] is paired with original PZT laboratory height y_lab=Xj+offset; fitted-axis y_p=(y_lab-reference_y)/cos(theta). No pairing of new zero with nozzle origin.",
+    "initial_condition_interpretation": "Preserve the existing seven unweighted numerical sensitivity starts at 0 and +/-1,+/-2,+/-3 rotated native grid spacings. They are not a whole-plume droplet distribution; no population weights or collection efficiencies are inferred. Audit against measured entry-plane half-maximum width."
   },
   "interaction_work_status": "enabled_aligned_codirected_user_instruction",
   "plume_aligned_directory": "PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1/Plume_Aligned",
   "gravity_vector_m_s2": [
     0.898861356725992,
     -9.765369039820497
-  ]
+  ],
+  "save_momentum_integrals": true,
+  "momentum_audit": {
+    "enabled": true,
+    "RK4_stage_integrals": "Integrate drag and effective-gravity acceleration components as passive states using identical RK4 quadrature; multiply by particle mass for impulse. Verify additionally by independent trapezoidal integration of saved forces.",
+    "independent_trapezoid_velocity_residual_tolerance_m_s": 0.0002,
+    "force_balance_tolerance_m_s2": 1e-09,
+    "preserve_existing_drag_law": true
+  },
+  "drag_model_documentation": {
+    "name": "Existing Stokes / Schiller-Naumann hybrid, retained for audit",
+    "response_factor": "F=1 for 0<=Re_p<=0.01; F=1+0.15*Re_p^0.687 for 0.01<Re_p<800; acceleration=F*(u_g-v_d)/tau_p",
+    "low_Re_approximation": "The small finite-Re correction is neglected in the declared Stokes branch; zero slip is handled without division by its magnitude. This is not claimed to be pure Schiller-Naumann below the branch threshold.",
+    "reference": "https://doc.comsol.com/6.4/doc/com.comsol.help.particle/particle_ug_fluid_flow.08.36.html"
+  }
 }

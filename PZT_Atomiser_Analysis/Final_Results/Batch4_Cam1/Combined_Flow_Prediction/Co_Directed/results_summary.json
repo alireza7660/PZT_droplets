@@ -1,4 +1,68 @@
 {
+  "momentum": {
+    "reference_common": {
+      "release_number": 4,
+      "is_reference": true,
+      "scope": "common_supported_interval",
+      "entry_x_p_mm": 0.0,
+      "entry_y_p_mm": 11.59842340603258,
+      "end_y_p_mm": 27.33586997393258,
+      "elapsed_time_s": 0.011168828703014185,
+      "droplet_mass_kg": 5.226598297689778e-13,
+      "drag_impulse_x_p_N_s": -2.288801122640534e-14,
+      "effective_gravity_impulse_x_p_N_s": 5.2407684577325065e-15,
+      "momentum_change_x_p_kg_m_s": -1.764724276867305e-14,
+      "momentum_residual_RK4_x_p_N_s": -2.1161124457385997e-28,
+      "drag_impulse_trapezoid_x_p_N_s": -2.2901702239376025e-14,
+      "momentum_residual_trapezoid_x_p_N_s": 1.3691012970610895e-17,
+      "drag_equivalent_delta_v_x_p_m_s": -0.04379141063226943,
+      "gravity_equivalent_delta_v_x_p_m_s": 0.010027111630233745,
+      "residual_RK4_equivalent_delta_v_x_p_m_s": -4.0487374870074636e-16,
+      "residual_trapezoid_equivalent_delta_v_x_p_m_s": 2.6194882772342568e-05,
+      "drag_impulse_y_p_N_s": 5.863643406116923e-13,
+      "effective_gravity_impulse_y_p_N_s": -5.693652047565931e-14,
+      "momentum_change_y_p_kg_m_s": 5.294278201360343e-13,
+      "momentum_residual_RK4_y_p_N_s": 1.2432492234390437e-27,
+      "drag_impulse_trapezoid_y_p_N_s": 5.863718852106262e-13,
+      "momentum_residual_trapezoid_y_p_N_s": -7.544598934440002e-18,
+      "drag_equivalent_delta_v_y_p_m_s": 1.121885224795012,
+      "gravity_equivalent_delta_v_y_p_m_s": -0.10893609424857842,
+      "residual_RK4_equivalent_delta_v_y_p_m_s": 2.3786967213236486e-15,
+      "residual_trapezoid_equivalent_delta_v_y_p_m_s": -1.443500821131559e-05
+    },
+    "maximum_full_path_RK4_equivalent_velocity_residual_m_s": 1.7628856950904523e-14,
+    "maximum_full_path_trapezoid_equivalent_velocity_residual_m_s": 4.1713857352576444e-05,
+    "quadrature_note": "RK4-stage impulse closure is expected to roundoff because the same stages update velocity; independent trapezoidal quadrature of saved forces is also reported and checked. No residual is forced to zero.",
+    "validity_max_Re_p": 0.24148555926777307
+  },
+  "release_coverage": {
+    "entry_y_p_mm": 11.59842340603258,
+    "selection": "Existing 0,+/-1,+/-2,+/-3 projected native horizontal-grid spacings retained for audit; numerical convenience, not population-based selection",
+    "initial_x_p_mm": [
+      -1.0228760155306453,
+      -0.6819173436870969,
+      -0.34095867184354844,
+      0.0,
+      0.34095867184354844,
+      0.6819173436870969,
+      1.0228760155306453
+    ],
+    "uniform_projected_spacing_mm": 0.34095867184354844,
+    "axis_reference_x_p_mm": 0.0,
+    "sampled_entry_peak_x_p_mm": 0.0,
+    "halfmax_threshold_v_p_m_s": 0.5196455067828675,
+    "left_halfmax_crossing_x_p_mm": -2.430818722512748,
+    "right_halfmax_crossing_x_p_mm": 1.7158595900280555,
+    "entry_FWHM_mm": 4.1466783125408035,
+    "seed_span_mm": 2.0457520310612907,
+    "seed_span_fraction_of_FWHM": 0.49334717498444974,
+    "left_axis_to_halfmax_coverage_fraction": 0.42079485650550436,
+    "right_axis_to_halfmax_coverage_fraction": 0.59613037189944,
+    "profile_interpolation": "Four-finite-corner native bilinear samples spaced at one quarter of projected native grid spacing; no extrapolation/smoothing. Width crossings linearly interpolated inside finite adjacent samples.",
+    "whole_plume_distribution": false,
+    "measured_population_weights_available": false,
+    "interpretation": "One axis reference plus six unweighted central-region sensitivity starts; no whole-plume weighting, capture efficiency or total plume momentum flux inferred."
+  },
   "successfully_integrated_cases": 7,
   "crossing": {
     "ZNMF_downstream_mm": 11.497987126429853,
@@ -147,7 +211,7 @@
   "termination_reasons": {
     "outside_measured_jet_domain": 7
   },
-  "archive_manifest": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Archive\\Co_Directed_20261102_133500_988779\\archive_manifest.json",
+  "archive_manifest": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Archive\\Co_Directed_20261102_140619_761525\\archive_manifest.json",
   "dimensionless": {
     "tau_stokes_s": 0.00030582503619367357,
     "Stk_f": 0.036699004343240825,

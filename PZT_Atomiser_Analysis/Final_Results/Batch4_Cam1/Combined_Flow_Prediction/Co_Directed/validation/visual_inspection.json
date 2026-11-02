@@ -1,5 +1,6 @@
 {
-  "reviewed": "All ten final plots in two contact sheets; main comparison and regenerated first-3-mm trajectory detail inspected individually.",
-  "findings": "Correct red gas/blue dashed PZT/purple prediction distinction; title-free mathematical axes; external trajectory legends; measured gaps retained; signed slip and acceleration preserved; no case IDs displayed.",
-  "trajectory_values_changed_by_presentation_refresh": false
+  "reviewed": "All twelve final figures in two contact sheets; force-balance plot separately inspected.",
+  "findings": "Red gas/drag, blue dashed PZT, purple axis reference. Six unweighted offsets shown in grey without ambiguous multi-value legends. Signed gravity and net acceleration shown explicitly; entry-plane half-maximum width and limited seed coverage shown. Title-free exports, physical labels and measured gaps retained.",
+  "figure_count": 12,
+  "scientific_reference_trajectory_unchanged": true
 }

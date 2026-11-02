@@ -69,12 +69,17 @@ def integrate_droplet(field,initial_state,diameter_m,properties,config,step_scal
     supported substep is located conservatively; no gas extrapolation is used.
     """
     state=np.asarray(initial_state,float).copy();field.sample(state[:2])
+    momentum=bool(config.get('save_momentum_integrals',False))
+    if momentum:state=np.r_[state,np.zeros(4)]
+    gravity=np.asarray(config.get('gravity_vector_m_s2',[0.,-properties['g_m_s2']]))*(1-properties['rho_air_kg_m3']/properties['rho_water_kg_m3'])
     controls=config['solver'];tau=float(relaxation_time(diameter_m,properties))
     time=0.;rows=[np.r_[time,state]];termination='maximum_time'
     def rhs(s):
-        gas=field.sample(s[:2]);re=float(reynolds(diameter_m,s[2:],gas,properties))
+        gas=field.sample(s[:2]);re=float(reynolds(diameter_m,s[2:4],gas,properties))
         if re>=config['schiller_naumann_re_limit_exclusive']:raise DragValidityLimit('Re_exceeds_drag_validity')
-        return np.r_[s[2:],acceleration(s[2:],diameter_m,gas,properties,config)]
+        net=acceleration(s[2:4],diameter_m,gas,properties,config)
+        if momentum:return np.r_[s[2:4],net,net-gravity,gravity]
+        return np.r_[s[2:4],net]
     def step(s,h):
         a=rhs(s);b=rhs(s+h*a/2);c=rhs(s+h*b/2);d=rhs(s+h*c)
         result=s+h*(a+2*b+2*c+d)/6
@@ -84,7 +89,7 @@ def integrate_droplet(field,initial_state,diameter_m,properties,config,step_scal
         return result
     while time<controls['maximum_time_s']:
         gas=field.sample(state[:2])
-        speed=max(np.linalg.norm(state[2:]),np.linalg.norm(gas),1e-3)
+        speed=max(np.linalg.norm(state[2:4]),np.linalg.norm(gas),1e-3)
         h=min(controls['time_step_s']*step_scale,tau/30*step_scale,
               controls['cell_fraction_per_step']*field.cell_size/speed,
               controls['maximum_time_s']-time)
