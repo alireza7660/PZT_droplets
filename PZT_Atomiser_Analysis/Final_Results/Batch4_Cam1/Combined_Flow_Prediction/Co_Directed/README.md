@@ -1,122 +1,36 @@
-# Developed-droplet interaction with the upward measured ZNMF jet
+# Co-directed response of the developed measured PZT plume
 
-## Source tracing and the correction
+## Reproduce
+From the local PZT_droplets workspace root:
+```powershell
+.\.venv\Scripts\python.exe -m PZT_Atomiser_Analysis.analysis.update_combined_flow_notebook
+```
+The command archives the old generated Co_Directed package, rebuilds the prediction, executes only its notebook cells, removes obsolete prediction displays and preserves unrelated notebook sections. Principal comparison: figures/measured_and_predicted_axial_comparison.pdf. Full figure list: report_manifest.json. Every figure is exported separately as PDF, SVG and 600-dpi PNG.
 
-The archived comparison script and its plotted CSVs are traced in
-interaction_plane_audit.json. Its curves use ZNMF downstream distance s and
-PZT plume height y as separate source coordinates on an overlaid 0..27 mm axis.
-The reproduced curve samples match those archived CSVs exactly (75 gas and
-315 PZT points); PZT is red in the current presentation. Velocities are already
-SI and are never recalibrated. The reproduction is source_comparison_reproduced.
+## Inputs and placement
+Use the preserved full-support Plume_Aligned native grids and fitted-axis profile; report crops and the old fixed laboratory-column profile are not model inputs. Velocities are already SI, with 5.35 micrometres/pixel and 25 microseconds applied upstream; calibration is not applied again. The x_p/y_p frame follows the measured inclined plume, retaining the saved origin, orthonormal transform and inverse. Gravity in this frame is [0.898861356725992, -9.765369039820497] m/s^2 (buoyancy reduces its magnitude by 1-rho_air/rho_water). Physical remounting is not asserted.
 
-Adjacent VALID source intervals give one gas-overtaking crossing:
-ZNMF s=10.0860743924 mm, PZT y=10.0860743924 mm, axial velocity
-0.964010941135 m/s. No 10 mm constant or near-atomiser
-velocity is inserted. Roots are solved on the union of native profile knots,
-with no interpolation across invalid centreline or PZT gaps. The first supported
-gas-overtaking root is selected; all roots and brackets are exported.
+The source comparison originally paired ZNMF downstream Xj in mm with PZT laboratory height y_lab=Xj+offset, where offset=0.0 mm. That design pairing is retained to locate the interaction: the saved fitted-axis profile is indexed by its original lab_y_mm, and both comparison curves are displayed in y_p using the saved Q and reference. It is not evidence that experimental origins coincide. Changing the plume axial origin or report crop cannot relocate the paired laboratory height.
 
-The superseded prediction instead paired the lowest measurement planes and
-sampled a near-entry gas reversal region. That was a different initial condition
-and registration, not the requested interaction of already-developed droplets.
-Its generated predictions and code/configuration snapshots are archived under
-PZT_Atomiser_Analysis\Archive\20261102T105701_AEDT_superseded_near_atomiser_release\archive_manifest.json. Original source experiments remain unchanged.
+Supported gas-overtaking crossing: ZNMF Xj=11.497987126 mm; PZT laboratory (x,y)=(15.561373411,11.497987126) mm; plume (x_p,y_p)=(7.8852572e-16,11.460630495) mm; equal axial velocities 1.045443004 m/s.
 
-## Frames and alignment assumption
+Selected entry is the first subsequent supported measured native gas station whose actual field sample exceeds the local axis droplet velocity: native column 35, Xj=11.635200000 mm; PZT laboratory (15.574003282,11.635200000) mm; plume (0,11.598423406) mm. Axis droplet v_p=1.039291014 m/s; sampled gas v_p=1.054721850 m/s. All candidates and valid brackets are in interaction_plane_audit.json.
 
-The common frame keeps PZT x rightward and y upward. Gas source Xj is downstream,
-Yj is transverse relative to its documented geometric nozzle centre. At interaction,
-the measured gas centreline Yj,c=-0.258909028 mm
-is aligned to the documented fixed PZT reference x=14.54665 mm.
-Positions: x=x_ref+Yj,c-Yj; y=y_PZT,int+Xj-s_ZNMF,int.
-Vectors: u_g=-V_ZNMF, v_g=+U_ZNMF (+90 degree rotation).
-The numerical pairing of the independent axial coordinates is an explicit
-comparison-based registration assumption, not evidence of coincident physical
-exits. The configurable axial offset is 0 mm.
-Centreline alignment is applied once at the interaction plane; no downstream
-straightening or ongoing particle recentering is applied. Native transverse offsets
-are retained. All transforms act on analysis copies; source values/masks do not change.
+At entry, align the measured jet centreline with x_p=0. Apply one rigid R90 placement of the jet local (Xj,Yj) coordinates and (Uj,Vj) components: u_g,p=-Vj, v_g,p=Uj. Downstream y_p=y_p,entry+Xj-Xj,entry and x_p=Yj,centreline(entry)-Yj. The gas centreline may wander thereafter; it is not recentered row-by-row. The source-pair comparison transformation has y_p=(y_lab-y_ref)/cos(theta) on the plume axis; this mapping is used to select entry only, not to stretch the gas field. The CSV ZNMF_profile_coordinate_mapping.csv explicitly lists both mappings. They agree at entry but are distinct downstream.
 
-## Initial conditions exported BEFORE integration
+## Developed-droplet initial conditions
+Representative transverse positions are the configured grid offsets times the saved rotated native horizontal-grid transverse spacing, all on the same fixed y_p entry plane. Both actual saved aligned mean components are interpolated using four finite original native PZT nodes; positions are inverse-mapped to the laboratory frame for interpolation. initial_conditions.csv records original coordinates, native indices, all four PZT weights, vector velocities, gas samples, slip and acceleration; initial_interpolation_stencils.json includes PZT and gas source corner values and weights. At the axis entry, interpolation of the saved one-dimensional axis profile gives 1.039230864 m/s, versus 1.039291014 m/s from the actual native-cell initial-condition interpolation (difference 6.01499289e-05 m/s). Sampling a bilinear field along an inclined line and then interpolating the resulting one-dimensional samples is not identical to evaluating the native bilinear cell at the final point; no velocity matching is forced. These conditional predictions start with already-developed droplets, not at the atomiser or nozzle. Mean measured components initialise deterministic reference trajectories; the ensemble baseline is not a measured individual trajectory.
 
-data/initial_conditions.csv gives source coordinates, PZT rows/columns and height
-weights, gas-cell indices/weights, common-frame position, measured droplet components,
-sampled gas components, vector slip, Re and initial drag/net acceleration.
-data/initial_interpolation_stencils.json contains the original corner values.
-The exact crossing falls between PZT rows 202
-and 201; both components are linearly interpolated
-in height at each native column, with no adjacent-column averaging. These are
-developed droplets at the interaction height, not droplets reset to their initial
-near-atomiser velocity or relocated atomiser exits. Vector sample counts are not
-interpreted as droplet concentration.
+## Dynamics and assumptions
+Nominal constant diameter is 10 micrometres, a model estimate motivated by a 5-micrometre aperture and classical ratio 1.89 (9.45 micrometres rounded), assuming the emerging jet diameter equals the aperture. Neither diameter nor size distribution was measured. Recorded water/air properties at 20 C and assumed 101325 Pa are retained; humidity is unavailable and evaporation is neglected. Source references and values remain in source_manifest.json and the preserved fluid_properties.json.
 
-Reference release: droplet (u,v)=(0.0733083814,
-0.964010941) m/s, sampled gas (u,v)=
-(-0.325258338,0.961214737) m/s.
-The plotted gas centreline is 0.964010941 m/s;
-sampled-minus-plotted axial difference is -0.00279620461 m/s.
-Initial net axial acceleration is -19.4884592 m/s2.
-The crossing equates axial profiles, not vector velocities. In ZNMF pipeline.py,
-extract_centreline finds subgrid peak positions and linearly interpolates velocities
-there. Interpolating that moving-centreline curve downstream differs from bilinear
-sampling at a single interpolated physical transverse position. Off-axis releases
-add real transverse-profile differences. No gas value is changed to force equality.
+The independently measured two-component ZNMF mean is prescribed as the gas. One-way droplet momentum coupling, a two-dimensional deterministic mean-field trajectory and no turbulence/evaporation/size distribution are model assumptions. Velocities are never added, and downstream PZT-only velocities are not forces or imposed trajectory values. Acceleration is (F(Re_p)/tau0)(v_g-v_d)+(1-rho_air/rho_water)g_p; tau0=rho_water*d^2/(18*mu_air). Existing spherical drag uses exact Stokes F=1 for Re_p<=0.01, otherwise Schiller-Naumann F=1+0.15 Re_p^0.687 for Re_p<800. Re_p uses the two-component slip magnitude. Integration stops at unsupported four-corner gas cells or measured-domain boundaries, with no extrapolation. No positive velocity, acceleration or transport outcome is enforced.
 
-## Actual predictions and common supported comparison
+## Common-interval result
+Successfully integrated cases: 7. All releases and baselines are compared over the same supported ascending plume interval [11.598423406,27.335869974] mm. Reference droplet: entry v_p=1.039291014 m/s; final v_p=2.052240144 m/s; change +1.012949131 m/s; transit 11.168829 ms; transverse displacement -1.449592 mm. At the same upper plane, sampled gas v_p=2.091774623 m/s and the measured PZT-only ensemble axis baseline is 0.552687624 m/s. trajectory_summary.csv records full-path termination and common_height_comparison.csv records comparable interval results. Termination counts: {'outside_measured_jet_domain': 7}.
 
-Completed cases: 7. Terminations:
-{'outside_measured_jet_domain': 7}. All histories begin at the interaction plane.
-The common first-ascent interval is y=10.0860744..27.3064 mm, limited by BOTH
-measured PZT profile support and all computed ascending trajectories. Velocity
-changes are 0.928136413..1.34178257 m/s and travel times 12.710875..13.9472779 ms.
-Reference release: delta_v=1.04453009 m/s over
-13.2889135 ms, ending v=2.00854103 m/s.
-These compare the same height bounds, not different endpoint displacements.
-The full case data and common-height table retain individual results and termination
-times. Interpolation to common diagnostic bounds stays within computed support.
-The measured PZT-only red curve is a fixed-line ensemble mean, not a tracked
-particle trajectory; its height trend can also reflect lateral plume displacement.
+## Dimensionless response
+Stokes-limit response tau0=0.000305825036 s. Trajectory Stk_D,local=tau0*|v_g|/D0 uses flow time D0/|v_g|, not slip or forcing period; finite-Re coefficient response tau0/F(Re_p) is also exported. Stk_f=tau0*f=0.0366990043. Local centreline diagnostics Re_D,c=Uc*D0/nu, Sr_D,c=f*D0/Uc and Stk_D,c=tau0*Uc/D0 use measured positive Uc only; missing stations remain gaps. D0=2 mm, actuation f=120 Hz from ZNMF configuration, not the 10-Hz PIV acquisition rate. These are local centreline-based quantities, not nozzle-exit Re0/Sr0. Stk is Stokes number and Sr is Strouhal number.
 
-## Model and limits (prescribed gas approximation)
-
-The measured two-component ZNMF mean alone prescribes gas velocity. It neglects
-plume-induced gas changes, jet unsteadiness, evaporation and droplet-size evolution.
-PZT velocities initialise particles once; velocities are not added and no downstream
-PZT-only profile is imposed. Nominal d=10 um is a model-based Rayleigh/aperture
-estimate (5 um aperture, assumed equal jet diameter, 1.89 factor ->9.45 um rounded),
-not measured sizing. Existing 20 C water/air properties are retained; pressure
-101325 Pa and equal water temperature are assumptions, with dry-air properties
-approximating unknown humidity.
-
-The SI force model uses vector slip, gravity and buoyancy with spherical drag:
-a=-g_eff*e_y+slip*f(Re)/tau_Stokes. Re=rho_air*d*norm(slip)/mu_air;
-f=1 at Re<=0.01, otherwise 1+0.15*Re^0.687, restricted to Re<800. Gas interpolation
-requires four finite paired native corner vectors; no gaps/boundaries are extrapolated.
-Predictions stop at unsupported gas support or the configured time horizon.
-Adaptive numerical time-step refinement enforces the existing convergence tolerances
-without changing the force law or initial measurements.
-
-tau_Stokes=rho_water*d^2/(18*mu_air) is a Stokes-limit baseline. The exported
-tau_Stokes/f(Re) is a drag/slip coefficient timescale, not an exact finite-Re relaxation
-time. Stk_f=tau_Stokes*f uses documented 120 Hz jet actuation (no 2*pi), not
-10 Hz acquisition or 190 kHz atomiser frequency. Local trajectory Stk_D uses
-D0/norm(local gas vector) with D0=2 mm. Local gas Re_D,c=Uc*D0/nu and
-Sr_D,c=f*D0/Uc use positive finite measured Uc with gaps retained; they are not
-nozzle-exit Re0/Sr0. Stokes Stk and Strouhal Sr are distinct. Scalars are tabulated.
-Supporting PZT-only particle Re has an explicit zero-background-gas reference,
-not a measurement of ambient PZT air. No collection efficiency, lung deposition,
-or experimental validation of the combined flow is inferred. The remaining axial
-and transverse registration assumptions and nominal diameter limit physical certainty.
-
-## Reproduce and files
-
-From the PZT_droplets workspace root:
-.\.venv\Scripts\python -m PZT_Atomiser_Analysis.analysis.update_combined_flow_notebook
-
-report_manifest.json explicitly selects active PDF/600-dpi PNG figures and data.
-source_manifest.json records original paths/configuration, transformations and hashes.
-interaction_plane_audit.json records source reproduction, the computed root, and
-pre-integration checks. data/ contains initial audits, full trajectories, the exact
-main-comparison sources, common-height comparisons, force intervals, scalars and
-local dimensionless diagnostics. validation/ contains convergence/preservation checks.
-Archived H/L/C and superseded near-atomiser predictions are excluded from the notebook.
+## Verification and limitations
+Source and all Plume_Aligned files are hash-protected. Position/vector inverse transforms, unchanged sample counts and masks, gravity direction, finite interpolation stencils, actual gas support, slip-direction drag, and coarse/half-step convergence are checked. validation/convergence.json records errors and termination. Discrete starting locations and deterministic mean velocities do not imply measured particle histories, collection efficiency or an optimal arrangement. Out-of-plane motion, changing diameters, unresolved gas fluctuations and two-way coupling are not measured/modelled. Gas sampled along a drifting trajectory differs from the measured centreline; the two are separately plotted and exported.

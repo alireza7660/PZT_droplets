@@ -1,27 +1,29 @@
 % source_comparison_reproduced
-\caption{Measured source profiles reproduced from the actual archived-comparison data selections, with PZT in red. The independent gas downstream and PZT plume coordinates are overlaid for this comparison; the crossing is computed only within adjacent valid intervals, not imposed at 10 mm.}
+\caption{Corrected measured profiles retain the original pairing of ZNMF downstream distance with laboratory PZT height. Both source-pair coordinates are displayed in plume-axis units using the saved transform. The crossing is calculated only within adjacent finite support; the entry is a subsequent native gas station with actual sampled gas faster than the local PZT axis value. This source-pair mapping is not a spatial stretch of the gas used for integration.}
 
 % measured_and_predicted_axial_comparison
-\caption{Measured ZNMF centreline velocity (black dashed), measured PZT-only fixed-line ensemble velocity (red), predicted droplet velocity for the reference release (blue), and gas sampled on that same trajectory (purple dotted). Pale blue curves show other representative releases. The vertical line marks interaction. Measured gas centreline values and sampled gas are distinct. Predictions begin with developed PZT velocities at that plane; no upstream PZT profile is imposed on them.}
+\caption{Reference prediction, measured PZT-only ensemble-axis baseline, measured gas centreline under one rigid placement, and actual gas sampled along the reference path. All are compared over the same supported ascending interval. The PZT ensemble profile is not an individual-droplet trajectory; the gas centreline is not necessarily the gas encountered by a laterally moving droplet.}
 
 % trajectories_upward_jet
-\caption{Conditional developed-droplet trajectories over signed upward-oriented measured gas axial contours. The measured centrelines are aligned once at the numerical interaction plane; transverse offsets and subsequent wandering remain. No experimental gas or droplet velocity is tuned or added.}
+\caption{Conditional trajectories begin with both locally measured PZT components on the supported entry plane. The measured two-component gas is rigidly placed once; measured jet wandering is retained. Contour masks are genuine measured gas support; integration stops at unsupported cells or domain boundaries. No atomiser-surface or near-nozzle release is modelled.}
 
 % trajectories_entry_detail
-\caption{Detail of the first 3 mm downstream of interaction. Initial positions are identified by physical x coordinate; measured developed PZT velocity pairs initialise these releases. The plot is not a relocated atomiser launch.}
+\caption{Entry detail shows the first 3 mm of axial development. Conditional trajectories begin with both locally measured PZT components on the supported entry plane. The measured two-component gas is rigidly placed once; measured jet wandering is retained. Contour masks are genuine measured gas support; integration stops at unsupported cells or domain boundaries. No atomiser-surface or near-nozzle release is modelled.}
 
-% axial_velocity_along_trajectories
-\caption{Axial droplet and gas velocities sampled at the same evolving trajectory positions. Particle ascent/descent use solid/dashed branches; gas traces use dotted/dash-dot branches in matching colours. They are distinct from measured centreline peak values.}
+% axial_slip
+\caption{Signed gas-minus-droplet axial slip along the trajectories over their common supported ascending interval.}
 
-% axial_slip_and_acceleration
-\caption{Axial vector-slip component and net axial acceleration (solid/ascent, dashed/descent), with drag alone dotted. The positive black threshold is drag equal to buoyancy-corrected gravity, not upward gravity. Upward drag need not imply net upward acceleration. Acceleration uses a symmetric-log ordinate, linear within plus/minus 20 m/s squared, retaining all signs.}
+% particle_Re
+\caption{Particle Reynolds number uses the magnitude of the evolving two-component gas-minus-droplet slip, rho\_air d |v\_g-v\_d| / mu\_air. No out-of-plane motion is invented.}
 
-% particle_Re_and_local_Stokes
-\caption{Slip-based particle Reynolds number and supporting local Stokes diagnostic along integrated trajectories. The latter uses the Stokes-limit time and local gas-vector magnitude over the 2 mm nozzle length; it is not capture or transport efficiency.}
+% particle_Stokes
+\caption{Stk\_D,local = tau\_0 |v\_g| / D0; tau\_0 = rho\_water d^2/(18 mu\_air), and flow timescale D0/|v\_g|. This is a Stokes-limit particle response diagnostic; finite-Re drag is used for the actual acceleration.}
 
-% PZT_only_measured_axial_profile
-\caption{Measured PZT-only fixed-line ensemble-mean axial velocity in red. This is an experimental spatial baseline, not an individual trajectory; lateral plume displacement can affect the fixed-line trend.}
+% axial_acceleration
+\caption{Signed net axial acceleration includes finite-Re spherical drag and gravity-minus-buoyancy in the corrected inclined plume frame; no positive acceleration is imposed.}
 
-% jet_local_dimensionless_numbers
-\caption{Local measured-centreline gas Reynolds and Strouhal numbers and supporting particle Stokes diagnostic. The axial coordinate is transformed using the documented interaction alignment. Positive finite measured Uc is used with gaps retained; no nozzle-exit velocity or Re0/Sr0 is inferred. Scalars are tabulated, not constant-line plots.}
+% jet_local_Reynolds
+\caption{Local measured-centreline quantity. Re\_D,c = Uc D0/nu; Sr\_D,c = f D0/Uc. D0 = 2 mm and measured jet actuation f = 120 Hz; PIV acquisition is 10 Hz and is not used as actuation. Gaps and nonpositive Uc remain undefined. These are not nozzle-exit Re0 or Sr0.}
 
+% jet_local_Strouhal
+\caption{Local measured-centreline quantity. Re\_D,c = Uc D0/nu; Sr\_D,c = f D0/Uc. D0 = 2 mm and measured jet actuation f = 120 Hz; PIV acquisition is 10 Hz and is not used as actuation. Gaps and nonpositive Uc remain undefined. These are not nozzle-exit Re0 or Sr0.}

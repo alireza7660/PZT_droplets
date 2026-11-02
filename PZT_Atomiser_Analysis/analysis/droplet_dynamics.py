@@ -45,8 +45,9 @@ def drag_factor(re,config):
 
 def acceleration(velocity,d_m,gas_velocity,properties,config,drag=True,buoyancy=True):
     slip=np.asarray(gas_velocity,float)-np.asarray(velocity,float)
-    a=np.zeros_like(slip)
-    a[...,1]=-properties['g_m_s2']*(1-properties['rho_air_kg_m3']/properties['rho_water_kg_m3'] if buoyancy else 1)
+    gravity=np.asarray(config.get('gravity_vector_m_s2',[0.,-properties['g_m_s2']]),float)
+    if gravity.shape!=(2,):raise ValueError('Gravity vector must have two components in the integration frame')
+    a=np.broadcast_to(gravity,slip.shape).copy()*(1-properties['rho_air_kg_m3']/properties['rho_water_kg_m3'] if buoyancy else 1)
     if drag:
         re=reynolds(d_m,velocity,gas_velocity,properties)
         coefficient=drag_factor(re,config)/relaxation_time(d_m,properties)

@@ -1,5 +1,6 @@
 {
   "active_package": "Co_Directed",
   "manifest": "Co_Directed/report_manifest.json",
-  "archived_side_jet_excluded": true
+  "plume_frame": "x_p,y_p",
+  "obsolete_prediction_displays_excluded": true
 }

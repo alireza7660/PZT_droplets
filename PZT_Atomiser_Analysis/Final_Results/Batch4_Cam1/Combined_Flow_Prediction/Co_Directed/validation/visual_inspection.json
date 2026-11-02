@@ -1,8 +1,5 @@
 {
-  "all_nine_PNG_figures_reviewed": true,
-  "source_comparison_reproduced": true,
-  "main_comparison_measured_and_predicted_distinct": true,
-  "initial_conditions_audited_before_integration": true,
-  "entry_legend_and_colorbar_layout_verified": true,
-  "PDF_raster_review": "PDF renderer unavailable; PDF and PNG generated from identical Matplotlib figures"
+  "reviewed": "All ten final plots in two contact sheets; main comparison and regenerated first-3-mm trajectory detail inspected individually.",
+  "findings": "Correct red gas/blue dashed PZT/purple prediction distinction; title-free mathematical axes; external trajectory legends; measured gaps retained; signed slip and acceleration preserved; no case IDs displayed.",
+  "trajectory_values_changed_by_presentation_refresh": false
 }

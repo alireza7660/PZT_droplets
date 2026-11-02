@@ -33,18 +33,17 @@ root=Path.cwd().resolve()
 sys.path.insert(0,str(root))
 output=root/'PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1'
 ''')
-    mini=nb.v4.new_notebook(cells=[setup,cells[3]] if reuse_saved else [setup,cells[1],cells[3]])
+    if reuse_saved:
+        cells[1].source=cells[1].source.replace('prediction=run_codirected()',"# Reuse the verified saved integration after a presentation-only refresh.\nprediction=json.loads((output/'Combined_Flow_Prediction/Co_Directed/results_summary.json').read_text())")
+    mini=nb.v4.new_notebook(cells=[setup,cells[1],cells[3]])
     runtime=out/'validation/jupyter_runtime';runtime.mkdir(parents=True,exist_ok=True)
     os.environ['JUPYTER_RUNTIME_DIR']=str(runtime)
     if sys.platform=='win32':asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     manager=KernelSpecManager();spec=manager.get_kernel_spec('python3')
     spec.argv=[sys.executable,'-m','ipykernel_launcher','-f','{connection_file}'];manager.get_kernel_spec=lambda name:spec
-    client=NotebookClient(mini,timeout=600,resources={'metadata':{'path':str(ROOT)}})
+    client=NotebookClient(mini,timeout=1800,resources={'metadata':{'path':str(ROOT)}})
     client.km=AsyncKernelManager(kernel_name='python3',kernel_spec_manager=manager);client.execute()
-    if reuse_saved:
-        cells[1]=next(c for c in book.cells if c.cell_type=='code' and c.metadata.get('combined_flow_prediction'))
-        cells[3]=mini.cells[1]
-    else:cells[1]=mini.cells[1];cells[3]=mini.cells[2]
+    cells[1]=mini.cells[1];cells[3]=mini.cells[2]
     book.cells=unrelated_cells(book);book.cells[-1:-1]=cells
     assert signature(unrelated_cells(book))==original
     nb.write(book,target);shutil.copy2(target,PROJECT/'notebooks/Spatial_maps.ipynb')
@@ -58,7 +57,7 @@ output=root/'PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1'
     if cfg.get('design_study',{}).get('enabled'):
         from .validate_prospective_studies import main as validate_studies
         validate_studies()
-    print('Updated and executed only the combined-flow workflow notebook section.')
+    print('Updated and executed only the aligned co-directed prediction notebook section; unrelated cells preserved.')
 
 
 if __name__=='__main__':

@@ -106,34 +106,39 @@ The figure stems are `mean_v_vertical_profile_location` and
 directory. Extracted CSV/NPZ are in `data/mean_v_vertical_profile.*`.
 Selection and verification metadata are in `methods/vertical_profile_*.json`.
 
-## Plume-aligned measurement review ? interaction work paused
+## Plume-aligned measurements and active co-directed prediction
 
-The current requested analysis is in
-`Final_Results/Batch4_Cam1/Plume_Aligned/`. It fits one straight hydrodynamic
-plume axis over a documented laboratory-height interval, checks sensitivity,
-and rotates analysis copies of the native positions, velocity components,
-covariance tensor and gravity using one orthonormal matrix. Contours use the
-rotated native grid without resampling. Profile/section extraction retains
-finite measured support without extrapolation. The original fixed-column
-profile is preserved separately; the fitted-axis profile samples a different line.
+The corrected measured package is `Final_Results/Batch4_Cam1/Plume_Aligned/`.
+Its single rigid transform preserves positions, both velocity components,
+covariance and gravity. The frame is transverse x_p / axial y_p, with its
+measurement-plane reference at the lowest supported laboratory height, not the
+atomiser surface. Principal rectangular maps are under figures/report;
+uncropped reference plots are under diagnostics/full_support. These files
+are preserved unchanged by the prediction workflow.
 
+The active prediction is
+[Co_Directed](Final_Results/Batch4_Cam1/Combined_Flow_Prediction/Co_Directed/README.md).
+It uses the full-support corrected fitted-axis profile and both aligned mean
+components, retaining the original laboratory-height/source-distance pairing
+when locating the interaction. The latest user instruction resumes this
+specific co-directed prediction; the prior alignment-review pause is superseded.
+
+Rebuild the prediction and execute only its notebook section:
 ```powershell
-.\.venv\Scripts\python -m PZT_Atomiser_Analysis.analysis.update_plume_aligned_notebook
+.\.venv\Scripts\python.exe -m PZT_Atomiser_Analysis.analysis.update_combined_flow_notebook
 ```
 
-Configure the fitting interval and section stations in `config/plume_alignment.json`.
-`transformation.json` documents angle, reference, matrix/inverse, gravity and
-interval sensitivity; `data/extracted_centres.csv` records fitted centre residuals.
-The origin is a measured-region analysis reference, not the atomiser surface.
-The aligned axial coordinate y_p follows the plume and is not laboratory vertical.
-Curvature, asymmetry and nonzero transverse velocity remain.
+Rebuilding the measured alignment is a separate command and is not performed
+by the prediction workflow:
+```powershell
+.\.venv\Scripts\python.exe -m PZT_Atomiser_Analysis.analysis.update_plume_aligned_notebook
+```
 
-The active notebook shows only measured plume alignment at this stage. Previous
-interaction notebook outputs are preserved separately in Plume_Aligned/validation;
-the previous Combined_Flow_Prediction numerical results and figures remain unchanged.
-`interaction_work_status=paused_for_plume_alignment_review` guards prediction
-entry points; no interaction prediction or new interaction station is computed.
-This coordinate transformation does not assert that physically remounting the
-atomiser would reproduce the same flow. Original calibrated PZT data remain unchanged.
-
-The completed aligned package uses x_p/y_p and a measurement-plane origin at the lowest supported laboratory height. Principal PDF/SVG/600-dpi PNG figures are under Plume_Aligned/figures/report; full native support is under diagnostics/full_support; before/after and count/fit diagnostics are under diagnostics/figures. Superseded generated packages are archived under Plume_Aligned/Archive. See its README and transformation.json for exact crop bounds and inverse mapping.
+The prescribed-gas prediction uses nominal estimated 10-micrometre droplets,
+transformed gravity, finite-Re drag and finite measured support. Original
+laboratory results, raw data, measured alignment files and unrelated notebook
+sections are preserved. Superseded generated predictions are archived beneath
+Combined_Flow_Prediction/Archive. See the active package for the calculated
+crossing/entry coordinates, initial interpolation audit, convergence tests,
+common-interval comparison and report figures. No combined experiment or
+collection efficiency is inferred.

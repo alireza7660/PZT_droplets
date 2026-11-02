@@ -1,0 +1,8 @@
+{
+  "all_nine_PNG_figures_reviewed": true,
+  "source_comparison_reproduced": true,
+  "main_comparison_measured_and_predicted_distinct": true,
+  "initial_conditions_audited_before_integration": true,
+  "entry_legend_and_colorbar_layout_verified": true,
+  "PDF_raster_review": "PDF renderer unavailable; PDF and PNG generated from identical Matplotlib figures"
+}

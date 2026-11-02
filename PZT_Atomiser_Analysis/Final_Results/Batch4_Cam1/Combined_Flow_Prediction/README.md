@@ -1,1 +1,1 @@
-Active package: Co_Directed/. Horizontal side-jet outputs are archived. Regenerate using .\.venv\Scripts\python -m PZT_Atomiser_Analysis.analysis.update_combined_flow_notebook from the workspace root.
+Active prediction: Co_Directed/README.md, using full-support plume-aligned measured PZT fields. Reproduce from project root: .\.venv\Scripts\python.exe -m PZT_Atomiser_Analysis.analysis.update_combined_flow_notebook

@@ -4,7 +4,7 @@
   "znmf_field": "../ZNMF_Results/Final_Result/tables/FOV_1_2_3_reconstructed_fields.npz",
   "znmf_configuration": "../ZNMF_Results/Final_Result/analysis/configuration.json",
   "znmf_nozzle_reference": "../ZNMF_Results/Final_Result/report/presentation_reference.json",
-  "common_frame": "Prediction x horizontal/rightward and y upward; ZNMF downstream points upward after +90 degree analysis-copy rotation",
+  "common_frame": "Corrected plume frame: x_p transverse/right of fitted axis, y_p axial along measured inclined plume; laboratory reference and inverse retained.",
   "droplet_diameters_um": [
     10.0
   ],
@@ -20,7 +20,7 @@
     "theory_reference": "https://mae.eng.uci.edu/Faculty/MGC/Articles/MGC_JFluidMech_02.pdf",
     "applicability": "Classical inviscid cylindrical-jet breakup motivates the estimate; applicability to this driven mesh atomiser and equality of emerging jet and aperture diameters are not validated."
   },
-  "release_definition": "Lowest common gas-supported native PZT plane across co_directed.release_column_offsets; initialise both measured ensemble-mean components once",
+  "release_definition": "Fixed y_p entry plane; x_p offsets are configured integer offsets times the rotated native horizontal-grid transverse spacing. Four-finite-corner measured aligned components initialise each developed droplet.",
   "temperature_C": 20.0,
   "pressure_Pa": 101325.0,
   "relative_humidity": null,
@@ -44,8 +44,8 @@
     "enabled": true,
     "rotation_degrees": 90.0,
     "relative_axial_offset_mm": 0.0,
-    "reference_planes": "Match source comparison coordinates at their numerically calculated crossing; align measured PZT fixed-line reference to measured gas centreline at that plane, not physical exits",
-    "plume_reference": "Existing fixed native column through global finite PZT mean-v maximum; empirical reference, not established physical outlet",
+    "reference_planes": "Original source pairing X_ZNMF_mm = laboratory_y_PZT_mm - relative_axial_offset_mm is used only to identify entry. At entry align axes once; downstream gas is placed by rigid +90 degree jet-local-to-plume rotation with no axial stretch or recentering.",
+    "plume_reference": "Corrected fixed fitted straight axis x_p=0; no fixed laboratory-column reuse",
     "release_column_offsets": [
       -3,
       -2,
@@ -56,9 +56,16 @@
       3
     ],
     "maximum_time_s": 0.1,
-    "archive_manifest": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\archive_manifest.json",
+    "archive_manifest": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Archive\\Co_Directed_20261102_132538\\archive_manifest.json",
     "time_step_s": 1e-05,
-    "interaction_mode": "first_supported_gas_overtaking_crossing_of_source_profiles"
+    "interaction_mode": "first_supported_gas_overtaking_crossing_of_source_profiles",
+    "release_definition": "Fixed y_p entry plane; x_p offsets are configured integer offsets times the rotated native horizontal-grid transverse spacing. Four-finite-corner measured aligned components initialise each developed droplet.",
+    "comparison_coordinate_pairing": "ZNMF downstream Xj [mm] is paired with original PZT laboratory height y_lab=Xj+offset; fitted-axis y_p=(y_lab-reference_y)/cos(theta). No pairing of new zero with nozzle origin."
   },
-  "interaction_work_status": "paused_for_plume_alignment_review"
+  "interaction_work_status": "enabled_aligned_codirected_user_instruction",
+  "plume_aligned_directory": "PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1/Plume_Aligned",
+  "gravity_vector_m_s2": [
+    0.898861356725992,
+    -9.765369039820497
+  ]
 }

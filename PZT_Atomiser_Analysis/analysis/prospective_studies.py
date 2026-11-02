@@ -217,10 +217,8 @@ def run_dimensionless():
     """Generate dimensionless outputs with no placement or trajectory prerequisites."""
     cfg=json.loads((PROJECT/'config/combined_flow_prediction.json').read_text());out=ROOT/cfg['output']
     if cfg.get('co_directed',{}).get('enabled'):
-        from .co_directed import context
-        from .co_directed_report import dimensionless as upward_numbers
-        c,p,j,D,s,props,active,profile,peak,field,alignment=context()
-        return upward_numbers(active,c,props,D,alignment)[0]
+        from .aligned_codirected_report import dimensionless_only
+        return dimensionless_only()
     pzt,jet,xj,yj,D0,source=sources_and_arrays(cfg)
     props_path=out/'fluid_properties.json';props=json.loads(props_path.read_text())
     result=dimensionless(cfg,out,pzt,D0,props)

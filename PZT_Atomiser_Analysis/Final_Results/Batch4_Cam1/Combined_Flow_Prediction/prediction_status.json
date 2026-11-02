@@ -1,5 +1,5 @@
 {
-  "status": "co_directed_prediction_complete",
+  "status": "aligned_co_directed_prediction_complete",
   "prediction_case_count": 7,
   "active_package": "Co_Directed",
   "combined_experiment_conducted": false

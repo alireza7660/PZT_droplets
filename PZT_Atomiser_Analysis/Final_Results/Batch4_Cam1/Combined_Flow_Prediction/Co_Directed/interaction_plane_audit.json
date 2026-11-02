@@ -1,43 +1,70 @@
 {
-  "selected_crossing": {
-    "ZNMF_downstream_mm": 10.086074392363921,
-    "PZT_height_mm": 10.086074392363921,
-    "common_velocity_m_s": 0.9640109411347995,
-    "gas_lower_source_column": 30,
-    "PZT_lower_profile_index": 116,
-    "bracket_lower_mm": 10.019199999999996,
-    "bracket_upper_mm": 10.1008
+  "crossing": {
+    "ZNMF_downstream_mm": 11.497987126429853,
+    "PZT_lab_x_mm": 15.561373410811703,
+    "PZT_lab_y_mm": 11.497987126429853,
+    "x_p_mm": 7.885257204988226e-16,
+    "y_p_mm": 11.460630495072467,
+    "common_axial_velocity_m_s": 1.0454430040584348,
+    "gas_native_lower_column": 34,
+    "PZT_profile_lower_index": 133,
+    "bracket_mm": [
+      11.4704,
+      11.556
+    ]
   },
-  "all_supported_gas_overtaking_crossings": [
+  "all_supported_overtaking_crossings": [
     {
-      "ZNMF_downstream_mm": 10.086074392363921,
-      "PZT_height_mm": 10.086074392363921,
-      "common_velocity_m_s": 0.9640109411347995,
-      "gas_lower_source_column": 30,
-      "PZT_lower_profile_index": 116,
-      "bracket_lower_mm": 10.019199999999996,
-      "bracket_upper_mm": 10.1008
+      "ZNMF_downstream_mm": 11.497987126429853,
+      "PZT_lab_x_mm": 15.561373410811703,
+      "PZT_lab_y_mm": 11.497987126429853,
+      "x_p_mm": 7.885257204988226e-16,
+      "y_p_mm": 11.460630495072467,
+      "common_axial_velocity_m_s": 1.0454430040584348,
+      "gas_native_lower_column": 34,
+      "PZT_profile_lower_index": 133,
+      "bracket_mm": [
+        11.4704,
+        11.556
+      ]
     }
   ],
-  "comparison_reproduction": {
-    "gas_points": 75,
-    "PZT_points": 315,
-    "source_curve_values_exactly_match_archived_CSVs": true,
-    "archived_script": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\plot_comparison.py",
-    "archived_readme": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\README.md"
+  "selected_entry": {
+    "ZNMF_downstream_mm": 11.635199999999996,
+    "PZT_lab_x_mm": 15.574003281653717,
+    "PZT_lab_y_mm": 11.635199999999996,
+    "x_p_mm": 1.3236173839708744e-15,
+    "y_p_mm": 11.59842340603258,
+    "ZNMF_native_column": 35,
+    "ZNMF_local_centreline_Y_mm": -0.7144398537297931,
+    "measured_Uc_m_s": 1.0547218497786706,
+    "sampled_gas_v_p_m_s": 1.0547218497786708,
+    "PZT_axis_v_p_m_s": 1.039291013565735,
+    "PZT_saved_axis_profile_interpolated_v_p_m_s": 1.0392308636368774,
+    "PZT_axis_native_field_minus_profile_m_s": 6.014992885750026e-05
   },
-  "source_paths": {
-    "PZT_profile": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\data\\mean_v_vertical_profile.csv",
-    "ZNMF_centreline": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Final_Result\\tables\\FOV_1_2_3_centreline_and_width.csv"
-  },
-  "processing_evidence": {
-    "ZNMF_configuration": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Final_Result\\analysis\\configuration.json",
-    "ZNMF_centreline_extraction_code": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Final_Result\\analysis\\pipeline.py",
-    "ZNMF_extraction_code_sha256": "8fc121b6801defbd4cb328accadc83483e65a1372392765cdba8ddb037011c3f",
-    "PZT_profile_code": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\vertical_profile.py"
-  },
-  "centre_release_sampled_minus_plotted_Uc_m_s": -0.002796204612570019,
-  "reason_for_gas_difference": "Uc is evaluated at each native column measured centreline, then interpolated downstream. Field samples bilinearly interpolate U,V at one interpolated centreline/transverse position. These operations differ when the centreline wanders. Off-axis releases sample different transverse profiles. See ZNMF pipeline.extract_centreline: quadratic position estimate followed by linear velocity interpolation.",
+  "entry_candidates": [
+    {
+      "ZNMF_native_column": 35,
+      "ZNMF_downstream_mm": 11.635199999999996,
+      "PZT_lab_x_mm": 15.574003281653717,
+      "PZT_lab_y_mm": 11.635199999999996,
+      "x_p_mm": 1.3236173839708744e-15,
+      "y_p_mm": 11.59842340603258,
+      "accepted": true,
+      "gas_v_p_m_s": 1.0547218497786708,
+      "PZT_v_p_m_s": 1.039291013565735,
+      "slip_v_p_m_s": 0.015430836212935839
+    }
+  ],
+  "original_comparison_domain_mm": [
+    0,
+    27
+  ],
+  "comparison_mapping_evidence": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\plot_comparison.py",
+  "source_curve_changed": "PZT fixed laboratory-column mean_v replaced by saved fixed fitted-axis mean_v_p; original laboratory-height pairing retained.",
   "initial_conditions_exported_before_integration": true,
-  "calibration_not_reapplied": true
+  "calibration_reapplied": false,
+  "report_crop_used": false,
+  "gas_centreline_difference": "Measured Uc is interpolated at each native measured centreline. A field sample follows the bilinear two-component field at the release/trajectory location. At the chosen native entry column the reference matches Uc to rounding; off-axis samples differ and downstream the fixed jet placement retains measured centreline wandering."
 }

@@ -4,36 +4,37 @@
     "measured_and_predicted_axial_comparison",
     "trajectories_upward_jet",
     "trajectories_entry_detail",
-    "axial_velocity_along_trajectories",
-    "axial_slip_and_acceleration",
-    "particle_Re_and_local_Stokes",
-    "PZT_only_measured_axial_profile",
-    "jet_local_dimensionless_numbers"
+    "axial_slip",
+    "particle_Re",
+    "particle_Stokes",
+    "axial_acceleration",
+    "jet_local_Reynolds",
+    "jet_local_Strouhal"
   ],
-  "scalar_table": "data/scalar_quantities.csv",
-  "numerical_data": [
-    "PZT_only_fixed_line_profile.csv",
-    "common_height_comparison.csv",
-    "comparison_source_PZT.csv",
-    "comparison_source_ZNMF.csv",
-    "force_direction_intervals.csv",
-    "initial_conditions.csv",
-    "jet_local_centreline_numbers.csv",
-    "main_comparison_reference_prediction.csv",
-    "release_01.csv",
-    "release_02.csv",
-    "release_03.csv",
-    "release_04.csv",
-    "release_05.csv",
-    "release_06.csv",
-    "release_07.csv",
-    "scalar_quantities.csv",
-    "supporting_PZT_zero_background_Re.csv",
-    "trajectory_summary.csv"
+  "numerical_files": [
+    "data\\common_height_comparison.csv",
+    "data\\initial_conditions.csv",
+    "data\\initial_interpolation_stencils.json",
+    "data\\jet_local_centreline_numbers.csv",
+    "data\\main_comparison_gas_centreline.csv",
+    "data\\main_comparison_PZT_baseline.csv",
+    "data\\main_comparison_reference_prediction.csv",
+    "data\\PZT_corrected_axis_profile.csv",
+    "data\\release_01.csv",
+    "data\\release_02.csv",
+    "data\\release_03.csv",
+    "data\\release_04.csv",
+    "data\\release_05.csv",
+    "data\\release_06.csv",
+    "data\\release_07.csv",
+    "data\\scalar_quantities.csv",
+    "data\\trajectory_summary.csv",
+    "data\\ZNMF_profile_coordinate_mapping.csv"
   ],
   "text": [
+    "README.md",
     "methods_results.tex",
     "captions.tex"
   ],
-  "archive_manifest": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\archive_manifest.json"
+  "interaction_entry_calculated_not_hardcoded": true
 }
