@@ -1,0 +1,19 @@
+{
+  "figures": [
+    "original_field_axis_fit",
+    "plume_aligned_mean_axial_velocity",
+    "plume_aligned_mean_transverse_velocity",
+    "fitted_axis_axial_velocity_profile",
+    "transverse_axial_velocity_profiles",
+    "transverse_transverse_velocity_profiles",
+    "original_vs_plume_aligned",
+    "different_profile_lines_comparison",
+    "straight_axis_residuals"
+  ],
+  "text": [
+    "README.md",
+    "methods.tex",
+    "captions.tex"
+  ],
+  "interaction_predictions_excluded": true
+}

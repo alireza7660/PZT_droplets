@@ -1,0 +1,40 @@
+\section{Rigid plume-aligned representation of the measured PZT field}
+No linked acquisition image establishes the mounting orientation. Nearby EVOS
+microscope images and an assembly illustration are not calibrated orientation
+evidence for this PIV sequence. A straight hydrodynamic axis is therefore fitted
+to subgrid maxima of the laboratory mean vertical component over
+$y=5.0504$--$21.9992\,$mm
+(199 native planes; 9--16
+nodes across each connected half-maximum lobe). No field smoothing is applied.
+The fitted axis leans $5.259018^\circ$ right of laboratory vertical;
+RMS and maximum absolute horizontal residuals are 0.0326113
+and 0.0790231 mm. Fits over alternative intervals span
+4.8645--5.4316 degrees. This sensitivity is not a confidence
+interval, and the estimate does not establish that curvature or asymmetry is caused
+solely by mounting tilt.
+
+The reference point $(x_r,y_r)=(14.9679,5.0504)\,$mm lies on
+the fitted axis within the fitting interval; it is not the atomiser surface.
+With $\theta=5.2590179^\circ$,
+\begin{align}
+Q&=\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix},\\
+\begin{pmatrix}n_p\\s_p\end{pmatrix}&=Q\left(\begin{pmatrix}x\\y\end{pmatrix}-
+\begin{pmatrix}x_r\\y_r\end{pmatrix}\right),\qquad
+\begin{pmatrix}u_p\\v_p\end{pmatrix}=Q\begin{pmatrix}u\\v\end{pmatrix}.
+\end{align}
+$s_p$ is plume-aligned axial distance, not laboratory vertical. The rotated native
+grid is plotted directly without resampling. One rigid transform retains curvature,
+asymmetry and transverse motion; no row-dependent recentering or symmetry operation
+is applied. Velocity magnitudes are preserved. Covariance is transformed as
+$C_p=QCQ^T$, and RMS follows its diagonal. Gravity is saved as $Q(0,-g)^T$ for
+future modelling. This coordinate change does not simulate physical remounting.
+
+The fitted-axis profile samples $n_p=0$, a different spatial line from the original
+fixed-column profile, which is preserved separately. Axis and transverse sections
+use finite-corner bilinear interpolation only within original measured support;
+missing values and boundaries are not extrapolated. Transverse stations have
+fixed $s_p$, rather than independent local centres. Half-width asymmetry and
+nonzero transverse velocities remain descriptive measured features; subgrid fit
+residuals are not interpreted as instrumental accuracy. Original SI calibration,
+sample populations and saved experimental results are unchanged. Interaction
+predictions are paused and no interaction station is selected here.

@@ -1,0 +1,19 @@
+{
+  "statistics_path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\data\\statistics.npz",
+  "statistics_sha256": "c7e701c027a25ad4d2d4c75b9b5c9c5b6cfe869c68f3ecac28cdbc093a2010c9",
+  "processing_configuration": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\config\\analysis.json",
+  "processing_configuration_sha256": "935f93f10b9937066c581c76a2bc4f2e367cc2f3d8b3dd171f175639a1db797c",
+  "physical_calibration": "5.35 um/pixel, 25 us, 0.214 m/s per pixel/pair already applied; no recalibration",
+  "component_source": "Saved mean_u horizontal/right, mean_v laboratory vertical/up; rotation uses both components",
+  "sample_population": "Original finite-pair us/vs population unchanged; N copied, no flag reclassification",
+  "covariance_source": "Saved variance_u, variance_v and covariance, population denominator N",
+  "original_image_inspection": "RAW_data has HDF5 only. Nearby Atomiser images/VMARF TIFF metadata identifies EVOS microscope and 0.619 um/pixel, not the linked PIV 5.35 um/pixel image sequence. Assembly.png is an illustration, not acquisition-angle evidence.",
+  "reusable_code": {
+    "PZT_Atomiser_Analysis\\analysis\\plume_alignment.py": "353b04ecbf316ed0dd23006bbfdea89bb5bbbe28de0567a127f28b4025ec75f5",
+    "PZT_Atomiser_Analysis\\analysis\\plume_alignment_complete.py": "5b832df8b2bac3e5f5ae149f99defe169f04b69b1f88b0aae8ed841d3c1734e3",
+    "PZT_Atomiser_Analysis\\analysis\\plume_alignment_report.py": "4db267ae103ea1ec308e6b56aefe12ad4dad9761f5d02abaf4959c8d60160d54",
+    "PZT_Atomiser_Analysis\\analysis\\update_plume_aligned_notebook.py": "8a60bf999740e3c26e7d9eeb2d3e98687d9f379337c93a089cbb1f950adbfa23",
+    "PZT_Atomiser_Analysis\\analysis\\verify_plume_aligned.py": "a4eb564481f5b9de8c0f62ebde12c9b0d81c5dab260a19874be81cea1df84704"
+  },
+  "alignment_configuration_sha256": "0af6f27b3b46882812f69a9c29db18ad5d94814274b18c76e35ca7e2cb0d8f06"
+}

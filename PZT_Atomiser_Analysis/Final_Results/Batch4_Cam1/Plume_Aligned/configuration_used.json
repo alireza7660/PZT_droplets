@@ -36,24 +36,31 @@
   "minimum_finite_pair_count": 2,
   "minimum_positive_peak_m_s": 0.5,
   "minimum_connected_halfmax_native_nodes": 7,
-  "reference_point": "Fitted axis at the lowest accepted native y plane in the primary fit interval; analysis reference, not atomiser surface",
-  "transverse_stations_plume_s_mm": [
-    0.0,
-    5.0,
-    10.0,
-    15.0,
-    20.0
+  "reference_point": "Fitted axis at lowest supported laboratory-y measurement plane; measurement reference plane, not atomiser surface",
+  "transverse_stations_plume_y_mm": [
+    2,
+    5,
+    10,
+    15,
+    20,
+    25
   ],
   "gravity_lab_m_s2": [
     0.0,
     -9.80665
   ],
   "frame_symbols": {
-    "transverse": "n_p",
-    "axial": "s_p",
+    "transverse": "x_p",
+    "axial": "y_p",
     "transverse_velocity": "u_p",
     "axial_velocity": "v_p"
   },
   "resampling_policy": "Rotate the native grid and all components directly; only line/section extraction uses four-finite-corner bilinear interpolation in the original rectangular grid, with no extrapolation",
-  "interpretation": "Straight hydrodynamic-axis estimate, not independently verified mounting angle; curvature and asymmetry retained"
+  "interpretation": "Straight hydrodynamic-axis estimate, not independently verified mounting angle; curvature and asymmetry retained",
+  "report_crop": {
+    "method": "Symmetric width covering extracted half-maximum lobes at every supported height plus 2 mm margin; round half-width upward to 0.5 mm. Maximise axial interval with all four rectangle corners inside native domain. Internal masks retained.",
+    "halfmax_margin_mm": 2,
+    "half_width_rounding_mm": 0.5,
+    "presentation": "Principal corrected contours use the same supported rectangular actual axes limits, symmetric about x_p=0, with equal physical aspect and autoscaling disabled. Uncropped native data are preserved; full-window plots are diagnostic references only."
+  }
 }

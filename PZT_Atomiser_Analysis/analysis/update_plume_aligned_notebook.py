@@ -37,7 +37,7 @@ sys.path.insert(0,str(root))
 output=root/'PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1'
 ''')
     mini=nb.v4.new_notebook(cells=[setup,cells[1]])
-    runtime=evidence/'jupyter_runtime';runtime.mkdir(exist_ok=True);os.environ['JUPYTER_RUNTIME_DIR']=str(runtime)
+    runtime=PROJECT/'notebooks/.alignment_runtime';runtime.mkdir(exist_ok=True);os.environ['JUPYTER_RUNTIME_DIR']=str(runtime)
     if sys.platform=='win32':asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     manager=KernelSpecManager();spec=manager.get_kernel_spec('python3');spec.argv=[sys.executable,'-m','ipykernel_launcher','-f','{connection_file}'];manager.get_kernel_spec=lambda name:spec
     client=NotebookClient(mini,timeout=600,resources={'metadata':{'path':str(ROOT)}})
@@ -46,8 +46,11 @@ output=root/'PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1'
     assert signature(preserved(book))==original
     nb.write(book,target);shutil.copy2(target,PROJECT/'notebooks/Spatial_maps.ipynb')
     shutil.copy2(target,PROJECT/'Final_Results/Batch4_Cam1/methods/PZT_final_analysis.ipynb')
+    evidence.mkdir(parents=True,exist_ok=True)
     json_out(evidence/'notebook_preservation.json',dict(original_noninteraction_cells_sha256=original,unchanged=True,
         executed_only='plume_alignment.run',interaction_predictions_run=False,previous_interaction_displays_preserved_separately=True))
+    from .verify_plume_aligned import verify_outputs
+    verify_outputs(out)
     print('Executed measured plume alignment only; interaction predictions remain paused.')
 
 

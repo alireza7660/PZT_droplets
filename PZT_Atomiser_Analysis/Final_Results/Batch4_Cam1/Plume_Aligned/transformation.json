@@ -142,11 +142,11 @@
     ]
   ],
   "reference_point_lab_mm": [
-    14.967899995886023,
-    5.0504
+    14.510910931194696,
+    0.0856
   ],
-  "reference_description": "Fitted-axis intersection with lowest accepted native y in primary interval; not atomiser surface",
-  "formulas": "[n_p,s_p]=Q*([x_lab,y_lab]-reference); [u_p,v_p]=Q*[u_lab,v_lab]; C_p=Q*C_lab*Q^T",
+  "reference_description": "Fitted-axis intersection with lowest supported laboratory-y measurement plane; measurement reference plane, not atomiser surface",
+  "formulas": "[x_p,y_p]=Q*([x_lab,y_lab]-reference); [u_p,v_p]=Q*[u_lab,v_lab]; C_p=Q*C_lab*Q^T",
   "gravity_lab_m_s2": [
     0.0,
     -9.80665
@@ -155,14 +155,64 @@
     0.898861356725992,
     -9.765369039820497
   ],
-  "axial_label": "s_p: plume-aligned axial, not laboratory vertical",
-  "frame_interpretation": "Coordinate representation of the measured flow only; no claim of identical flow after physical remounting",
-  "coordinates_resampled_for_contours": false,
-  "profile_interpolation": "Four-finite-corner bilinear samples on fixed straight axis and fixed s_p cuts, no extrapolation",
-  "original_fixed_column_profile_preserved": true,
-  "image_evidence": "Nearby EVOS microscope TIFFs and assembly illustration do not establish orientation for this PIV acquisition; see validation/image_inventory.json",
+  "axial_label": "y_p: plume-aligned axial, not laboratory vertical",
   "coordinate_units": "mm",
   "velocity_units": "m s^-1",
   "variance_covariance_units": "m^2 s^-2",
-  "N_meaning": "Original finite paired image-field sample count, not droplet concentration"
+  "N_meaning": "Original finite paired image-field sample count, not droplet concentration",
+  "frame_interpretation": "Coordinate representation of the measured flow only; no claim of identical flow after physical remounting",
+  "coordinates_resampled_for_contours": false,
+  "profile_interpolation": "Four-finite-corner bilinear samples on fixed straight axis and fixed y_p cuts, no extrapolation",
+  "original_fixed_column_profile_preserved": true,
+  "image_evidence": "Nearby EVOS microscope TIFFs and assembly illustration do not establish orientation for this PIV acquisition; see validation/image_inventory.json",
+  "report_crop": {
+    "x_p_bounds_mm": [
+      -5.5,
+      5.5
+    ],
+    "y_p_bounds_mm": [
+      0.5062519851358152,
+      26.829617988796766
+    ],
+    "lab_corners_mm": [
+      [
+        9.080465328179564,
+        1.0938418485401142
+      ],
+      [
+        20.034160977358997,
+        0.08559999999999998
+      ],
+      [
+        11.493221619027667,
+        27.306399999999996
+      ],
+      [
+        22.4469172682071,
+        26.298158151459884
+      ]
+    ],
+    "method": "Symmetric width covering extracted half-maximum lobes at every supported height plus 2 mm margin; round half-width upward to 0.5 mm. Maximise axial interval with all four rectangle corners inside native domain. Internal masks retained.",
+    "extracted_halfmax_max_radius_mm": 3.4823009999181345,
+    "internal_masks_preserved": true,
+    "full_support_y_p_bounds_mm": [
+      -1.3148446136989376,
+      28.27069149843326
+    ],
+    "retained_axial_fraction": 0.8897376712692551,
+    "retained_fitted_axis_fraction": 0.9629606092201508,
+    "excluded_axial_mm": 3.2621701084712456,
+    "native_node_fraction_inside_crop": 0.38702978056426335,
+    "note": "Report axes clip native contour polygons; native arrays are never cropped or resampled. Rectangle corners inside lab domain do not fill internal invalid masks."
+  },
+  "inverse_position_formula": "[x_lab,y_lab]=Q^T*[x_p,y_p]+reference",
+  "inverse_velocity_formula": "[u_lab,v_lab]=Q^T*[u_p,v_p]",
+  "station_y_p_mm": [
+    2,
+    5,
+    10,
+    15,
+    20,
+    25
+  ]
 }

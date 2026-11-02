@@ -1,0 +1,14 @@
+{
+  "orthonormal_and_det_plus_one": true,
+  "position_inverse_verified": true,
+  "velocity_inverse_verified": true,
+  "maximum_velocity_magnitude_difference_m_s": 4.440892098500626e-16,
+  "covariance_tensor_inverse_and_eigenvalues_verified": true,
+  "RMS_derived_from_rotated_covariance": true,
+  "original_population_and_masks_preserved": true,
+  "no_native_grid_resampling": true,
+  "outside_profile_samples_remain_missing": true,
+  "transformed_gravity_verified": true,
+  "interaction_predictions_run": false,
+  "protected_files_hash_verified": 314
+}

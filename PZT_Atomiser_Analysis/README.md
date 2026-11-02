@@ -125,7 +125,7 @@ Configure the fitting interval and section stations in `config/plume_alignment.j
 `transformation.json` documents angle, reference, matrix/inverse, gravity and
 interval sensitivity; `data/extracted_centres.csv` records fitted centre residuals.
 The origin is a measured-region analysis reference, not the atomiser surface.
-The aligned axial coordinate s_p follows the plume and is not laboratory vertical.
+The aligned axial coordinate y_p follows the plume and is not laboratory vertical.
 Curvature, asymmetry and nonzero transverse velocity remain.
 
 The active notebook shows only measured plume alignment at this stage. Previous
@@ -135,3 +135,5 @@ the previous Combined_Flow_Prediction numerical results and figures remain uncha
 entry points; no interaction prediction or new interaction station is computed.
 This coordinate transformation does not assert that physically remounting the
 atomiser would reproduce the same flow. Original calibrated PZT data remain unchanged.
+
+The completed aligned package uses x_p/y_p and a measurement-plane origin at the lowest supported laboratory height. Principal PDF/SVG/600-dpi PNG figures are under Plume_Aligned/figures/report; full native support is under diagnostics/full_support; before/after and count/fit diagnostics are under diagnostics/figures. Superseded generated packages are archived under Plume_Aligned/Archive. See its README and transformation.json for exact crop bounds and inverse mapping.

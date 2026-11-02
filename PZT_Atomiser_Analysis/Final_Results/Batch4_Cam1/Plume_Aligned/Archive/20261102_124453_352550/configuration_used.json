@@ -1,0 +1,65 @@
+{
+  "statistics": "PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1/data/statistics.npz",
+  "source_configuration": "PZT_Atomiser_Analysis/config/analysis.json",
+  "output": "PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1/Plume_Aligned",
+  "axis_method": "One three-point quadratic subgrid maximum of laboratory mean_v per native y plane; unweighted straight-line least squares of x_c against y",
+  "fit_interval_lab_y_mm": [
+    5.0,
+    22.0
+  ],
+  "sensitivity_intervals_lab_y_mm": [
+    [
+      2.0,
+      15.0
+    ],
+    [
+      5.0,
+      18.0
+    ],
+    [
+      5.0,
+      22.0
+    ],
+    [
+      8.0,
+      24.0
+    ],
+    [
+      10.0,
+      26.0
+    ],
+    [
+      5.0,
+      25.0
+    ]
+  ],
+  "minimum_finite_pair_count": 2,
+  "minimum_positive_peak_m_s": 0.5,
+  "minimum_connected_halfmax_native_nodes": 7,
+  "reference_point": "Fitted axis at lowest supported laboratory-y measurement plane; measurement reference plane, not atomiser surface",
+  "transverse_stations_plume_y_mm": [
+    2,
+    5,
+    10,
+    15,
+    20,
+    25
+  ],
+  "gravity_lab_m_s2": [
+    0.0,
+    -9.80665
+  ],
+  "frame_symbols": {
+    "transverse": "x_p",
+    "axial": "y_p",
+    "transverse_velocity": "u_p",
+    "axial_velocity": "v_p"
+  },
+  "resampling_policy": "Rotate the native grid and all components directly; only line/section extraction uses four-finite-corner bilinear interpolation in the original rectangular grid, with no extrapolation",
+  "interpretation": "Straight hydrodynamic-axis estimate, not independently verified mounting angle; curvature and asymmetry retained",
+  "report_crop": {
+    "method": "Symmetric width covering extracted half-maximum lobes at every supported height plus 2 mm margin; round half-width upward to 0.5 mm. Maximise axial interval with all four rectangle corners inside native domain. Internal masks retained.",
+    "halfmax_margin_mm": 2,
+    "half_width_rounding_mm": 0.5
+  }
+}

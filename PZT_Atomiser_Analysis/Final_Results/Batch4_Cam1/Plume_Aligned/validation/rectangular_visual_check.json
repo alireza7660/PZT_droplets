@@ -1,0 +1,12 @@
+{
+  "checked": "Regenerated report maps and mean axial contour preview",
+  "findings": "Upright fitted axis at x_p=0; rectangular plot bounds; no exterior triangular white margins; internal measured asymmetry retained.",
+  "report_bounds_mm": [
+    -5.5,
+    5.5,
+    0.5062519851358152,
+    26.829617988796766
+  ],
+  "full_native_data_preserved": true,
+  "interaction_predictions_run": false
+}

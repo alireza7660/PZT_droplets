@@ -1,0 +1,17 @@
+{
+  "rectangle_actual_limits_verified_in_contours": 12,
+  "rectangle_entire_perimeter_in_measured_domain": true,
+  "figure_count": 38,
+  "report_figures": 18,
+  "full_support_figures": 15,
+  "diagnostic_figures": 5,
+  "all_PDF_SVG_600dpi_PNG_exports_verified": true,
+  "protected_files_unchanged": 314,
+  "measurement_plane_origin_verified": true,
+  "axis_profile_CSV_NPZ_source_and_plot_agree": true,
+  "finite_profile_sample_count": 319,
+  "internal_gap_and_outside_support_tests_pass": true,
+  "report_full_support_limits_identical": true,
+  "original_column_profile_byte_identical": true,
+  "interaction_predictions_run": false
+}

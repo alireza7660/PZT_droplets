@@ -1,14 +1,461 @@
 {
   "figures": [
-    "original_field_axis_fit",
-    "plume_aligned_mean_axial_velocity",
-    "plume_aligned_mean_transverse_velocity",
-    "fitted_axis_axial_velocity_profile",
-    "transverse_axial_velocity_profiles",
-    "transverse_transverse_velocity_profiles",
-    "original_vs_plume_aligned",
-    "different_profile_lines_comparison",
-    "straight_axis_residuals"
+    {
+      "stem": "mean_axial_velocity",
+      "path": "diagnostics/full_support/mean_axial_velocity.pdf",
+      "category": "full_support",
+      "caption": "Native-grid rigidly rotated field. Complete rotated measurement support; outside-domain corners remain unmeasured.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "mean_axial_velocity",
+      "path": "figures/report/mean_axial_velocity.pdf",
+      "category": "report",
+      "caption": "Native-grid rigidly rotated field. Common supported rectangular report crop.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "mean_transverse_velocity",
+      "path": "diagnostics/full_support/mean_transverse_velocity.pdf",
+      "category": "full_support",
+      "caption": "Native-grid rigidly rotated field. Complete rotated measurement support; outside-domain corners remain unmeasured.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "mean_transverse_velocity",
+      "path": "figures/report/mean_transverse_velocity.pdf",
+      "category": "report",
+      "caption": "Native-grid rigidly rotated field. Common supported rectangular report crop.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "axial_RMS",
+      "path": "diagnostics/full_support/axial_RMS.pdf",
+      "category": "full_support",
+      "caption": "Native-grid rigidly rotated field. Complete rotated measurement support; outside-domain corners remain unmeasured.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "axial_RMS",
+      "path": "figures/report/axial_RMS.pdf",
+      "category": "report",
+      "caption": "Native-grid rigidly rotated field. Common supported rectangular report crop.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "transverse_RMS",
+      "path": "diagnostics/full_support/transverse_RMS.pdf",
+      "category": "full_support",
+      "caption": "Native-grid rigidly rotated field. Complete rotated measurement support; outside-domain corners remain unmeasured.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "transverse_RMS",
+      "path": "figures/report/transverse_RMS.pdf",
+      "category": "report",
+      "caption": "Native-grid rigidly rotated field. Common supported rectangular report crop.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "axial_transverse_covariance",
+      "path": "diagnostics/full_support/axial_transverse_covariance.pdf",
+      "category": "full_support",
+      "caption": "Native-grid rigidly rotated field. Complete rotated measurement support; outside-domain corners remain unmeasured.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "axial_transverse_covariance",
+      "path": "figures/report/axial_transverse_covariance.pdf",
+      "category": "report",
+      "caption": "Native-grid rigidly rotated field. Common supported rectangular report crop.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "correlation",
+      "path": "diagnostics/full_support/correlation.pdf",
+      "category": "full_support",
+      "caption": "Native-grid rigidly rotated field. Complete rotated measurement support; outside-domain corners remain unmeasured.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "correlation",
+      "path": "figures/report/correlation.pdf",
+      "category": "report",
+      "caption": "Native-grid rigidly rotated field. Common supported rectangular report crop.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "sample_count",
+      "path": "diagnostics/figures/sample_count.pdf",
+      "category": "diagnostic",
+      "caption": "Native-grid rigidly rotated field. Complete rotated measurement support; outside-domain corners remain unmeasured.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "original_field_axis_fit",
+      "path": "diagnostics/figures/original_field_axis_fit.pdf",
+      "category": "diagnostic",
+      "caption": "Extracted local peak positions and one straight fitted axis; origin marks measurement reference plane, not surface.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "original_vs_plume_aligned",
+      "path": "diagnostics/figures/original_vs_plume_aligned.pdf",
+      "category": "diagnostic",
+      "caption": "Laboratory vertical and plume-aligned axial components are distinct projections of the same vectors.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "fitted_axis_axial_velocity_profile",
+      "path": "figures/report/fitted_axis_axial_velocity_profile.pdf",
+      "category": "report",
+      "caption": "Mean axial velocity along the fixed fitted axis, sampled bilinearly with four finite corners and no extrapolation. This is not the original fixed laboratory-column line.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "transverse_axial_velocity_profiles",
+      "path": "figures/report/transverse_axial_velocity_profiles.pdf",
+      "category": "report",
+      "caption": "Fixed plume-aligned axial stations measured from the measurement reference plane; full-supported section values are exported, including signed components and gaps.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "transverse_transverse_velocity_profiles",
+      "path": "figures/report/transverse_transverse_velocity_profiles.pdf",
+      "category": "report",
+      "caption": "Fixed plume-aligned axial stations measured from the measurement reference plane; full-supported section values are exported, including signed components and gaps.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "different_profile_lines_comparison",
+      "path": "diagnostics/figures/different_profile_lines_comparison.pdf",
+      "category": "diagnostic",
+      "caption": "Different spatial extraction lines; original laboratory-column exports preserved byte-for-byte under reference/.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "straight_axis_residuals",
+      "path": "diagnostics/figures/straight_axis_residuals.pdf",
+      "category": "diagnostic",
+      "caption": "Residual structure is retained; interval sensitivity is not a confidence interval.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "frame_1_transverse_velocity",
+      "path": "figures/report/frame_1_transverse_velocity.pdf",
+      "category": "report",
+      "caption": "Native-grid rigidly rotated field. Common supported rectangular report crop.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "frame_1_transverse_velocity",
+      "path": "diagnostics/full_support/frame_1_transverse_velocity.pdf",
+      "category": "full_support",
+      "caption": "Native-grid rigidly rotated field. Complete rotated measurement support; outside-domain corners remain unmeasured.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "frame_1_axial_velocity",
+      "path": "figures/report/frame_1_axial_velocity.pdf",
+      "category": "report",
+      "caption": "Native-grid rigidly rotated field. Common supported rectangular report crop.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "frame_1_axial_velocity",
+      "path": "diagnostics/full_support/frame_1_axial_velocity.pdf",
+      "category": "full_support",
+      "caption": "Native-grid rigidly rotated field. Complete rotated measurement support; outside-domain corners remain unmeasured.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "frame_1_quiver",
+      "path": "figures/report/frame_1_quiver.pdf",
+      "category": "report",
+      "caption": "Actual instantaneous rotated components; shared physical arrow scale across representative frames. Plot subsampling changes arrows displayed only, not exported native data.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "frame_1_quiver",
+      "path": "diagnostics/full_support/frame_1_quiver.pdf",
+      "category": "full_support",
+      "caption": "Actual instantaneous rotated components; shared physical arrow scale across representative frames. Plot subsampling changes arrows displayed only, not exported native data.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "frame_1757_transverse_velocity",
+      "path": "figures/report/frame_1757_transverse_velocity.pdf",
+      "category": "report",
+      "caption": "Native-grid rigidly rotated field. Common supported rectangular report crop.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "frame_1757_transverse_velocity",
+      "path": "diagnostics/full_support/frame_1757_transverse_velocity.pdf",
+      "category": "full_support",
+      "caption": "Native-grid rigidly rotated field. Complete rotated measurement support; outside-domain corners remain unmeasured.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "frame_1757_axial_velocity",
+      "path": "figures/report/frame_1757_axial_velocity.pdf",
+      "category": "report",
+      "caption": "Native-grid rigidly rotated field. Common supported rectangular report crop.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "frame_1757_axial_velocity",
+      "path": "diagnostics/full_support/frame_1757_axial_velocity.pdf",
+      "category": "full_support",
+      "caption": "Native-grid rigidly rotated field. Complete rotated measurement support; outside-domain corners remain unmeasured.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "frame_1757_quiver",
+      "path": "figures/report/frame_1757_quiver.pdf",
+      "category": "report",
+      "caption": "Actual instantaneous rotated components; shared physical arrow scale across representative frames. Plot subsampling changes arrows displayed only, not exported native data.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "frame_1757_quiver",
+      "path": "diagnostics/full_support/frame_1757_quiver.pdf",
+      "category": "full_support",
+      "caption": "Actual instantaneous rotated components; shared physical arrow scale across representative frames. Plot subsampling changes arrows displayed only, not exported native data.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "frame_879_transverse_velocity",
+      "path": "figures/report/frame_879_transverse_velocity.pdf",
+      "category": "report",
+      "caption": "Native-grid rigidly rotated field. Common supported rectangular report crop.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "frame_879_transverse_velocity",
+      "path": "diagnostics/full_support/frame_879_transverse_velocity.pdf",
+      "category": "full_support",
+      "caption": "Native-grid rigidly rotated field. Complete rotated measurement support; outside-domain corners remain unmeasured.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "frame_879_axial_velocity",
+      "path": "figures/report/frame_879_axial_velocity.pdf",
+      "category": "report",
+      "caption": "Native-grid rigidly rotated field. Common supported rectangular report crop.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "frame_879_axial_velocity",
+      "path": "diagnostics/full_support/frame_879_axial_velocity.pdf",
+      "category": "full_support",
+      "caption": "Native-grid rigidly rotated field. Complete rotated measurement support; outside-domain corners remain unmeasured.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "frame_879_quiver",
+      "path": "figures/report/frame_879_quiver.pdf",
+      "category": "report",
+      "caption": "Actual instantaneous rotated components; shared physical arrow scale across representative frames. Plot subsampling changes arrows displayed only, not exported native data.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    },
+    {
+      "stem": "frame_879_quiver",
+      "path": "diagnostics/full_support/frame_879_quiver.pdf",
+      "category": "full_support",
+      "caption": "Actual instantaneous rotated components; shared physical arrow scale across representative frames. Plot subsampling changes arrows displayed only, not exported native data.",
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "PNG_dpi": 600
+    }
   ],
   "text": [
     "README.md",

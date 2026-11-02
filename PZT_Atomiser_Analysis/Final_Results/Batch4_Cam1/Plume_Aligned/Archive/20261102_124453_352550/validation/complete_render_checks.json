@@ -1,0 +1,33 @@
+{
+  "report_crop_corners_inside_domain": true,
+  "profile_plot_arrays_verified": true,
+  "instantaneous_frames": [
+    {
+      "source": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\data\\frame_1.npz",
+      "sha256": "de637f8bec0f3a3a432048048b9261bf2c31a9afe68f8311c6066cc9e54a48a7",
+      "inverse_and_magnitude_verified": true
+    },
+    {
+      "source": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\data\\frame_1757.npz",
+      "sha256": "38c7f9e44bee8551c08ef1a85db7301f625eceeb5950da7d236c18e1258f7809",
+      "inverse_and_magnitude_verified": true
+    },
+    {
+      "source": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\data\\frame_879.npz",
+      "sha256": "cd9cb4bcfc4e17b5ce86cdb332a0f46893a9290e9b962d2df72ffbdcfa4ec854",
+      "inverse_and_magnitude_verified": true
+    }
+  ],
+  "shared_instantaneous_limits": [
+    [
+      -1.6219741464676662,
+      1.6219741464676662
+    ],
+    [
+      -5.548974329748442,
+      5.548974329748442
+    ]
+  ],
+  "no_extrapolation": true,
+  "internal_masks_retained": true
+}

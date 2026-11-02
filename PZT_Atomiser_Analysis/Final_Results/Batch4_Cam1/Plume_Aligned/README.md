@@ -1,124 +1,33 @@
-# Rigid plume-aligned measured PZT field
+# Complete plume-aligned measurement package
 
-Interaction-prediction work is paused. This package does not run a prediction,
-select an interaction station or change authoritative experimental data.
+Interaction predictions remain paused. No crossing location is selected or updated.
 
-## Orientation evidence and fitted axis
-
-RAW_data/Batch4_Cam1.h5 is the available PIV input; no linked original PIV image
-sequence or acquisition-angle record was found. Nearby Atomiser images/VMARF
-TIFFs identify an EVOS M5000 microscope, 2048x1536 pixels, about 0.619 um/pixel,
-and single microscope frames, rather than this 5.35 um/pixel PIV field. The
-assembly illustration is not an acquisition-angle measurement. See
-validation/image_inventory.json and its inspected preview. Existing processing
-uses us/vs as adopted horizontal/vertical displacements, retains their signs and
-applies 0.214 m/s per pixel/pair once before statistics. This analysis reads the
-saved SI mean/covariance fields directly and applies no calibration again.
-
-One hydrodynamic axis is estimated from the mean laboratory vertical component.
-At each native laboratory y plane a three-node concave quadratic locates the
-subgrid maximum. The connected half-maximum lobe must contain at least
-7 native nodes, its peak must exceed
-0.5 m/s, and the required paired values must be finite.
-No smoothing of the field, profile or extracted centres is applied. Fit weights
-are equal per native y plane; sample counts are not treated as independent droplet counts.
-
-The primary laboratory interval requested is [5.0, 22.0] mm;
-actual accepted y is 5.0504 to 21.9992 mm,
-with 199 centres. Half-maximum lobes span
-9--16 native nodes. OLS fits
-x_c = a + b*y, a=14.50303181 mm,
-b=0.09204581548. The axis leans **5.259018 degrees right of laboratory
-vertical**. Residual RMS is 0.03261133 mm and maximum absolute
-residual 0.07902312 mm over that interval. These are fit
-residuals of subgrid-localised flow peaks, not instrumental accuracy or independent
-sample confidence limits. Native spacings remain 0.3424 mm horizontally and
-0.0856 mm vertically; interrogation resolution is not inferred from them.
-
-Other requested intervals give angles 4.864496 to 5.431601 degrees.
-The full table is data/fit_interval_sensitivity.csv. A connected-half-maximum-lobe
-velocity-weighted centroid provides a separate estimator sensitivity check in
-transformation.json; it does not replace or recenter the data. Neither curvature
-nor asymmetry is assumed to come entirely from mounting tilt. The angle is a
-measured-flow straight-axis estimate, not an independently verified mechanical angle.
-
-The secondary estimator gives 5.232024
-degrees over the primary interval, providing a separate method sensitivity check.
-
-## One rigid frame transformation
-
-Reference point in laboratory coordinates: (x,y)=(14.9679, 5.0504) mm.
-It is the fitted axis at the lowest accepted native plane in the fitting interval,
-inside measured support. It is NOT the atomiser surface or physical outlet.
-For theta=5.25901793 degrees, Q=[[cos(theta),-sin(theta)],
-[sin(theta),cos(theta)]]. Coordinates [n_p,s_p]=Q*([x,y]-reference);
-velocities [u_p,v_p]=Q*[u,v]. n_p is transverse/right of the fitted axis and
-s_p increases along the plume. The s_p axis is PLUME-ALIGNED, not laboratory
-vertical; points below the reference legitimately have negative s_p.
-The same determinant-plus-one orthonormal matrix acts on positions and velocity
-components, preserving magnitudes. The inverse is Q transpose plus translation.
-Laboratory gravity [0,-9.80665] m/s2 becomes
-[0.898861356725992, -9.765369039820497] m/s2 in [n_p,s_p] components, saved for future models.
-No interaction model is run here. Re-expressing one measured field in this frame
-is not evidence that remounting the physical atomiser gives identical flow.
-
-Every rotated native node is retained without resampling for contour maps.
-The field is not bent; rows are not shifted independently; neither side is mirrored,
-averaged with the other or forced symmetric. Transverse velocity is not forced zero.
-The original centre positions retain nonzero n_p residuals and their curvature.
-
-## Statistics, axis profile and transverse sections
-
-The complete saved velocity covariance tensor is transformed as C_p=Q*C_lab*Q^T.
-Aligned RMS values are square roots of its diagonal, not RMS values rotated as
-vectors. Covariance/correlation and unchanged magnitude scalars are saved in
-data/statistics_plume_aligned.npz, together with native indices/support and N.
-The original finite-pair population and N remain unchanged.
-
-The main axial profile follows the SINGLE fitted straight axis n_p=0 over measured
-support, sampled at the native laboratory y planes using finite-corner bilinear
-interpolation in the original rectangular grid. This samples a different spatial
-line from the original fixed laboratory column. The original CSV and NPZ are copied
-byte-for-byte under reference/. Their original axes/units remain intact. A separate
-comparison re-expresses original fixed-column points by s_p and shows both original
-laboratory and projected axial components, separating component rotation from line
-selection. No missing values are filled and no profile is extrapolated.
-
-Transverse sections are at fixed plume-aligned stations s_p=[0.0, 5.0, 10.0, 15.0, 20.0] mm.
-Their original laboratory positions and support flags are exported. These cuts
-are perpendicular to the one fitted axis, not individually recentered profiles.
-The half-width metrics use each cut's actual peak and its first supported
-half-maximum crossings; neither side is altered to form them. Width asymmetry is
-(right_half_width-left_half_width)/(right_half_width+left_half_width).
-Transverse-profile plots show n_p between -7 and +7 mm for plume detail; full
-supported cuts are retained in CSV, and all native data remain in the contour arrays.
-
-| s_p (mm) | peak n_p (mm) | left half-width (mm) | right half-width (mm) | width asymmetry |
-|---|---|---|---|---|
-| 0 | 0 | 1.84776 | 1.29018 | -0.177691 |
-| 5 | 0 | 2.26695 | 1.60477 | -0.171029 |
-| 10 | 0 | 2.66695 | 1.92939 | -0.160467 |
-| 15 | 0 | 3.02082 | 2.28701 | -0.138251 |
-| 20 | 0 | 3.37218 | 2.72912 | -0.105398 |
-
-These differences and the retained nonzero transverse component are descriptive
-evidence of residual asymmetry in the measured representation, not a quantified
-instrumental-significance test. No mounting-only explanation, symmetry correction
-or uncertainty smaller than a grid cell is claimed from subgrid localisation.
-
-## Reproduce and inspect
-
-From the PZT_droplets workspace root:
-
+## Reproduction
+From the local PZT_droplets project root:
 ```powershell
-.\.venv\Scripts\python -m PZT_Atomiser_Analysis.analysis.update_plume_aligned_notebook
+.\.venv\Scripts\python.exe -m PZT_Atomiser_Analysis.analysis.update_plume_aligned_notebook
 ```
+This executes the alignment notebook section, rebuilds all outputs and saves the executed notebooks. Existing generated outputs are archived under Plume_Aligned/Archive/<timestamp> before replacement. Configuration: config/plume_alignment.json. Source: analysis/plume_alignment.py and analysis/plume_alignment_complete.py.
 
-Reusable code: analysis/plume_alignment.py and plume_alignment_report.py.
-Configuration: config/plume_alignment.json. The active notebook displays this
-alignment section while archived/preserved interaction displays are paused.
-report_manifest.json selects only these measurement figures; transformation.json
-contains Q, inverse, origin, gravity, fitting interval and sensitivity. Original
-source paths and calibration provenance are in source_manifest.json. Numerical
-checks verify inverse positions/vectors, velocity-magnitude preservation,
-covariance inverse/eigenvalues, finite support, N and protected file hashes.
+## Measurements and axis estimate
+Already calibrated authoritative laboratory fields are used unchanged: 5.35 micrometres/pixel, 25 microseconds, 0.214 m/s per pixel/pair. No calibration is applied here. Original finite-pair sample counts and masks are preserved. Original images linked to this PIV sequence were unavailable; previously inspected nearby EVOS microscope images and assembly illustration do not establish acquisition tilt. The archived image_inventory.json documents that inspection.
+One subgrid quadratic peak of laboratory mean_v is extracted per resolved native y row; equal-weight least squares fits x_c=a+b*y. Fit angle: 5.259017932 degrees right of laboratory vertical. Actual fit interval: 5.0504 to 21.9992 mm, 199 centres. RMS horizontal residual 0.0326113 mm; maximum absolute residual 0.0790231 mm. Interval sensitivity: 4.864496 to 5.431601 degrees. This is a hydrodynamic straight-axis estimate, not independently established mounting tilt. Residual curvature and asymmetry are not attributed entirely to mounting. Subgrid localisation does not imply corresponding instrument accuracy. Secondary half-maximum centroid fitting and interval results are recorded in transformation.json.
+
+## One rigid transformation and measurement reference
+Origin in laboratory coordinates: (14.510910931, 0.085600000) mm, the fitted-axis intersection with the lowest supported laboratory-y measurement plane. It is the measurement reference plane, not the physical atomiser surface. x_p is transverse, y_p increases along the plume; y_p is not laboratory vertical.
+Position p_p=Q(p_lab-p_ref); velocity w_p=Q*w_lab; covariance C_p=Q*C_lab*Q^T. Inverse p_lab=Q^T*p_p+p_ref and w_lab=Q^T*w_p. Q and its inverse, original lab coordinates, calibrated lab source paths and transformed gravity [0.898861356725992, -9.765369039820497] m/s^2 are exported. RMS values are square roots of rotated tensor diagonal entries, never rotated as a vector. No rows are shifted independently, mirrored, averaged or symmetrised; nonzero transverse velocity and actual curvature remain. This representation does not establish what physical remounting would produce.
+
+## Native support and report window
+Principal standalone corrected maps, all using identical actual rectangular plot limits: figures/report/. Uncropped native-grid plots are diagnostic references only: diagnostics/full_support/. Before/after, fit, residuals, sample counts and original-column comparisons: diagnostics/figures/.
+Report x_p bounds [-5.5, 5.5] mm; y_p bounds [0.5062519851358152, 26.829617988796766] mm. Width covers all extracted half-maximum lobes plus the configured margin, rounded upward; given this width, the longest axial interval with all four corners in measured laboratory support is retained. Retained axial span 96.296% of the fitted-axis measured span and 88.974% of full rotated bounding-box vertical extent; excluded 3.262170 mm. Native nodes inside the report rectangle: 38.70%. This node fraction includes deliberate lateral crop, not data rejection. All native nodes remain exported and shown in full-support maps. Report windows clip contour polygons; no window stretching, missing-corner filling or extrapolation occurs. Internal missing-data masks are preserved (corner_mask=False). Spatial aspect ratio is equal and transverse display bounds symmetric. Signed maps use symmetric linear blue-white-red normalization with uniformly spaced levels; matching full/report maps share limits, instantaneous components share limits across all selected frames. RMS starts at zero; correlation spans [-1,1].
+
+## Profiles and instantaneous measurements
+The fitted-axis profile samples the fixed straight x_p=0 line at native laboratory y planes, using four-finite-corner bilinear interpolation without extrapolation. It differs from the original fixed laboratory-column line, whose original exports are copied byte-for-byte to reference/. Transverse cuts are fixed y_p stations [2, 5, 10, 15, 20, 25] mm; source lab positions, signed components and finite support are saved. Full section values are exported even where the report display clips lateral tails. No smoothing or adjacent-column averaging is used.
+Selected saved instantaneous frames are discovered from original data/frame_*.npz (currently 1, 879, 1757). Actual already-calibrated u/v arrays are rotated, not reconstructed from means. Both component maps and separate quivers are exported in full support and report form. Quivers subsample displayed arrows only and share a physical scale.
+
+## Verification and retained asymmetry
+Inverse position/vector transforms, vector-magnitude preservation, covariance inverse/trace/eigenvalues, unchanged native N and masks, outside-support sampling, and direct profile-plot/export agreement are checked. Original laboratory numerical data and figures are protected by SHA256 comparisons. Instantaneous inverse/magnitude/mask checks are recorded separately. No interaction integration is run.
+Station metrics in data/transverse_profile_metrics.csv retain left/right half-width differences; genuine asymmetry and nonzero transverse velocity remain. These descriptive differences are not a formal statistical significance test.
+
+## Outputs
+38 separate figures, each PDF, SVG and 600-dpi PNG. report_manifest.json enumerates exact paths and captions; numerical native grids, original lab coordinates, profiles, full tensors, instantaneous arrays, support and transformations are in data/ and transformation.json.

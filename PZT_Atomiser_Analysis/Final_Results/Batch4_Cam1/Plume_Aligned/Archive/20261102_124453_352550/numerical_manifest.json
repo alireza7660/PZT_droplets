@@ -1,0 +1,160 @@
+{
+  "files": [
+    {
+      "path": "data/diagnostic_sample_count_plot.npz",
+      "sha256": "1aae7108f9e5516b75dee817dda19bbb429323bf568700cac32203273e255a7a"
+    },
+    {
+      "path": "data/extracted_centres.csv",
+      "sha256": "5f7e9edaecffba782fcc8ee576fff319403e39126a8db6cce4019a81558e118d"
+    },
+    {
+      "path": "data/fit_interval_sensitivity.csv",
+      "sha256": "edf5b5e642ae49ec3aa44fca8a142ae384d7bfa0f8dda8b5bf12265e18337aad"
+    },
+    {
+      "path": "data/fitted_axis_axial_profile.csv",
+      "sha256": "0c4187b6f9efa0f9245765f911eaa255604204fed494342b994ea234a6a2dd42"
+    },
+    {
+      "path": "data/fitted_axis_axial_profile.npz",
+      "sha256": "b1e9f247fd468bafcca31b1f227ffc0a9e7ae78cfa4e87c688785761fbbda176"
+    },
+    {
+      "path": "data/frame_1757_plume_aligned.npz",
+      "sha256": "eea21a98f77aa9d4d260a0c8270ce64625f2007567d2c4dfb1deb47af538fcba"
+    },
+    {
+      "path": "data/frame_1_plume_aligned.npz",
+      "sha256": "b4ecdfd0c8c115d5e773b44e71400687c3daa0e1baf576dd60f86d2cf146fddf"
+    },
+    {
+      "path": "data/frame_879_plume_aligned.npz",
+      "sha256": "9c4c74a1735c55e958f9360f712483e064610e185fc2f881eaaf6918680206d6"
+    },
+    {
+      "path": "data/full_support_axial_RMS_plot.npz",
+      "sha256": "aca76790833499b147dcf6f3e8d405cc5dddffd5349c2fe2f9baf130af4062fb"
+    },
+    {
+      "path": "data/full_support_axial_transverse_covariance_plot.npz",
+      "sha256": "3763790c445fd6d65660db9448f15bc235a7b3e8938db694092401d5e1c1983c"
+    },
+    {
+      "path": "data/full_support_correlation_plot.npz",
+      "sha256": "115326f6625999328d5c0b930e6c4d24374bbb9be080462268e4d2845a4bf4fb"
+    },
+    {
+      "path": "data/full_support_frame_1757_axial_velocity_plot.npz",
+      "sha256": "592c0d34cdd66bc6ac889eba1c3999e338e057e39dcff96afca4a5c510b8f9bd"
+    },
+    {
+      "path": "data/full_support_frame_1757_transverse_velocity_plot.npz",
+      "sha256": "7a7f16d6bbf7ee9e663ac206e1dbda966e6afcc9b436e56c48aac5dc6b0608db"
+    },
+    {
+      "path": "data/full_support_frame_1_axial_velocity_plot.npz",
+      "sha256": "aeee01c7ff745e071c3829c5f4924bf36c30dc61642d74eae8a78c20183d7b6d"
+    },
+    {
+      "path": "data/full_support_frame_1_transverse_velocity_plot.npz",
+      "sha256": "036fe53460b76ffb096beebc4ad1c582e8cacd90f39a2bc8ed465b194d066c16"
+    },
+    {
+      "path": "data/full_support_frame_879_axial_velocity_plot.npz",
+      "sha256": "1d89b997887074d54af130af883f0761b5769477b831b4b71e8be21938af5968"
+    },
+    {
+      "path": "data/full_support_frame_879_transverse_velocity_plot.npz",
+      "sha256": "180ab18437fc476821cb411e8d5934b281cd1c301b867d84a56b332be3ef9461"
+    },
+    {
+      "path": "data/full_support_mean_axial_velocity_plot.npz",
+      "sha256": "f8f53bf7343d4ffdbb11f9787e62ba5a372d03605de3f50899f1e44f6cb4bdf6"
+    },
+    {
+      "path": "data/full_support_mean_transverse_velocity_plot.npz",
+      "sha256": "23fb0263df08788ec154eaa8c3b09927d50e9cc199d745f29f2e5731c9a1a9c6"
+    },
+    {
+      "path": "data/full_support_transverse_RMS_plot.npz",
+      "sha256": "40b0b78f3503a320af8cbb98f53b5b565bf7427c348d27bd70b7f587bb801b16"
+    },
+    {
+      "path": "data/original_fixed_column_in_aligned_coordinates.csv",
+      "sha256": "eb05709cc38b4d113ffd389b0fcc4a6ba85111611645757a505112ab083183d5"
+    },
+    {
+      "path": "data/plume_aligned_mean_fields.csv",
+      "sha256": "5fecb5304b169126a5efed45c6f90245fd746eacd22dfb70b1c6a86af1fe29d3"
+    },
+    {
+      "path": "data/report_axial_RMS_plot.npz",
+      "sha256": "a400d264e0d6f71fd4e586571e031958a5d7a102d1f1572c11735ab1164caf5f"
+    },
+    {
+      "path": "data/report_axial_transverse_covariance_plot.npz",
+      "sha256": "2fe0321e5fec8af29ec5490d94b350deabb8aee1eac1bf41590757fd50ef6c0e"
+    },
+    {
+      "path": "data/report_correlation_plot.npz",
+      "sha256": "98246f56df2d57bda2e90595bbae33e96374e8bed034c682dc75b2420169d1a7"
+    },
+    {
+      "path": "data/report_crop_support.npz",
+      "sha256": "51678bfe6cc3bbb291d76f4dd9cf8be1c1c6316f34261afef1a7b5ffedab6c75"
+    },
+    {
+      "path": "data/report_fitted_axis_axial_velocity_profile_plot.npz",
+      "sha256": "b1e9f247fd468bafcca31b1f227ffc0a9e7ae78cfa4e87c688785761fbbda176"
+    },
+    {
+      "path": "data/report_frame_1757_axial_velocity_plot.npz",
+      "sha256": "dcfad83adc80e113035270a2e7ce9e1447dbcc940b5572edabfbb2ee18081813"
+    },
+    {
+      "path": "data/report_frame_1757_transverse_velocity_plot.npz",
+      "sha256": "c0737bfb80b8b5f85cc6961086a556b4a30e2d7953a73aa99395da0996af76db"
+    },
+    {
+      "path": "data/report_frame_1_axial_velocity_plot.npz",
+      "sha256": "8cfd8a682eb9e8a66fa18ce79a36f28c1799272b2b6c89724a24e36abc19443c"
+    },
+    {
+      "path": "data/report_frame_1_transverse_velocity_plot.npz",
+      "sha256": "a3fdfb1436f5ac8e608a75565edc2f73467679ae1f03b36c532c71d31f39015b"
+    },
+    {
+      "path": "data/report_frame_879_axial_velocity_plot.npz",
+      "sha256": "d690c5f735bea65398c376da38fc0937f9ec89a8a80d069f3e7d8e3676cf3993"
+    },
+    {
+      "path": "data/report_frame_879_transverse_velocity_plot.npz",
+      "sha256": "0b6c33a363f4fd874f03d1f2fffbac45abfa97ce9726ed02b2a7a447a6c37841"
+    },
+    {
+      "path": "data/report_mean_axial_velocity_plot.npz",
+      "sha256": "634b0993b768657a854bbfa87291d8b44ae2c05ad3e9bd4ed0f6c11aef565eea"
+    },
+    {
+      "path": "data/report_mean_transverse_velocity_plot.npz",
+      "sha256": "2774ffec8a4f9b547a91631533af610af019e888dcb69b2a7529ab13054c8573"
+    },
+    {
+      "path": "data/report_transverse_RMS_plot.npz",
+      "sha256": "c82256a4be4d2b71f85c7ddf515968ce0a305d2212f917efd390f4af33393109"
+    },
+    {
+      "path": "data/statistics_plume_aligned.npz",
+      "sha256": "3b23b022fd0ae0ced8b1e2eb423624fd8b29e01b035828a1fc1c73d5480104e9"
+    },
+    {
+      "path": "data/transverse_profile_metrics.csv",
+      "sha256": "19444170c434f36967c184815e90c8db07710af3d15c9e75657bdbb5279d035e"
+    },
+    {
+      "path": "data/transverse_profiles.csv",
+      "sha256": "6593b52518449209d55eb012c50cfe907f429359e14b8b5506788fa51aa76f54"
+    }
+  ]
+}
