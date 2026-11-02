@@ -1,0 +1,21 @@
+{
+  "restored_count": 12,
+  "already_identical_count": 69,
+  "conflicts_not_overwritten": [],
+  "restored_files": [
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\For me\\mean_axial_velocity_comparison.png",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\config\\theory_comparison.json",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\theory_comparison.py",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\theory_package.py",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\theory_report.py",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\verify_theory_comparison.py",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\update_theory_notebook.py",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\__pycache__\\theory_comparison.cpython-312.pyc",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\__pycache__\\theory_package.cpython-312.pyc",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\__pycache__\\theory_report.cpython-312.pyc",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\__pycache__\\update_theory_notebook.cpython-312.pyc",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\__pycache__\\verify_theory_comparison.cpython-312.pyc"
+  ],
+  "archive_original_records_hash_verified": 84,
+  "operation": "Copied archived moved files back to original paths; archive preserved; no current files overwritten; no analysis run"
+}

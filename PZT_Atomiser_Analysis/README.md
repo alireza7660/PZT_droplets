@@ -146,3 +146,5 @@ common-interval comparison and report figures. No combined experiment or
 collection efficiency is inferred.
 
 The current co-directed package includes an explicit vector drag/effective-gravity force balance, RK4 impulse budgets and an independent saved-force quadrature check. The original seven candidate starts are audited at the measured base plane; only supported locations are retained as unweighted sensitivities; initial_condition_coverage documents their limited entry-plane coverage. See Report_Files/Co_Directed_links.md for the active force, momentum and coverage figures.
+
+Important reference packages restored unchanged to their original locations: ../Jet_PZT_Comparison/ (measured profile comparison), Final_Results/Batch4_Cam1/Theory_Comparison/ (previous theory/reference analyses), and their original theory configuration and analysis modules. They are preserved reference work; the active current prediction remains Combined_Flow_Prediction/Co_Directed. The 09:57 archive is retained intact. Restoration verification: diagnostics/reference_restoration_receipt.json.
