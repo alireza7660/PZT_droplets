@@ -1,22 +1,22 @@
 {
   "entry_droplet_v_p_m_s": {
     "previous": 1.039291013565735,
-    "current": 1.039291013565735,
-    "difference": 0.0
+    "current": 1.6576967192474044,
+    "difference": 0.6184057056816694
   },
   "end_droplet_v_p_m_s": {
     "previous": 2.052240144112171,
-    "current": 2.052240144112171,
-    "difference": 0.0
+    "current": 2.2826740400462255,
+    "difference": 0.2304338959340546
   },
   "transit_time_ms": {
     "previous": 11.168828703014185,
-    "current": 11.168828703014185,
-    "difference": 0.0
+    "current": 17.834535029974255,
+    "difference": 6.66570632696007
   },
   "lateral_displacement_mm": {
     "previous": -1.4495916568861102,
-    "current": -1.4495916568861102,
-    "difference": 0.0
+    "current": -1.3639492793707142,
+    "difference": 0.08564237751539605
   }
 }

@@ -1,0 +1,27 @@
+{
+  "zero_slip_drag_zero": true,
+  "Re_uses_vector_slip_not_particle_velocity": true,
+  "drag_parallel_to_slip": true,
+  "faster_particle_drag_decelerates_axially": true,
+  "faster_gas_drag_accelerates_axially": true,
+  "upward_drag_below_effective_weight_gives_downward_net_acceleration": true,
+  "analytical_Stokes_constant_gas_2D_position_and_velocity_pass": true,
+  "analytical_solution": "v=ug+tau*g_eff+(v0-ug-tau*g_eff)*exp(-t/tau); r=r0+(ug+tau*g_eff)*t+tau*(v0-ug-tau*g_eff)*(1-exp(-t/tau))",
+  "analytical_checks": [
+    {
+      "step_scale": 1.0,
+      "max_position_error_m": 3.4694063208419256e-16,
+      "max_velocity_error_m_s": 1.134441173812617e-12,
+      "max_Re_p": 0.0019804898314855473,
+      "termination": "maximum_time"
+    },
+    {
+      "step_scale": 0.5,
+      "max_position_error_m": 2.150360557961022e-17,
+      "max_velocity_error_m_s": 7.031479348426628e-14,
+      "max_Re_p": 0.0019804898315474093,
+      "termination": "maximum_time"
+    }
+  ],
+  "existing_piecewise_drag_model_retained": true
+}

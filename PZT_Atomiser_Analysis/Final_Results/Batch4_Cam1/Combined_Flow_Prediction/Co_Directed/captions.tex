@@ -1,35 +1,38 @@
 % source_comparison_reproduced
-\caption{Corrected measured profiles retain the original pairing of ZNMF downstream distance with laboratory PZT height. Both source-pair coordinates are displayed in plume-axis units using the saved transform. The crossing is calculated only within adjacent finite support; the entry is a subsequent native gas station with actual sampled gas faster than the local PZT axis value. This source-pair mapping is not a spatial stretch of the gas used for integration.}
+\caption{Placement comparison: h=0 is the first valid measured PZT axis point, not a physical atomiser surface. The developing-branch jet station with interpolated centreline Uc=0.96 m/s is placed at h=0; Xj=x\_j0+h. A crossing of these curves is not used to select the entrance.}
 
 % measured_and_predicted_axial_comparison
-\caption{Reference prediction, measured PZT-only ensemble-axis baseline, measured gas centreline under one rigid placement, and actual gas sampled along the reference path. All are compared over the same supported ascending interval. The PZT ensemble profile is not an individual-droplet trajectory; the gas centreline is not necessarily the gas encountered by a laterally moving droplet.}
+\caption{Reference droplet starts with measured near-base components, initially faster axially than the local gas. The later path is integrated from vector drag and effective gravity. The measured PZT-only ensemble profile is a comparison, never an imposed path. Zero axial slip is distinct from zero net acceleration and from zero vector slip. All main comparisons use the same supported h interval.}
+
+% reference_entry_response
+\caption{Reference droplet starts with measured near-base components, initially faster axially than the local gas. The later path is integrated from vector drag and effective gravity. The measured PZT-only ensemble profile is a comparison, never an imposed path. Zero axial slip is distinct from zero net acceleration and from zero vector slip. All main comparisons use the same supported h interval.}
 
 % trajectories_upward_jet
-\caption{Conditional trajectories begin with both locally measured PZT components on the supported entry plane. The measured two-component gas is rigidly placed once; measured jet wandering is retained. Contour masks are genuine measured gas support; integration stops at unsupported cells or domain boundaries. No atomiser-surface or near-nozzle release is modelled.}
+\caption{Jet-under-plume rigid placement. The entrance plane h=0 is indicated; the jet field extends below it. Only initially supported droplet starts are integrated. Genuine native gas masks and measured downstream centreline wandering are retained, with no row recentering, extrapolation or imposed outcome.}
 
 % trajectories_entry_detail
-\caption{Entry detail shows the first 3 mm of axial development. Conditional trajectories begin with both locally measured PZT components on the supported entry plane. The measured two-component gas is rigidly placed once; measured jet wandering is retained. Contour masks are genuine measured gas support; integration stops at unsupported cells or domain boundaries. No atomiser-surface or near-nozzle release is modelled.}
+\caption{Jet-under-plume rigid placement. The entrance plane h=0 is indicated; the jet field extends below it. Only initially supported droplet starts are integrated. Genuine native gas masks and measured downstream centreline wandering are retained, with no row recentering, extrapolation or imposed outcome.}
 
 % axial_slip
-\caption{Signed gas-minus-droplet axial slip along the trajectories over their common supported ascending interval.}
+\caption{Signed axial slip is gas minus droplet velocity. Re\_p=rho\_g*d*|u\_g-v\_d|/mu\_g uses the full measured in-plane vector slip. Stk\_D,local=tau\_p*|u\_g|/D0 uses the gas flow timescale D0/|u\_g| and Stokes-limit tau\_p=rho\_l*d^2/(18*mu\_g). Offset starts are unweighted sensitivity locations, not population samples.}
 
 % particle_Re
-\caption{Particle Reynolds number uses the magnitude of the evolving two-component gas-minus-droplet slip, rho\_air d |v\_g-v\_d| / mu\_air. No out-of-plane motion is invented.}
+\caption{Signed axial slip is gas minus droplet velocity. Re\_p=rho\_g*d*|u\_g-v\_d|/mu\_g uses the full measured in-plane vector slip. Stk\_D,local=tau\_p*|u\_g|/D0 uses the gas flow timescale D0/|u\_g| and Stokes-limit tau\_p=rho\_l*d^2/(18*mu\_g). Offset starts are unweighted sensitivity locations, not population samples.}
 
 % particle_Stokes
-\caption{Stk\_D,local = tau\_0 |v\_g| / D0; tau\_0 = rho\_water d^2/(18 mu\_air), and flow timescale D0/|v\_g|. This is a Stokes-limit particle response diagnostic; finite-Re drag is used for the actual acceleration.}
+\caption{Signed axial slip is gas minus droplet velocity. Re\_p=rho\_g*d*|u\_g-v\_d|/mu\_g uses the full measured in-plane vector slip. Stk\_D,local=tau\_p*|u\_g|/D0 uses the gas flow timescale D0/|u\_g| and Stokes-limit tau\_p=rho\_l*d^2/(18*mu\_g). Offset starts are unweighted sensitivity locations, not population samples.}
 
 % axial_acceleration
-\caption{Reference-droplet force balance: signed aerodynamic drag acceleration, effective gravity and their sum. Upward drag need not imply net upward acceleration: it must exceed effective weight. Gas momentum transfer is already the aerodynamic drag term; there is no additional jet force.}
+\caption{Reference-droplet signed force/momentum balance from the measured base. Initially drag opposes upward motion because the droplet is faster than gas. Effective gravity is transformed into the plume frame. RK4-stage and independent saved-force trapezoid budgets are exported; no residual is set to zero. Momentum transfers through drag alone, not an additional jet force.}
 
 % axial_momentum_budget
-\caption{Single model-droplet axial momentum change equals integrated drag plus integrated effective gravity. RK4-stage impulses and residuals are exported, together with an independent trapezoidal check from saved forces; neither residual is forced to zero. These are not whole-plume momentum fluxes.}
+\caption{Reference-droplet signed force/momentum balance from the measured base. Initially drag opposes upward motion because the droplet is faster than gas. Effective gravity is transformed into the plume frame. RK4-stage and independent saved-force trapezoid budgets are exported; no residual is set to zero. Momentum transfers through drag alone, not an additional jet force.}
 
 % initial_condition_coverage
-\caption{Audit of the retained seven initial conditions: one axis reference and six unweighted central-region sensitivity starts. Their regular spacing was a numerical convenience, not a measured particle distribution. The measured entry-plane profile and its asymmetric half-maximum crossings show their limited coverage. No population weights, whole-plume representativeness or collection efficiency are inferred.}
+\caption{The original seven offsets are audited on exactly h=0. Starts outside native PZT or gas support are excluded, not extrapolated. At this lowest plane the tilted native PZT window supports only one side of the fitted axis; no missing side, symmetry or complete plume width is invented. These are unweighted conditional starts.}
 
 % jet_local_Reynolds
-\caption{Local measured-centreline quantity. Re\_D,c = Uc D0/nu; Sr\_D,c = f D0/Uc. D0 = 2 mm and measured jet actuation f = 120 Hz; PIV acquisition is 10 Hz and is not used as actuation. Gaps and nonpositive Uc remain undefined. These are not nozzle-exit Re0 or Sr0.}
+\caption{Measured local centreline definitions Re\_D,c=Uc*D0/nu and Sr\_D,c=f*D0/Uc retain missing gaps and exclude nonpositive Uc. These are not nozzle-exit quantities. Forcing frequency comes from source metadata, not the PIV acquisition rate.}
 
 % jet_local_Strouhal
-\caption{Local measured-centreline quantity. Re\_D,c = Uc D0/nu; Sr\_D,c = f D0/Uc. D0 = 2 mm and measured jet actuation f = 120 Hz; PIV acquisition is 10 Hz and is not used as actuation. Gaps and nonpositive Uc remain undefined. These are not nozzle-exit Re0 or Sr0.}
+\caption{Measured local centreline definitions Re\_D,c=Uc*D0/nu and Sr\_D,c=f*D0/Uc retain missing gaps and exclude nonpositive Uc. These are not nozzle-exit quantities. Forcing frequency comes from source metadata, not the PIV acquisition rate.}

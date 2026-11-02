@@ -1,6 +1,6 @@
 {
   "active_package": "Co_Directed",
   "manifest": "Co_Directed/report_manifest.json",
-  "plume_frame": "x_p,y_p",
+  "plume_frame": "x_p,h; h=y_p-y_p_base",
   "obsolete_prediction_displays_excluded": true
 }

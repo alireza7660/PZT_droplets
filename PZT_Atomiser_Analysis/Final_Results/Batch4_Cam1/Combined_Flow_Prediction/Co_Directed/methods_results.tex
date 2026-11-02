@@ -1,61 +1,30 @@
-\section{Co-directed aerodynamic momentum transfer}
-The separately measured PZT and ZNMF fields are paired as a prospective arrangement.
-The original source pairing $X_j=y_{\rm lab}-\delta$ identifies the crossing at
-$X_j=11.497987$ mm and the first supported native overtaking station at $X_j=11.635200$ mm
-($y_p=11.598423$ mm). One rigid placement aligns the jet centreline with the fitted plume axis
-there. Both locally measured aligned droplet components initialise developed droplets;
-neither the atomiser surface nor near-source velocities are relocated. Full-support
-numerical fields retain their separate calibrations and masks; the report crop is unused.
-Gravity is rotated with the saved frame. Interpolation requires four finite native corners
-and trajectories stop at unsupported gas cells.
-
-For a spherical, constant-diameter droplet,
-$m_d=\rho_l\pi d^3/6$, $A_d=\pi d^2/4$ and
-$\mathbf w=\mathbf u_g(\mathbf r_d)-\mathbf v_d$. Newton's law gives
+\section{Jet-under-plume entrance prediction}
+The first valid measured fitted-axis point defines $h=0$, with $h=y_p-y_{p,0}$;
+it is a measurement reference, not a documented atomiser surface.
+A developing-branch station with measured centreline $U_c=0.96$ m/s is interpolated
+only between adjacent finite samples. Its centreline is placed on the plume axis
+at the entrance using one rigid map $h=X_j-x_{j0}$,
+$x_p=Y_c(x_{j0})-Y_j$, and $(u_{g,p},v_{g,p})=(-V_j,U_j)$.
+Both measured near-base droplet components initialise each supported release;
+no profile crossing or mid-plume reset selects entry. Missing starts are rejected.
+For $\mathbf w=\mathbf u_g(\mathbf r_d)-\mathbf v_d$,
 \[
- \dot{\mathbf r}_d=\mathbf v_d,\qquad
- m_d\dot{\mathbf v}_d=\tfrac12\rho_g C_D A_d|\mathbf w|\mathbf w
- +m_d(1-\rho_g/\rho_l)\mathbf g_p.
+\dot{\mathbf r}_d=\mathbf v_d,\quad
+\dot{\mathbf v}_d=F(Re_p)\mathbf w/\tau_p+(1-\rho_g/\rho_l)\mathbf g_p,
+\quad Re_p=\rho_gd|\mathbf w|/\mu_g,\quad \tau_p=\rho_ld^2/(18\mu_g).
 \]
-Using $Re_p=\rho_gd|\mathbf w|/\mu_g$ and $C_D=24F/Re_p$ yields the stable form
-\[
- \dot{\mathbf v}_d=F(Re_p)\mathbf w/\tau_p+(1-\rho_g/\rho_l)\mathbf g_p,
- \qquad \tau_p=\rho_ld^2/(18\mu_g).
-\]
-The audited existing hybrid is retained: $F=1$ for $Re_p\le0.01$ and
-$F=1+0.15Re_p^{0.687}$ above, with $Re_p<800$ checked at every RK stage.
-The low-Re branch explicitly neglects the small finite-Re correction; zero slip has zero
-drag without division by zero. No separate jet force, velocity addition or PZT-only
-forcing is included. Nominal $d=10\,\mu\mathrm m$ is an aperture/Rayleigh-based estimate,
-not measured sizing. Saved water/air properties at $20\,{}^\circ\mathrm C$ and assumed
-101.325 kPa are retained; diameter is constant and evaporation is neglected.
-
-Over $y_p=11.598423$--$27.335870$ mm, the reference velocity changes from 1.039291 to 2.052240 m/s
-in 11.168829 ms, with transverse displacement -1.449592 mm; these values are unchanged by the audit.
-The single-droplet momentum budget is
-\[
- m_d[\mathbf v_d(t)-\mathbf v_d(0)]=\int\mathbf F_D\,dt+
- \int\mathbf F_{g,\rm eff}\,dt+\boldsymbol\epsilon.
-\]
-Axial drag impulse is $5.863643\times10^{-13}\,\mathrm{N\,s}$, effective-gravity impulse
-$-5.693652\times10^{-14}\,\mathrm{N\,s}$ and momentum gain $5.294278\times10^{-13}\,\mathrm{kg\,m\,s^{-1}}$.
-The RK4-stage residual is $1.243249\times10^{-27}\,\mathrm{N\,s}$; independent saved-force trapezoidal
-quadrature gives $-7.544599\times10^{-18}\,\mathrm{N\,s}$. Stage-quadrature closure is expected to
-roundoff and is not independent physical validation. Zero-slip, force-direction,
-analytical constant-gas Stokes position/velocity and step-refinement checks pass.
-
-Faster gas transfers momentum through drag; finite response time leaves slip.
-Upward drag produces net upward acceleration only when it exceeds effective weight.
-Without the imposed jet, opposing slip and gravity can decelerate droplets, but the
-PZT-only experiment establishes neither stationary surrounding air nor a unique drag
-history from its spatial ensemble mean. Diameter strongly affects response through
-$\tau_p\propto d^2$. The seven starts cover 49.3\% of the measured entry-plane
-half-maximum width and are unweighted sensitivity locations, not a whole-plume distribution.
-$Stk_{D,\rm local}=\tau_p|\mathbf u_g|/D_0$ uses flow time $D_0/|\mathbf u_g|$;
-$Stk_f=\tau_pf$. Local $Re_{D,c}=U_cD_0/\nu_g$ and $Sr_{D,c}=fD_0/U_c$ preserve gaps
-and exclude nonpositive $U_c$, with documented $D_0=2$ mm and forcing $f=120$ Hz,
-not the 10-Hz acquisition rate. These are not nozzle-exit quantities.
-The prescribed gas is a steady, one-way-coupled measured mean: loading-induced gas changes
-and phase-dependent motion are unresolved. Calculated paths are not measured combined-flow
-results or automatically ensemble-mean droplet trajectories; no collection efficiency or
-whole-plume momentum flux is established.
+This equals the spherical force with $m_d=\rho_l\pi d^3/6$ and $A_d=\pi d^2/4$.
+The existing Stokes/Schiller--Naumann hybrid uses $F=1$ below $Re_p=0.01$ and
+$F=1+0.15Re_p^{0.687}$ above, for $Re_p<800$; zero slip is handled safely.
+The nominal $10\,\mu$m diameter is an estimate, not measured sizing.
+Saved properties, individual experimental calibrations and rotated gravity are retained.
+The independent measured gas mean is prescribed with steady one-way coupling;
+phase motion, gas loading changes and evaporation are not resolved.
+The PZT-only ensemble curve is a comparison, not a force or imposed trajectory.
+The selected station is $x_{j0}=9.995299$ mm. Initial axial droplet and sampled-gas velocities are 1.657697 and 0.959993 m/s, so initial axial drag is negative. 4 of 7 candidate starts are supported. The reference minimum is 0.957468 m/s at $h=1.607833$ mm and $t=1.473834$ ms. Zero axial slip occurs at $h=1.567288$ mm; it is distinct from zero net acceleration and does not imply zero vector slip. At the common upper plane $h=27.335870$ mm, reference velocity is 2.282674 m/s after 17.834535 ms, with transverse displacement -1.363949 mm. The full supported reference path ends at $h=52.059101$ mm with velocity 2.206104 m/s after 28.039005 ms; gas support, rather than the end of the PZT profile, terminates that path. Finite response produces slip; reacceleration begins when axial drag exceeds effective weight.
+$Stk_{D,\rm local}=\tau_p|\mathbf u_g|/D_0$ uses time $D_0/|\mathbf u_g|$;
+$Sr_{D,c}=fD_0/U_c$ is a distinct local jet Strouhal number.
+Momentum satisfies $m_d\Delta\mathbf v_d=\int\mathbf F_Ddt+\int\mathbf F_{g,eff}dt+\boldsymbol\epsilon$,
+checked by RK4-stage and independent saved-force quadrature and step refinement.
+Calculated paths are not measured combined-flow results or automatically ensemble means;
+no whole-plume distribution, capture efficiency or total plume momentum flux is inferred.

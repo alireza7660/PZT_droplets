@@ -1,0 +1,28 @@
+{
+  "entry_y_p_mm": 11.59842340603258,
+  "selection": "Existing 0,+/-1,+/-2,+/-3 projected native horizontal-grid spacings retained for audit; numerical convenience, not population-based selection",
+  "initial_x_p_mm": [
+    -1.0228760155306453,
+    -0.6819173436870969,
+    -0.34095867184354844,
+    0.0,
+    0.34095867184354844,
+    0.6819173436870969,
+    1.0228760155306453
+  ],
+  "uniform_projected_spacing_mm": 0.34095867184354844,
+  "axis_reference_x_p_mm": 0.0,
+  "sampled_entry_peak_x_p_mm": 0.0,
+  "halfmax_threshold_v_p_m_s": 0.5196455067828675,
+  "left_halfmax_crossing_x_p_mm": -2.430818722512748,
+  "right_halfmax_crossing_x_p_mm": 1.7158595900280555,
+  "entry_FWHM_mm": 4.1466783125408035,
+  "seed_span_mm": 2.0457520310612907,
+  "seed_span_fraction_of_FWHM": 0.49334717498444974,
+  "left_axis_to_halfmax_coverage_fraction": 0.42079485650550436,
+  "right_axis_to_halfmax_coverage_fraction": 0.59613037189944,
+  "profile_interpolation": "Four-finite-corner native bilinear samples spaced at one quarter of projected native grid spacing; no extrapolation/smoothing. Width crossings linearly interpolated inside finite adjacent samples.",
+  "whole_plume_distribution": false,
+  "measured_population_weights_available": false,
+  "interpretation": "One axis reference plus six unweighted central-region sensitivity starts; no whole-plume weighting, capture efficiency or total plume momentum flux inferred."
+}

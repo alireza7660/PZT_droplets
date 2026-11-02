@@ -37,8 +37,8 @@ def add_force_and_impulse_fields(q,tr,d,props,cfg,net):
 
 def budget_record(h,upper=None):
     q=h['q'];n=h['peak']+1
-    def value(key):return float(q[key][-1]) if upper is None else float(np.interp(upper,q['y_p_mm'][:n],q[key][:n]))
-    mass=float(q['droplet_mass_kg'][0]);record=dict(release_number=h['number'],is_reference=h['reference'],scope='full_trajectory' if upper is None else 'common_supported_interval',entry_x_p_mm=float(q['x_p_mm'][0]),entry_y_p_mm=float(q['y_p_mm'][0]),end_y_p_mm=value('y_p_mm'),elapsed_time_s=value('t_s'),droplet_mass_kg=mass)
+    def value(key):return float(q[key][-1]) if upper is None else float(np.interp(upper,q['h_mm'][:n],q[key][:n]))
+    mass=float(q['droplet_mass_kg'][0]);record=dict(release_number=h['number'],is_reference=h['reference'],scope='full_trajectory' if upper is None else 'common_supported_interval',entry_x_p_mm=float(q['x_p_mm'][0]),entry_h_mm=float(q['h_mm'][0]),end_h_mm=value('h_mm'),elapsed_time_s=value('t_s'),droplet_mass_kg=mass)
     for component in ('x_p','y_p'):
         for key in ('drag_impulse_'+component+'_N_s','effective_gravity_impulse_'+component+'_N_s','momentum_change_'+component+'_kg_m_s','momentum_residual_RK4_'+component+'_N_s','drag_impulse_trapezoid_'+component+'_N_s','momentum_residual_trapezoid_'+component+'_N_s'):record[key]=value(key)
         record['drag_equivalent_delta_v_'+component+'_m_s']=value('drag_impulse_'+component+'_N_s')/mass;record['gravity_equivalent_delta_v_'+component+'_m_s']=value('effective_gravity_impulse_'+component+'_N_s')/mass
@@ -56,9 +56,9 @@ def write_momentum_tables(ctx,histories,lower,upper):
     for h in histories:
         q=h['q']
         for index,stage in [(0,'entry'),(-1,'exit')]:
-            endpoints.append(dict(release_number=h['number'],is_reference=h['reference'],stage=stage,t_s=float(q['t_s'][index]),x_p_mm=float(q['x_p_mm'][index]),y_p_mm=float(q['y_p_mm'][index]),droplet_u_p_m_s=float(q['droplet_u_p_m_s'][index]),droplet_v_p_m_s=float(q['droplet_v_p_m_s'][index]),gas_u_p_m_s=float(q['gas_u_p_m_s'][index]),gas_v_p_m_s=float(q['gas_v_p_m_s'][index]),slip_u_p_m_s=float(q['slip_u_p_m_s'][index]),slip_v_p_m_s=float(q['slip_v_p_m_s'][index]),Re_p=float(q['Re_p'][index]),tau_stokes_s=float(q['tau_stokes_s'][index]),tau_drag_coefficient_s=float(q['tau_drag_coefficient_s'][index]),termination_reason=h['termination'] if stage=='exit' else 'measured_entry_initial_condition'))
+            endpoints.append(dict(release_number=h['number'],is_reference=h['reference'],stage=stage,t_s=float(q['t_s'][index]),x_p_mm=float(q['x_p_mm'][index]),h_mm=float(q['h_mm'][index]),y_p_mm=float(q['y_p_mm'][index]),droplet_u_p_m_s=float(q['droplet_u_p_m_s'][index]),droplet_v_p_m_s=float(q['droplet_v_p_m_s'][index]),gas_u_p_m_s=float(q['gas_u_p_m_s'][index]),gas_v_p_m_s=float(q['gas_v_p_m_s'][index]),slip_u_p_m_s=float(q['slip_u_p_m_s'][index]),slip_v_p_m_s=float(q['slip_v_p_m_s'][index]),Re_p=float(q['Re_p'][index]),tau_stokes_s=float(q['tau_stokes_s'][index]),tau_drag_coefficient_s=float(q['tau_drag_coefficient_s'][index]),termination_reason=h['termination'] if stage=='exit' else 'measured_entry_initial_condition'))
     write_csv(out/'data/entry_exit_conditions.csv',{k:[r[k] for r in endpoints] for k in endpoints[0]})
-    reference=next(h for h in histories if h['reference']);q=reference['q'];n=reference['peak']+1;ys=q['y_p_mm'][:n];target=np.r_[ys[(ys>=lower)&(ys<upper)],upper]
+    reference=next(h for h in histories if h['reference']);q=reference['q'];n=reference['peak']+1;ys=q['h_mm'][:n];target=np.r_[ys[(ys>=lower)&(ys<upper)],upper]
     columns={k:np.interp(target,ys,v[:n]) for k,v in q.items()};write_csv(out/'data/reference_force_momentum_common_interval.csv',columns)
     validity=[]
     for h in histories:
@@ -69,29 +69,19 @@ def write_momentum_tables(ctx,histories,lower,upper):
 
 def release_coverage(ctx,states):
     from .aligned_codirected import pzt_sample
-    a=ctx['a'];height=float(states[0]['initial'][1]*1e3);corners=np.array([[a['x_p_mm'][i,j],a['y_p_mm'][i,j]] for i,j in [(0,0),(0,-1),(-1,-1),(-1,0)]])
+    a=ctx['a'];height=ctx['base']['y_p_mm'];corners=np.array([[a['x_p_mm'][i,j],a['y_p_mm'][i,j]] for i,j in [(0,0),(0,-1),(-1,-1),(-1,0)]])
     intersections=[]
     for p,r in zip(corners,np.roll(corners,-1,axis=0)):
-        if min(p[1],r[1])<=height<=max(p[1],r[1]) and r[1]!=p[1]:intersections.append(p[0]+(height-p[1])*(r[0]-p[0])/(r[1]-p[1]))
+        if min(p[1],r[1])-1e-12<=height<=max(p[1],r[1])+1e-12 and r[1]!=p[1]:intersections.append(p[0]+(height-p[1])*(r[0]-p[0])/(r[1]-p[1]))
     lo,hi=min(intersections),max(intersections);spacing=float(np.median(np.diff(a['x_p_mm'],axis=1)))/4
     xs=np.unique(np.r_[0,np.arange(np.ceil((lo+1e-8)/spacing),np.floor((hi-1e-8)/spacing)+1)*spacing]);values=[]
     for x in xs:
         try:v,stencil=pzt_sample(ctx,[x,height])
         except ValueError:v=[np.nan,np.nan]
         values.append(v)
-    values=np.asarray(values);peak=int(np.nanargmax(values[:,1]));threshold=.5*values[peak,1];crosses=[]
-    for step in (-1,1):
-        last=peak;cross=None
-        for j in range(peak+step,len(xs) if step>0 else -1,step):
-            if not np.isfinite(values[j,1]):break
-            if values[j,1]<=threshold:
-                cross=xs[last]+(threshold-values[last,1])*(xs[j]-xs[last])/(values[j,1]-values[last,1]);break
-            last=j
-        crosses.append(cross)
-    assert None not in crosses,'Cannot establish measured entry half-maximum width within finite support'
-    seeds=[float(s['initial'][0]*1e3) for s in states];span=max(seeds)-min(seeds);width=crosses[1]-crosses[0]
-    write_csv(ctx['out']/'data/release_coverage_profile.csv',dict(x_p_mm=xs,y_p_mm=np.full(len(xs),height),mean_u_p_m_s=values[:,0],mean_v_p_m_s=values[:,1]))
-    return dict(entry_y_p_mm=height,selection='Existing 0,+/-1,+/-2,+/-3 projected native horizontal-grid spacings retained for audit; numerical convenience, not population-based selection',initial_x_p_mm=seeds,uniform_projected_spacing_mm=spacing*4,axis_reference_x_p_mm=0.,sampled_entry_peak_x_p_mm=float(xs[peak]),halfmax_threshold_v_p_m_s=float(threshold),left_halfmax_crossing_x_p_mm=float(crosses[0]),right_halfmax_crossing_x_p_mm=float(crosses[1]),entry_FWHM_mm=float(width),seed_span_mm=span,seed_span_fraction_of_FWHM=float(span/width),left_axis_to_halfmax_coverage_fraction=float(abs(min(seeds))/abs(crosses[0])),right_axis_to_halfmax_coverage_fraction=float(max(seeds)/crosses[1]),profile_interpolation='Four-finite-corner native bilinear samples spaced at one quarter of projected native grid spacing; no extrapolation/smoothing. Width crossings linearly interpolated inside finite adjacent samples.',whole_plume_distribution=False,measured_population_weights_available=False,interpretation='One axis reference plus six unweighted central-region sensitivity starts; no whole-plume weighting, capture efficiency or total plume momentum flux inferred.')
+    values=np.asarray(values);seeds=[float(state['initial'][0]*1e3) for state in states]
+    write_csv(ctx['out']/'data/release_coverage_profile.csv',dict(x_p_mm=xs,y_p_mm=np.full(len(xs),height),h_mm=np.zeros(len(xs)),mean_u_p_m_s=values[:,0],mean_v_p_m_s=values[:,1]))
+    return dict(entry_h_mm=0.,entry_original_y_p_mm=height,selection='Audit original seven projected native-grid offsets; retain only four-finite-corner PZT and gas support on the same measured base plane. No extrapolation or plane shift to retain candidates.',initial_x_p_mm=seeds,accepted_count=len(states),candidate_count=len(ctx['cfg']['co_directed']['release_column_offsets']),supported_native_plane_x_p_bounds_mm=[float(lo),float(hi)],whole_plume_distribution=False,measured_population_weights_available=False,entry_FWHM_mm=None,seed_span_fraction_of_FWHM=None,interpretation='The tilted native support intersects h=0 asymmetrically. Only supported starts are used. No whole-plume width or right-hand field is invented at this boundary plane.')
 
 
 def synthetic_force_checks(cfg,props,d):
@@ -119,6 +109,6 @@ def synthetic_force_checks(cfg,props,d):
 def export_placed_gas(ctx,field):
     """Export the exact native prescribed gas used by trajectory and contour evaluation."""
     x,y,u,v=field.common_mesh();xx,yy=np.meshgrid(field.x,field.y);rows,cols=np.indices(u.shape)
-    data=dict(native_row=rows,native_column=cols,ZNMF_Xj_mm=xx*1e3,ZNMF_Yj_mm=yy*1e3,x_p_mm=x*1e3,y_p_mm=y*1e3,mean_gas_u_p_m_s=u,mean_gas_v_p_m_s=v,finite_pair=field.valid)
+    data=dict(native_row=rows,native_column=cols,ZNMF_Xj_mm=xx*1e3,ZNMF_Yj_mm=yy*1e3,x_p_mm=x*1e3,h_mm=y*1e3,y_p_mm=y*1e3+ctx['base']['y_p_mm'],mean_gas_u_p_m_s=u,mean_gas_v_p_m_s=v,finite_pair=field.valid)
     write_csv(ctx['out']/'data/prescribed_gas_plume_frame.csv',{key:value.ravel() for key,value in data.items()})
     np.savez_compressed(ctx['out']/'data/prescribed_gas_plume_frame.npz',**data,rotation_matrix=field.R,translation_m=field.origin,scope='Prescribed analysis copy of independent measured ZNMF mean, not combined-flow measurements')

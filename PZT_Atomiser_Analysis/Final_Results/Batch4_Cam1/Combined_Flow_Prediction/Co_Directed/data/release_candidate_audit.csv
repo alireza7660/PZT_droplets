@@ -1,0 +1,8 @@
+transverse_grid_offset,x_p_mm,h_mm,y_p_mm,PZT_lab_x_mm,PZT_lab_y_mm,accepted,reason
+-3,-1.0228760155306453,0.0,0.0,13.49234069837942,0.1793551277023604,True,finite_PZT_and_gas_native_cells
+-2,-0.6819173436870969,0.0,0.0,13.831864109317845,0.14810341846824027,True,finite_PZT_and_gas_native_cells
+-1,-0.34095867184354844,0.0,0.0,14.171387520256271,0.11685170923412014,True,finite_PZT_and_gas_native_cells
+0,0.0,0.0,0.0,14.510910931194696,0.0856,True,finite_PZT_and_gas_native_cells
+1,0.34095867184354844,0.0,0.0,14.85043434213312,0.05434829076587986,False,unsupported_PZT_native_cell: Unsupported interpolation interval
+2,0.6819173436870969,0.0,0.0,15.189957753071546,0.023096581531759725,False,unsupported_PZT_native_cell: Unsupported interpolation interval
+3,1.0228760155306453,0.0,0.0,15.52948116400997,-0.008155127702360418,False,unsupported_PZT_native_cell: Unsupported interpolation interval

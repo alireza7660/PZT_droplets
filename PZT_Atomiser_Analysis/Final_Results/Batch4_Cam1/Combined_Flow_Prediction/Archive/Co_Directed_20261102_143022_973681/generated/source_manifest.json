@@ -1,0 +1,203 @@
+{
+  "sources": [
+    {
+      "role": "pzt_statistics",
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\data\\statistics.npz",
+      "sha256": "c7e701c027a25ad4d2d4c75b9b5c9c5b6cfe869c68f3ecac28cdbc093a2010c9"
+    },
+    {
+      "role": "pzt_configuration",
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\config\\analysis.json",
+      "sha256": "935f93f10b9937066c581c76a2bc4f2e367cc2f3d8b3dd171f175639a1db797c"
+    },
+    {
+      "role": "znmf_field",
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Final_Result\\tables\\FOV_1_2_3_reconstructed_fields.npz",
+      "sha256": "d059767271a6e30eff4c9718072e49ec38eb65c59cca7acb533d0e1d503c41d6"
+    },
+    {
+      "role": "znmf_configuration",
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Final_Result\\analysis\\configuration.json",
+      "sha256": "c57a01709c96a6dce932112fc5889afbd3977772e5b80b4c0a2d6ce67c62bdde"
+    },
+    {
+      "role": "znmf_nozzle_reference",
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Final_Result\\report\\presentation_reference.json",
+      "sha256": "a0d7d2c7d636c34b7d9f87cd92b15d736a6fc906ef306d2e44544c944352543a"
+    },
+    {
+      "role": "plume_aligned_native_statistics",
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Plume_Aligned\\data\\statistics_plume_aligned.npz",
+      "sha256": "3b23b022fd0ae0ced8b1e2eb423624fd8b29e01b035828a1fc1c73d5480104e9"
+    },
+    {
+      "role": "fitted_axis_profile",
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Plume_Aligned\\data\\fitted_axis_axial_profile.npz",
+      "sha256": "b1e9f247fd468bafcca31b1f227ffc0a9e7ae78cfa4e87c688785761fbbda176"
+    },
+    {
+      "role": "plume_transformation",
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Plume_Aligned\\transformation.json",
+      "sha256": "6907067a69033ad16efa0a915711dd9917a2f65c1e0f78eabb5ecdc714a89fa6"
+    },
+    {
+      "role": "ZNMF_centreline",
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Final_Result\\tables\\FOV_1_2_3_centreline_and_width.csv",
+      "sha256": "6a9817f48ba3f47da571cfc79c239df79e3c32c954dc3903d755631c3caa9efd"
+    },
+    {
+      "role": "saved_fluid_properties",
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\fluid_properties.json",
+      "sha256": "cc922406bc82c5316b5b6349c2f60c57d0955c8f00fa6b01d669eba303b5a21f"
+    },
+    {
+      "role": "original_comparison_script",
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\plot_comparison.py",
+      "sha256": "7179f8bd7b4aaa0fa42e6a8518a50a5a543ba3fd6369bc50d93002d4cf14c029"
+    },
+    {
+      "role": "original_comparison_verification",
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\verification.json",
+      "sha256": "df41fda4a7dc21a62e6466ef5285aa82e097ffe1d09d31719dfe3f5516d6cee9"
+    }
+  ],
+  "experiments": {
+    "PZT": "Atomiser only, 190 kHz/9 Vpp; no ZNMF jet; measured droplet-phase velocities; ambient gas unmeasured",
+    "ZNMF": "Air jet only without PZT droplets; mean two-component gas velocities",
+    "combined": "Not conducted; predictions are unvalidated"
+  },
+  "pzt": {
+    "coordinates": "Saved full-support x_p,y_p; laboratory coordinates and inverse Q retained",
+    "velocities": "Both saved aligned mean_u_p,mean_v_p, already m/s; no calibration reapplied",
+    "scaling": "No velocity recalibration; coordinates converted mm to m only for integration",
+    "population": "Finite-pair population without flag-code rejection; upstream replacement and flag meanings are not assigned.",
+    "finite_paired_vectors": 25520,
+    "profile": "Fixed fitted axis x_p=0; old fixed laboratory-column profile excluded from model"
+  },
+  "znmf": {
+    "coordinates": "Local Xj=x*D0; Yj=(y-6.868)*D0, from registered dimensionless arrays; no use of y_plot",
+    "nozzle_y_registered_D0": 6.868,
+    "D0_m": 0.002,
+    "velocity": "U,V already m/s; downstream sign reversal already applied upstream, not applied again",
+    "masks": "Both stored U,V finite; preserve upstream reconstruction support; bilinear evaluation only in cells with four finite paired vectors",
+    "finite_paired_vectors": 58176,
+    "local_x_range_mm": [
+      0.3232,
+      62.05439999999998
+    ],
+    "local_y_range_mm": [
+      -13.6552,
+      10.74639999999999
+    ],
+    "reconstruction": "Authoritative three-FOV reconstructed mean, including its existing overlap registration/blending; not reprocessed"
+  },
+  "placement": {
+    "common_frame": "Corrected plume frame: x_p transverse/right of fitted axis, y_p axial along measured inclined plume; laboratory reference and inverse retained.",
+    "pzt_transform": "[x_p,y_p]=Q*([x_lab,y_lab]-reference); [u_p,v_p]=Q*[u_lab,v_lab]; C_p=Q*C_lab*Q^T",
+    "gravity_plume_m_s2": [
+      0.898861356725992,
+      -9.765369039820497
+    ],
+    "warning": "Original comparison coordinate pairing is a design placement, not proof of coincident physical origins"
+  },
+  "reusable_code": {
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\aligned_codirected.py": "598cf198c7ce19c3bcb6efa4bdc2c9f9b62ebdb3fa3e81565a7a852728f1d785",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\aligned_codirected_report.py": "42eb1296dafbf4d36f8069dcbd039939e8031a3f2dc9380665dab9e1f3f7a084",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\co_directed.py": "37da3c0fd36c8def1a736115700c8ae4ec76ddd0c19ecc9aed21a888b09eb395",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\co_directed_report.py": "8b6bb3c1f8ba3fb0a4426da9e54e75d5aa9415849f2e8d9bbdbb7c539050d8c6",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\combined_flow_prediction.py": "c05a8c08e6085e8c425a9b0de834f09d5720e01e41b100c698a7451247dddd0f",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\droplet_dynamics.py": "4565a84fb325f674f4acb8fa4fdb5d5bc2d4b8ee3a6a319938e9bb4817164c5e",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\interaction_plane.py": "409e420bb14d7dd5e4f7e26afca2794c914c68b8fa947d8f2756c865cce4a008",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\momentum_audit.py": "6df8e4eb229f4e9c8517ba5bc049ae89f00a9483424514dc98130f5d98afa7dc",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\prescribed_gas.py": "e04664a92edf3b161b625962e1161dc09fad9c1de04015356661bcf97554e405",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\prospective_studies.py": "05dc8bd8c3eb6635ef5b42fd26757bdaa5d689bbf2a105eaef5ae93fc86ef128",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\update_combined_flow_notebook.py": "aaacd1cf3dc217c02108164e918e6f81f5cabf5a8ab1ed55329b18b5c049c886",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\validate_aligned_codirected.py": "9f37fa589e4cf466da8657a3f3b88be37475252a792b709b44ee35461ad49d20",
+    "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\validate_co_directed.py": "d6ee75475021341c5cedd86ef90a5d4bad8a109549c695db42eb9014089a00dc"
+  },
+  "run_configuration": {
+    "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\config\\combined_flow_prediction.json",
+    "sha256": "53a6677eb6e015b88d4cc21a9f7e01acc0175132c89421c5b4b8b81daa00f331"
+  },
+  "aligned_placement": {
+    "entry": {
+      "ZNMF_downstream_mm": 11.635199999999996,
+      "PZT_lab_x_mm": 15.574003281653717,
+      "PZT_lab_y_mm": 11.635199999999996,
+      "x_p_mm": 1.3236173839708744e-15,
+      "y_p_mm": 11.59842340603258,
+      "ZNMF_native_column": 35,
+      "ZNMF_local_centreline_Y_mm": -0.7144398537297931,
+      "measured_Uc_m_s": 1.0547218497786706,
+      "sampled_gas_v_p_m_s": 1.0547218497786708,
+      "PZT_axis_v_p_m_s": 1.039291013565735,
+      "PZT_saved_axis_profile_interpolated_v_p_m_s": 1.0392308636368774,
+      "PZT_axis_native_field_minus_profile_m_s": 6.014992885750026e-05
+    },
+    "crossing": {
+      "ZNMF_downstream_mm": 11.497987126429853,
+      "PZT_lab_x_mm": 15.561373410811703,
+      "PZT_lab_y_mm": 11.497987126429853,
+      "x_p_mm": 7.885257204988226e-16,
+      "y_p_mm": 11.460630495072467,
+      "common_axial_velocity_m_s": 1.0454430040584348,
+      "gas_native_lower_column": 34,
+      "PZT_profile_lower_index": 133,
+      "bracket_mm": [
+        11.4704,
+        11.556
+      ]
+    },
+    "gas_to_plume_rotation_matrix": [
+      [
+        0.0,
+        -1.0
+      ],
+      [
+        1.0,
+        0.0
+      ]
+    ],
+    "gas_nozzle_translation_plume_m": [
+      -0.0007144398537297931,
+      -3.67765939674157e-05
+    ],
+    "PZT_lab_to_plume_Q": [
+      [
+        0.9957905135617665,
+        -0.09165834986728312
+      ],
+      [
+        0.09165834986728312,
+        0.9957905135617665
+      ]
+    ],
+    "PZT_reference_lab_mm": [
+      14.510910931194696,
+      0.0856
+    ],
+    "gravity_plume_m_s2": [
+      0.898861356725992,
+      -9.765369039820497
+    ],
+    "comparison_pairing": "s_ZNMF=y_PZT_lab-offset; y_p=(y_PZT_lab-y_ref)/cos(theta) on fitted axis",
+    "rigid_placement": "[x_p,y_p]=R90*[Xj,Yj]+translation; vectors [u_p,v_p]=[-Vj,Uj]. One placement only; no downstream recentering.",
+    "gas_streamwise_to_plume_formula": "y_p_mm=11.59842340603258+(ZNMF_downstream_mm-11.635199999999996)",
+    "interpretation": "Prescribed design placement of independent datasets, not coincident experimental origins or physical atomiser relocation. Coordinate transform of measured inclined plume, not asserted physical remounting."
+  },
+  "properties": {
+    "rho_water_kg_m3": 998.2067455596167,
+    "rho_air_kg_m3": 1.20479,
+    "mu_air_Pa_s": 1.813322120356043e-05,
+    "g_m_s2": 9.80665,
+    "air_density_note": "NIST dry-air reference 1.20479 kg/m3; approximate 20 C, pressure scaled; not measured density",
+    "mu_air_note": "Sutherland: mu0=1.716e-5 Pa s, T0=273.15 K, S=110.4 K",
+    "sources": {
+      "water_density": "https://www.nist.gov/system/files/documents/2017/05/09/NISTIR_7383_2013-04-24_2015-07-13Rev.pdf",
+      "air_density": "https://physics.nist.gov/cgi-bin/Star/compos.pl?matno=104&refer=ap",
+      "air_viscosity": "https://ntrs.nasa.gov/api/citations/20250005707/downloads/main.pdf?attachment=true",
+      "drag_and_response": "https://doc.comsol.com/6.4/doc/com.comsol.help.particle/particle_ug_fluid_flow.08.36.html"
+    }
+  },
+  "drag_law_documentation_verified": "COMSOL 6.4 Particle Motion in a Fluid; Stokes response and Schiller-Naumann Re<800. The existing low-Re<=0.01 Stokes branch is explicitly identified as a hybrid approximation."
+}

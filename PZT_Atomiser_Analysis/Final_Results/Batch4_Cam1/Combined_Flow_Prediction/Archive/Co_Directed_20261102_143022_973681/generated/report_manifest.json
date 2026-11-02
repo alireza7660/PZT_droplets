@@ -1,0 +1,50 @@
+{
+  "figures": [
+    "source_comparison_reproduced",
+    "measured_and_predicted_axial_comparison",
+    "trajectories_upward_jet",
+    "trajectories_entry_detail",
+    "axial_slip",
+    "particle_Re",
+    "particle_Stokes",
+    "axial_acceleration",
+    "axial_momentum_budget",
+    "initial_condition_coverage",
+    "jet_local_Reynolds",
+    "jet_local_Strouhal"
+  ],
+  "numerical_files": [
+    "data\\PZT_corrected_axis_profile.csv",
+    "data\\ZNMF_profile_coordinate_mapping.csv",
+    "data\\common_height_comparison.csv",
+    "data\\entry_exit_conditions.csv",
+    "data\\entry_mapping.csv",
+    "data\\initial_conditions.csv",
+    "data\\initial_interpolation_stencils.json",
+    "data\\jet_local_centreline_numbers.csv",
+    "data\\main_comparison_PZT_baseline.csv",
+    "data\\main_comparison_gas_centreline.csv",
+    "data\\main_comparison_reference_prediction.csv",
+    "data\\momentum_budget.csv",
+    "data\\prescribed_gas_plume_frame.csv",
+    "data\\prescribed_gas_plume_frame.npz",
+    "data\\reference_force_momentum_common_interval.csv",
+    "data\\release_01.csv",
+    "data\\release_02.csv",
+    "data\\release_03.csv",
+    "data\\release_04.csv",
+    "data\\release_05.csv",
+    "data\\release_06.csv",
+    "data\\release_07.csv",
+    "data\\release_coverage.json",
+    "data\\release_coverage_profile.csv",
+    "data\\scalar_quantities.csv",
+    "data\\trajectory_summary.csv"
+  ],
+  "text": [
+    "README.md",
+    "methods_results.tex",
+    "captions.tex"
+  ],
+  "interaction_entry_calculated_not_hardcoded": true
+}

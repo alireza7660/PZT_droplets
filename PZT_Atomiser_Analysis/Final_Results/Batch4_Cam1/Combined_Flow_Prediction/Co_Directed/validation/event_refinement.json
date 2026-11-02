@@ -1,0 +1,12 @@
+{
+  "first_velocity_minimum": {
+    "time_difference_s": 5.913965220316619e-10,
+    "height_difference_mm": 1.631005446256495e-06,
+    "velocity_difference_m_s": 1.9958711772183335e-07
+  },
+  "first_axial_zero_slip": {
+    "time_difference_s": 9.096171051624358e-10,
+    "height_difference_mm": 1.927316779948285e-06,
+    "velocity_difference_m_s": 1.9777361093265e-07
+  }
+}

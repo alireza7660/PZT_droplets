@@ -1,4 +1,4 @@
-# Active corrected co-directed prediction
+# Active jet-under-plume base-entry prediction
 
 [Methods and numerical results](../Final_Results/Batch4_Cam1/Combined_Flow_Prediction/Co_Directed/README.md)
 
@@ -19,3 +19,7 @@
 - [Axial momentum budget](../Final_Results/Batch4_Cam1/Combined_Flow_Prediction/Co_Directed/figures/axial_momentum_budget.pdf)
 - [Per-droplet force and momentum tables](../Final_Results/Batch4_Cam1/Combined_Flow_Prediction/Co_Directed/data/momentum_budget.csv)
 - [Verified entry mapping](../Final_Results/Batch4_Cam1/Combined_Flow_Prediction/Co_Directed/data/entry_mapping.csv)
+
+- [Near-entrance velocity minimum and axial-slip events](../Final_Results/Batch4_Cam1/Combined_Flow_Prediction/Co_Directed/figures/reference_entry_response.pdf)
+- [Supported and rejected base-plane candidate audit](../Final_Results/Batch4_Cam1/Combined_Flow_Prediction/Co_Directed/data/release_candidate_audit.csv)
+- [Minimum and slip event table](../Final_Results/Batch4_Cam1/Combined_Flow_Prediction/Co_Directed/data/reference_events.csv)

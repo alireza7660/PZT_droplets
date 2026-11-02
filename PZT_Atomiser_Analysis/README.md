@@ -119,8 +119,10 @@ are preserved unchanged by the prediction workflow.
 The active prediction is
 [Co_Directed](Final_Results/Batch4_Cam1/Combined_Flow_Prediction/Co_Directed/README.md).
 It uses the full-support corrected fitted-axis profile and both aligned mean
-components, retaining the original laboratory-height/source-distance pairing
-when locating the interaction. The latest user instruction resumes this
+components. The first valid measured axis plane defines h=0; the developing-branch
+ZNMF centreline station Uc=0.96 m/s is rigidly placed there. The earlier profile-crossing
+placement is superseded and is not used to choose entry. Unsupported initial offsets
+are rejected without extrapolation or shifting the measurement plane. The latest user instruction resumes this
 specific co-directed prediction; the prior alignment-review pause is superseded.
 
 Rebuild the prediction and execute only its notebook section:
@@ -139,8 +141,8 @@ transformed gravity, finite-Re drag and finite measured support. Original
 laboratory results, raw data, measured alignment files and unrelated notebook
 sections are preserved. Superseded generated predictions are archived beneath
 Combined_Flow_Prediction/Archive. See the active package for the calculated
-crossing/entry coordinates, initial interpolation audit, convergence tests,
+base/entrance coordinate mapping, initial interpolation audit, convergence tests,
 common-interval comparison and report figures. No combined experiment or
 collection efficiency is inferred.
 
-The current co-directed package includes an explicit vector drag/effective-gravity force balance, RK4 impulse budgets and an independent saved-force quadrature check. The seven starts are one axis reference plus six unweighted sensitivity locations; initial_condition_coverage documents their limited entry-plane coverage. See Report_Files/Co_Directed_links.md for the active force, momentum and coverage figures.
+The current co-directed package includes an explicit vector drag/effective-gravity force balance, RK4 impulse budgets and an independent saved-force quadrature check. The original seven candidate starts are audited at the measured base plane; only supported locations are retained as unweighted sensitivities; initial_condition_coverage documents their limited entry-plane coverage. See Report_Files/Co_Directed_links.md for the active force, momentum and coverage figures.

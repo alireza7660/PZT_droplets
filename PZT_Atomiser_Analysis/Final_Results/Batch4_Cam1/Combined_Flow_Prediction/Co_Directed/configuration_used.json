@@ -4,7 +4,7 @@
   "znmf_field": "../ZNMF_Results/Final_Result/tables/FOV_1_2_3_reconstructed_fields.npz",
   "znmf_configuration": "../ZNMF_Results/Final_Result/analysis/configuration.json",
   "znmf_nozzle_reference": "../ZNMF_Results/Final_Result/report/presentation_reference.json",
-  "common_frame": "Corrected plume frame: x_p transverse/right of fitted axis, y_p axial along measured inclined plume; laboratory reference and inverse retained.",
+  "common_frame": "x_p transverse; h=y_p-y_p_base along the measured inclined plume. h=0 is the first supported fitted-axis measurement plane, not physical atomiser surface.",
   "droplet_diameters_um": [
     10.0
   ],
@@ -20,7 +20,7 @@
     "theory_reference": "https://mae.eng.uci.edu/Faculty/MGC/Articles/MGC_JFluidMech_02.pdf",
     "applicability": "Classical inviscid cylindrical-jet breakup motivates the estimate; applicability to this driven mesh atomiser and equality of emerging jet and aperture diameters are not validated."
   },
-  "release_definition": "Fixed y_p entry plane; x_p offsets are configured integer offsets times the rotated native horizontal-grid transverse spacing. Four-finite-corner measured aligned components initialise each developed droplet.",
+  "release_definition": "Initialise both measured aligned components at the same h=0 plane. Audit original seven transverse grid offsets; omit unsupported PZT or gas samples without extrapolation.",
   "temperature_C": 20.0,
   "pressure_Pa": 101325.0,
   "relative_humidity": null,
@@ -43,9 +43,8 @@
   "co_directed": {
     "enabled": true,
     "rotation_degrees": 90.0,
-    "relative_axial_offset_mm": 0.0,
-    "reference_planes": "Original source pairing X_ZNMF_mm = laboratory_y_PZT_mm - relative_axial_offset_mm is used only to identify entry. At entry align axes once; downstream gas is placed by rigid +90 degree jet-local-to-plume rotation with no axial stretch or recentering.",
-    "plume_reference": "Corrected fixed fitted straight axis x_p=0; no fixed laboratory-column reuse",
+    "reference_planes": "h=0 at first valid saved fitted-axis PZT measurement. Interpolate the first supported developing-branch ZNMF Uc=0.96 m/s station and place it at h=0, with its local centreline on x_p=0. Entire gas field uses one rigid rotation/translation; Xj=x_j0+h.",
+    "plume_reference": "First valid measured point on fixed fitted axis; measurement entrance plane, not documented atomiser surface",
     "release_column_offsets": [
       -3,
       -2,
@@ -58,10 +57,11 @@
     "maximum_time_s": 0.1,
     "archive_manifest": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Archive\\Co_Directed_20261102_132538\\archive_manifest.json",
     "time_step_s": 1e-05,
-    "interaction_mode": "first_supported_gas_overtaking_crossing_of_source_profiles",
-    "release_definition": "Fixed y_p entry plane; x_p offsets are configured integer offsets times the rotated native horizontal-grid transverse spacing. Four-finite-corner measured aligned components initialise each developed droplet.",
-    "comparison_coordinate_pairing": "ZNMF downstream Xj [mm] is paired with original PZT laboratory height y_lab=Xj+offset; fitted-axis y_p=(y_lab-reference_y)/cos(theta). No pairing of new zero with nozzle origin.",
-    "initial_condition_interpretation": "Preserve the existing seven unweighted numerical sensitivity starts at 0 and +/-1,+/-2,+/-3 rotated native grid spacings. They are not a whole-plume droplet distribution; no population weights or collection efficiencies are inferred. Audit against measured entry-plane half-maximum width."
+    "interaction_mode": "first_valid_plume_axis_point_and_supported_developing_gas_target",
+    "release_definition": "Initialise both measured aligned components at the same h=0 plane. Audit original seven transverse grid offsets; omit unsupported PZT or gas samples without extrapolation.",
+    "initial_condition_interpretation": "One axis reference and supported unweighted transverse sensitivity starts at the measured plume entrance. No whole-plume population weights are inferred.",
+    "placement_mode": "plume_base_target_centreline",
+    "entrance_centreline_velocity_m_s": 0.96
   },
   "interaction_work_status": "enabled_aligned_codirected_user_instruction",
   "plume_aligned_directory": "PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1/Plume_Aligned",

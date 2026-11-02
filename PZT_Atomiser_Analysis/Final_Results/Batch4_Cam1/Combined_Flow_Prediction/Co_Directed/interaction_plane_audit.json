@@ -1,70 +1,129 @@
 {
-  "crossing": {
-    "ZNMF_downstream_mm": 11.497987126429853,
-    "PZT_lab_x_mm": 15.561373410811703,
-    "PZT_lab_y_mm": 11.497987126429853,
-    "x_p_mm": 7.885257204988226e-16,
-    "y_p_mm": 11.460630495072467,
-    "common_axial_velocity_m_s": 1.0454430040584348,
-    "gas_native_lower_column": 34,
-    "PZT_profile_lower_index": 133,
-    "bracket_mm": [
-      11.4704,
-      11.556
-    ]
-  },
-  "all_supported_overtaking_crossings": [
-    {
-      "ZNMF_downstream_mm": 11.497987126429853,
-      "PZT_lab_x_mm": 15.561373410811703,
-      "PZT_lab_y_mm": 11.497987126429853,
-      "x_p_mm": 7.885257204988226e-16,
-      "y_p_mm": 11.460630495072467,
-      "common_axial_velocity_m_s": 1.0454430040584348,
-      "gas_native_lower_column": 34,
-      "PZT_profile_lower_index": 133,
-      "bracket_mm": [
-        11.4704,
-        11.556
-      ]
-    }
-  ],
+  "placement_mode": "plume_base_target_centreline",
   "selected_entry": {
-    "ZNMF_downstream_mm": 11.635199999999996,
-    "PZT_lab_x_mm": 15.574003281653717,
-    "PZT_lab_y_mm": 11.635199999999996,
-    "x_p_mm": 1.3236173839708744e-15,
-    "y_p_mm": 11.59842340603258,
-    "ZNMF_native_column": 35,
-    "ZNMF_local_centreline_Y_mm": -0.7144398537297931,
-    "measured_Uc_m_s": 1.0547218497786706,
-    "sampled_gas_v_p_m_s": 1.0547218497786708,
-    "PZT_axis_v_p_m_s": 1.039291013565735,
-    "PZT_saved_axis_profile_interpolated_v_p_m_s": 1.0392308636368774,
-    "PZT_axis_native_field_minus_profile_m_s": 6.014992885750026e-05
+    "ZNMF_downstream_mm": 9.995298977013524,
+    "ZNMF_local_centreline_Y_mm": -0.24639771812972097,
+    "measured_Uc_m_s": 0.96,
+    "target_centreline_Uc_m_s": 0.96,
+    "sampled_gas_v_p_m_s": 0.9599933754643575,
+    "sampled_gas_u_p_m_s": -0.3258427664497451,
+    "sampled_minus_curve_v_m_s": -6.624535642485441e-06,
+    "PZT_lab_x_mm": 14.510910931194696,
+    "PZT_lab_y_mm": 0.0856,
+    "x_p_mm": 0.0,
+    "y_p_mm": 0.0,
+    "h_mm": 0.0,
+    "PZT_axis_u_p_m_s": 0.0033924805433476887,
+    "PZT_axis_v_p_m_s": 1.6576967192474044,
+    "PZT_saved_axis_profile_interpolated_v_p_m_s": 1.6576967192474044,
+    "PZT_axis_native_field_minus_profile_m_s": 0.0
   },
-  "entry_candidates": [
+  "base_measurement": {
+    "profile_index": 0,
+    "y_p_mm": 0.0,
+    "lab_x_mm": 14.510910931194696,
+    "lab_y_mm": 0.0856,
+    "reference": "First supported measured fitted-axis point, not documented physical atomiser surface"
+  },
+  "developing_branch_bracket": {
+    "lower_native_column": 29,
+    "upper_native_column": 30,
+    "upper_weight": 0.9260488150171055,
+    "x_j0_mm": 9.995298977013524,
+    "lower_Xj_mm": 9.695999999999996,
+    "upper_Xj_mm": 10.019199999999996,
+    "lower_Uc_m_s": 0.915804018334093,
+    "upper_Uc_m_s": 0.963529344417568
+  },
+  "all_supported_developing_target_brackets": [
     {
-      "ZNMF_native_column": 35,
-      "ZNMF_downstream_mm": 11.635199999999996,
-      "PZT_lab_x_mm": 15.574003281653717,
-      "PZT_lab_y_mm": 11.635199999999996,
-      "x_p_mm": 1.3236173839708744e-15,
-      "y_p_mm": 11.59842340603258,
-      "accepted": true,
-      "gas_v_p_m_s": 1.0547218497786708,
-      "PZT_v_p_m_s": 1.039291013565735,
-      "slip_v_p_m_s": 0.015430836212935839
+      "lower_native_column": 29,
+      "upper_native_column": 30,
+      "upper_weight": 0.9260488150171055,
+      "x_j0_mm": 9.995298977013524,
+      "lower_Xj_mm": 9.695999999999996,
+      "upper_Xj_mm": 10.019199999999996,
+      "lower_Uc_m_s": 0.915804018334093,
+      "upper_Uc_m_s": 0.963529344417568
     }
   ],
-  "original_comparison_domain_mm": [
-    0,
-    27
+  "release_candidates": [
+    {
+      "transverse_grid_offset": -3,
+      "x_p_mm": -1.0228760155306453,
+      "h_mm": 0.0,
+      "y_p_mm": 0.0,
+      "PZT_lab_x_mm": 13.49234069837942,
+      "PZT_lab_y_mm": 0.1793551277023604,
+      "accepted": true,
+      "reason": "finite_PZT_and_gas_native_cells"
+    },
+    {
+      "transverse_grid_offset": -2,
+      "x_p_mm": -0.6819173436870969,
+      "h_mm": 0.0,
+      "y_p_mm": 0.0,
+      "PZT_lab_x_mm": 13.831864109317845,
+      "PZT_lab_y_mm": 0.14810341846824027,
+      "accepted": true,
+      "reason": "finite_PZT_and_gas_native_cells"
+    },
+    {
+      "transverse_grid_offset": -1,
+      "x_p_mm": -0.34095867184354844,
+      "h_mm": 0.0,
+      "y_p_mm": 0.0,
+      "PZT_lab_x_mm": 14.171387520256271,
+      "PZT_lab_y_mm": 0.11685170923412014,
+      "accepted": true,
+      "reason": "finite_PZT_and_gas_native_cells"
+    },
+    {
+      "transverse_grid_offset": 0,
+      "x_p_mm": 0.0,
+      "h_mm": 0.0,
+      "y_p_mm": 0.0,
+      "PZT_lab_x_mm": 14.510910931194696,
+      "PZT_lab_y_mm": 0.0856,
+      "accepted": true,
+      "reason": "finite_PZT_and_gas_native_cells"
+    },
+    {
+      "transverse_grid_offset": 1,
+      "x_p_mm": 0.34095867184354844,
+      "h_mm": 0.0,
+      "y_p_mm": 0.0,
+      "PZT_lab_x_mm": 14.85043434213312,
+      "PZT_lab_y_mm": 0.05434829076587986,
+      "accepted": false,
+      "reason": "unsupported_PZT_native_cell: Unsupported interpolation interval"
+    },
+    {
+      "transverse_grid_offset": 2,
+      "x_p_mm": 0.6819173436870969,
+      "h_mm": 0.0,
+      "y_p_mm": 0.0,
+      "PZT_lab_x_mm": 15.189957753071546,
+      "PZT_lab_y_mm": 0.023096581531759725,
+      "accepted": false,
+      "reason": "unsupported_PZT_native_cell: Unsupported interpolation interval"
+    },
+    {
+      "transverse_grid_offset": 3,
+      "x_p_mm": 1.0228760155306453,
+      "h_mm": 0.0,
+      "y_p_mm": 0.0,
+      "PZT_lab_x_mm": 15.52948116400997,
+      "PZT_lab_y_mm": -0.008155127702360418,
+      "accepted": false,
+      "reason": "unsupported_PZT_native_cell: Unsupported interpolation interval"
+    }
   ],
-  "comparison_mapping_evidence": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\plot_comparison.py",
-  "source_curve_changed": "PZT fixed laboratory-column mean_v replaced by saved fixed fitted-axis mean_v_p; original laboratory-height pairing retained.",
+  "accepted_release_count": 4,
+  "rejected_release_count": 3,
+  "crossing_used_to_select_entry": false,
   "initial_conditions_exported_before_integration": true,
   "calibration_reapplied": false,
   "report_crop_used": false,
-  "gas_centreline_difference": "Measured Uc is interpolated at each native measured centreline. A field sample follows the bilinear two-component field at the release/trajectory location. At the chosen native entry column the reference matches Uc to rounding; off-axis samples differ and downstream the fixed jet placement retains measured centreline wandering."
+  "gas_centreline_difference": "The target 0.96 m/s is exact on the measured centreline curve interpolated between adjacent supported stations. Native bilinear U,V sampled at the interpolated centreline can differ because downstream interpolation and centreline extraction do not commute. Both values and raw stencils are reported; the gas field is not rescaled or forced uniform."
 }

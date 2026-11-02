@@ -1,6 +1,5 @@
 {
-  "reviewed": "All twelve final figures in two contact sheets; force-balance plot separately inspected.",
-  "findings": "Red gas/drag, blue dashed PZT, purple axis reference. Six unweighted offsets shown in grey without ambiguous multi-value legends. Signed gravity and net acceleration shown explicitly; entry-plane half-maximum width and limited seed coverage shown. Title-free exports, physical labels and measured gaps retained.",
-  "figure_count": 12,
-  "scientific_reference_trajectory_unchanged": true
+  "reviewed": "All 13 figures in three contact sheets; entrance zoom rescaled to actual visible data range and inspected separately.",
+  "findings": "h measured from first supported PZT axis point. Initial droplet deceleration and later minimum/reacceleration shown. Red gas/blue dashed PZT/purple reference retained. No missing right-side measurements invented; 4 accepted starts and 3 exclusions documented. Full gas support and common measured interval distinguished.",
+  "numerical_results_changed_by_presentation_refresh": false
 }
