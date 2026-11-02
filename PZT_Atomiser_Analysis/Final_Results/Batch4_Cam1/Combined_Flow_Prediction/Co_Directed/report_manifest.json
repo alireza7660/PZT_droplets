@@ -48,5 +48,10 @@
     "methods_results.tex",
     "captions.tex"
   ],
-  "entrance_target_interpolated_not_hardcoded_station": true
+  "entrance_target_interpolated_not_hardcoded_station": true,
+  "dimensionless_audit": {
+    "package": "Dimensionless_Numbers",
+    "manifest": "Dimensionless_Numbers/manifest.json",
+    "LaTeX": "Dimensionless_Numbers/methods_results.tex"
+  }
 }

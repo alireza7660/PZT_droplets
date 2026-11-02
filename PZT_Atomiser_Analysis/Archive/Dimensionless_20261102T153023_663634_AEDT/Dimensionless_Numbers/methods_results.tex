@@ -1,0 +1,16 @@
+\section{Reynolds, Stokes and Strouhal numbers}
+The local measured-centreline quantities are
+\begin{equation}Re_{D,c}=\frac{U_c D_0}{\nu_g},\qquad Sr_{D,c}=\frac{fD_0}{U_c},\qquad U_c>0.\end{equation}
+Source gaps are retained; these are not nozzle-exit quantities.
+The nominal, model-estimated droplet diameter is $d=10\,\mu\mathrm m$;
+the Rayleigh estimate assumes emerging jet diameter equals the $5\,\mu\mathrm m$ aperture and is not measured sizing.
+\begin{equation}\tau_p=\frac{\rho_l d^2}{18\mu_g},\quad Stk_f=\tau_p f,\quad Stk_{D,c}=\frac{\tau_p U_c}{D_0},\quad Stk_{D,\mathrm{path}}=\frac{\tau_p|\mathbf u_g(\mathbf r_d)|}{D_0}.\end{equation}
+The particle Reynolds estimate is in-plane and slip-based:
+\begin{equation}Re_p=\frac{\rho_g d|\mathbf u_g(\mathbf r_d)-\mathbf v_d|}{\mu_g}.\end{equation}
+Both gas components are interpolated within measured support at each predicted droplet position.
+The measured steady mean gas is prescribed without two-way coupling. The existing finite-Re drag law is unchanged;
+$\tau_{\mathrm{eff}}=\tau_p/F(Re_p)$ denotes only its local response-coefficient time.
+The Stokes-limit response time defines all reported Stokes numbers, not a constant exact finite-Re relaxation.
+The forcing period, centreline transit time and local path transit time are distinct reference scales;
+$Stk<1$ alone proves neither complete entrainment nor successful delivery.
+We use $D_0=2$ mm and forcing $f=120$ Hz, never the 10 Hz acquisition rate. At 20 degrees C, $\rho_g=1.20479$ kg/m$^3$, $\mu_g=1.81332212e-05$ Pa s, $\nu_g=1.505093934e-05$ m$^2$/s and $\rho_l=998.2067456$ kg/m$^3$. Pressure 101325 Pa and dry air are assumptions; humidity is unavailable. The resulting $\tau_p=0.305825036$ ms and $Stk_f=0.036699004$. At $U_c=0.960000000$ m/s, $Re_{D,c}=127.566789$, $Sr_{D,c}=0.25000000$ and $Stk_{D,c}=0.14679602$. At $U_c=2.680478380$ m/s, $Re_{D,c}=356.187520$, $Sr_{D,c}=0.08953626$ and $Stk_{D,c}=0.40987870$. The centreline maximum occurs at $X_j=50.419200$ mm ($x/D_0=25.209600$). Across all supported predicted paths, $Re_p$ ranges from 2.70424e-05 to 0.5125812 and $Stk_{D,\mathrm{path}}$ from 0.1169891 to 0.3903459. Entry at $h=0.000000$ mm has $Re_p=0.5125812$ and $Stk_{D,\mathrm{path}}=0.1550205$. Velocity minimum at $h=1.607833$ mm has $Re_p=0.0131071$ and $Stk_{D,\mathrm{path}}=0.1514202$. Comparison endpoint at $h=27.335870$ mm has $Re_p=0.0260058$ and $Stk_{D,\mathrm{path}}=0.3549088$. No defensible experimental nozzle reference $U_0$ was recovered; $Re_0$ and $St_0$ are therefore not assigned. A documented phase-resolved nozzle velocity and averaging convention are missing. PZT-only droplet velocities do not establish ambient-gas slip. The unknown mixture of acquisition phases limits interpretation of the sampled ZNMF mean as a cycle mean.

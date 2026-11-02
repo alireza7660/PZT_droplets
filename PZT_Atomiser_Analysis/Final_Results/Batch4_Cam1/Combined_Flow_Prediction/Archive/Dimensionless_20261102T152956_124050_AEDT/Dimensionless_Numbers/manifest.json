@@ -1,0 +1,50 @@
+{
+  "figures": [
+    "jet_local_Reynolds",
+    "jet_local_Strouhal",
+    "jet_centreline_Stokes",
+    "particle_Re",
+    "particle_Stokes",
+    "reference_response_times"
+  ],
+  "exports": [
+    "PDF",
+    "SVG",
+    "600 dpi PNG"
+  ],
+  "files": [
+    "captions.tex",
+    "methods_results.tex",
+    "nozzle_reference_audit.json",
+    "README.md",
+    "source_manifest.json",
+    "verification.json",
+    "data\\jet_local_centreline_numbers.csv",
+    "data\\jet_reference_stations.csv",
+    "data\\path_01_dimensionless.csv",
+    "data\\path_02_dimensionless.csv",
+    "data\\path_03_dimensionless.csv",
+    "data\\path_04_dimensionless.csv",
+    "data\\reference_stations.csv",
+    "data\\scalars.csv",
+    "data\\summary.csv",
+    "figures\\jet_centreline_Stokes.pdf",
+    "figures\\jet_centreline_Stokes.png",
+    "figures\\jet_centreline_Stokes.svg",
+    "figures\\jet_local_Reynolds.pdf",
+    "figures\\jet_local_Reynolds.png",
+    "figures\\jet_local_Reynolds.svg",
+    "figures\\jet_local_Strouhal.pdf",
+    "figures\\jet_local_Strouhal.png",
+    "figures\\jet_local_Strouhal.svg",
+    "figures\\particle_Re.pdf",
+    "figures\\particle_Re.png",
+    "figures\\particle_Re.svg",
+    "figures\\particle_Stokes.pdf",
+    "figures\\particle_Stokes.png",
+    "figures\\particle_Stokes.svg",
+    "figures\\reference_response_times.pdf",
+    "figures\\reference_response_times.png",
+    "figures\\reference_response_times.svg"
+  ]
+}

@@ -41,7 +41,7 @@ def make_figures_and_report(ctx,field,histories,alignment,result):
             top=min(hi,3.);xs=np.concatenate([h['q']['x_p_mm'][h['q']['h_mm']<=top] for h in histories]);ax.set(xlim=(xs.min()-.3,xs.max()+.3),ylim=(-.15,top+.15))
         ax.set(xlabel=r'$x_p\ (\mathrm{mm})$',ylabel=r'$h\ (\mathrm{mm})$',aspect='equal');fig.colorbar(m,ax=ax,label=r'$\overline{v}_{g,p}\ (\mathrm{m\,s^{-1}})$',shrink=.8);fig.legend(*ax.get_legend_handles_labels(),loc='outside lower center',frameon=False,fontsize=8)
         save(fig,stem,'Jet-under-plume rigid placement. The entrance plane h=0 is indicated; the jet field extends below it. Only initially supported droplet starts are integrated. Genuine native gas masks and measured downstream centreline wandering are retained, with no row recentering, extrapolation or imposed outcome.')
-    for key,label,stem in [('slip_v_p_m_s',r'$v_{g,p}-v_{d,p}\ (\mathrm{m\,s^{-1}})$','axial_slip'),('Re_p',r'$Re_p\ (-)$','particle_Re'),('Stk_D_local',r'$Stk_{D,\mathrm{local}}\ (-)$','particle_Stokes')]:
+    for key,label,stem in [('slip_v_p_m_s',r'$v_{g,p}-v_{d,p}\ (\mathrm{m\,s^{-1}})$','axial_slip'),('Re_p',r'$Re_p\ (-)$','particle_Re'),('Stk_D_local',r'$Stk_{D,\mathrm{path}}\ (-)$','particle_Stokes')]:
         fig,ax=plt.subplots(figsize=(7,4.6),layout='constrained')
         for h in histories:
             v=h['q'];k=h['peak']+1;x,y=clipped_curve(v['h_mm'][:k],v[key][:k],np.ones(k,bool),lo,hi);ax.plot(x,y,color=h['color'],label=h['label'],lw=1.7 if h['reference'] else .8,zorder=4 if h['reference'] else 2)

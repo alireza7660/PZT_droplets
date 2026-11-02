@@ -1,0 +1,10 @@
+quantity,formula,meaning,reference_scales,value_or_range,input_status
+"Re_D,c",Uc D0 / nu_air,Local centreline jet inertia/viscosity,"Uc(x), D0",11.818756–356.18752,Measured sampled-mean Uc; documented D0; assumed air properties
+"Sr_D,c",f D0 / Uc,Local centreline transit time / forcing period,"D0/Uc(x), 1/f",0.089536257–2.698397,Measured sampled-mean Uc; documented D0 and forcing f
+tau_p (ms),rho_water d^2 / (18 mu_air),Stokes-limit particle response time,Nominal spherical diameter d,0.3058250362,Model-estimated 10 um; recorded fluid-property assumptions
+Stk_f,tau_p f,Response time / forcing period,"tau_p, 1/f",0.03669900434,Estimated diameter; documented 120 Hz forcing
+"Stk_D,c",tau_p Uc / D0,Response time / local centreline transit time,"tau_p, D0/Uc(x)",0.013600298–0.4098787,Measured Uc; estimated diameter; recorded properties
+Re_p,rho_air d norm(u_g-v_d) / mu_air,In-plane slip-based particle Reynolds number,"d, two-component vector slip",2.7042404e-05–0.5125812,Measured prescribed gas; predicted droplet; estimated diameter
+"Stk_D,path",tau_p norm(u_g(r_d)) / D0,Response time / local path gas transit time,"tau_p, D0/norm(u_g)",0.11698913–0.39034595,Measured field sampled along predicted paths; estimated diameter
+"Re0, St0",U0 D0 / nu_air; f D0 / U0,Nozzle-reference quantities,Documented nozzle U0 required,Unresolved,No validated cycle/expulsion-averaged nozzle velocity recovered
+PZT-only measured Re_p,Requires measured local gas minus droplet vector,Experimental slip Reynolds number,Surrounding gas velocity missing,Not identifiable,Droplet velocities alone do not measure gas slip

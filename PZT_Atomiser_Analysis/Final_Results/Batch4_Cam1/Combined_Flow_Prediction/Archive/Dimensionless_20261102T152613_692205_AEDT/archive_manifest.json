@@ -1,0 +1,65 @@
+{
+  "scope": "Only generated dimensionless outputs; measurements, source code and trajectories not archived",
+  "files": [
+    {
+      "original": "figures\\jet_local_Reynolds.pdf",
+      "sha256": "62c9adcf2122becafd5a7d1b9657be413ba65e43d57776fe8f408f3f4fbc3ee0",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\jet_local_Reynolds.svg",
+      "sha256": "6e41e4b10d4df5c1fad6695d4f8ba4d26a326bbd8ea041a35e7428dffe819669",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\jet_local_Reynolds.png",
+      "sha256": "8b0d3c9ae1318f3aac4a88672c4862850a10069a28ed3bdadfe4ab8718af29e3",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\jet_local_Strouhal.pdf",
+      "sha256": "40f167cdabe969945f9685c078f9cc1615e5f068f0d055bad6c4e402ec2477c4",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\jet_local_Strouhal.svg",
+      "sha256": "ea0d0fef2bc75e69da7ef1057c5d0973ebe64c5e65d2624e0e6ab3c2c2232d45",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\jet_local_Strouhal.png",
+      "sha256": "552a93d10e4bae524a3378662965607ee7cd7dfdc563e2256e6ace3c057b0969",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\particle_Re.pdf",
+      "sha256": "329855d3c0bf8c2bdf085dc554e9c655a5037ea303b8d65ee5ea2bd94bcae737",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\particle_Re.svg",
+      "sha256": "4839c5a0c352f1dbb356cddf0915c8ab88332da3906de0c2dbf417fb5f644812",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\particle_Re.png",
+      "sha256": "de4e532e152217957a148cc4031f266c8c09dad18b73c05cc9de51e85f50cf31",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\particle_Stokes.pdf",
+      "sha256": "2ef69c5458e5bb9cb2f6592ab51dba7953208035a836912b056c93e84e394c33",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\particle_Stokes.svg",
+      "sha256": "26e3afe34832816d9e346086643de96023210ad68b961e12b3e091d07c9b3340",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\particle_Stokes.png",
+      "sha256": "c95f526896cbdbd201567e9a66f1a393522c0d711ae9d7a7ad754b3c4e888090",
+      "operation": "copy; original remains until regenerated"
+    }
+  ]
+}

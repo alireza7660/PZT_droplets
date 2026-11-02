@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "protected_file_count": 609,
+  "saved_trajectories_and_Plume_Aligned_unchanged": true,
+  "calibration_not_reapplied": true,
+  "forcing_Hz": 120.0,
+  "acquisition_excluded": true,
+  "coordinate_conversion": "x_over_D0 * D0_m * 1000 exactly once",
+  "centreline_maximum": {
+    "Uc_m_s": 2.680478380412314,
+    "x_over_D0": 25.20959999999999,
+    "Xj_mm": 50.41919999999998
+  },
+  "Stk_D_c_times_Sr_equals_Stk_f_max_error": 6.938893903907228e-18,
+  "maximum_path_Re_export_error": 0.0,
+  "maximum_path_Stk_export_error": 0.0,
+  "maximum_resampled_gas_error_m_s": 1.3322676295501878e-15,
+  "diameter_scaling_verified": {
+    "Re_factor_if_doubled": 2,
+    "tau_and_Stk_factor_if_doubled": 4
+  },
+  "independent_exported_CSV_roundtrip_verified": true
+}

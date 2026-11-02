@@ -1,0 +1,57 @@
+{
+  "figures": [
+    {
+      "stem": "jet_local_Reynolds",
+      "PDF_single_page_and_axis_text_verified": true,
+      "PNG_dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "stem": "jet_local_Strouhal",
+      "PDF_single_page_and_axis_text_verified": true,
+      "PNG_dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "stem": "jet_centreline_Stokes",
+      "PDF_single_page_and_axis_text_verified": true,
+      "PNG_dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "stem": "particle_Re",
+      "PDF_single_page_and_axis_text_verified": true,
+      "PNG_dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "stem": "particle_Stokes",
+      "PDF_single_page_and_axis_text_verified": true,
+      "PNG_dpi": [
+        599.9988,
+        599.9988
+      ]
+    },
+    {
+      "stem": "reference_response_times",
+      "PDF_single_page_and_axis_text_verified": true,
+      "PNG_dpi": [
+        599.9988,
+        599.9988
+      ]
+    }
+  ],
+  "visual_review": "All six matching PNG exports inspected together: no titles, full borders, readable labels and legends, source gaps retained; jet-nozzle and plume-entry coordinates explicit.",
+  "PDF_review": "Single-page structure and extracted physical-axis labels verified; no PDF rasterizer available. Visual inspection used matching 600-dpi PNG figure exports.",
+  "executed_notebook_audit_images": 6,
+  "CSV_files": 9,
+  "unchanged_measurements_and_paths": true
+}

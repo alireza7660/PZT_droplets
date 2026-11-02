@@ -1,0 +1,122 @@
+{
+  "status": "unresolved_experimental_U0",
+  "missing": "A representative full-cycle, nozzle-exit area average of squared axial velocity (or a validated equivalent U0 with that exact definition) is missing. Neither phase-resolved nozzle data nor a justified uniformly sampled full-cycle nozzle second moment has been established.",
+  "paper": {
+    "citation": "Cater and Soria (2002), JFM 472, pp. 169-170, equations 2.1-2.3",
+    "doi": "10.1017/S0022112002002264",
+    "url": "https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Fluid%20Mechanics/2002%20Volume%20472/S0022112002002264.pdf",
+    "definition": "U0 = sqrt[(1/(A0 T0)) integral_0^T0 integral_A0 u_n(r,t)^2 dA dt], A0=pi D0^2/4; axisymmetric form dA=2 pi r dr.",
+    "averaging": "Area and full-period mean square, followed by square root; not signed cycle mean, downstream maximum, or entrance velocity.",
+    "access": "Publisher identifies citation; full-paper equation text retrieved from indexed original-paper PDF. No matching local Cater-Soria PDF found under project, ZNMF_Results or attachments. ../Files/main.pdf is a different atomiser article."
+  },
+  "evidence": [
+    {
+      "path": "../ZNMF_Results/Final_Result/analysis/configuration.json",
+      "finding": "D0=2 mm, forcing_Hz=120, acquisition_Hz=10; no U0 supplied"
+    },
+    {
+      "path": "../ZNMF_Results/Final_Result/report/methods.md",
+      "section": "Acquisition and interpretation of fluctuations",
+      "finding": "Unknown phase-conditioned batches; no reliable cycle phase or run boundaries; sampled means not established full-cycle averages"
+    },
+    {
+      "path": "../ZNMF_Results/Final_Result/tables/FOV_1_2_3_centreline_and_width.csv",
+      "finding": "Downstream sampled mean centreline; not nozzle-area cycle-resolved data"
+    }
+  ],
+  "original_hdf5_metadata": [
+    {
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Raw data\\First_location\\Batch4_Cam1.h5",
+      "parameter_names": [
+        "Lc",
+        "NumberOfFields",
+        "Uc",
+        "Xorigin",
+        "Yorigin",
+        "calib",
+        "dt",
+        "nondim",
+        "nx",
+        "ny",
+        "scale",
+        "stats",
+        "viscosity",
+        "x",
+        "y"
+      ],
+      "first_field_keys": [
+        "flag",
+        "omega",
+        "u",
+        "us",
+        "v",
+        "vs"
+      ],
+      "phase_time_name_candidates": []
+    },
+    {
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Raw data\\Second_location\\Batch4_second_Cam1.h5",
+      "parameter_names": [
+        "Lc",
+        "NumberOfFields",
+        "Uc",
+        "Xorigin",
+        "Yorigin",
+        "calib",
+        "dt",
+        "nondim",
+        "nx",
+        "ny",
+        "scale",
+        "stats",
+        "viscosity",
+        "x",
+        "y"
+      ],
+      "first_field_keys": [
+        "flag",
+        "omega",
+        "u",
+        "us",
+        "v",
+        "vs"
+      ],
+      "phase_time_name_candidates": []
+    },
+    {
+      "path": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Raw data\\Third_location\\Batch4_third_Cam1.h5",
+      "parameter_names": [
+        "Lc",
+        "NumberOfFields",
+        "Uc",
+        "Xorigin",
+        "Yorigin",
+        "calib",
+        "dt",
+        "nondim",
+        "nx",
+        "ny",
+        "scale",
+        "stats",
+        "viscosity",
+        "x",
+        "y"
+      ],
+      "first_field_keys": [
+        "flag",
+        "omega",
+        "u",
+        "us",
+        "v",
+        "vs"
+      ],
+      "phase_time_name_candidates": []
+    }
+  ],
+  "not_substituted": [
+    "Downstream maximum",
+    "Plume-entry Uc",
+    "Signed full-cycle mean",
+    "Unjustified RMS of phase-biased nozzle samples"
+  ]
+}

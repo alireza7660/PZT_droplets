@@ -1,0 +1,18 @@
+{
+  "package": "Dimensionless_Numbers",
+  "manifest": "Dimensionless_Numbers/manifest.json",
+  "replaces_only": [
+    "figures/jet_local_Reynolds.pdf",
+    "figures/jet_local_Reynolds.svg",
+    "figures/jet_local_Reynolds.png",
+    "figures/jet_local_Strouhal.pdf",
+    "figures/jet_local_Strouhal.svg",
+    "figures/jet_local_Strouhal.png",
+    "figures/particle_Re.pdf",
+    "figures/particle_Re.svg",
+    "figures/particle_Re.png",
+    "figures/particle_Stokes.pdf",
+    "figures/particle_Stokes.svg",
+    "figures/particle_Stokes.png"
+  ]
+}

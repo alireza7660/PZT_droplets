@@ -1,0 +1,235 @@
+{
+  "scope": "Only generated dimensionless outputs; measurements, source code and trajectories not archived",
+  "files": [
+    {
+      "original": "Dimensionless_Numbers\\captions.tex",
+      "sha256": "f84f9a3115c8ab5d64286585f2dbb87064c6711c859207a7047295068ed37f74",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\manifest.json",
+      "sha256": "40d25367825e6f12df007bd05e0e2c1c8fe93e0940e5eb1752273290c793a0ec",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\methods_results.tex",
+      "sha256": "8e7fdf3dbb96af97b41cadb00222ea537be79d1cc49c37fae5b6bf3595d94d5e",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\nozzle_reference_audit.json",
+      "sha256": "392ebea8c2057a896b887df36ee56a6e10dd586034642c4ef2e9439d452645eb",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\README.md",
+      "sha256": "6e92ee344f511376f3450d0ba071475da1e83607dd0c1a3bbf991de77343c1e6",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\source_manifest.json",
+      "sha256": "94e90369166c10cc1007afdb38ad4360e7a5342a2246b64b9cbd14039d33629b",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\verification.json",
+      "sha256": "0b3303e88ab0e29a26fc78f43700e26919ba25fb71b9ffdd57472e08da0c8a19",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\data\\jet_local_centreline_numbers.csv",
+      "sha256": "adab1e0b913cb3b342ff9df77ef23b15991a2560f21d7e6dd1a097a53043adba",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\data\\jet_reference_stations.csv",
+      "sha256": "a6c43172a1a5194c33fb3f67b46f4f03382dc23e902a9135d6f7f0ec7d0f13c7",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\data\\path_01_dimensionless.csv",
+      "sha256": "4cfbcc20ee5590130db991f8a353037ef5c872bfda0b1340945d3cd8970fc412",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\data\\path_02_dimensionless.csv",
+      "sha256": "d40ee0cb4de3ce98186edc44365bee60bf294bc3795b3e5e13fb477f8d41b308",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\data\\path_03_dimensionless.csv",
+      "sha256": "22968d77aeab036b802a6520c3cfeb3279beabed4dbdf40334351d1f19f56aa3",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\data\\path_04_dimensionless.csv",
+      "sha256": "bce1a5cd49005bdcc5d17c742964a6a2e49ac120d98dfdc62352669f4489ed65",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\data\\reference_stations.csv",
+      "sha256": "fdea10b61d04ba670ee5cfd70ce4d4edfe798cc87a5f96e5f651000dadc9986d",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\data\\scalars.csv",
+      "sha256": "4697d13f1a4dc34d1174655b535d3facaf593285b01ebae8c04a608574be4dce",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\data\\summary.csv",
+      "sha256": "966f2154cf78c96ff6ba0911ed011d818a66be1582f7e36eb72a9769453f3d37",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\figures\\jet_centreline_Stokes.pdf",
+      "sha256": "a0b9428e0452e842b1c3c0b129d1adb61183893ed32543db3a291055569a28a5",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\figures\\jet_centreline_Stokes.png",
+      "sha256": "eaabff849d24f7e797da1c0455fe4e04e615b041f8f28fc8ac1f9c832204784b",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\figures\\jet_centreline_Stokes.svg",
+      "sha256": "4fbf0a0d73c702d764cd2c4d84633726994d477af13b2474c0e55eb4729f1e80",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\figures\\jet_local_Reynolds.pdf",
+      "sha256": "9a6dcf06513a6a4c1b07c836320c737f6f908fe88f09b8942949f7fc61343070",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\figures\\jet_local_Reynolds.png",
+      "sha256": "b9601d2c77faa5870aa47ae14a0407302d0f26ce2f0f7bd4faa59e081e88c4ca",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\figures\\jet_local_Reynolds.svg",
+      "sha256": "a4e72ff231a3af09b2de016b7956c1efec3f5e2e0a959df42a9f2dbbf4d4f960",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\figures\\jet_local_Strouhal.pdf",
+      "sha256": "ec5d04bdd198a3295ca79a6ffcab1bd430bb6ccd0296df45682649cdcb9ff790",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\figures\\jet_local_Strouhal.png",
+      "sha256": "0e2bd20c798bbd8948aa2662fc7195ab843416c9cc27bbf6650f7cbedc5436ad",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\figures\\jet_local_Strouhal.svg",
+      "sha256": "f5f9615c7402776a7584756617ea401a089ce0bdf2f14c51ecfbe28150635322",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\figures\\particle_Re.pdf",
+      "sha256": "76e42da9293df05efc746e4d3b88e6d29b45e70814f88125c0593cbe87b74c65",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\figures\\particle_Re.png",
+      "sha256": "1061b0cfd2e8d85ce0439c6e194a3f0c5af17ea684997b55bc09780aa43509a9",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\figures\\particle_Re.svg",
+      "sha256": "0e3e77aea5132a09379ec3e41f173b05b3083b3614e82993e430bb4676c6bae9",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\figures\\particle_Stokes.pdf",
+      "sha256": "beb63863415c0143c144441664c10a34a1cd9e123741e90e11216066fa73853b",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\figures\\particle_Stokes.png",
+      "sha256": "713690399ca65b2aa6d968a0e6d5f510f1acb910816c874958e98b86a0481ad3",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\figures\\particle_Stokes.svg",
+      "sha256": "7ee83a4e9651b1ec26efd5876e68d0f26e96982b1030d32ecbb94a5b9ee540a8",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\figures\\reference_response_times.pdf",
+      "sha256": "e814c906c3437027c833828a1284bd8acc7f0335850f63ebac5c31e310bed7e9",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\figures\\reference_response_times.png",
+      "sha256": "c1dfc2b7247014f0e35edd74e6faf75f2542ead154056713f4a60c397c89d09a",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "Dimensionless_Numbers\\figures\\reference_response_times.svg",
+      "sha256": "7acf00a40d53b152582694dbc4d2ec3d10eef1434e3c7e942f33f58c39b275b2",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\jet_local_Reynolds.pdf",
+      "sha256": "9a6dcf06513a6a4c1b07c836320c737f6f908fe88f09b8942949f7fc61343070",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\jet_local_Reynolds.svg",
+      "sha256": "a4e72ff231a3af09b2de016b7956c1efec3f5e2e0a959df42a9f2dbbf4d4f960",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\jet_local_Reynolds.png",
+      "sha256": "b9601d2c77faa5870aa47ae14a0407302d0f26ce2f0f7bd4faa59e081e88c4ca",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\jet_local_Strouhal.pdf",
+      "sha256": "ec5d04bdd198a3295ca79a6ffcab1bd430bb6ccd0296df45682649cdcb9ff790",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\jet_local_Strouhal.svg",
+      "sha256": "f5f9615c7402776a7584756617ea401a089ce0bdf2f14c51ecfbe28150635322",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\jet_local_Strouhal.png",
+      "sha256": "0e2bd20c798bbd8948aa2662fc7195ab843416c9cc27bbf6650f7cbedc5436ad",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\particle_Re.pdf",
+      "sha256": "76e42da9293df05efc746e4d3b88e6d29b45e70814f88125c0593cbe87b74c65",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\particle_Re.svg",
+      "sha256": "0e3e77aea5132a09379ec3e41f173b05b3083b3614e82993e430bb4676c6bae9",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\particle_Re.png",
+      "sha256": "1061b0cfd2e8d85ce0439c6e194a3f0c5af17ea684997b55bc09780aa43509a9",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\particle_Stokes.pdf",
+      "sha256": "beb63863415c0143c144441664c10a34a1cd9e123741e90e11216066fa73853b",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\particle_Stokes.svg",
+      "sha256": "7ee83a4e9651b1ec26efd5876e68d0f26e96982b1030d32ecbb94a5b9ee540a8",
+      "operation": "copy; original remains until regenerated"
+    },
+    {
+      "original": "figures\\particle_Stokes.png",
+      "sha256": "713690399ca65b2aa6d968a0e6d5f510f1acb910816c874958e98b86a0481ad3",
+      "operation": "copy; original remains until regenerated"
+    }
+  ]
+}

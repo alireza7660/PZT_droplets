@@ -57,7 +57,10 @@ output=root/'PZT_Atomiser_Analysis/Final_Results/Batch4_Cam1'
     if cfg.get('design_study',{}).get('enabled'):
         from .validate_prospective_studies import main as validate_studies
         validate_studies()
-    print('Updated and executed only the aligned co-directed prediction notebook section; unrelated cells preserved.')
+    if cfg.get('co_directed',{}).get('enabled'):
+        from .dimensionless_audit import update_notebook as update_dimensionless
+        update_dimensionless()
+    print('Updated and executed the co-directed prediction and independent dimensionless audit notebook sections; experimental cells preserved.')
 
 
 if __name__=='__main__':

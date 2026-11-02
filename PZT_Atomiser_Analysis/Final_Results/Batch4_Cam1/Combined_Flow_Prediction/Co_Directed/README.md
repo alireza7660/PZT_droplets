@@ -33,3 +33,7 @@ The reference common-interval axial momentum change is 3.26650540098e-13 kg m/s,
 The full gas-supported reference endpoint is h=52.059101023 mm, v_d,p=2.206103825 m/s, transit 28.039005328 ms, and lateral displacement -1.315146721 mm. Its termination is outside_measured_jet_domain. This extends beyond the measured PZT-only comparison range.
 
 Stk_D,local=tau_p*|u_g|/D0 uses flow time D0/|u_g|; Stk_f=tau_p*f. tau_p=0.000305825036 s. D0=2 mm and forcing f=120 Hz come from ZNMF metadata, not its acquisition rate. Re_D,c=Uc*D0/nu and Sr_D,c=f*D0/Uc remain local centreline diagnostics, with missing/nonpositive Uc undefined. All gas, force and momentum arrays, response times, vector-slip Re and instantaneous balances are saved. Source hashes, transformations, support, analytical Stokes recovery, zero slip, drag direction, momentum closure and coarse/half-step convergence are checked in validation/.
+
+## Audited dimensionless results
+
+See [methods and summary](Dimensionless_Numbers/README.md), [complete definition table](Dimensionless_Numbers/data/summary.csv), [reference stations](Dimensionless_Numbers/data/reference_stations.csv), and [report LaTeX](Dimensionless_Numbers/methods_results.tex). Jet distances are from the nozzle; path distances are from plume entry. Full supported paths are shown, with the shorter PZT comparison endpoint marked. No experimental nozzle reference U0 was recovered.
