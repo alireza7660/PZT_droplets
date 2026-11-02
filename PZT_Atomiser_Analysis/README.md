@@ -106,33 +106,32 @@ The figure stems are `mean_v_vertical_profile_location` and
 directory. Extracted CSV/NPZ are in `data/mean_v_vertical_profile.*`.
 Selection and verification metadata are in `methods/vertical_profile_*.json`.
 
-## Upward co-directed prediction
+## Plume-aligned measurement review ? interaction work paused
 
-Active package: `Final_Results/Batch4_Cam1/Combined_Flow_Prediction/Co_Directed/`.
-Separate PZT droplet and ZNMF gas SI velocities are preserved. Analysis copies
-rotate the gas downstream axis upward (+90 degrees) and align its nominal axis
-to the documented PZT fixed-line reference. The lowest supported measurement
-planes coincide by assumption; no physical-exit coincidence is claimed.
-Relative axial offset remains configurable under co_directed in the configuration.
-The nominal 10 micrometre water diameter remains a Rayleigh/aperture model
-estimate, not measured sizing. Signed gas reversals and wandering are retained.
-
-Regenerate figures, tables, concise LaTeX and the executed notebook section:
+The current requested analysis is in
+`Final_Results/Batch4_Cam1/Plume_Aligned/`. It fits one straight hydrodynamic
+plume axis over a documented laboratory-height interval, checks sensitivity,
+and rotates analysis copies of the native positions, velocity components,
+covariance tensor and gravity using one orthonormal matrix. Contours use the
+rotated native grid without resampling. Profile/section extraction retains
+finite measured support without extrapolation. The original fixed-column
+profile is preserved separately; the fitted-axis profile samples a different line.
 
 ```powershell
-.\.venv\Scripts\python -m PZT_Atomiser_Analysis.analysis.update_combined_flow_notebook
+.\.venv\Scripts\python -m PZT_Atomiser_Analysis.analysis.update_plume_aligned_notebook
 ```
 
-`Co_Directed/results_summary.json` reports actual integrations and common-height
-velocity/travel-time comparisons. `data/` contains histories, forces, scalar
-response/frequency values and local jet dimensionless numbers. Report figures
-are explicitly selected by `Co_Directed/report_manifest.json`; archived side-jet
-outputs, H/L/C labels and constant-line plots are excluded. The measured PZT-only
-profile remains a separate red ensemble-mean baseline.
+Configure the fitting interval and section stations in `config/plume_alignment.json`.
+`transformation.json` documents angle, reference, matrix/inverse, gravity and
+interval sensitivity; `data/extracted_centres.csv` records fitted centre residuals.
+The origin is a measured-region analysis reference, not the atomiser surface.
+The aligned axial coordinate s_p follows the plume and is not laboratory vertical.
+Curvature, asymmetry and nonzero transverse velocity remain.
 
-Superseded side-jet outputs and configuration/code snapshots are preserved in
-`Archive/20261102T103931_AEDT_superseded_side_jet/archive_manifest.json`.
-Original inputs, authoritative calibrated experimental results and reusable
-solver code are preserved. Validation checks SI units, transformations, forces,
-support, convergence and source hashes. No collection, deposition or combined-
-experiment validation is claimed.
+The active notebook shows only measured plume alignment at this stage. Previous
+interaction notebook outputs are preserved separately in Plume_Aligned/validation;
+the previous Combined_Flow_Prediction numerical results and figures remain unchanged.
+`interaction_work_status=paused_for_plume_alignment_review` guards prediction
+entry points; no interaction prediction or new interaction station is computed.
+This coordinate transformation does not assert that physically remounting the
+atomiser would reproduce the same flow. Original calibrated PZT data remain unchanged.

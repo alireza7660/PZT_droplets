@@ -1,0 +1,63 @@
+\section{Co-directed response of nominal PZT droplets to the measured ZNMF jet}
+The experiments were separate. Final SI PZT droplet and ZNMF gas velocities are
+used without recalibration, rescaling, sign tuning or addition of the fields.
+The ZNMF downstream direction is rotated upward: $u_g=-V$, $v_g=U$;
+$x=x_{ref}-Y_j$, $y=X_j+y_{PZT,low}-X_{j,first}+\delta_y$.
+The nominal axis is aligned to the documented empirical PZT reference
+$x_{ref}=14.54665\,$mm without straightening measured wandering.
+Because the PZT physical outlet is not established, the lowest PZT measurement
+plane (0.0856 mm) and first supported gas plane
+(0.3232 mm in the gas frame) are made coincident,
+with configurable $\delta_y=0\,$mm. This does not align physical exits.
+Seven supported native PZT positions across the plume initialise both measured
+velocity components once; these are not individually tracked droplets or number
+concentration measurements. No travel from the atomiser surface is inferred.
+
+For nominal $d=10\,\mu$m, motivated by $5\,\mu$m aperture times 1.89 and
+rounding the $9.45\,\mu$m estimate, the equations are
+\begin{align}
+\dot{\boldsymbol q}&=\boldsymbol v_d,\\
+\dot{\boldsymbol v}_d&=-g(1-\rho_a/\rho_w)\boldsymbol e_y+
+\frac{f(Re_p)}{\tau_p}(\boldsymbol u_g-\boldsymbol v_d),\\
+Re_p&=\rho_a d\lVert\boldsymbol u_g-\boldsymbol v_d\rVert/\mu_a,
+\qquad\tau_p=\rho_w d^2/(18\mu_a).
+\end{align}
+The diameter is a configurable model estimate, not measured sizing. Existing
+20-degree-C properties are retained. The drag multiplier is unity for $Re_p\leq0.01$
+and $1+0.15Re_p^{0.687}$ otherwise, with $Re_p<800$. Gravity and buoyancy
+remain in the upward-positive physical frame. Gas interpolation requires four
+finite paired vectors per source cell; boundaries and gaps are never extrapolated.
+This prescribed-mean-gas approximation neglects plume-induced gas changes, jet
+unsteadiness, evaporation and droplet-size evolution. The combined flow is not
+experimentally validated.
+
+All 7 integrations complete. Initial sampled gas axial velocities
+span -0.68911 to -0.19502 m/s;
+the saved near-entry signed reversal region is retained, despite the nominal upward axis.
+7 trajectories end with downward droplet velocity. Maximum heights
+span 0.17519--0.334543 mm.
+Cases exhibiting upward drag: 0; cases exhibiting
+net upward axial acceleration: 0.
+Over the common first-ascent interval $y=0.0856$--$0.17519\,$mm,
+travel times span 0.0649192--0.2775 ms and axial velocity changes
+span -0.771021---0.407629 m/s. These are common-interval comparisons, not
+performance comparisons of differently terminated endpoints. The full histories
+retain subsequent descent; branch styles distinguish ascent and descent.
+
+Upward drag requires positive axial slip; net upward acceleration additionally
+requires $a_{D,y}>g(1-\rho_a/\rho_w)$. Force-sign intervals are tabulated.
+Net upward acceleration of a descending particle can mean deceleration of its
+downward motion, not upward transport. The measured fixed-line PZT-only mean
+profile is shown separately in red and is not a tracked single-droplet trajectory.
+
+$\tau_p=0.305825\,$ms is a Stokes-limit time; the exported
+$\tau_p/f(Re_p)$ is a finite-Re drag/slip coefficient timescale, not an exact
+relaxation time. Scalars are tabulated. $Stk_f=\tau_p f=0.036699$ uses
+ZNMF actuation $f=120\,$Hz without $2\pi$; neither acquisition
+nor atomiser frequency is substituted. Local trajectory $Stk_D=\tau_p\lVert\boldsymbol u_g\rVert/D_0$
+uses $D_0/\lVert\boldsymbol u_g\rVert$. Gas local $Re_{D,c}=U_cD_0/\nu_a$
+and $Sr_{D,c}=fD_0/U_c$ use positive finite measured $U_c$ with retained gaps,
+$D_0=2\,$mm, and do not imply nozzle-exit $Re_0$ or $Sr_0$. Stk and Sr are
+distinct. Supporting PZT-only Re is conditional on explicitly assumed zero
+background gas, not a measured ambient-gas condition. No collection efficiency,
+lung deposition or combined-experiment validation is claimed.

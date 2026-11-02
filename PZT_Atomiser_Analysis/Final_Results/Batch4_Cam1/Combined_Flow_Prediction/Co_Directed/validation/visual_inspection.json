@@ -1,9 +1,8 @@
 {
-  "all_seven_PNG_figures_reviewed": true,
-  "entry_legend_separate_from_axis_labels": true,
-  "physical_coordinates_and_units": true,
-  "red_experimental_baseline_separate": true,
-  "negative_velocities_preserved": true,
-  "ascent_descent_branch_styles_explained": true,
-  "PDF_raster_review": "Unavailable; PDF and PNG exported from the same Matplotlib figures"
+  "all_nine_PNG_figures_reviewed": true,
+  "source_comparison_reproduced": true,
+  "main_comparison_measured_and_predicted_distinct": true,
+  "initial_conditions_audited_before_integration": true,
+  "entry_legend_and_colorbar_layout_verified": true,
+  "PDF_raster_review": "PDF renderer unavailable; PDF and PNG generated from identical Matplotlib figures"
 }

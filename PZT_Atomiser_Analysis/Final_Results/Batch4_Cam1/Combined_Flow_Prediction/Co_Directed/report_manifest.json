@@ -1,5 +1,7 @@
 {
   "figures": [
+    "source_comparison_reproduced",
+    "measured_and_predicted_axial_comparison",
     "trajectories_upward_jet",
     "trajectories_entry_detail",
     "axial_velocity_along_trajectories",
@@ -12,8 +14,12 @@
   "numerical_data": [
     "PZT_only_fixed_line_profile.csv",
     "common_height_comparison.csv",
+    "comparison_source_PZT.csv",
+    "comparison_source_ZNMF.csv",
     "force_direction_intervals.csv",
+    "initial_conditions.csv",
     "jet_local_centreline_numbers.csv",
+    "main_comparison_reference_prediction.csv",
     "release_01.csv",
     "release_02.csv",
     "release_03.csv",
@@ -29,5 +35,5 @@
     "methods_results.tex",
     "captions.tex"
   ],
-  "archive_manifest": "PZT_Atomiser_Analysis\\Archive\\20261102T103931_AEDT_superseded_side_jet\\archive_manifest.json"
+  "archive_manifest": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\archive_manifest.json"
 }

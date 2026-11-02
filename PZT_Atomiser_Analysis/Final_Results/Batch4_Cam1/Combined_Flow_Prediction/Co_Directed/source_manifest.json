@@ -64,18 +64,20 @@
   },
   "co_directed_alignment": {
     "rotation_degrees": 90,
-    "formula_positions": "x=x_reference-Yj; y=Xj+y_PZT_low-Xj_first+axial_offset",
+    "formula_positions": "x=x_PZT_ref + Yj_c_at_interaction - Yj; y=y_PZT_interaction + Xj - s_ZNMF_interaction",
     "formula_velocities": "u_g=-V_ZNMF; v_g=+U_ZNMF",
     "plume_reference_x_mm": 14.54665,
     "PZT_reference_native_column": 42,
-    "PZT_lowest_plane_y_mm": 0.0856,
-    "ZNMF_first_supported_Xj_mm": 0.3232,
+    "PZT_interaction_height_mm": 10.086074392363921,
+    "ZNMF_interaction_downstream_mm": 10.086074392363921,
+    "ZNMF_measured_centreline_y_registered_over_D0": 6.738545486241452,
+    "ZNMF_interaction_centreline_Yj_mm": -0.2589090275170971,
     "relative_axial_offset_mm": 0.0,
     "translation_m": [
-      0.01454665,
-      -0.0002376
+      0.014287740972482902,
+      0.0
     ],
-    "interpretation": "Measurement-plane alignment assumption, not coincident physical exits; nominal axes aligned, measured centreline wandering retained"
+    "interpretation": "Independent source profile coordinates paired as in archived comparison; measured centrelines aligned only at interaction plane, not physical exits; wandering and transverse offsets retained"
   },
   "saved_properties": {
     "rho_water_kg_m3": 998.2067455596167,

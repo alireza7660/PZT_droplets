@@ -1,0 +1,7 @@
+{
+  "original_noninteraction_cells_sha256": "034cdb611adb6339ce2fc02b4febb133ef59cd037a5b653db86a3bf060584c59",
+  "unchanged": true,
+  "executed_only": "plume_alignment.run",
+  "interaction_predictions_run": false,
+  "previous_interaction_displays_preserved_separately": true
+}

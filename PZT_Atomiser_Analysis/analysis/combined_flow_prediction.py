@@ -166,6 +166,8 @@ def prediction_figures(out,field,cases,manifest):
 
 def run(config_path=None):
     cfg_path=Path(config_path or PROJECT/'config/combined_flow_prediction.json');cfg=json.loads(cfg_path.read_text())
+    if cfg.get('interaction_work_status')=='paused_for_plume_alignment_review':
+        return dict(status='paused_for_plume_alignment_review',interaction_predictions_run=False)
     if cfg.get('co_directed',{}).get('enabled'):
         from .co_directed import run as run_upward
         return run_upward()
@@ -238,6 +240,9 @@ def run(config_path=None):
 def notebook_cells():
     import nbformat as nb
     active=json.loads((PROJECT/'config/combined_flow_prediction.json').read_text())
+    if active.get('interaction_work_status')=='paused_for_plume_alignment_review':
+        from .plume_alignment import notebook_cells as alignment_cells
+        return alignment_cells()
     if active.get('co_directed',{}).get('enabled'):
         from .co_directed import notebook_cells as upward_cells
         return upward_cells()

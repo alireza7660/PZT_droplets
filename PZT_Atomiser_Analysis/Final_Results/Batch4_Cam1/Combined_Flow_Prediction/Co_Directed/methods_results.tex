@@ -1,63 +1,71 @@
-\section{Co-directed response of nominal PZT droplets to the measured ZNMF jet}
-The experiments were separate. Final SI PZT droplet and ZNMF gas velocities are
-used without recalibration, rescaling, sign tuning or addition of the fields.
-The ZNMF downstream direction is rotated upward: $u_g=-V$, $v_g=U$;
-$x=x_{ref}-Y_j$, $y=X_j+y_{PZT,low}-X_{j,first}+\delta_y$.
-The nominal axis is aligned to the documented empirical PZT reference
-$x_{ref}=14.54665\,$mm without straightening measured wandering.
-Because the PZT physical outlet is not established, the lowest PZT measurement
-plane (0.0856 mm) and first supported gas plane
-(0.3232 mm in the gas frame) are made coincident,
-with configurable $\delta_y=0\,$mm. This does not align physical exits.
-Seven supported native PZT positions across the plume initialise both measured
-velocity components once; these are not individually tracked droplets or number
-concentration measurements. No travel from the atomiser surface is inferred.
+\section{Interaction of developed PZT droplets with the measured upward jet}
+The archived comparison is reproduced from its authoritative PZT fixed-line and
+ZNMF measured-centreline sources, using their original independent axial coordinates.
+Supported piecewise-linear interpolation gives a unique gas-overtaking crossing at
+$s_{ZNMF}=10.0860744\,$mm and $y_{PZT}=10.0860744\,$mm, with common axial velocity
+$0.964010941\,\mathrm{m\,s^{-1}}$. No approximate 10 mm value is imposed.
+Gas downstream and PZT height coordinates are paired as in that comparison; this
+is an explicit registration assumption, not evidence of coincident physical exits.
+The measured gas centreline at the interaction plane is aligned once to the
+documented PZT fixed-line reference. Common positions and vectors obey
+\begin{align}
+x&=x_{PZT,ref}+Y_{j,c,int}-Y_j,\qquad
+y=y_{PZT,int}+X_j-s_{ZNMF,int},\\
+u_g&=-V_{ZNMF},\qquad v_g=U_{ZNMF}.
+\end{align}
+Transverse offsets and downstream centreline wandering remain unchanged. Saved
+SI velocities, signs, masks and sample populations are preserved without recalibration.
 
-For nominal $d=10\,\mu$m, motivated by $5\,\mu$m aperture times 1.89 and
-rounding the $9.45\,\mu$m estimate, the equations are
+Seven representative initial states use both measured PZT components at the
+interaction height, interpolating only between adjacent supported native height
+planes at each selected column. No near-atomiser velocity is reused. Before
+integration, source indices/weights, transformed positions, gas samples, vector
+slip and acceleration are exported. For the reference release, droplet axial
+velocity is 0.96401094 m/s and sampled gas axial velocity is
+0.96121474 m/s, compared with plotted centreline
+0.96401094 m/s. The two interpolation operations differ
+when the measured centreline moves between native columns. Transverse velocities
+also differ: droplet 0.073308381 m/s and gas
+-0.32525834 m/s. Thus an axial-profile crossing is not zero vector slip.
+The reference release initially has net axial acceleration
+-19.488459 m/s$^2$; acceleration is not forced positive.
+
+Nominal $d=10\,\mu$m is a configurable model estimate from an assumed aperture-sized
+jet ($5\,\mu$m) and Rayleigh factor 1.89, rounded from $9.45\,\mu$m, not measured
+sizing. Existing 20-degree-C properties are used. The prescribed two-component
+measured mean gas neglects plume-induced gas changes, unsteadiness, evaporation
+and size evolution. PZT velocities initialise the particles once and are never
+added to the gas or imposed downstream. The equations are
 \begin{align}
 \dot{\boldsymbol q}&=\boldsymbol v_d,\\
 \dot{\boldsymbol v}_d&=-g(1-\rho_a/\rho_w)\boldsymbol e_y+
 \frac{f(Re_p)}{\tau_p}(\boldsymbol u_g-\boldsymbol v_d),\\
 Re_p&=\rho_a d\lVert\boldsymbol u_g-\boldsymbol v_d\rVert/\mu_a,
-\qquad\tau_p=\rho_w d^2/(18\mu_a).
+\qquad\tau_p=\rho_wd^2/(18\mu_a).
 \end{align}
-The diameter is a configurable model estimate, not measured sizing. Existing
-20-degree-C properties are retained. The drag multiplier is unity for $Re_p\leq0.01$
-and $1+0.15Re_p^{0.687}$ otherwise, with $Re_p<800$. Gravity and buoyancy
-remain in the upward-positive physical frame. Gas interpolation requires four
-finite paired vectors per source cell; boundaries and gaps are never extrapolated.
-This prescribed-mean-gas approximation neglects plume-induced gas changes, jet
-unsteadiness, evaporation and droplet-size evolution. The combined flow is not
-experimentally validated.
+Use $f=1$ for $Re_p\leq0.01$ and $f=1+0.15Re_p^{0.687}$ otherwise,
+with $Re_p<800$. Only four-finite-vector gas cells are interpolated; boundaries
+and invalid regions are never extrapolated. Gravity/buoyancy remain downward
+in the upward-positive common frame. Numerical refinement is checked independently
+without tuning physical inputs.
 
-All 7 integrations complete. Initial sampled gas axial velocities
-span -0.68911 to -0.19502 m/s;
-the saved near-entry signed reversal region is retained, despite the nominal upward axis.
-7 trajectories end with downward droplet velocity. Maximum heights
-span 0.17519--0.334543 mm.
-Cases exhibiting upward drag: 0; cases exhibiting
-net upward axial acceleration: 0.
-Over the common first-ascent interval $y=0.0856$--$0.17519\,$mm,
-travel times span 0.0649192--0.2775 ms and axial velocity changes
-span -0.771021---0.407629 m/s. These are common-interval comparisons, not
-performance comparisons of differently terminated endpoints. The full histories
-retain subsequent descent; branch styles distinguish ascent and descent.
+All 7 integrations complete. Over the SAME supported first-ascent
+interval $y=10.086074$--$27.3064\,$mm, axial velocity changes span
+0.92813641--1.3417826 m/s and travel times span 12.710875--13.947278 ms.
+For the reference release, the change is 1.0445301 m/s over
+13.288914 ms. These are common-height comparisons, not
+performance rankings of displacements at different boundaries/times. The measured
+red PZT-only fixed-line ensemble profile remains an experimental baseline, not
+a tracked individual trajectory or tracked centreline. Differences between it
+and predictions do not validate the combined flow or identify a measured size.
 
-Upward drag requires positive axial slip; net upward acceleration additionally
-requires $a_{D,y}>g(1-\rho_a/\rho_w)$. Force-sign intervals are tabulated.
-Net upward acceleration of a descending particle can mean deceleration of its
-downward motion, not upward transport. The measured fixed-line PZT-only mean
-profile is shown separately in red and is not a tracked single-droplet trajectory.
-
-$\tau_p=0.305825\,$ms is a Stokes-limit time; the exported
-$\tau_p/f(Re_p)$ is a finite-Re drag/slip coefficient timescale, not an exact
-relaxation time. Scalars are tabulated. $Stk_f=\tau_p f=0.036699$ uses
-ZNMF actuation $f=120\,$Hz without $2\pi$; neither acquisition
-nor atomiser frequency is substituted. Local trajectory $Stk_D=\tau_p\lVert\boldsymbol u_g\rVert/D_0$
-uses $D_0/\lVert\boldsymbol u_g\rVert$. Gas local $Re_{D,c}=U_cD_0/\nu_a$
-and $Sr_{D,c}=fD_0/U_c$ use positive finite measured $U_c$ with retained gaps,
-$D_0=2\,$mm, and do not imply nozzle-exit $Re_0$ or $Sr_0$. Stk and Sr are
-distinct. Supporting PZT-only Re is conditional on explicitly assumed zero
-background gas, not a measured ambient-gas condition. No collection efficiency,
-lung deposition or combined-experiment validation is claimed.
+The scalar Stokes-limit time and $Stk_f=\tau_p f$ are tabulated, using documented
+ZNMF actuation $f=120\,$Hz rather than acquisition or atomiser frequency.
+Local trajectory $Stk_D=\tau_p\lVert\boldsymbol u_g\rVert/D_0$ uses the local
+nozzle-length gas timescale. $\tau_p/f(Re_p)$ is a coefficient timescale, not an
+exact finite-Re relaxation time. Local gas $Re_{D,c}=U_cD_0/\nu_a$ and
+$Sr_{D,c}=fD_0/U_c$ use positive finite measured $U_c$, with unsupported gaps
+retained and $D_0=2\,$mm; they are not nozzle-exit $Re_0/Sr_0$.
+Stk and Sr are distinct. No collection efficiency, lung deposition or
+experimental validation is claimed. The comparison-coordinate registration,
+single-plane centreline alignment, prescribed gas and estimated diameter remain limitations.

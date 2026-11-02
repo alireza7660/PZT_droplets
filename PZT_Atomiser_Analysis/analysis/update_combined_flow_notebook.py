@@ -21,6 +21,9 @@ def signature(cells):return hashlib.sha256(json.dumps(cells,sort_keys=True).enco
 
 def main(reuse_saved=False):
     cfg=json.loads((PROJECT/'config/combined_flow_prediction.json').read_text());out=ROOT/cfg['output']
+    if cfg.get('interaction_work_status')=='paused_for_plume_alignment_review':
+        from .update_plume_aligned_notebook import main as alignment_only
+        return alignment_only()
     target=PROJECT/'notebooks/PZT_final_analysis.ipynb';book=nb.read(target,as_version=4)
     original=signature(unrelated_cells(book));cells=notebook_cells()
     setup=nb.v4.new_code_cell('''from pathlib import Path

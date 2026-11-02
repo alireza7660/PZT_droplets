@@ -1,0 +1,302 @@
+{
+  "timestamp": "2026-11-02T10:57:01+11:00",
+  "reason": "Replace near-atomiser initialisation by developed droplets at numerically determined measured-profile crossing",
+  "records": [
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\prediction_status.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\prediction_status.json",
+      "sha256": "71077406ac41314e156cbaa0c6f94291ca897b2bf9c0ec3465c2be42d1b0a355"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\README.md",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\README.md",
+      "sha256": "af72308a1c2c296a4d1909cac3f9c3635092e4409a1a29fe60804b31aeb5b338"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\report_manifest.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\report_manifest.json",
+      "sha256": "56ee5e712b5da8221d7318e9393cb53d0fd21de4d0b2a32dc7128e57e1f39233"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\captions.tex",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\captions.tex",
+      "sha256": "5c5887ff8304da4e25a337dd319d471c50b95d3e5f206039442823343dcaa467"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\configuration_used.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\configuration_used.json",
+      "sha256": "7f097e4ea58fc75471c2bf7cd0061ea29d40e3e67df8ff5d99be14d0ef4f3ca4"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\generated_files.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\generated_files.json",
+      "sha256": "a82277750644158d1516c7303bfe4610b28c8c248692894e3a98cc11950af1ca"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\methods_results.tex",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\methods_results.tex",
+      "sha256": "604e92d856828f41a1bcd06d4547d2a9d50021802ec716dde31eed7ff199ee2a"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\README.md",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\README.md",
+      "sha256": "029283e62c01fd14eb18bdc9dca80ea5711e7f9c026f01b164d0cb4273999714"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\report_manifest.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\report_manifest.json",
+      "sha256": "ab32524e50155aa16a4744995104dcdb619920c5064de16b3465496e04c073ce"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\results_summary.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\results_summary.json",
+      "sha256": "2a4d7c324d022561e80dd3df83e0b5fd1bf80ca58099b4511919bcdcc201488d"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\source_manifest.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\source_manifest.json",
+      "sha256": "3133e6e1a66e939d9e28eab1ff8c33862af0bf194ce6228e5f064d1ef8824838"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\common_height_comparison.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\common_height_comparison.csv",
+      "sha256": "441f0e18a795b6e2cc6d70070179310e3cc33526b5214969c6ba27dbf14870e1"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\force_direction_intervals.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\force_direction_intervals.csv",
+      "sha256": "fead82d7de796013f47483ff773523904ac1273424bfbde060fbdb362be55ec6"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\jet_local_centreline_numbers.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\jet_local_centreline_numbers.csv",
+      "sha256": "9d51ba909a7be5434aba27e84374fb6650fff8c49110f1f2eadd1067d3b2ab1b"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\PZT_only_fixed_line_profile.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\PZT_only_fixed_line_profile.csv",
+      "sha256": "f0a32da66171f050ba582f56978458577abeef7062f0827db38d2c9ce0b2cd04"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\release_01.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\release_01.csv",
+      "sha256": "49f95448c7b0024bd3d075fd7fdcec0f245e7b4c94470212b644da20bf6974f1"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\release_02.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\release_02.csv",
+      "sha256": "3638720ab9ff6a3dcf09688fbc0c8a974f0934206eab44b1065e99c8768aa3ab"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\release_03.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\release_03.csv",
+      "sha256": "b59bf01ae15b504cc80f553794e3d4dccaf008af2b5ca72426ad0955c76bb78b"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\release_04.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\release_04.csv",
+      "sha256": "5a84e8d6cdc39fb4b00b0d3fc7d06429d02870b41a84ed65fd00e9ec19475e61"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\release_05.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\release_05.csv",
+      "sha256": "15a36a4fa50a1389d075f3c398ec70e37edaf39193e7d371596d44172d7f94a0"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\release_06.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\release_06.csv",
+      "sha256": "a91ab9a156ce928b1379c6374c76596fbd52e7ed46bd8a559499150d80897dcd"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\release_07.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\release_07.csv",
+      "sha256": "071f0a379d161e17f22cee5beef10b42a73d0bc50b01b020f6a799a6c8b2c8b4"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\scalar_quantities.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\scalar_quantities.csv",
+      "sha256": "3e39f70d3fad0ae65916feb6f5dc99664dd1065be0bfed5224b287cb173cb7b0"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\supporting_PZT_zero_background_Re.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\supporting_PZT_zero_background_Re.csv",
+      "sha256": "d95e13c0c97c7f52399deeb67c4390ad02c9a98320ad11b774844c92de882f0c"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\trajectory_summary.csv",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\data\\trajectory_summary.csv",
+      "sha256": "6d26f453d0ab1e13c58a3f6610c766ee585adc7b37affb8c997417e8cfda13c0"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\axial_slip_and_acceleration.pdf",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\axial_slip_and_acceleration.pdf",
+      "sha256": "c39a3c568c5cf6abcbbf23bd66a25a03cf3202830e8d6c1d2319c0ff7ebb8d5d"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\axial_slip_and_acceleration.png",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\axial_slip_and_acceleration.png",
+      "sha256": "4e031f30b49e1a26be05126a8446a8e65a92b001017d6eacaa5e6ee79f67c902"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\axial_velocity_along_trajectories.pdf",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\axial_velocity_along_trajectories.pdf",
+      "sha256": "afe11bfdf56d95b0a4601a6be287b381b70e3c1d94e5e302a6b3e0f6b706c71a"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\axial_velocity_along_trajectories.png",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\axial_velocity_along_trajectories.png",
+      "sha256": "c51c75189a5f85a2456d4973639c99427fcee448a606435b392eebc0a7fdbf38"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\jet_local_dimensionless_numbers.pdf",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\jet_local_dimensionless_numbers.pdf",
+      "sha256": "fc84e4069c09b794f45e892013375dcdd36f8dae45391d7734896caf539b2f9d"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\jet_local_dimensionless_numbers.png",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\jet_local_dimensionless_numbers.png",
+      "sha256": "f706505f7261d3e1909469e773602260fe206f54307864a02859da79176a1c8e"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\particle_Re_and_local_Stokes.pdf",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\particle_Re_and_local_Stokes.pdf",
+      "sha256": "d0070028c2fddee4b1c8782822376c8056138a09d1f27ff49812d0b9f160205b"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\particle_Re_and_local_Stokes.png",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\particle_Re_and_local_Stokes.png",
+      "sha256": "352af9d69751b4a8299e305e665276fddad898cf5ce82118978943ced11f4997"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\PZT_only_measured_axial_profile.pdf",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\PZT_only_measured_axial_profile.pdf",
+      "sha256": "8f980911a192f0dfc794629662621ce4814df7ad385f06005cde9c8898fa6ae2"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\PZT_only_measured_axial_profile.png",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\PZT_only_measured_axial_profile.png",
+      "sha256": "4526486dc00b3c418f9ad67e1d624b1fb96268e1d774be55a9824ac6bda83afa"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\trajectories_entry_detail.pdf",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\trajectories_entry_detail.pdf",
+      "sha256": "ac5391b21d843c3a192c006ec6b8dd3e9b554eb7eecf150758ecfcff115aa24d"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\trajectories_entry_detail.png",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\trajectories_entry_detail.png",
+      "sha256": "9ff078b430aaf6e033c5583512f7cf7d409e37bafa01fc7c3b831e221d44d96d"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\trajectories_upward_jet.pdf",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\trajectories_upward_jet.pdf",
+      "sha256": "cc9dd8e2c6ae3ee2152f1da239eb6f1cf05d6ed126cb2587dfcc38b20cd93835"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\trajectories_upward_jet.png",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\figures\\trajectories_upward_jet.png",
+      "sha256": "51c2673ed5b9f38f7423518a9b59ee6c63c228c05dd52c6111d20df89f66fc5e"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\validation\\authoritative_hashes.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\validation\\authoritative_hashes.json",
+      "sha256": "aae5205391f0adbd700d0c12251dc6e6a2ff69cc7c6506bb9eba3150f5be14d9"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\validation\\completion_verification.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\validation\\completion_verification.json",
+      "sha256": "7a0a2f192bb76d2c107c62884c11bf1c906572696e03418b71b061212eefcbe9"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\validation\\convergence.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\validation\\convergence.json",
+      "sha256": "85a16e1e1a2eb53abfbcedc032daf3f5f0a8f20c8c5092cebf56ea91f78de032"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\validation\\entry_detail_review.png",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\validation\\entry_detail_review.png",
+      "sha256": "314fd53fb231585b9faf4dd73f5e0aa5d5f5aa1a56e17ee67b224e922b7aec83"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\validation\\visual_inspection.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\validation\\visual_inspection.json",
+      "sha256": "9a2b3acbb19b72688215742df563848d543f1a2d4464c6d2c8862de9a1e299e7"
+    },
+    {
+      "action": "move",
+      "original_path": "PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\validation\\visual_review.png",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\Combined_Flow_Prediction\\Co_Directed\\validation\\visual_review.png",
+      "sha256": "48f6b2956f54aec30fe3dc6d5135bdcc6ad83e4645dbe81350dba36312c2ef67"
+    },
+    {
+      "action": "snapshot",
+      "original_path": "PZT_Atomiser_Analysis\\analysis\\co_directed.py",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\source_snapshot\\PZT_Atomiser_Analysis\\analysis\\co_directed.py",
+      "sha256": "6ab2ec99f5ecd53458815015111e5c3b242165e4d776a21dde6a69791519ea7a"
+    },
+    {
+      "action": "snapshot",
+      "original_path": "PZT_Atomiser_Analysis\\analysis\\co_directed_report.py",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\source_snapshot\\PZT_Atomiser_Analysis\\analysis\\co_directed_report.py",
+      "sha256": "880e6e7baecd02bedc21debb9f278f54373697f76c8be8501e8073fc9115afc1"
+    },
+    {
+      "action": "snapshot",
+      "original_path": "PZT_Atomiser_Analysis\\analysis\\validate_co_directed.py",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\source_snapshot\\PZT_Atomiser_Analysis\\analysis\\validate_co_directed.py",
+      "sha256": "de9b0466cb4a43981bd77a12f23152f8350dc08dc5170812dbfd77b0f0283d61"
+    },
+    {
+      "action": "snapshot",
+      "original_path": "PZT_Atomiser_Analysis\\config\\combined_flow_prediction.json",
+      "archive_path": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\source_snapshot\\PZT_Atomiser_Analysis\\config\\combined_flow_prediction.json",
+      "sha256": "7f097e4ea58fc75471c2bf7cd0061ea29d40e3e67df8ff5d99be14d0ef4f3ca4"
+    }
+  ],
+  "superseded_by": "Combined_Flow_Prediction/Co_Directed/report_manifest.json",
+  "authoritative_experiments_preserved": true
+}

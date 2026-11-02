@@ -15,27 +15,22 @@ def export(fig,out,stem):
     plt.close(fig)
 
 
-def context():
+def context(write_preflight=True):
     cfg=json.loads((PROJECT/'config/combined_flow_prediction.json').read_text());pzt,jet,xj,yj,D0,sources=sources_and_arrays(cfg)
     parent=ROOT/cfg['output'];out=parent/'Co_Directed'
     for folder in ('data','figures','validation'):(out/folder).mkdir(parents=True,exist_ok=True)
     props=json.loads((parent/'fluid_properties.json').read_text())
     profile,peak=extract_vertical_profile(ROOT/cfg['pzt_statistics']);col=peak['native_column']
-    paired=np.isfinite(pzt['mean_u'])&np.isfinite(pzt['mean_v'])
-    low=float(np.nanmin(pzt['y_mm'][paired]));valid_gas=np.isfinite(jet['U'])&np.isfinite(jet['V'])
-    first=int(np.flatnonzero(np.any(valid_gas,axis=0))[0])
-    offset=cfg['co_directed']['relative_axial_offset_mm']
-    origin=np.array([peak['x_mm']*1e-3,low*1e-3-xj[first]+offset*1e-3])
-    field=MeasuredGasField(xj,yj,jet['U'],jet['V'],origin,90)
-    alignment=dict(rotation_degrees=90,formula_positions='x=x_reference-Yj; y=Xj+y_PZT_low-Xj_first+axial_offset',
-        formula_velocities='u_g=-V_ZNMF; v_g=+U_ZNMF',plume_reference_x_mm=peak['x_mm'],
-        PZT_reference_native_column=col,PZT_lowest_plane_y_mm=low,ZNMF_first_supported_Xj_mm=float(xj[first]*1e3),
-        relative_axial_offset_mm=offset,translation_m=origin.tolist(),
-        interpretation='Measurement-plane alignment assumption, not coincident physical exits; nominal axes aligned, measured centreline wandering retained')
+    from .interaction_plane import prepare
+    field,alignment,states,evidence=prepare(cfg,pzt,jet,xj,yj,D0,profile,peak,props,out,write=write_preflight)
+    field.release_states=states;field.interaction_audit=evidence
     return cfg,pzt,jet,D0,sources,props,out,profile,peak,field,alignment
 
 
 def run():
+    active=json.loads((PROJECT/'config/combined_flow_prediction.json').read_text())
+    if active.get('interaction_work_status')=='paused_for_plume_alignment_review':
+        return dict(status='paused_for_plume_alignment_review',interaction_predictions_run=False)
     cfg,pzt,jet,D0,sources,props,out,profile,peak,field,alignment=context();controls=copy.deepcopy(cfg)
     controls['solver']['maximum_time_s']=cfg['co_directed']['maximum_time_s']
     controls['solver']['time_step_s']=cfg['co_directed'].get('time_step_s',cfg['solver']['time_step_s'])
@@ -46,26 +41,22 @@ def run():
     for f in final.rglob('*'):
         if f.is_file() and parent not in f.resolve().parents and f.suffix.lower() in ('.npz','.csv','.png','.pdf','.svg'):protected[str(f.resolve())]=sha(f)
     columns=[peak['native_column']+int(o) for o in cfg['co_directed']['release_column_offsets']]
-    # Lowest common native PZT plane for which every selected release has gas support.
-    release_row=None
-    for row in np.argsort(pzt['y_mm'][:,peak['native_column']]):
-        try:
-            for j in columns:
-                if not np.isfinite([pzt['mean_u'][row,j],pzt['mean_v'][row,j]]).all():raise ValueError('missing PZT pair')
-                field.sample([pzt['x_mm'][row,j]*1e-3,pzt['y_mm'][row,j]*1e-3])
-        except (ValueError,UnsupportedPosition):continue
-        release_row=int(row);break
-    if release_row is None:raise ValueError('No common supported measured PZT release plane for configured axial offset')
+    release_row=field.release_states[0]['PZT_lower_row']
     records=[];histories=[];checks=[];force_intervals=[]
     colors=plt.cm.viridis(np.linspace(.05,.85,len(columns)))
     for number,(j,color) in enumerate(zip(columns,colors),1):
-        initial=np.array([pzt['x_mm'][release_row,j]*1e-3,pzt['y_mm'][release_row,j]*1e-3,pzt['mean_u'][release_row,j],pzt['mean_v'][release_row,j]])
-        tr,reason=integrate_droplet(field,initial,d,props,controls)
-        fine,fine_reason=integrate_droplet(field,initial,d,props,controls,.5)
-        if len(tr)<2:raise ValueError('No supported integration')
-        end=min(tr[-1,0],fine[-1,0]);t=np.linspace(0,end,201)
-        errors=[float(np.max(abs(np.interp(t,tr[:,0],tr[:,k])-np.interp(t,fine[:,0],fine[:,k])))) for k in range(1,5)]
-        if max(errors[:2])>cfg['solver']['position_convergence_tolerance_m'] or max(errors[2:])>cfg['solver']['velocity_convergence_tolerance_m_s']:raise AssertionError(errors)
+        release=next(state for state in field.release_states if state['column']==j)
+        initial=release['initial']
+        case_controls=copy.deepcopy(controls)
+        for refinement in range(5):
+            tr,reason=integrate_droplet(field,initial,d,props,case_controls)
+            fine,fine_reason=integrate_droplet(field,initial,d,props,case_controls,.5)
+            if len(tr)<2:raise ValueError('No supported integration')
+            end=min(tr[-1,0],fine[-1,0]);t=np.linspace(0,end,201)
+            errors=[float(np.max(abs(np.interp(t,tr[:,0],tr[:,k])-np.interp(t,fine[:,0],fine[:,k])))) for k in range(1,5)]
+            if max(errors[:2])<=cfg['solver']['position_convergence_tolerance_m'] and max(errors[2:])<=cfg['solver']['velocity_convergence_tolerance_m_s']:break
+            case_controls['solver']['time_step_s']*=.5
+        else:raise AssertionError(('Time-step convergence failed',errors))
         q=trajectory_quantities(field,tr,d,props,D0,cfg)
         a=acceleration(tr[:,3:5],d,np.c_[q['gas_u_m_s'],q['gas_v_m_s']],props,cfg)
         g_eff=props['g_m_s2']*(1-props['rho_air_kg_m3']/props['rho_water_kg_m3'])
@@ -73,19 +64,29 @@ def run():
         q['drag_upward']=q['drag_axial_acceleration_m_s2']>0;q['net_acceleration_upward']=a[:,1]>0
         q['Stk_D']=q['St_D_local'];q['horizontal_displacement_mm']=q['x_mm']-q['x_mm'][0]
         q['vertical_displacement_mm']=q['y_mm']-q['y_mm'][0]
+        from .interaction_plane import supported_value
+        gas_curve=np.genfromtxt(field.interaction_audit['source_paths']['ZNMF_centreline'],names=True,delimiter=',',dtype=None,encoding='utf-8')
+        stream=gas_curve['x_over_D0']*D0*1e3;valid_curve=(gas_curve['status']=='measured')&np.isfinite(gas_curve['Uc_m_per_s'])&(gas_curve['Uc_m_per_s']>0)
+        centre_values=[]
+        for y_common in q['y_mm']:
+            try:value=supported_value(stream,gas_curve['Uc_m_per_s'],valid_curve,y_common-alignment['translation_m'][1]*1e3)
+            except ValueError:value=np.nan
+            centre_values.append(value)
+        q['measured_centreline_Uc_m_s']=np.asarray(centre_values)
+        q['sampled_gas_minus_measured_centreline_m_s']=q['gas_v_m_s']-q['measured_centreline_Uc_m_s']
         first_down=np.flatnonzero(q['droplet_v_m_s']<=0)
         end_up=int(first_down[0])+1 if len(first_down) else len(tr)
         peak_index=int(np.argmax(q['y_mm'][:end_up]));ident=f'release_{number:02d}'
         write_csv(out/'data'/(ident+'.csv'),q)
         label=rf'$x_0={initial[0]*1e3:.3f}\,\mathrm{{mm}}$'
-        record=dict(release=ident,row=release_row,column=j,x0_mm=float(initial[0]*1e3),y0_mm=float(initial[1]*1e3),
+        record=dict(release=ident,row=release['PZT_lower_row'],upper_row=release['PZT_upper_row'],PZT_upper_weight=release['upper_weight'],column=j,x0_mm=float(initial[0]*1e3),y0_mm=float(initial[1]*1e3),
             u0_m_s=float(initial[2]),v0_m_s=float(initial[3]),initial_gas_u_m_s=float(q['gas_u_m_s'][0]),
             initial_gas_v_m_s=float(q['gas_v_m_s'][0]),max_height_mm=float(q['y_mm'][peak_index]),
             time_at_max_height_s=float(q['t_s'][peak_index]),end_time_s=float(tr[-1,0]),termination=reason,
             end_v_m_s=float(q['droplet_v_m_s'][-1]),maximum_particle_Re=float(q['Re_in_plane'].max()),
             initial_net_axial_acceleration_m_s2=float(a[0,1]),any_upward_drag=bool(q['drag_upward'].any()),any_net_upward_acceleration=bool(q['net_acceleration_upward'].any()))
         records.append(record);histories.append(dict(id=ident,q=q,color=color,label=label,peak=peak_index))
-        checks.append(dict(release=ident,time_step_s=controls['solver']['time_step_s'],max_errors_x_y_u_v=errors,half_step_termination=fine_reason))
+        checks.append(dict(release=ident,time_step_s=case_controls['solver']['time_step_s'],max_errors_x_y_u_v=errors,half_step_termination=fine_reason))
         for definition,mask in [('upward_drag',q['drag_upward']),('net_upward_acceleration',q['net_acceleration_upward']),
                                 ('upward_drag_but_net_downward',(q['drag_axial_acceleration_m_s2']>0)&(a[:,1]<0)),
                                 ('downward_drag',q['drag_axial_acceleration_m_s2']<0),('net_downward_acceleration',a[:,1]<0)]:
@@ -93,7 +94,7 @@ def run():
             for start,stop in zip(starts,stops):force_intervals.append(dict(release=ident,condition=definition,start_time_s=float(q['t_s'][start]),end_time_s=float(q['t_s'][stop]),min_y_mm=float(q['y_mm'][start:stop+1].min()),max_y_mm=float(q['y_mm'][start:stop+1].max())))
     write_csv(out/'data/trajectory_summary.csv',{k:[r[k] for r in records] for k in records[0]})
     if force_intervals:write_csv(out/'data/force_direction_intervals.csv',{k:[r[k] for r in force_intervals] for k in force_intervals[0]})
-    lower=max(float(h['q']['y_mm'][0]) for h in histories);upper=min(float(h['q']['y_mm'][h['peak']]) for h in histories)
+    lower=max(float(h['q']['y_mm'][0]) for h in histories);upper=min(float(np.nanmax(profile['y_mm'][np.isfinite(profile['mean_v'])])),min(float(h['q']['y_mm'][h['peak']]) for h in histories))
     if upper<=lower:raise ValueError('No common ascending supported height interval')
     comparisons=[]
     for h in histories:
@@ -106,9 +107,12 @@ def run():
     write_csv(out/'data/common_height_comparison.csv',{k:[r[k] for r in comparisons] for k in comparisons[0]})
     write_csv(out/'data/PZT_only_fixed_line_profile.csv',profile)
     stems=plots(out,field,histories,profile,peak,g_eff)
-    from .co_directed_report import dimensionless,write_report
+    comparison_stem=main_comparison(out,field,histories,profile,peak,alignment)
+    stems=['source_comparison_reproduced',comparison_stem]+stems
+    from .co_directed_report import dimensionless
+    from .interaction_report import write_report
     numbers,jet_stem=dimensionless(out,cfg,props,D0,alignment);stems.append(jet_stem)
-    result=dict(successfully_integrated_cases=len(records),alignment=alignment,release_row=release_row,release_columns=columns,
+    result=dict(successfully_integrated_cases=len(records),alignment=alignment,interaction_audit=field.interaction_audit,release_row=release_row,release_columns=columns,
         common_interval_y_mm=[lower,upper],common_interval_extent_mm=upper-lower,
         common_travel_time_range_ms=[min(c['travel_time_s'] for c in comparisons)*1e3,max(c['travel_time_s'] for c in comparisons)*1e3],
         common_delta_v_range_m_s=[min(c['delta_v_m_s'] for c in comparisons),max(c['delta_v_m_s'] for c in comparisons)],
@@ -143,16 +147,24 @@ def plots(out,field,histories,profile,peak,g_eff):
     xx,yy,ug,vg=field.common_mesh();extent=float(np.nanmax(abs(vg)));stems=[]
     x_all=np.concatenate([h['q']['x_mm'] for h in histories]);y_all=np.concatenate([h['q']['y_mm'] for h in histories])
     for stem,detail in [('trajectories_upward_jet',False),('trajectories_entry_detail',True)]:
-        fig,ax=plt.subplots(figsize=(6.4,5.2) if not detail else (8,3.6),layout='constrained')
+        if detail:
+            fig=plt.figure(figsize=(5.8,6.6),layout='constrained');grid=fig.add_gridspec(3,1,height_ratios=[.07,1,.2])
+            color_axis=fig.add_subplot(grid[0]);ax=fig.add_subplot(grid[1]);legend_axis=fig.add_subplot(grid[2]);legend_axis.set_axis_off()
+        else:fig,ax=plt.subplots(figsize=(6.4,5.2),layout='constrained')
         m=ax.contourf(xx*1e3,yy*1e3,np.ma.masked_invalid(vg),levels=np.linspace(-extent,extent,41),cmap='RdBu_r',norm=Normalize(-extent,extent),corner_mask=False)
-        if detail:fig.colorbar(m,ax=ax,label=r'$\overline{v}_g\ (\mathrm{m\,s^{-1}})$',location='top',orientation='horizontal',aspect=50,shrink=.8,pad=.05)
+        if detail:
+            fig.colorbar(m,cax=color_axis,label=r'$\overline{v}_g\ (\mathrm{m\,s^{-1}})$',orientation='horizontal')
+            color_axis.xaxis.set_ticks_position('top');color_axis.xaxis.set_label_position('top')
         else:fig.colorbar(m,ax=ax,label=r'$\overline{v}_g\ (\mathrm{m\,s^{-1}})$',shrink=.8)
         for h in histories:
             q=h['q'];ax.plot(q['x_mm'],q['y_mm'],color=h['color'],label=h['label'],lw=1.4)
             ax.plot(q['x_mm'][0],q['y_mm'][0],'o',ms=3,color=h['color'])
-        if detail:ax.set(xlim=(x_all.min()-.12,x_all.max()+.12),ylim=(y_all.min()-.015,y_all.max()+.025))
+        if detail:
+            initial_x=np.array([h['q']['x_mm'][0] for h in histories]);initial_y=min(h['q']['y_mm'][0] for h in histories)
+            detail_x=np.concatenate([h['q']['x_mm'][(h['q']['y_mm']>=initial_y)&(h['q']['y_mm']<=initial_y+3)] for h in histories])
+            ax.set(xlim=(detail_x.min()-.1,detail_x.max()+.1),ylim=(initial_y-.1,min(initial_y+3,y_all.max()+.1)))
         ax.set(xlabel=r'$x\ (\mathrm{mm})$',ylabel=r'$y\ (\mathrm{mm})$');ax.set_aspect('equal')
-        if detail:fig.legend(*ax.get_legend_handles_labels(),frameon=False,fontsize=8,ncol=4,loc='lower center',bbox_to_anchor=(.5,-.025))
+        if detail:legend_axis.legend(*ax.get_legend_handles_labels(),frameon=False,fontsize=8,ncol=3,loc='center')
         export(fig,out,stem);stems.append(stem)
     fig,ax=plt.subplots(figsize=(7.2,4.6),layout='constrained')
     for h in histories:_branches(ax,h,'droplet_v_m_s');_branches(ax,h,'gas_v_m_s',True)
@@ -180,14 +192,36 @@ def plots(out,field,histories,profile,peak,g_eff):
     return stems
 
 
+def main_comparison(out,field,histories,profile,peak,alignment):
+    source=Path(field.interaction_audit['source_paths']['ZNMF_centreline'])
+    z=np.genfromtxt(source,names=True,delimiter=',',dtype=None,encoding='utf-8')
+    cfg=json.loads((PROJECT/'config/combined_flow_prediction.json').read_text())
+    diameter_mm=json.loads((ROOT/cfg['znmf_configuration']).read_text())['diameter_mm']
+    y=z['x_over_D0']*diameter_mm+alignment['translation_m'][1]*1e3
+    good=(z['status']=='measured')&np.isfinite(z['Uc_m_per_s'])&(z['Uc_m_per_s']>0)
+    centre=histories[len(histories)//2];q=centre['q']
+    fig,ax=plt.subplots(figsize=(7.4,4.8),layout='constrained')
+    ax.plot(y,np.where(good,z['Uc_m_per_s'],np.nan),'k--',lw=1.5,label='Measured ZNMF centreline')
+    ax.plot(profile['y_mm'],profile['mean_v'],color='#d62728',lw=1.5,label='Measured PZT-only fixed line')
+    for h in histories:
+        if h is not centre:ax.plot(h['q']['y_mm'],h['q']['droplet_v_m_s'],color='tab:blue',alpha=.3,lw=.8)
+    ax.plot(q['y_mm'],q['droplet_v_m_s'],color='tab:blue',lw=1.7,label='Predicted droplet, reference release')
+    ax.plot(q['y_mm'],q['gas_v_m_s'],color='tab:purple',ls=':',lw=1.8,label='Gas sampled on reference trajectory')
+    ax.axvline(alignment['PZT_interaction_height_mm'],color='0.4',ls=':',lw=.8)
+    ax.set(xlabel=r'$y\ (\mathrm{mm})$',ylabel=r'Axial velocity $(\mathrm{m\,s^{-1}})$');ax.legend(frameon=False,fontsize=8)
+    stem='measured_and_predicted_axial_comparison';export(fig,out,stem)
+    write_csv(out/'data/main_comparison_reference_prediction.csv',dict(y_mm=q['y_mm'],predicted_droplet_v_m_s=q['droplet_v_m_s'],gas_sampled_v_m_s=q['gas_v_m_s'],t_s=q['t_s']))
+    return stem
+
+
 def notebook_cells():
     import nbformat as nb
-    first=nb.v4.new_markdown_cell('## Upward co-directed prediction\n\nSeparate PZT droplet and ZNMF gas measurements; nominal axes aligned using explicitly assumed coincident measurement planes, not physical exits. Signed local gas reversals and measured centreline wandering are retained. Side-jet displays are removed.')
+    first=nb.v4.new_markdown_cell('## Upward co-directed prediction\n\nSource comparison reproduced and crossing calculated within adjacent valid support. Developed PZT droplets start at that plume height; the measured gas centreline and plume reference are aligned only at the interaction plane. No near-atomiser reset or forced velocity matching is used.')
     code=nb.v4.new_code_cell('''from PZT_Atomiser_Analysis.analysis.co_directed import run as run_codirected
 prediction=run_codirected()
 print(json.dumps(prediction,indent=2))
 package=output/'Combined_Flow_Prediction/Co_Directed'
-for name in ['trajectories_upward_jet','trajectories_entry_detail','axial_velocity_along_trajectories']:
+for name in ['source_comparison_reproduced','measured_and_predicted_axial_comparison','trajectories_upward_jet','trajectories_entry_detail','axial_velocity_along_trajectories']:
     display(Image(filename=str(package/'figures'/(name+'.png')),width=700))
 ''')
     text=nb.v4.new_markdown_cell('## Forces, common-interval comparison and supporting dimensionless numbers\n\nSolid/dashed particle curves distinguish initial ascent and subsequent descent; gas traces are dotted/dash-dot. The red PZT-only ensemble baseline is shown separately. Scalar response/frequency values are tabulated, not plotted as constant curves.')

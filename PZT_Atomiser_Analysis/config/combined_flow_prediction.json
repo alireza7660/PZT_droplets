@@ -44,7 +44,7 @@
     "enabled": true,
     "rotation_degrees": 90.0,
     "relative_axial_offset_mm": 0.0,
-    "reference_planes": "Lowest finite paired PZT measurement plane coincident with first finite paired ZNMF downstream plane; not physical exits",
+    "reference_planes": "Match source comparison coordinates at their numerically calculated crossing; align measured PZT fixed-line reference to measured gas centreline at that plane, not physical exits",
     "plume_reference": "Existing fixed native column through global finite PZT mean-v maximum; empirical reference, not established physical outlet",
     "release_column_offsets": [
       -3,
@@ -56,7 +56,9 @@
       3
     ],
     "maximum_time_s": 0.1,
-    "archive_manifest": "PZT_Atomiser_Analysis\\Archive\\20261102T103931_AEDT_superseded_side_jet\\archive_manifest.json",
-    "time_step_s": 2.5e-06
-  }
+    "archive_manifest": "PZT_Atomiser_Analysis\\Archive\\20261102T105701_AEDT_superseded_near_atomiser_release\\archive_manifest.json",
+    "time_step_s": 1e-05,
+    "interaction_mode": "first_supported_gas_overtaking_crossing_of_source_profiles"
+  },
+  "interaction_work_status": "paused_for_plume_alignment_review"
 }

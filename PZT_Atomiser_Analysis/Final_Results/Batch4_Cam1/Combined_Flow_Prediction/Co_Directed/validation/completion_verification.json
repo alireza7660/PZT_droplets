@@ -1,7 +1,10 @@
 {
   "successfully_integrated_cases": 7,
   "rotation_and_vector_signs_verified": true,
-  "reference_plane_alignment_verified": true,
+  "interaction_centreline_alignment_verified": true,
+  "original_comparison_reproduced_from_sources": true,
+  "crossing_computed_with_valid_brackets": true,
+  "developed_PZT_initialisation_verified": true,
   "signed_gas_reversals_retained": true,
   "initial_measured_PZT_components_verified": true,
   "all_saved_positions_supported": true,
@@ -11,9 +14,9 @@
   "local_jet_gaps_retained": true,
   "scalars_tabulated_not_constant_line_figures": true,
   "authoritative_files_hash_verified": 249,
-  "archived_files_hash_verified": 168,
+  "archived_files_hash_verified": 49,
   "notebook_executed": true,
-  "figure_count": 7,
+  "figure_count": 9,
   "synthetic_solver_tests": {
     "synthetic_only": true,
     "coordinate_and_vector_rotation": true,

@@ -2,20 +2,65 @@
   "successfully_integrated_cases": 7,
   "alignment": {
     "rotation_degrees": 90,
-    "formula_positions": "x=x_reference-Yj; y=Xj+y_PZT_low-Xj_first+axial_offset",
+    "formula_positions": "x=x_PZT_ref + Yj_c_at_interaction - Yj; y=y_PZT_interaction + Xj - s_ZNMF_interaction",
     "formula_velocities": "u_g=-V_ZNMF; v_g=+U_ZNMF",
     "plume_reference_x_mm": 14.54665,
     "PZT_reference_native_column": 42,
-    "PZT_lowest_plane_y_mm": 0.0856,
-    "ZNMF_first_supported_Xj_mm": 0.3232,
+    "PZT_interaction_height_mm": 10.086074392363921,
+    "ZNMF_interaction_downstream_mm": 10.086074392363921,
+    "ZNMF_measured_centreline_y_registered_over_D0": 6.738545486241452,
+    "ZNMF_interaction_centreline_Yj_mm": -0.2589090275170971,
     "relative_axial_offset_mm": 0.0,
     "translation_m": [
-      0.01454665,
-      -0.0002376
+      0.014287740972482902,
+      0.0
     ],
-    "interpretation": "Measurement-plane alignment assumption, not coincident physical exits; nominal axes aligned, measured centreline wandering retained"
+    "interpretation": "Independent source profile coordinates paired as in archived comparison; measured centrelines aligned only at interaction plane, not physical exits; wandering and transverse offsets retained"
   },
-  "release_row": 318,
+  "interaction_audit": {
+    "selected_crossing": {
+      "ZNMF_downstream_mm": 10.086074392363921,
+      "PZT_height_mm": 10.086074392363921,
+      "common_velocity_m_s": 0.9640109411347995,
+      "gas_lower_source_column": 30,
+      "PZT_lower_profile_index": 116,
+      "bracket_lower_mm": 10.019199999999996,
+      "bracket_upper_mm": 10.1008
+    },
+    "all_supported_gas_overtaking_crossings": [
+      {
+        "ZNMF_downstream_mm": 10.086074392363921,
+        "PZT_height_mm": 10.086074392363921,
+        "common_velocity_m_s": 0.9640109411347995,
+        "gas_lower_source_column": 30,
+        "PZT_lower_profile_index": 116,
+        "bracket_lower_mm": 10.019199999999996,
+        "bracket_upper_mm": 10.1008
+      }
+    ],
+    "comparison_reproduction": {
+      "gas_points": 75,
+      "PZT_points": 315,
+      "source_curve_values_exactly_match_archived_CSVs": true,
+      "archived_script": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\plot_comparison.py",
+      "archived_readme": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Archive\\20261102T095744_AEDT_superseded_interaction\\Jet_PZT_Comparison\\README.md"
+    },
+    "source_paths": {
+      "PZT_profile": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\Final_Results\\Batch4_Cam1\\data\\mean_v_vertical_profile.csv",
+      "ZNMF_centreline": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Final_Result\\tables\\FOV_1_2_3_centreline_and_width.csv"
+    },
+    "processing_evidence": {
+      "ZNMF_configuration": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Final_Result\\analysis\\configuration.json",
+      "ZNMF_centreline_extraction_code": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Final_Result\\analysis\\pipeline.py",
+      "ZNMF_extraction_code_sha256": "8fc121b6801defbd4cb328accadc83483e65a1372392765cdba8ddb037011c3f",
+      "PZT_profile_code": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\PZT_droplets\\PZT_Atomiser_Analysis\\analysis\\vertical_profile.py"
+    },
+    "centre_release_sampled_minus_plotted_Uc_m_s": -0.002796204612570019,
+    "reason_for_gas_difference": "Uc is evaluated at each native column measured centreline, then interpolated downstream. Field samples bilinearly interpolate U,V at one interpolated centreline/transverse position. These operations differ when the centreline wanders. Off-axis releases sample different transverse profiles. See ZNMF pipeline.extract_centreline: quadratic position estimate followed by linear velocity interpolation.",
+    "initial_conditions_exported_before_integration": true,
+    "calibration_not_reapplied": true
+  },
+  "release_row": 202,
   "release_columns": [
     39,
     40,
@@ -26,30 +71,30 @@
     45
   ],
   "common_interval_y_mm": [
-    0.0856,
-    0.17518969447000116
+    10.086074392363921,
+    27.3064
   ],
-  "common_interval_extent_mm": 0.08958969447000116,
+  "common_interval_extent_mm": 17.220325607636077,
   "common_travel_time_range_ms": [
-    0.06491921961204615,
-    0.2775000000000006
+    12.710875013518569,
+    13.947277916764827
   ],
   "common_delta_v_range_m_s": [
-    -0.7710214777949358,
-    -0.4076290769329646
+    0.9281364132655183,
+    1.341782568972172
   ],
   "peak_height_range_mm": [
-    0.17518969447000116,
-    0.33454285929177513
+    62.054399999724815,
+    62.05439999999998
   ],
   "termination_reasons": {
     "outside_measured_jet_domain": 7
   },
   "initial_gas_axial_velocity_range_m_s": [
-    -0.6891126511580259,
-    -0.19502438477242567
+    0.7580704645341061,
+    0.9612147365222294
   ],
-  "reversed_cases": 7,
+  "reversed_cases": 0,
   "dimensionless": {
     "tau_Stokes_s": 0.00030582503619367357,
     "Stk_f": 0.036699004343240825,
@@ -62,6 +107,6 @@
     "source_sha256": "6a9817f48ba3f47da571cfc79c239df79e3c32c954dc3903d755631c3caa9efd",
     "definitions": "Re_D,c=Uc D0/nu; Sr_D,c=f D0/Uc; Stk_D,c=tau_Stokes Uc/D0; trajectory Stk_D=tau_Stokes norm(gas vector)/D0"
   },
-  "cases_with_upward_drag": 0,
-  "cases_with_net_upward_acceleration": 0
+  "cases_with_upward_drag": 7,
+  "cases_with_net_upward_acceleration": 7
 }

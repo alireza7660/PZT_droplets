@@ -1,0 +1,67 @@
+{
+  "successfully_integrated_cases": 7,
+  "alignment": {
+    "rotation_degrees": 90,
+    "formula_positions": "x=x_reference-Yj; y=Xj+y_PZT_low-Xj_first+axial_offset",
+    "formula_velocities": "u_g=-V_ZNMF; v_g=+U_ZNMF",
+    "plume_reference_x_mm": 14.54665,
+    "PZT_reference_native_column": 42,
+    "PZT_lowest_plane_y_mm": 0.0856,
+    "ZNMF_first_supported_Xj_mm": 0.3232,
+    "relative_axial_offset_mm": 0.0,
+    "translation_m": [
+      0.01454665,
+      -0.0002376
+    ],
+    "interpretation": "Measurement-plane alignment assumption, not coincident physical exits; nominal axes aligned, measured centreline wandering retained"
+  },
+  "release_row": 318,
+  "release_columns": [
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45
+  ],
+  "common_interval_y_mm": [
+    0.0856,
+    0.17518969447000116
+  ],
+  "common_interval_extent_mm": 0.08958969447000116,
+  "common_travel_time_range_ms": [
+    0.06491921961204615,
+    0.2775000000000006
+  ],
+  "common_delta_v_range_m_s": [
+    -0.7710214777949358,
+    -0.4076290769329646
+  ],
+  "peak_height_range_mm": [
+    0.17518969447000116,
+    0.33454285929177513
+  ],
+  "termination_reasons": {
+    "outside_measured_jet_domain": 7
+  },
+  "initial_gas_axial_velocity_range_m_s": [
+    -0.6891126511580259,
+    -0.19502438477242567
+  ],
+  "reversed_cases": 7,
+  "dimensionless": {
+    "tau_Stokes_s": 0.00030582503619367357,
+    "Stk_f": 0.036699004343240825,
+    "actuation_frequency_Hz": 120.0,
+    "D0_m": 0.002,
+    "nu_air_m2_s": 1.505093933678104e-05,
+    "positive_measured_centreline_rows": 182,
+    "unsupported_rows": 10,
+    "source": "C:\\Users\\LabAdmin\\OneDrive - Monash University\\Desktop\\Inhaler Project\\ZNMF_Results\\Final_Result\\tables\\FOV_1_2_3_centreline_and_width.csv",
+    "source_sha256": "6a9817f48ba3f47da571cfc79c239df79e3c32c954dc3903d755631c3caa9efd",
+    "definitions": "Re_D,c=Uc D0/nu; Sr_D,c=f D0/Uc; Stk_D,c=tau_Stokes Uc/D0; trajectory Stk_D=tau_Stokes norm(gas vector)/D0"
+  },
+  "cases_with_upward_drag": 0,
+  "cases_with_net_upward_acceleration": 0
+}
